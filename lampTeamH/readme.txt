@@ -26,4 +26,4 @@ https://opensource.org/licenses/mit-license.php
 2017年7月6日　POD関連のエラー処理を修正。また、WiZ卒業生の下島遼君が「PHPBase」プロジェクトに参加してくれることになりました。今後ともよろしくお願いします。
 
 
-　　　　　　　　　　　　　　　　　　　　　2017年新夏　山ノ井　靖（WiZ情報科非常勤講師：PHP担当）
+　　　　　　　　　　　　　　　
