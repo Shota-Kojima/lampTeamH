@@ -64,7 +64,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 					});
 				</script>
-				{# <!----//details-product-slider--->	 #}
+				 <!--//details-product-slider-->	
 <script src="js/easyResponsiveTabs.js" type="text/javascript"></script>
 		    <script type="text/javascript">
 			    $(document).ready(function () {
@@ -233,69 +233,54 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			   <div class="singel_right">
 			     <div class="labout span_1_of_a1">
 				<!-- start product_slider -->
-				     <ul id="etalage">
-							<li>
-								<a href="optionallink.html">
-									<img class="etalage_thumb_image" src="images/s1.jpg" class="img-responsive" />
-									<img class="etalage_source_image" src="images/smal.jpg" class="img-responsive" />
-								</a>
-							</li>
-							<li>
-								<img class="etalage_thumb_image" src="images/s2.jpg" class="img-responsive" />
-								<img class="etalage_source_image" src="images/smal1.jpg" class="img-responsive" />
-							</li>
-							<li>
-								<img class="etalage_thumb_image" src="images/s3.jpg" class="img-responsive" />
-								<img class="etalage_source_image" src="images/smal2.jpg" class="img-responsive" />
-							</li>
-							<li>
-								<img class="etalage_thumb_image" src="images/s3.jpg" class="img-responsive" />
-								<img class="etalage_source_image" src="images/smal3.jpg" class="img-responsive" />
-							</li>
-							<li>
-								<img class="etalage_thumb_image" src="images/s1.jpg" class="img-responsive" />
-								<img class="etalage_source_image" src="images/smal.jpg" class="img-responsive" />
-							</li>
-							<li>
-								<img class="etalage_thumb_image" src="images/s2.jpg" class="img-responsive" />
-								<img class="etalage_source_image" src="images/smal1.jpg" class="img-responsive" />
-							</li>
-							<li>
-								<img class="etalage_thumb_image" src="images/s3.jpg" class="img-responsive" />
-								<img class="etalage_source_image" src="images/smal2.jpg" class="img-responsive" />
-							</li>
-						</ul>
+                    
 					<!-- end product_slider -->
 			  </div>
 			<div class="cont1 span_2_of_a1">
                 <!-- ここを入力にする -->
-				<h1>Peeky Cropped</h1>
                 <form action="/" method="post" >
+                    <input type="file" name="example1">
+                    <!-- 緑にしたいところ(テキストエリア) -->
+                    <div class="form-row align-items-center mb-5">
+                        <div class="col">
+                            <label for="text9c">商品名</label>
+                            <input type="text" id="text9c" class="form-control is-valid">
+                            <!-- <div class="valid-tooltip">OK</div> -->
+                        </div>
+                    </div>
+                    <br>
+                    <!-- <h4>ジャンル</h4> -->
+                    <label for="text9c">ジャンル</label>
+                    <!-- プルダウン -->
                 </form>
-                <div class="form-row align-items-center mb-5">
-                    <div class="col">
-                        <label for="text9c">First Name</label>
-                        <input type="text" id="text9c" class="form-control is-valid">
-                        <div class="valid-tooltip">OK</div>
-                    </div>
-                    <div class="col">
-                        <label for="text9d">Last Name</label>
-                        <input type="text" id="text9d" class="form-control is-invalid">
-                        <div class="invalid-tooltip">Please enter a last name.</div>
-                    </div>
-                </div>
-
-				<ul class="rating">
-				   <li><a class="product-rate" href="#"> <label> </label></a> <span> </span></li>
-				   <li><a href="#">1 Review(s) Add Review</a></li>
-				   <div class="clearfix"></div>
+                    <ul class="product-qty">
+				   <select>
+					 <option>ジャンル1</option>
+					 <option>ジャンル2</option>
+					 <option>ジャンル3</option>
+					 <option>ジャンル4</option>
+					 <option>ジャンル5</option>
+					 <option>ジャンル6</option>
+				   </select>
 			    </ul>
 			    <div class="price_single">
-				  <span class="reducedfrom">$140.00</span>
-				  <span class="actual">$120.00</span><a href="#">click for offer</a>
+                    <!-- <span class="reducedfrom">$140.00</span> -->
+                    <label for="text9c">値段</label>
+                    <div class="form-row align-items-center mb-5">
+                        <div class="col">
+                            <input type="text" id="text9c" class="form-control is-valid">円
+                            <!-- <div class="valid-tooltip">OK</div> -->
+                        </div>
+                    </div>
+				  <!-- <span class="actual">$120.00</span> -->
 				</div>
-				<h2 class="quick">Quick Overview:</h2>
-				<p class="quick_desc"> Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; es</p>
+				<h2 class="quick">商品説明</h2>
+				<div class="form-row align-items-center mb-5">
+                    <div class="col">
+                        <input type="text" id="text9c" class="form-control is-valid">
+                        <!-- <div class="valid-tooltip">OK</div> -->
+                    </div>
+                </div>
 			    <ul class="size">
 					<h3>Size</h3>
 					<li><a href="#">25</a></li>
@@ -326,7 +311,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			    </ul>
 			    <div class="btn_form">
 				   <form>
-					 <input type="submit" value="Add to Cart" title="">
+					 <input type="submit" value="出品" title="">
 				  </form>
 				</div>
 			</div>
