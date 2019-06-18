@@ -506,7 +506,7 @@ h3.menu_head{
 ul.nav{
 	padding:14px 0;
 	list-style:none;
-	background:#26d2fc;
+	background:#AAA;
 }
 ul.nav li:hover {
 	background:#333;
@@ -698,6 +698,7 @@ h3.m_1{
 	text-transform: uppercase;
 	font-weight: bold;
 	margin-top:2em;
+	margin-left:39px
 }
 h3.m_2 {
 	font-family: 'Roboto', sans-serif;
@@ -1042,7 +1043,7 @@ ul.previous{
 	float:right;
 }
 ul.previous li a{
-	color:#999;
+	color:rgb(160, 160, 160);
 	font-size:0.8125em;
 }
 .dreamcrub{
@@ -1124,7 +1125,7 @@ ul.women_pagenation li a:hover{
 ul.category_nav{
 	padding:0;
 	list-style:none;
-	background:#AAA;
+	background:rgb(216, 214, 214);
 }
 ul.category_nav li {
 	padding-left: 1.5em;
@@ -1361,7 +1362,7 @@ h3.recent{
 }
 .nbs-flexisel-item > img {
 	cursor: pointer;
-	position: relative;
+	positon: relative;
 }
 /*** Navigation ***/
 .nbs-flexisel-nav-left, .nbs-flexisel-nav-right {
@@ -2286,4 +2287,44 @@ h3.like, h3.recent {
 .logo {
 	margin-left: 0em;
 }
+
 }
+.product_category{
+	width:200px;
+	height:400px;
+	margin-top:20px;
+	font-size:15px;
+	text-align:center;
+}
+.product_category td{
+	background: rgb(224, 230, 238);
+	border-block-end-color: rgb(224, 199, 224);
+	border-block-start-color: rgb(224, 199, 224);
+	border-right-color:  rgb(224, 199, 224);
+	border-left-color: rgb(224, 199, 224);
+	color: rgb(85, 84, 112);
+}
+#category{
+	background: rgb(188, 210, 243);
+}
+.sort_command{
+	background-color: rgb(223, 184, 148);
+	margin-left:40px;
+	height:40px;
+	line-height:40px;
+	margin-top:15px;
+	margin-bottom:15px;
+}
+.sort_command li{
+	text-decoration: underline;
+	display: inline-block;
+	margin-right:20px;
+}
+.sort_command a{
+	vertical-align:middle;
+}
+.sort_command ul{
+	margin-left:60px;
+	display: inline-block;
+}
+
