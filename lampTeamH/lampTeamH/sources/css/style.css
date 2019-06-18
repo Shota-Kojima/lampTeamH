@@ -1361,7 +1361,7 @@ h3.recent{
 }
 .nbs-flexisel-item > img {
 	cursor: pointer;
-	position: relative;
+	positon: relative;
 }
 /*** Navigation ***/
 .nbs-flexisel-nav-left, .nbs-flexisel-nav-right {
