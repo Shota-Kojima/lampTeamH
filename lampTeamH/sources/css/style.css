@@ -506,7 +506,7 @@ h3.menu_head{
 ul.nav{
 	padding:14px 0;
 	list-style:none;
-	background:#26d2fc;
+	background:#AAA;
 }
 ul.nav li:hover {
 	background:#333;
@@ -698,6 +698,7 @@ h3.m_1{
 	text-transform: uppercase;
 	font-weight: bold;
 	margin-top:2em;
+	margin-left:39px
 }
 h3.m_2 {
 	font-family: 'Roboto', sans-serif;
@@ -1042,7 +1043,7 @@ ul.previous{
 	float:right;
 }
 ul.previous li a{
-	color:#999;
+	color:rgb(160, 160, 160);
 	font-size:0.8125em;
 }
 .dreamcrub{
@@ -1124,7 +1125,7 @@ ul.women_pagenation li a:hover{
 ul.category_nav{
 	padding:0;
 	list-style:none;
-	background:#81e6fe;
+	background:rgb(216, 214, 214);
 }
 ul.category_nav li {
 	padding-left: 1.5em;
@@ -2288,25 +2289,25 @@ h3.like, h3.recent {
 }
 
 }
-
-.product_category{
+.products_category{
 	width:200px;
 	height:400px;
 	margin-top:20px;
 	font-size:15px;
 	text-align:center;
 }
-.product_category td{
-	background: rgb(224, 230, 238);
-	border-block-end-color: rgb(224, 199, 224);
-	border-block-start-color: rgb(224, 199, 224);
-	border-right-color:  rgb(224, 199, 224);
-	border-left-color: rgb(224, 199, 224);
-	color: rgb(85, 84, 112);
+.products_category td{
+	background: rgb(203, 205, 206);
+	border-block-end-color: rgb(252, 252, 252);
+	border-block-start-color: rgb(245, 242, 245);
+	border-right-color:  rgb(248, 242, 248);
+	border-left-color: rgb(248, 237, 248);
+	color: rgb(220, 220, 230);
 }
 #category{
-	background: rgb(188, 210, 243);
+	background: rgb(88, 88, 90);
 }
+
 .sort_command{
 	background-color: rgb(223, 184, 148);
 	margin-left:40px;
@@ -2327,4 +2328,3 @@ h3.like, h3.recent {
 	margin-left:60px;
 	display: inline-block;
 }
-

@@ -77,7 +77,7 @@ cart_bgって名前のclassはオレンジ色にしたりする
         <div class="header-top">
 			<!-- ロゴ -->
       		<div class="logo">
-				<a href="index.html"><img src="images/logo.png" alt=""/></a>
+				<a href="products.php"><img src="images/logo.png" alt=""/></a>
 			</div>
 			<!-- SNS連携のアイコン -->
 		   	<div class="header_right">
@@ -117,8 +117,8 @@ cart_bgって名前のclassはオレンジ色にしたりする
 				   	       <div class="bannertop_box">
 								<!-- ログインボタン関連 -->
 				   		 		<ul class="login">
-									<!-- ログインボタンを押したらlogin.htmlを表示する -->
-				   		 			<li class="login_text"><a href="login.html">Login</a></li>
+									<!-- ログインボタンを押したらlogin.phpを表示する -->
+				   		 			<li class="login_text"><a href="login.php">Login</a></li>
 									<!-- 欲しいものリストを押したらcheckout.htmlを表示する -->
 									<li class="wish"><a href="checkout.html">Wish List</a></li>
 				   		 			<div class='clearfix'></div>
@@ -210,7 +210,7 @@ cart_bgって名前のclassはオレンジ色にしたりする
 				   	  <div class="banner-wrap">
 				   	       <div class="bannertop_box">
 				   		 		<ul class="login">
-				   		 			<li class="login_text"><a href="login.html">Login</a></li>
+				   		 			<li class="login_text"><a href="login.php">Login</a></li>
 				   		 			<li class="wish"><a href="#">Wish List</a></li>
 				   		 			<div class='clearfix'></div>
 				   		 		</ul>
@@ -266,6 +266,12 @@ cart_bgって名前のclassはオレンジ色にしたりする
 	<div class="main">
 	  <div class="content_box">
 		<div class="container">
+		<h3 class="m_1"style="margin-left:40px">Products</h3>
+		<ul class="tab-group">
+			<li class="tab is-active">販売商品</li>
+			<li class="tab">レンタル商品</li>
+			<li class="tab">フリマ商品</li>
+		</ul>
 			<div >
 				<div class="col-md-3">
 					<!-- classにメニューボックスってある通り左にある -->
@@ -276,15 +282,10 @@ cart_bgって名前のclassはオレンジ色にしたりする
 				</div>
 				<!-- あと商品出してるだけ -->
 			<div>
+			<!--タブ-->
+				
 			<div style="margin:left">
 			   <div style="margin:left">
-				<h3 class="m_1">Products</h3>
-				<!--タブ-->
-				<ul class="tab-group">
-					<li class="tab is-active">販売商品</li>
-					<li class="tab">レンタル商品</li>
-					<li class="tab">フリマ商品</li>
-				</ul>
 				<ul class="sort_command">
 					<li ><a href="#">五十音順</a></li>
 					<li ><a href="#">売れ筋順</a></li>
@@ -300,9 +301,10 @@ cart_bgって名前のclassはオレンジ色にしたりする
 					<li ><a href="#">５</a></li>
 					</ul>
 				</ul>
+				
 				<ul style="font-size:0">
 				<li style="display: inline-block">
-				<table width="150px" height="400px" class="product_category" border="1" cellspacing="0" cellpadding="5" bordercolor="#333333">
+				<table width="150px" height="400px" class="products_category" border="1" cellspacing="0" cellpadding="5" bordercolor="#333333">
 				<tr>
 				<td id="category">カテゴリ</td>
 				</tr>
