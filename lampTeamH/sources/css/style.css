@@ -691,7 +691,7 @@ span.reducedfrom {
 	font-size:0.95em;
 	color:#777;
 }
-h3.m_1{
+m_1{
 	font-family: 'Roboto', sans-serif;
 	color: #707070;
 	font-size: 1.5em;
@@ -1816,10 +1816,10 @@ div.register-bottom-grid {
 h4.title {
 	color: #555;
 	margin-bottom: 0.5em;
-	font-size:1em;
+	font-size:1.7em;
 	line-height: 1.2;
 	font-weight: normal;
-	margin-top: 0px;
+	margin-top:2em;
 	letter-spacing: -1px;
 	text-transform: uppercase;
 	border-bottom: 1px solid #DFDDDD;
@@ -1832,7 +1832,7 @@ p.cart {
 	line-height: 1.8em;
 	font-family: 'Roboto', sans-serif;
 }
-p.cart a{
+div.cart a{
 	color:red;
 }
 .page-not-found h1 {
@@ -2325,6 +2325,10 @@ h3.like, h3.recent {
 	vertical-align:middle;
 }
 .sort_command ul{
-	margin-left:60px;
 	display: inline-block;
+}
+div.cart{
+	font-size:15px;
+	color:#555;
+	font-family: 'Roboto', sans-serif;
 }
