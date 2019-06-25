@@ -1,7 +1,7 @@
 <?php
 /*!
-@file member_list_smarty.php
-@brief メンバー一覧(Smarty版)
+@file member_detail_smarty.php
+@brief メンバー詳細(Smarty版)
 @copyright Copyright (c) 2017 Yamanoi Yasushi,Shimojima Ryo.
 */
 
@@ -14,178 +14,332 @@ require_once("inc_base.php");
 require_once($CMS_COMMON_INCLUDE_DIR . "libs.php");
 require_once("inc_smarty.php");
 
-$show_mode = '';
-$ERR_STR = '';
 
-//ページの設定
-//デフォルトは1
-$page = 1;
-//もしページが指定されていたら
-if(isset($_GET['page']) 
-    //なおかつ、数字だったら
-    && cutil::is_number($_GET['page'])
-    //なおかつ、0より大きかったら
-    && $_GET['page'] > 0){
-    //パラメータを設定
-    $page = $_GET['page'];
-}
+$product_id = 0;
+$err_array = array();
+$err_flag = 0;
 
-//1ページのリミット
-$limit = 20;
-$rows = array();
+$page = 0;
+// if(isset($_GET['page']) 
+// 	&& cutil::is_number($_GET['page'])
+// 	&& $_GET['page'] > 0){
+// 	$page = $_GET['page'];
+// }
 
-if(is_func_active()){
-	if(param_chk()){
-		switch($_POST['func']){
-			case "del":
-				$show_mode = 'del';
-				//削除操作
-				deljob();
-				//リダイレクトするページの計算
-				$re_page = $page;
-				$obj = new cmember();
-				$allcount = $obj->get_all_count(false);
-				$last_page = (int)($allcount / $limit);
-				if($allcount % $limit){
-					$last_page++;
-				}
-				if($re_page > $last_page){
-					$re_page = $last_page;
-				}
-				//再読み込みのためにリダイレクト
-				cutil::redirect_exit($_SERVER['PHP_SELF'] 
-				. '?page=' . $re_page);
-			break;
-			default:
-			break;
-		}
+if(isset($_GET['product_id']) 
+//cutilクラスのメンバ関数をスタティック呼出
+	&& cutil::is_number($_GET['product_id'])
+	&& $_GET['product_id'] > 0){
+	//商品Hクラスを構築
+	$product_obj = new cproductH();
+	$product_id = $_GET['product_id'];
+	$productarr = $product_obj->get_tgt(false,$product_id);
+	if($productarr !== false){
+		// echo '<script type="text/javascript">alert("'.$productarr[0].'");</script>';
+		
+		//product_passを取得
+		$data = $productarr["product_pass"];
+		$productarr["product_pass"] = explode(',',$data);
+		var_dump($productarr["product_pass"]);
+		$smarty->assign('productarr',$productarr);
+	}else{
+		echo '<script type="text/javascript">alert("だめ1");</script>';
 	}
+	
+}else{
+	echo '<script type="text/javascript">alert("だめ2");</script>';
 }
-$show_mode = 'edit';
-//データの読み込み
-readdata();
+// //$_POST優先
+// if(isset($_POST['member_id']) 
+// //cutilクラスのメンバ関数をスタティック呼出
+// 	&& cutil::is_number($_POST['member_id'])
+// 	&& $_POST['member_id'] > 0){
+// 	$member_id = $_POST['member_id'];
+// }
+
+
+
+//配列にメンバーを$_POSTに取り出す
+//すでにPOSTされていたら、DBからは取り出さない
+
+// if(isset($_POST['func'])){
+// 	switch($_POST['func']){
+// 		case 'set':
+// 			if(!paramchk()){
+// 				$_POST['func'] = 'edit';
+// 				$err_flag = 1;
+// 			}
+// 			else{
+// 				regist();
+// 				//regist()内でリダイレクトするので
+// 				//ここまで実行されればリダイレクト失敗
+// 				$_POST['func'] = 'edit';
+// 				//システムに問題のあるエラー
+// 				$err_flag = 2;
+// 			}
+// 		case 'conf':
+// 			if(!paramchk()){
+// 				$_POST['func'] = 'edit';
+// 				$err_flag = 1;
+// 			}
+// 		break;
+// 		case 'edit':
+// 			//戻るボタン。
+// 		break;
+// 		default:
+// 			//通常はありえない
+// 			echo '原因不明のエラーです。';
+// 			exit;
+// 		break;
+// 	}
+// }
+// else{
+// 	if($member_id > 0){
+// 		if(($_POST = $member_obj->get_tgt(false,$member_id)) === false){
+// 			$_POST['func'] = 'new';
+// 		}
+// 		else{
+// 			$_POST['fruits'] = $member_obj->get_all_fruits_match(false,$member_id);
+// 			$_POST['func'] = 'edit';
+// 		}
+// 	}
+// 	else{
+// 		//新規の入力フォーム
+// 		$_POST['func'] = 'new';
+// 	}
+// }
 
 /////////////////////////////////////////////////////////////////
 /// 関数ブロック
 /////////////////////////////////////////////////////////////////
 
+
 //--------------------------------------------------------------------------------------
 /*!
-@brief	コマンドが渡されたかどうか
-@return	渡されたらtrue
+@brief	エラー存在のアサイン
+@return	なし
 */
 //--------------------------------------------------------------------------------------
-function is_func_active(){
-    if(isset($_POST['func']) && $_POST['func'] != ""){
-        return true;
-    }
-    return false;
-}
+// function assign_err_flag(){
+// 	//$smartyをグローバル宣言（必須）
+// 	global $smarty;
+// 	global $err_flag;
+// 	$str = '';
+// 	switch($err_flag){
+// 		case 1:
+// 		$str =<<<END_BLOCK
 
+// <p class="red">入力エラーがあります。各項目のエラーを確認してください。</p>
+// END_BLOCK;
+// 		break;
+// 		case 2:
+// 		$str =<<<END_BLOCK
+
+// <p class="red">更新に失敗しました。サポートを確認下さい。</p>
+// END_BLOCK;
+// 		break;
+// 	}
+// 	$smarty->assign('err_flag',$str);
+// }
 
 //--------------------------------------------------------------------------------------
 /*!
 @brief	パラメータのチェック
-@return	エラーがあったらfalse
+@return	エラーの場合はfalseを返す
 */
 //--------------------------------------------------------------------------------------
-function param_chk(){
-	 global $ERR_STR;
-	if(!isset($_POST['param']) 
-	|| !cutil::is_number($_POST['param'])
-	|| $_POST['param'] <= 0){
-		$ERR_STR .= "パラメータを取得できませんでした\n";
-		return false;
+function paramchk(){
+	global $err_array;
+	$retflg = true;
+	/// メンバー名の存在と空白チェック
+	if(ccontentsutil::chkset_err_field($err_array,'member_name','メンバー名','isset_nl')){
+		$retflg = false;
 	}
-	return true;
-}
+	/// メンバーの都道府県チェック
+	if(ccontentsutil::chkset_err_field($err_array,'prefecture_id','都道府県','isset_num_range',1,47)){
+		$retflg = false;
+	}
+	/// メンバー住所の存在と空白チェック
+	if(ccontentsutil::chkset_err_field($err_array,'member_address','市区郡町村以下','isset_nl')){
+		$retflg = false;
+	}
+	/// メンバーの性別チェック
+	if(ccontentsutil::chkset_err_field($err_array,'member_gender','性別','isset_num_range',1,2)){
+		$retflg = false;
+	}
 
-
-//--------------------------------------------------------------------------------------
-/*!
-@brief	データ読み込み
-@return	なし
-*/
-//--------------------------------------------------------------------------------------
-function readdata(){
-	global $limit;
-	global $rows;
-	global $page;
-	$obj = new cmember();
-	$from = ($page - 1) * $limit;
-	$rows = $obj->get_all(false,$from,$limit);
+	return $retflg;
 }
 
 //--------------------------------------------------------------------------------------
 /*!
-@brief	削除
+@brief	フルーツデータの追加／更新
 @return	なし
 */
 //--------------------------------------------------------------------------------------
-function deljob(){
+function regist_fruits($member_id){
 	$chenge = new cchange_ex();
-	if($_POST['param'] > 0){
-		$chenge->delete("member","member_id=" . $_POST['param']);
+	$chenge->delete("fruits_match","member_id=" . $member_id);
+	foreach($_POST['fruits'] as $key => $val){
+		$dataarr = array();
+		$dataarr['member_id'] = (int)$member_id;
+		$dataarr['fruits_id'] = (int)$val;
+		$chenge->insert('fruits_match',$dataarr);
 	}
 }
 
 
 //--------------------------------------------------------------------------------------
 /*!
-@brief	ページャーのアサイン
+@brief	メンバーデータの追加／更新。保存後自分自身を再読み込みする。
 @return	なし
 */
 //--------------------------------------------------------------------------------------
-function assign_page_block(){
-	//$smartyをグローバル宣言（必須）
-	global $smarty;
-	global $limit;
-	global $page;
-	$retstr = '';
-	$obj = new cmember();
-	$allcount = $obj->get_all_count(false);
-	$ctl = new cpager($_SERVER['PHP_SELF'],$allcount,$limit);
-	$smarty->assign('pager_arr',$ctl->get('page',$page));
-}
-
-
+// function regist(){
+// 	global $product_id;
+// 	$dataarr = array();
+// 	$dataarr['member_name'] = (string)$_POST['member_name'];
+// 	$dataarr['prefecture_id'] = (int)$_POST['prefecture_id'];
+// 	$dataarr['member_address'] = (string)$_POST['member_address'];
+// 	$dataarr['member_gender'] = (int)$_POST['member_gender'];
+// 	$dataarr['member_comment'] = (string)$_POST['member_comment'];
+// 	$chenge = new cchange_ex();
+// 	if($member_id > 0){
+// 		$chenge->update('member',$dataarr,'member_id=' . $member_id);
+// 		regist_fruits($member_id);
+// 		cutil::redirect_exit($_SERVER['PHP_SELF'] . '?mid=' . $member_id);
+// 	}
+// 	else{
+// 		$mid = $chenge->insert('member',$dataarr);
+// 		regist_fruits($mid);
+// 		cutil::redirect_exit($_SERVER['PHP_SELF'] . '?mid=' . $mid);
+// 	}
+// }
 //--------------------------------------------------------------------------------------
 /*!
-@brief	一覧のアサイン
+@brief	ページの出力(一覧に戻るリンク用)
 @return	なし
 */
 //--------------------------------------------------------------------------------------
-function assign_member_list(){
-	//$smartyをグローバル宣言（必須）
-	global $smarty;
-	global $rows;
-	$smarty->assign('rows',$rows);
-}
-
-//--------------------------------------------------------------------------------------
-/*!
-@brief	URIのアサイン
-@return	なし
-*/
-//--------------------------------------------------------------------------------------
-function assign_tgt_uri(){
+function assign_page(){
 	//$smartyをグローバル宣言（必須）
 	global $smarty;
 	global $page;
-	$smarty->assign('tgt_uri',$_SERVER['PHP_SELF'] . '?page=' . $page);
+	$pagestr = '';
+	if($page > 0){
+		$pagestr =  '?page=' . $page;
+	}
+	$smarty->assign('page',$pagestr);
+}
+
+//--------------------------------------------------------------------------------------
+/*!
+@brief	メンバーIDのアサイン
+@return	なし
+*/
+//--------------------------------------------------------------------------------------
+function assign_member_id(){
+	//$smartyをグローバル宣言（必須）
+	global $smarty;
+	global $member_id;
+	$smarty->assign('member_id',$member_id);
+}
+
+//--------------------------------------------------------------------------------------
+/*!
+@brief	メンバーIDのアサイン(新規の場合は「新規」)
+@return	なし
+*/
+//--------------------------------------------------------------------------------------
+function assign_member_id_txt(){
+	//$smartyをグローバル宣言（必須）
+	global $smarty;
+	global $member_id;
+	if($member_id <= 0){
+		$smarty->assign('member_id_txt','新規');
+	}
+	else{
+		$smarty->assign('member_id_txt',$member_id);
+	}
+}
+
+//--------------------------------------------------------------------------------------
+/*!
+@brief	都道府県プルダウンのアサイン
+@return	なし
+*/
+//--------------------------------------------------------------------------------------
+function assign_prefecture_rows(){
+	//$smartyをグローバル宣言（必須）
+	global $smarty;
+	//都道府県の一覧を取得
+	$prefecture_obj = new cprefecture();
+	$allcount = $prefecture_obj->get_all_count(false);
+	$prefecture_rows = $prefecture_obj->get_all(false,0,$allcount);
+    $smarty->assign('prefecture_rows',$prefecture_rows);
+}
+//--------------------------------------------------------------------------------------
+/*!
+@brief	好きな果物のアサイン
+@return	なし
+*/
+//--------------------------------------------------------------------------------------
+function assign_product_rows(){
+	//$smartyをグローバル宣言（必須）
+	global $smarty;
+	//フルーツの一覧を取得
+	$fruits_obj = new cfruits();
+	$fruits_rows = $fruits_obj->get_all(false);
+	if(!isset($_POST['fruits']))$_POST['fruits'] = array();
+	foreach($fruits_rows as $key => $val){
+		if(array_search($val['fruits_id'],$_POST['fruits']) !== false){
+			$fruits_rows[$key]['check'] = 1;
+		}
+		else{
+			$fruits_rows[$key]['check'] = 0;
+		}
+	}
+	$product_obj = new cproductH();
+	$product_rows = $product_obj->get_all(false);
+	if(!isset($_POST['fruits']))$_POST['fruits'] = array();
+	foreach($fruits_rows as $key => $val){
+		if(array_search($val['fruits_id'],$_POST['fruits']) !== false){
+			$fruits_rows[$key]['check'] = 1;
+		}
+		else{
+			$fruits_rows[$key]['check'] = 0;
+		}
+	}
+    $smarty->assign('fruits_rows',$fruits_rows);
 }
 
 
 /////////////////////////////////////////////////////////////////
 /// 関数呼び出しブロック
 /////////////////////////////////////////////////////////////////
-$smarty->assign('ERR_STR',$ERR_STR);
-assign_page_block();
-assign_member_list();
-assign_tgt_uri();
+// if(!isset($_POST['member_name']))$_POST['member_name'] = '';
+// if(!isset($_POST['prefecture_id']))$_POST['prefecture_id'] = 0;
+// if(!isset($_POST['member_address']))$_POST['member_address'] = '';
+// if(!isset($_POST['member_gender']))$_POST['member_gender'] = 0;
+// if(!isset($_POST['member_comment']))$_POST['member_comment'] = '';
+// assign_err_flag();
+// assign_page();
+// assign_member_id();
+// assign_member_id_txt();
+// assign_prefecture_rows();
+// assign_fruits_rows();
+$smarty->assign('err_array',$err_array);
 
 //Smartyを使用した表示(テンプレートファイルの指定)
-$smarty->display('productDetail.tmpl');
-
-
+// if(isset($_POST['func']) && $_POST['func'] == 'conf'){
+// 	$button = '更新';
+// 	if($member_id <= 0){
+// 		$button = '追加';
+// 	}
+//     $smarty->assign('button',$button);
+//     $smarty->display('member_detail_smarty_conf.tmpl');
+// }
+// else{
+    $smarty->display('productDetail.tmpl');
+// }
 ?>

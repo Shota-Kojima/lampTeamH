@@ -9,20 +9,17 @@
     <p>
     在庫数<input type="text" name="stock_value" size="200">
     </p>
-    <!-- <p>
+    <p>
     カテゴリ
     <select name="product_category">
         <option value="1">販売</option>
         <option value="2">レンタル</option>
         <option value="3">フリマ</option>
     </select>
-    </p> -->
-    <p>
-    カテゴリ<input type="text" name="product_category" size="200">
     </p>
     <p>
-    ジャンル<input type="text" name="genre_id" size="200">
-    <!-- ジャンル
+    <!-- ジャンル<input type="text" name="genre_id" size="200"> -->
+    ジャンル
     <select name="genre_id">
         <option value="1">ガソリンランタン </option>
         <option value="2">LPガスランタン</option>
@@ -46,7 +43,7 @@
         <option value="20">テーブル</option>
         <option value="21">キッチンテーブル</option>
         <option value="22">オールインワン</option>
-    </select> -->
+    </select>
     </p>
     <p>
     商品説明<br>
@@ -76,7 +73,10 @@ $date = date('YmdHis');
 $filedir1 = "";
 $filedir2 = "";
 $filedir3 = "";
-
+$imageUrl1 = "";
+$imageUrl2 = "";
+$imageUrl3 = ""; 
+$fulldir = "http://wiz.developluna.jp/~e09/PHPBase-master/sources/images/product_img/";
 // isset($_POST['product_name'])&&
 //     &&
 //     isset($_FILES["image_file2"]["tmp_name2"])&&
@@ -96,7 +96,9 @@ $filedir3 = "";
 //     echo ($_POST['genre_id']);
 // }
 
-if(isset($_POST['product_name'])&&isset($_POST['price'])&&isset($_POST['product_category'])&&issset($_POST['genre_id'])&&isset($_POST['product_text'])&&isset($_POST['stock_value'])){
+if(isset($_POST['product_name'])&&isset($_POST['price'])&&
+    isset($_POST['product_category'])&&isset($_POST['genre_id'])&&
+    isset($_POST['product_text'])&&isset($_POST['stock_value'])){
     
     //画像のチェック
     if(isset($_FILES["image_file1"]["tmp_name"])){
@@ -105,6 +107,8 @@ if(isset($_POST['product_name'])&&isset($_POST['price'])&&isset($_POST['product_
         if (is_uploaded_file($_FILES["image_file1"]["tmp_name"])) {
             //ある時のみ値変更(無しの時の処理)
             $filedir1 = "./images/product_img/".$date."1".".jpg";
+            //DBの画像パス
+            $imageUrl1 = $fulldir.$date."1".".jpg";
             move_uploaded_file($_FILES["image_file1"]["tmp_name"], $filedir1);
         }    
     }
@@ -113,6 +117,7 @@ if(isset($_POST['product_name'])&&isset($_POST['price'])&&isset($_POST['product_
         if (is_uploaded_file($_FILES["image_file2"]["tmp_name"])) {
             //ある時のみ値変更(無しの時の処理)
             $filedir2 = "./images/product_img/".$date."2".".jpg";
+            $imageUrl2 = $fulldir.$date."2".".jpg";
             move_uploaded_file($_FILES["image_file2"]["tmp_name"], $filedir2);
         }
     }
@@ -121,11 +126,12 @@ if(isset($_POST['product_name'])&&isset($_POST['price'])&&isset($_POST['product_
         if (is_uploaded_file($_FILES["image_file3"]["tmp_name"])) {
             //ある時のみ値変更(無しの時の処理)
             $filedir3 = "./images/product_img/".$date."3".".jpg";
+            $imageUrl2 = $fulldir.$date."3".".jpg";
             move_uploaded_file($_FILES["image_file3"]["tmp_name"], $filedir3);
         }
     }
     $_POST['exhibistion_date'] = $date;
-    $_POST['product_pass'] = $filedir1.",".$filedir2.",".$filedir3;
+    $_POST['product_pass'] = $imageUrl1.",".$imageUrl2.",".$imageUrl3;
     regist();
 }
 
