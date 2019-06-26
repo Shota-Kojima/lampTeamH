@@ -603,7 +603,7 @@ ul.article_links li a{
 .col_1_of_3 {
 	display: block;
 	float: left;
-	margin: 1% 0 1% 2.6%;
+	margin-right:14px;
 }
 .span_1_of_3 {
 	width: 31.6%;
@@ -2289,9 +2289,15 @@ h3.like, h3.recent {
 }
 
 }
+<<<<<<< HEAD:lampTeamH/sources/css/style.css
+.products_category{
+	width:250px;
+	height:500px;
+=======
 .product_category{
 	width:200px;
 	height:400px;
+>>>>>>> 496981a92efbadeb7a04015e123e33eb083dd9ee:sources/css/style.css
 	margin-top:20px;
 	font-size:15px;
 	text-align:center;
