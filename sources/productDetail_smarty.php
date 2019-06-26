@@ -36,18 +36,41 @@ if(isset($_GET['product_id'])
 	$productarr = $product_obj->get_tgt(false,$product_id);
 	if($productarr !== false){
 		// echo '<script type="text/javascript">alert("'.$productarr[0].'");</script>';
-		
+
 		//product_passを取得
 		$data = $productarr["product_pass"];
 		$productarr["product_pass"] = explode(',',$data);
-		var_dump($productarr["product_pass"]);
+		//var_dump($productarr);
 		$smarty->assign('productarr',$productarr);
 	}else{
 		echo '<script type="text/javascript">alert("だめ1");</script>';
 	}
 	
 }else{
-	echo '<script type="text/javascript">alert("だめ2");</script>';
+	//購入時
+	if(isset($_POST['buy_count']) 
+	//cutilクラスのメンバ関数をスタティック呼出
+	&& cutil::is_number($_GET['buy_count'])
+	&& $_GET['buy_count'] > 0){
+	//商品Hクラスを構築
+		$product_obj = new cproductH();
+		$product_id = $_GET['product_id'];
+		$productarr = $product_obj->get_tgt(false,$product_id);
+		if($productarr !== false){
+			// echo '<script type="text/javascript">alert("'.$productarr[0].'");</script>';
+
+			//product_passを取得
+			$data = $productarr["product_pass"];
+			$productarr["product_pass"] = explode(',',$data);
+			//var_dump($productarr);
+			$smarty->assign('productarr',$productarr);
+		}else{
+			echo '<script type="text/javascript">alert("だめ2");</script>';
+		}
+	
+	}else{
+
+	}
 }
 // //$_POST優先
 // if(isset($_POST['member_id']) 
