@@ -49,7 +49,5 @@ function chk_login_id($login_id,$login_pw){
 }
 
 //Smartyを使用した表示(テンプレートファイルの指定)
-$smarty->display('login.tmpl');
-
-
+$smarty->display('loginH.tmpl');
 ?>
