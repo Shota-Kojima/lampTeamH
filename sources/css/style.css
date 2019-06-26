@@ -506,7 +506,7 @@ h3.menu_head{
 ul.nav{
 	padding:14px 0;
 	list-style:none;
-	background:#26d2fc;
+	background:#AAA;
 }
 ul.nav li:hover {
 	background:#333;
@@ -698,6 +698,7 @@ h3.m_1{
 	text-transform: uppercase;
 	font-weight: bold;
 	margin-top:2em;
+	margin-left:39px
 }
 h3.m_2 {
 	font-family: 'Roboto', sans-serif;
@@ -1042,7 +1043,7 @@ ul.previous{
 	float:right;
 }
 ul.previous li a{
-	color:#999;
+	color:rgb(160, 160, 160);
 	font-size:0.8125em;
 }
 .dreamcrub{
@@ -1124,7 +1125,7 @@ ul.women_pagenation li a:hover{
 ul.category_nav{
 	padding:0;
 	list-style:none;
-	background:#81e6fe;
+	background:rgb(216, 214, 214);
 }
 ul.category_nav li {
 	padding-left: 1.5em;
@@ -2288,7 +2289,6 @@ h3.like, h3.recent {
 }
 
 }
-
 .product_category{
 	width:200px;
 	height:400px;
