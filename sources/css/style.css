@@ -506,7 +506,7 @@ h3.menu_head{
 ul.nav{
 	padding:14px 0;
 	list-style:none;
-	background:#AAA;
+	background:#26d2fc;
 }
 ul.nav li:hover {
 	background:#333;
@@ -603,7 +603,7 @@ ul.article_links li a{
 .col_1_of_3 {
 	display: block;
 	float: left;
-	margin-right:14px;
+	margin: 1% 0 1% 2.6%;
 }
 .span_1_of_3 {
 	width: 31.6%;
@@ -698,7 +698,6 @@ h3.m_1{
 	text-transform: uppercase;
 	font-weight: bold;
 	margin-top:2em;
-	margin-left:39px
 }
 h3.m_2 {
 	font-family: 'Roboto', sans-serif;
@@ -1043,7 +1042,7 @@ ul.previous{
 	float:right;
 }
 ul.previous li a{
-	color:rgb(160, 160, 160);
+	color:#999;
 	font-size:0.8125em;
 }
 .dreamcrub{
@@ -1125,7 +1124,7 @@ ul.women_pagenation li a:hover{
 ul.category_nav{
 	padding:0;
 	list-style:none;
-	background:rgb(216, 214, 214);
+	background:#81e6fe;
 }
 ul.category_nav li {
 	padding-left: 1.5em;
@@ -2287,17 +2286,10 @@ h3.like, h3.recent {
 .logo {
 	margin-left: 0em;
 }
-
 }
-<<<<<<< HEAD:lampTeamH/sources/css/style.css
-.products_category{
-	width:250px;
-	height:500px;
-=======
 .product_category{
 	width:200px;
 	height:400px;
->>>>>>> 496981a92efbadeb7a04015e123e33eb083dd9ee:sources/css/style.css
 	margin-top:20px;
 	font-size:15px;
 	text-align:center;
