@@ -39,7 +39,90 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			});
 		});
 		</script>
+        <script>
+        function appendRow()
+{
 
+    // 各列にスタイルを設定
+    c1.style.cssText = "text-align:right; width:40px;";
+    c2.style.cssText = "";
+    c3.style.cssText = "background-color: green; width:40px;";
+    c4.style.cssText = "background-color: red; width:40px;";
+    
+    // 各列に表示内容を設定
+    c1.innerHTML = '<span class="seqno">' + count + '</span>';
+    c2.innerHTML = '<input class="inpval" type="text"   id="txt' + count + '" name="txt' + count + '" value="" size="30" style="border:1px solid #888;">';
+    c3.innerHTML = '<input class="edtbtn" type="button" id="edtBtn' + count + '" value="確定" onclick="editRow(this)">';
+    c4.innerHTML = '<input class="delbtn" type="button" id="delBtn' + count + '" value="削除" onclick="deleteRow(this)">';
+    
+    // 追加した行の入力フィールドへフォーカスを設定
+    var objInp = document.getElementById("txt" + count);
+    if (objInp)
+        objInp.focus();
+}
+
+/*
+ * deleteRow: 削除ボタン該当行を削除
+ */
+function deleteRow(obj)
+{
+    // 確認
+    if (!confirm("この行を削除しますか？"))
+        return;
+
+    if (!obj)
+        return;
+
+    var objTR = obj.parentNode.parentNode;
+    var objTBL = objTR.parentNode;
+    
+    if (objTBL)
+        objTBL.deleteRow(objTR.sectionRowIndex);
+    
+    // <span> 行番号ふり直し
+    var tagElements = document.getElementsByTagName("span");
+    if (!tagElements)
+        return false;
+
+    var seq = 1;
+    for (var i = 0; i < tagElements.length; i++)
+    {
+        if (tagElements[i].className.match("seqno"))
+            tagElements[i].innerHTML = seq++;
+    }
+
+    // id/name ふり直し
+    var tagElements = document.getElementsByTagName("input");
+    if (!tagElements)
+        return false;
+
+    // <input type="text" id="txtN">
+    var seq = 1;
+    for (var i = 0; i < tagElements.length; i++)
+    {
+        if (tagElements[i].className.match("inpval"))
+        {
+            tagElements[i].setAttribute("id", "txt" + seq);
+            tagElements[i].setAttribute("name", "txt" + seq);
+            ++seq;
+        }
+    }
+
+    
+
+    // <input type="button" id="delBtnN">
+    seq = 1;
+    for (var i = 0; i < tagElements.length; i++)
+    {
+        if (tagElements[i].className.match("delbtn"))
+        {
+            tagElements[i].setAttribute("id", "delBtn" + seq);
+            ++seq;
+        }
+    }
+}
+
+</script>
 </head>
 <body>
    <div class="map">
@@ -109,119 +192,119 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                     <th>管理者ID</th>
                                     <th>作成日</th>
                                     <th>権限</th>
-                                    <th width="110" class="ac">Content Control</th>
+                                    <th width="110" class="ac">編集・削除</th>
                                 </tr>
                                 <tr>
                                     <td><input type="checkbox" class="checkbox" /></td>
                                     <td><h3><a href="#">camp12</a></h3></td>
                                     <td>12.05.09</td>
                                     <td><a href="#">すべて</a></td>
-                                    <td><a href="#" class="ico del">削除</a><a href="#" class="ico edit">編集</a></td>
+                                    <td><input class="edibtn" type="button" id="delBtn1" value="編集" onclick=""><input class="delbtn" type="button" id="delBtn1" value="削除" onclick="deleteRow(this)"></td>
                                 </tr>
                                 <tr class="odd">
                                     <td><input type="checkbox" class="checkbox" /></td>
                                     <td><h3><a href="#">camp12</a></h3></td>
                                     <td>12.05.09</td>
                                     <td><a href="#">参照のみ</a></td>
-                                    <td><a href="#" class="ico del">削除</a><a href="#" class="ico edit">編集</a></td>
+                                    <td><input class="edibtn" type="button" id="delBtn1" value="編集" onclick=""><input class="delbtn" type="button" id="delBtn1" value="削除" onclick="deleteRow(this)"></td>
                                 </tr>
                                 <tr>
                                     <td><input type="checkbox" class="checkbox" /></td>
                                     <td><h3><a href="#">camp12</a></h3></td>
                                     <td>12.05.09</td>
                                     <td><a href="#">参照のみ</a></td>
-                                    <td><a href="#" class="ico del">削除</a><a href="#" class="ico edit">編集</a></td>
+                                    <td><input class="edibtn" type="button" id="delBtn1" value="編集" onclick=""><input class="delbtn" type="button" id="delBtn1" value="削除" onclick="deleteRow(this)"></td>
                                 </tr>
 								<tr class="odd">
                                     <td><input type="checkbox" class="checkbox" /></td>
                                     <td><h3><a href="#">camp12</a></h3></td>
                                     <td>12.05.09</td>
                                     <td><a href="#">参照のみ</a></td>
-                                    <td><a href="#" class="ico del">削除</a><a href="#" class="ico edit">編集</a></td>
+                                    <td><input class="edibtn" type="button" id="delBtn1" value="編集" onclick=""><input class="delbtn" type="button" id="delBtn1" value="削除" onclick="deleteRow(this)"></td>
                                 </tr>
                                 <tr>
                                     <td><input type="checkbox" class="checkbox" /></td>
                                     <td><h3><a href="#">camp12</a></h3></td>
                                     <td>12.05.09</td>
                                     <td><a href="#">参照のみ</a></td>
-                                    <td><a href="#" class="ico del">削除</a><a href="#" class="ico edit">編集</a></td>
+                                    <td><input class="edibtn" type="button" id="delBtn1" value="編集" onclick=""><input class="delbtn" type="button" id="delBtn1" value="削除" onclick="deleteRow(this)"></td>
                                 </tr>
 								<tr class="odd">
                                     <td><input type="checkbox" class="checkbox" /></td>
                                     <td><h3><a href="#">camp12</a></h3></td>
                                     <td>12.05.09</td>
                                     <td><a href="#">参照のみ</a></td>
-                                    <td><a href="#" class="ico del">削除</a><a href="#" class="ico edit">編集</a></td>
+                                    <td><input class="edibtn" type="button" id="delBtn1" value="編集" onclick=""><input class="delbtn" type="button" id="delBtn1" value="削除" onclick="deleteRow(this)"></td>
                                 </tr>
                                 <tr>
                                     <td><input type="checkbox" class="checkbox" /></td>
                                     <td><h3><a href="#">camp12</a></h3></td>
                                     <td>12.05.09</td>
                                     <td><a href="#">参照のみ</a></td>
-                                    <td><a href="#" class="ico del">削除</a><a href="#" class="ico edit">編集</a></td>
+                                    <td><input class="edibtn" type="button" id="delBtn1" value="編集" onclick=""><input class="delbtn" type="button" id="delBtn1" value="削除" onclick="deleteRow(this)"></td>
                                 </tr>
 								<tr class="odd">
                                     <td><input type="checkbox" class="checkbox" /></td>
                                     <td><h3><a href="#">camp12</a></h3></td>
                                     <td>12.05.09</td>
                                     <td><a href="#">参照のみ</a></td>
-                                    <td><a href="#" class="ico del">削除</a><a href="#" class="ico edit">編集</a></td>
+                                    <td><input class="edibtn" type="button" id="delBtn1" value="編集" onclick=""><input class="delbtn" type="button" id="delBtn1" value="削除" onclick="deleteRow(this)"></td>
                                 </tr>
                                 <tr>
                                     <td><input type="checkbox" class="checkbox" /></td>
                                     <td><h3><a href="#">camp12</a></h3></td>
                                     <td>12.05.09</td>
                                     <td><a href="#">参照のみ</a></td>
-                                    <td><a href="#" class="ico del">削除</a><a href="#" class="ico edit">編集</a></td>
+                                    <td><input class="edibtn" type="button" id="delBtn1" value="編集" onclick=""><input class="delbtn" type="button" id="delBtn1" value="削除" onclick="deleteRow(this)"></td>
                                 </tr>
 								<tr class="odd">
                                     <td><input type="checkbox" class="checkbox" /></td>
                                     <td><h3><a href="#">camp12</a></h3></td>
                                     <td>12.05.09</td>
                                     <td><a href="#">参照のみ</a></td>
-                                    <td><a href="#" class="ico del">削除</a><a href="#" class="ico edit">編集</a></td>
+                                    <td><input class="edibtn" type="button" id="delBtn1" value="編集" onclick=""><input class="delbtn" type="button" id="delBtn1" value="削除" onclick="deleteRow(this)"></td>
                                 </tr>
                                 <tr>
                                     <td><input type="checkbox" class="checkbox" /></td>
                                     <td><h3><a href="#">camp12</a></h3></td>
                                     <td>12.05.09</td>
                                     <td><a href="#">参照のみ</a></td>
-                                    <td><a href="#" class="ico del">削除</a><a href="#" class="ico edit">編集</a></td>
+                                    <td><input class="edibtn" type="button" id="delBtn1" value="編集" onclick=""><input class="delbtn" type="button" id="delBtn1" value="削除" onclick="deleteRow(this)"></td>
                                 </tr>
                                 <tr class="odd">
                                     <td><input type="checkbox" class="checkbox" /></td>
                                     <td><h3><a href="#">camp12</a></h3></td>
                                     <td>12.05.09</td>
                                     <td><a href="#">参照のみ</a></td>
-                                    <td><a href="#" class="ico del">削除</a><a href="#" class="ico edit">編集</a></td>
+                                    <td><input class="edibtn" type="button" id="delBtn1" value="編集" onclick=""><input class="delbtn" type="button" id="delBtn1" value="削除" onclick="deleteRow(this)"></td>
                                 </tr>
                                 <tr>
                                     <td><input type="checkbox" class="checkbox" /></td>
                                     <td><h3><a href="#">camp12</a></h3></td>
                                     <td>12.05.09</td>
                                     <td><a href="#">参照のみ</a></td>
-                                    <td><a href="#" class="ico del">削除</a><a href="#" class="ico edit">編集</a></td>
+                                    <td><input class="edibtn" type="button" id="delBtn1" value="編集" onclick=""><input class="delbtn" type="button" id="delBtn1" value="削除" onclick="deleteRow(this)"></td>
                                 </tr>
                                 <tr class="odd">
                                     <td><input type="checkbox" class="checkbox" /></td>
                                     <td><h3><a href="#">camp12</a></h3></td>
                                     <td>12.05.09</td>
                                     <td><a href="#">参照のみ</a></td>
-                                    <td><a href="#" class="ico del">削除</a><a href="#" class="ico edit">編集</a></td>
+                                    <td><input class="edibtn" type="button" id="delBtn1" value="編集" onclick=""><input class="delbtn" type="button" id="delBtn1" value="削除" onclick="deleteRow(this)"></td>
                                 </tr>
                                 <tr>
                                     <td><input type="checkbox" class="checkbox" /></td>
                                     <td><h3><a href="#">camp12</a></h3></td>
                                     <td>12.05.09</td>
                                     <td><a href="#">参照のみ</a></td>
-                                    <td><a href="#" class="ico del">削除</a><a href="#" class="ico edit">編集</a></td>
+                                    <td><input class="edibtn" type="button" id="delBtn1" value="編集" onclick=""><input class="delbtn" type="button" id="delBtn1" value="削除" onclick="deleteRow(this)"></td>
                                 </tr>
                                 <tr class="odd">
                                     <td><input type="checkbox" class="checkbox" /></td>
                                     <td><h3><a href="#">camp12</a></h3></td>
                                     <td>12.05.09</td>
                                     <td><a href="#">参照のみ</a></td>
-                                    <td><a href="#" class="ico del">削除</a><a href="#" class="ico edit">編集</a></td>
+                                    <td><input class="edibtn" type="button" id="delBtn1" value="編集" onclick=""><input class="delbtn" type="button" id="delBtn1" value="削除" onclick="deleteRow(this)"></td>
                                 </tr>
                             </table>
                             <div class="pagging">
