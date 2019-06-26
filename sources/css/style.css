@@ -691,7 +691,7 @@ span.reducedfrom {
 	font-size:0.95em;
 	color:#777;
 }
-m_1{
+h3.m_1{
 	font-family: 'Roboto', sans-serif;
 	color: #707070;
 	font-size: 1.5em;
@@ -1816,10 +1816,10 @@ div.register-bottom-grid {
 h4.title {
 	color: #555;
 	margin-bottom: 0.5em;
-	font-size:1.7em;
+	font-size:1em;
 	line-height: 1.2;
 	font-weight: normal;
-	margin-top:2em;
+	margin-top: 0px;
 	letter-spacing: -1px;
 	text-transform: uppercase;
 	border-bottom: 1px solid #DFDDDD;
@@ -1832,7 +1832,7 @@ p.cart {
 	line-height: 1.8em;
 	font-family: 'Roboto', sans-serif;
 }
-div.cart a{
+p.cart a{
 	color:red;
 }
 .page-not-found h1 {
@@ -2289,25 +2289,30 @@ h3.like, h3.recent {
 }
 
 }
+<<<<<<< HEAD:lampTeamH/sources/css/style.css
 .products_category{
 	width:250px;
 	height:500px;
+=======
+.product_category{
+	width:200px;
+	height:400px;
+>>>>>>> 496981a92efbadeb7a04015e123e33eb083dd9ee:sources/css/style.css
 	margin-top:20px;
 	font-size:15px;
 	text-align:center;
 }
-.products_category td{
-	background: rgb(203, 205, 206);
-	border-block-end-color: rgb(252, 252, 252);
-	border-block-start-color: rgb(245, 242, 245);
-	border-right-color:  rgb(248, 242, 248);
-	border-left-color: rgb(248, 237, 248);
-	color: rgb(220, 220, 230);
+.product_category td{
+	background: rgb(224, 230, 238);
+	border-block-end-color: rgb(224, 199, 224);
+	border-block-start-color: rgb(224, 199, 224);
+	border-right-color:  rgb(224, 199, 224);
+	border-left-color: rgb(224, 199, 224);
+	color: rgb(85, 84, 112);
 }
 #category{
-	background: rgb(88, 88, 90);
+	background: rgb(188, 210, 243);
 }
-
 .sort_command{
 	background-color: rgb(223, 184, 148);
 	margin-left:40px;
@@ -2325,10 +2330,7 @@ h3.like, h3.recent {
 	vertical-align:middle;
 }
 .sort_command ul{
+	margin-left:60px;
 	display: inline-block;
 }
-div.cart{
-	font-size:15px;
-	color:#555;
-	font-family: 'Roboto', sans-serif;
-}
+
