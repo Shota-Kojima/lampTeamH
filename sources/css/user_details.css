@@ -1,0 +1,212 @@
+/* 全体の設定 */
+.main {
+  margin: 50px 150px;
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 200px 80px 1fr;
+}
+
+/* 画面左側　ユーザー画像、名前、評価等 -------------------------------------*/
+.left {
+ grid-row: 1;
+ grid-column: 1;
+ width: 220px;
+ height: 320px;
+ background-color: #b6cde7;
+ box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+/* ユーザー写真 */
+.userpic {
+  display: inline-block;
+  width: 160px;
+  height: 160px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+  background: #cde4ff;
+  margin: 20px 27px 5px 27px ;
+}
+.name {
+  margin-top: 6px ;
+  text-align: center;
+}
+/* ユーザー総合評価★レート */
+.star-rating {
+  position: relative;
+  width: 5em;
+  height: 1em;
+  font-size: 25px;
+  margin-left: 50px;
+}
+.star-rating-front {
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  color: #ffcc33;
+}
+.star-rating-back {
+  color: rgb(252, 248, 248);
+}
+/* 画面右側一覧画面 -------------------------------------------------------*/
+.right {
+  float: left;
+  grid-column: 3;
+  grid-row: 2;
+}
+
+/*タブ切り替え全体のスタイル*/
+.tabs {
+  grid-column: 3;
+  grid-row: 1;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  width: 680px;
+  height: 600px;
+  margin: 0 40px;
+}
+
+/*タブのスタイル*/
+.tab_item {
+  width: calc(100%/2);
+  height: 50px;
+  border-bottom: 3px solid #5ab4bd;
+  background-color: #d9d9d9;
+  line-height: 50px;
+  font-size: 16px;
+  text-align: center;
+  color: #565656;
+  display: block;
+  float: left;
+  text-align: center;
+  font-weight: bold;
+  transition: all 0.2s ease;
+}
+.tab_item:hover {
+  opacity: 0.75;
+}
+
+/*ラジオボタンを全て消す*/
+input[name="tab_item"] {
+  display: none;
+}
+
+/*タブ切り替えの中身のスタイル*/
+.tab_content {
+  display: none;
+  width: 680px;
+  height: 550px;
+  overflow: scroll;
+}
+
+/*選択されているタブのコンテンツのみを表示*/
+#all:checked ~ #all_content,
+#evaluation:checked ~ #evaluation_content {
+  display: block;
+}
+
+/*選択されているタブのスタイルを変える*/
+.tabs input:checked + .tab_item {
+  background-color: #5ab4bd;
+  color: #fff;
+}
+/*出品一覧のコンテンツ*/
+.flame {
+  width: 190px;
+  height: 260px;
+  background-color: rgb(185, 226, 169);
+  display: block;
+  position: relative;
+}
+.flame > p {
+  text-align: center;
+  padding: 5px;
+}
+/* 商品の写真 */
+.products {
+  width: 170px;
+  height: 200px;
+  margin: 10px;
+}
+/* リスト */
+ul {
+  list-style-type: none;
+}
+#all_content li {
+  padding: 5px;
+  float: left;
+}
+#evaluation_content li {
+  padding: 5px;
+}
+/* SOLDリボン*/
+.ribbon19-content {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 80px;
+  height: 90px;
+  overflow: hidden;
+  }
+.ribbon19 {
+  display: inline-block;
+  position: absolute;
+  padding: 5px 0;
+  left: -7px;
+  top: 16px;
+  width: 120px;
+  text-align: center;
+  font-size: 16px;
+  line-height: 16px;
+  background: #da4747;
+  color: #fff;
+  letter-spacing: 0.05em;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  box-shadow: 0 0 0 2px rgb(91, 224, 241);
+}
+/* 評価一覧 */
+.eva_pic {
+  display: inline-block;
+  width: 75px;
+  height: 75px;
+  overflow: hidden;
+  border-radius: 50%;
+  background: #cde4ff;
+  margin: 10px 0 3px 5px ;
+}
+/* 吹き出し本体 */
+.balloon{
+  position: relative;
+  padding: 10px;
+  background-color: #bfeff8;
+  display: inline-block;     /* 横幅を自動で変更 */
+  margin-top: 0%;
+  margin-left: 5px;
+}
+/* アイコンを左に表示 */
+.balloon::before{
+  content: '';
+  position: absolute;
+  display: block;
+  width: 0;
+  height: 0;
+  left: -15px;
+  top: 20px;
+  border-right: 15px solid #bfeff8;
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid transparent;
+}
+.balloon > p {
+  line-height: 25px;
+}
+.time {
+  margin-top: 3px;
+  font-size: 13px;
+}
+/* 評価内の★レート */
+.rate {
+  margin-left: 10px;
+  color: #ffcc33;
+  font-size: 20px;
+}
