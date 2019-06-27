@@ -259,12 +259,15 @@ a.ico:hover{
 h1 img{
 position: absolute;
 top:40px;
-left:350px;
+left:330px;
 }
+.back1{
+	
 
+}
 .gray {
 	
-	background-color:#ccc;
+	background-color:rgb(201, 201, 201);
 	
    }
 	
@@ -275,6 +278,7 @@ left:350px;
    }	
    .top ul {
 	height:20px;
+	
    }
 	
    .top li {
@@ -307,7 +311,8 @@ left:350px;
    h1 {
 	text-align:center;
 	height:30px;
-	margin:45px auto 55px;
+	margin:25px auto 55px;
+	
    }
 	
    .navi ul {
@@ -319,7 +324,6 @@ left:350px;
    .navi li {
 	display:inline-block;
 	padding:0 10px;
-	
    }
    #form1{
 	position: absolute;;
@@ -362,7 +366,7 @@ left:350px;
 		text-align: center;
 		position:absolute;
 		top:60px;
-		left:900px;
+		left:930px;
 	  }
 	  .btn-border {
 		display: inline-block;
@@ -387,14 +391,16 @@ left:350px;
 	  .users{
 	  border-radius: 50%;
 	  position: relative;
-	  left:1130px;
+	  left:1170px;
 	  top:20px;
 	  }
 	  /*ヘッダーまわりはご自由に*/
 
   
   #nav-drawer {
-	position: relative;
+	position: absolute;
+	top:70px;
+	left:1280px;
   }
   
   /*チェックボックス等は非表示に*/
@@ -454,10 +460,38 @@ left:350px;
 	  height: 100%;
 	  background: #fff;/*背景色*/
 	  transition: .3s ease-in-out;/*滑らかに表示*/
-	  -webkit-transform: translateX(-105%);
-	  transform: translateX(-105%);/*左に隠しておく*/
+	  -webkit-transform: translateX(410%);
+	  transform: translateX(410%);/*左に隠しておく*/
   }
-  
+  #nav-content p{
+	padding-top:10px;
+	padding-left:15px;
+}
+#nav-content p img{
+	border-radius: 50%;
+	}
+	#nav-content li{
+		float: none;
+		font-size: 15px;
+		padding: 10px 15px 10px 15px;
+		list-style: none;
+		text-align: left;
+		border-bottom: dashed 1px #fedbf1;
+	  }
+	 #nav-content li:last-child{
+		border: none;
+	 }
+	 #nav-content li a{
+		text-decoration: none;
+		color: #000;
+	 }
+	 #nav-content a:before{
+		font-family: FontAwesome;
+		content: "\f07b";
+		color: #00bb80;/*アイコン色*/
+		margin-right: 5px;
+	 }
+	
   /*チェックが入ったらもろもろ表示*/
   #nav-input:checked ~ #nav-close {
 	  display: block;/*カバーを表示*/
@@ -465,8 +499,35 @@ left:350px;
   }
   
   #nav-input:checked ~ #nav-content {
-	  -webkit-transform: translateX(0%);
-	  transform: translateX(0%);/*中身を表示*/
+	  -webkit-transform: translateX(310%);
+	  transform: translateX(310%);/*中身を表示*/
 	  box-shadow: 6px 0 25px rgba(0,0,0,.15);
+  }
+  .hamburger-top {
+	height: 40px;
+	margin-top: 5px;
+  }
+  .cancel {
+	display: inline-block;
+	position: relative;
+	margin: 0 0 0 300px;
+	padding: 0;
+	width: 5px;
+	height: 30px;
+	background: #333;
+	transform: rotate(45deg);
+	z-index: 99
+  }
+  
+  .cancel:before {
+	display: block;
+	content: "";
+	position: absolute;
+	top: 50%;
+	left: -13px;
+	width: 31px;
+	height: 5px;
+	margin-top: -3px;
+	background: #333;
   }
   
