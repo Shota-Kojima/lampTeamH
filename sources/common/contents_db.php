@@ -568,21 +568,18 @@ class ccustomer extends crecord {
 	@return	配列（1次元配列になる）空の場合はfalse
 	*/
 	//--------------------------------------------------------------------------------------
+	
 	public function get_tgt($debug,$id){
-		if(!cutil::is_number($id)
-		||  $id < 1){
-			//falseを返す
-			return false;
-		}
-		//親クラスのselect()メンバ関数を呼ぶ
-		$this->select(
-			$debug,			//デバッグ表示するかどうか
-			"*",			//取得するカラム
-			"customer",	//取得するテーブル
-			"customer_id=" . $id	//条件
-		);
-		return $this->fetch_assoc();
+        //親クラスのselect()メンバ関数を呼ぶ
+        $this->select(
+            $debug,         //デバッグ表示するかどうか
+            "*",          //取得するカラム
+            "customer",    //取得するテーブル
+            "customer_id like '{$id}'"    //条件
+        );
+        return $this->fetch_assoc();
 	}
+	
 	//--------------------------------------------------------------------------------------
 	/*!
 	@brief	デストラクタ
@@ -593,4 +590,6 @@ class ccustomer extends crecord {
 		parent::__destruct();
 	}
 }
+
+
 ?>
