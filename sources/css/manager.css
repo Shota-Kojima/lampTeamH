@@ -563,7 +563,7 @@ left:330px;
 	position: relative;
 	top:5px;
 }
-  .text-center img{
+  .text-center #com1 img{
 		border-radius: 50%;
 		position: relative;
 		right:10px;
@@ -577,7 +577,7 @@ left:330px;
   .text-center #com0{
 	font-size:30px;
 	position: absolute;
-	top:800px;
+	top:790px;
 	left:40px;
   }
 #jsi-board{
