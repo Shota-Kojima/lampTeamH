@@ -57,6 +57,7 @@ if(isset($_POST['login_id']) && isset($_POST['login_pw'])){
     }
    
 }
+
 if(isset($_POST['login_id'])){
     $id = $_POST['login_id'];
 }
