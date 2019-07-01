@@ -267,7 +267,7 @@ cart_bgって名前のclassはオレンジ色にしたりする
 	  <div class="content_box">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-3">
+				<div class="col-md-2">
 					<!-- classにメニューボックスってある通り左にある -->
 					<!-- メニューボタンを表示してる -->
 					<!-- このリンク先に商品IDを付与してアクセスすることでDBから対象の情報とかを持ってきて
@@ -295,52 +295,10 @@ cart_bgって名前のclassはオレンジ色にしたりする
 						  <h3>Now <br> is <br> Open!</h3>
 					   </div>
 					</div>
-					<!-- 英語読めんけどTags Widgetって書いてあるところ出してるクラス -->
-				    <div class="tags">
-				    	<h4 class="tag_head">Tags Widget</h4>
-				         <ul class="tags_links">
-							<li><a href="#">Kitesurf</a></li>
-							<li><a href="#">Super</a></li>
-							<li><a href="#">Duper</a></li>
-							<li><a href="#">Theme</a></li>
-							<li><a href="#">Men</a></li>
-							<li><a href="#">Women</a></li>
-							<li><a href="#">Equipment</a></li>
-							<li><a href="#">Best</a></li>
-							<li><a href="#">Accessories</a></li>
-							<li><a href="#">Men</a></li>
-							<li><a href="#">Apparel</a></li>
-							<li><a href="#">Super</a></li>
-							<li><a href="#">Duper</a></li>
-							<li><a href="#">Theme</a></li>
-							<li><a href="#">Responsiv</a></li>
-					        <li><a href="#">Women</a></li>
-							<li><a href="#">Equipment</a></li>
-						</ul>
-						<a href="#" class="link1">View all tags</a>
-					 </div>
-					 <!-- 一個上のコメントと同じ感じ -->
-				     <div class="tags">
-				      	<h4 class="tag_head">Articles Experts</h4>
-				      	 <ul class="article_links">
-							<li><a href="#">Eleifend option congue nihil</a></li>
-							<li><a href="#">Investigationes demonst</a></li>
-							<li><a href="#">Qui sequitur mutationem</a></li>
-							<li><a href="#">videntur parum clar sollemnes</a></li>
-							<li><a href="#">ullamcorper suscipit lobortis</a></li>
-							<li><a href="#">commodo consequat. Duis autem</a></li>
-							<li><a href="#">Investigationes demonst</a></li>
-							<li><a href="#">ullamcorper suscipit lobortis</a></li>
-							<li><a href="#">Qui sequitur mutationem</a></li>
-							<li><a href="#">videntur parum clar sollemnes</a></li>
-							<li><a href="#">ullamcorper suscipit lobortis</a></li>
-						  </ul>
-						 <a href="#" class="link1">View all</a>
-				      </div>
 				</div>
 				<!-- あと商品出してるだけ -->
-			   <div class="col-md-9">
-				<h3 class="m_1">Products</h3>
+			   <div class="col-md-10">
+				<h4 class="title" style="margin-left:40px;">Products</h4>
 				<!--タブ-->
 				<ul class="tab-group">
 					<li class="tab is-active">販売商品</li>
@@ -393,28 +351,33 @@ cart_bgって名前のclassはオレンジ色にしたりする
 				</li>
 				<!--タブを切り替えて表示するコンテンツ-->
 				<div class="panel-group" style="float:right">
-					<li style="display: inline-block">
-						<div class="panel is-show">
-							{for $start=1 to $num}
+						<span class="panel is-show">
+						<div></div>
+							{for $start=0 to $limit}
 							<div class="col_1_of_3 span_1_of_3"> 
 								<a href="single.html">
 									<div class="product_image">
-										<img src="images/pic3.jpg" class="img-responsive" alt=""/>
-											<div>a</div>
+										<div style="height:60px;background:white;color:black;font-size:15px;text-align:center;">
+											<p style="display:inline-block;text-align:left;">{$products[$start]['product_name']}<p>
+										</div>
+										<img src="images/{$products[$start]['product_pass']}" class="img-responsive"/>
+										<div style="height:60px;background:white;color:black;font-size:20px;text-align:center;">
+											<div style="display:inline-block;text-align:left;"><p style="margin-top:15px;">{$products[$start]['price']}円</p></div>
+										</div>
 									</div>
 								</a>
 							</div>
 							{/for}
-						</div>
-					</li>
-					<li style="display: inline-block">
+						</span>
+					
+				
 						<div class="panel">
 						</div>
-					</li>
-					<li style="display: inline-block">
+			
+				
 						<div class="panel">
 						</div>
-					</li>
+				
 				</ul>
 				   <div class="clearfix"></div>
 			    </div>
