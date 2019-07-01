@@ -14,77 +14,182 @@ require_once("inc_base.php");
 require_once($CMS_COMMON_INCLUDE_DIR . "libs.php");
 require_once("inc_smarty.php");
 
-<<<<<<< HEAD
 
 $customer_id = 0;
 $err_array = array();
 $err_flag = 0;
-
+$registFlg = false;
 $page = 0;
+//それぞれのフラグを管理する配列
+$flg = array("customer_id"=>false,"customer_email"=>false,
+			"last_name"=>false,"last_name_kana"=>false,
+			"first_name"=>false,"first_name_kana"=>false,
+			"customer_address"=>false,"customer_password"=>false
+		);
 
-
+//useIDチェック
 if(isset($_POST['customer_id'])){
 	//IDが使われているかどうかチェックする
 	$customer_obj = new ccustomer();
-	$customer_id = $_GET['customer_id'];
+	$customer_id = $_POST['customer_id'];
 	$customerarr = $customer_obj->get_tgt(false,$customer_id);
-	//他にない場合他のデータを処理
-	if($productarr === false){
-		
-	
-	}
 	//使われている場合
-	else{
-		$customer_id_flg = true;
-		$smarty->assign('customer_id_flg',$customer_id_flg);
-	}
-}
-
-if(isset($_GET['product_id']) 
-//cutilクラスのメンバ関数をスタティック呼出
-	&& cutil::is_number($_GET['product_id'])
-	&& $_GET['product_id'] > 0){
-	//商品Hクラスを構築
-	$product_obj = new cproductH();
-	$product_id = $_GET['product_id'];
-	$productarr = $product_obj->get_tgt(false,$product_id);
 	if($productarr !== false){
-
-		//product_passを取得
-		$data = $productarr["product_pass"];
-		$productarr["product_pass"] = explode(',',$data);
-		//var_dump($productarr);
-		$smarty->assign('productarr',$productarr);
+		flgUpd(false);
+		$flg["customer_id"] = true;
+		$smarty->assign('flg',$flg);
 	}else{
-		
-	}
-	
-}else{
-	//購入時
-	if(isset($_POST['buy_count']) 
-	//cutilクラスのメンバ関数をスタティック呼出
-	&& cutil::is_number($_GET['buy_count'])
-	&& $_GET['buy_count'] > 0){
-	//商品Hクラスを構築
-		$product_obj = new cproductH();
-		$product_id = $_GET['product_id'];
-		$productarr = $product_obj->get_tgt(false,$product_id);
-		if($productarr !== false){
-			// echo '<script type="text/javascript">alert("'.$productarr[0].'");</script>';
-
-			//product_passを取得
-			$data = $productarr["product_pass"];
-			$productarr["product_pass"] = explode(',',$data);
-			//var_dump($productarr);
-			$smarty->assign('productarr',$productarr);
-		}else{
-			$smarty->display('user_Register.tmpl');
-		}
-	
-	}else{
-
+		flgUpd(true);
+		$flg["customer_id"] = false;
+		$smarty->assign('flg',$flg);
 	}
 }
+
+// mailAddressチェック
+if(isset($_POST['customer_email'])){
+	if (!preg_match("/^([a-zA-Z0-9])+([a-zA-Z0-9\._-])*@([a-zA-Z0-9_-])+([a-zA-Z0-9\._-]+)+$/", $_POST['email'])) {
+		flgUpd(false);
+		$flg["customer_email"] = true;
+		$smarty->assign('flg',$flg);
+	}else{
+		$flg["customer_email"] = false;
+		$smarty->assign('flg',$flg);
+	}
+}
+
+//性チェック
+if(isset($_POST['last_name'])){
+	//１０文字超えているかどうかチェックする
+	if(count($_POST['last_name']) <= 10){
+		flgUpd(false);
+		$flg["last_name"] = true;
+		$smarty->assign('flg',$flg);
+	}else{
+		$flg["last_name"] = false;
+		$smarty->assign('flg',$flg);
+	}
+}
+//せいチェック
+if(isset($_POST['last_name_kana'])){
+	//１０文字超えているかどうかチェックする
+	if(count($_POST['last_name_kana']) <= 10){
+		flgUpd(false);
+		$flg["last_name_kana"] = true;
+		$smarty->assign('flg',$flg);
+	}else{
+		$flg["last_name_kana"] = false;
+		$smarty->assign('flg',$flg);
+	}
+}
+//名
+if(isset($_POST['first_name'])){
+	//１０文字超えているかどうかチェックする
+	if(count($_POST['first_name']) <= 10){
+		flgUpd(false);
+		$flg["first_name"] = true;
+		$smarty->assign('flg',$flg);
+	}else{
+		$flg["first_name"] = false;
+		$smarty->assign('flg',$flg);
+	}
+}
+//めい
+if(isset($_POST['first_name_kana'])){
+	//１０文字超えているかどうかチェックする
+	if(count($_POST['first_name_kana']) <= 10){
+		flgUpd(false);
+		$flg["first_name_kana"] = true;
+		$smarty->assign('flg',$flg);
+	}else{
+		$flg["first_name_kana"] = false;
+		$smarty->assign('flg',$flg);
+	}
+}
+
+//住所
+if(isset($_POST['customer_address'])){
+	//１０文字超えているかどうかチェックする
+	if(!count($_POST['address']) <= 10){
+		flgUpd(false);
+		$flg["customer_address"] = true;
+		$smarty->assign('flg',$flg);
+	}else{
+		$flg["customer_address"] = false;
+		$smarty->assign('flg',$flg);
+	}
+}
+
+//PASSWORDチェック
+if(isset($_POST['customer_password'])&&isset($_POST['customer_password_check'])){
+	//１０文字超えているかどうかチェックする
+	if(!count($_POST['customer_password']) <= 15){
+		//PASSWORDが一致しているときのみ処理
+		if($_POST['customer_password'] === $_POST['customer_password_check']){
+			$flg["customer_password"] = false;
+			$smarty->assign('flg',$flg);
+		}else{
+			flgUpd(false);
+			$flg["customer_password"] = true;
+			$smarty->assign('flg',$flg);
+		}
+		
+	}else{
+		flgUpd(false);
+		$flg["customer_password"] = false;
+		$smarty->assign('flg',$flg);
+	}
+}
+
+
+if($registFlg){
+	regist();
+}
+
+// if(isset($_GET['product_id']) 
+// //cutilクラスのメンバ関数をスタティック呼出
+// 	&& cutil::is_number($_GET['product_id'])
+// 	&& $_GET['product_id'] > 0){
+// 	//商品Hクラスを構築
+// 	$product_obj = new cproductH();
+// 	$product_id = $_GET['product_id'];
+// 	$productarr = $product_obj->get_tgt(false,$product_id);
+// 	if($productarr !== false){
+
+// 		//product_passを取得
+// 		$data = $productarr["product_pass"];
+// 		$productarr["product_pass"] = explode(',',$data);
+// 		//var_dump($productarr);
+// 		$smarty->assign('productarr',$productarr);
+// 	}else{
+		
+// 	}
+	
+// }else{
+// 	//購入時
+// 	if(isset($_POST['buy_count']) 
+// 	//cutilクラスのメンバ関数をスタティック呼出
+// 	&& cutil::is_number($_GET['buy_count'])
+// 	&& $_GET['buy_count'] > 0){
+// 	//商品Hクラスを構築
+// 		$product_obj = new cproductH();
+// 		$product_id = $_GET['product_id'];
+// 		$productarr = $product_obj->get_tgt(false,$product_id);
+// 		if($productarr !== false){
+// 			// echo '<script type="text/javascript">alert("'.$productarr[0].'");</script>';
+
+// 			//product_passを取得
+// 			$data = $productarr["product_pass"];
+// 			$productarr["product_pass"] = explode(',',$data);
+// 			//var_dump($productarr);
+// 			$smarty->assign('productarr',$productarr);
+// 		}else{
+// 			$smarty->display('user_Register.tmpl');
+// 		}
+	
+// 	}else{
+
+// 	}
+// }
 // //$_POST優先
 // if(isset($_POST['member_id']) 
 // //cutilクラスのメンバ関数をスタティック呼出
@@ -149,6 +254,10 @@ if(isset($_GET['product_id'])
 /// 関数ブロック
 /////////////////////////////////////////////////////////////////
 
+function flgUpd($bool){
+	global $registFlg;
+	$registFlg = $bool;
+}
 
 //--------------------------------------------------------------------------------------
 /*!
@@ -214,18 +323,23 @@ function paramchk(){
 */
 //--------------------------------------------------------------------------------------
 function regist(){
+	echo '<script type="text/javascript">alert("regist呼べました");</script>';
 	global $customer_id;
+	$_POST['point'] = 0;
+	$_POST['icon_pass'] = "";
 	$dataarr = array();
 	$dataarr['customer_id'] = (string)$_POST['customer_id'];//ID
-	$dataarr['email'] = (int)$_POST['email'];//メールアドレス
-	$dataarr['sex'] = (int)$_POST['sex'];//メールアドレス
+	$dataarr['customer_email'] = (string)$_POST['customer_email'];//メールアドレス
 	$dataarr['last_name'] = (string)$_POST['last_name'];//性
-	$dataarr['last_name_kana'] = (int)$_POST['last_name_kana'];//せい
+	$dataarr['last_name_kana'] = (string)$_POST['last_name_kana'];//せい
 	$dataarr['first_name'] = (string)$_POST['first_name'];//名
 	$dataarr['first_name_kana'] = (string)$_POST['first_name_kana'];//めい
-	$dataarr['address'] = (string)$_POST['address'];//住所
+	$dataarr['customer_address'] = (string)$_POST['customer_address'];//住所
+	$dataarr['icon_pass'] = (string)$_POST['icon_pass'];//アイコンの初期画像
+	$dataarr['customer_point'] = (int)$_POST['customer_point'];//ポイント = 0
 	$dataarr['customer_created_date'] = (string)$_POST['customer_created_date'];//作成日
 	$dataarr['customer_password'] = (string)$_POST['customer_password'];//パス
+	$dataarr['customer_sex'] = (int)$_POST['customer_sex'];//性別
 	$chenge = new cchange_ex();
 	if($customer_id > 0){
 		$chenge->update('customer',$dataarr,'customer_id=' . $customer_id);
@@ -342,12 +456,8 @@ function assign_member_id(){
 /////////////////////////////////////////////////////////////////
 
 $smarty->assign('err_array',$err_array);
-
+$smarty->assign('flg',$flg);
 $smarty->display('user_Register.tmpl');
 ?>
 
 
-=======
-$smarty->dispray('user_Register.tmpl')
-?>
->>>>>>> c57e42dfc7e1b43b7f761d1b3def5d2a1abe4543
