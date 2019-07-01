@@ -15,6 +15,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <script src="js/jquery.min.js"></script>
 <!-- Custom Theme files -->
 <link href="css/style.css" rel='stylesheet' type='text/css' />
+<link href="css/manager.css" rel='stylesheet' type='text/css' />
 <link href="css/component.css" rel='stylesheet' type='text/css' />
 <!-- Custom Theme files -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -79,6 +80,52 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			            fit: true   // 100% fit in a container
 			        });
 			    });
+			   </script>
+			   <script>
+			   function getBotSpeech() {
+　　　　　　　　// 入力したテキストを取得
+    var inputText = $('#txt').val();
+
+　　　　　　　　// 入力したテキストをチャット画面に表示
+    var messageMine = $("<div class='chatBox'><div class='usr chatBalloon'>" + esc(inputText) + "</div></div>");
+    $('#chat').append(messageMine);
+　　　　　　　　
+　　　　　　　　　// botの返答を取得＆表示
+    $.ajax({
+        // パラメータで文言を送信
+        url: "ここにbotの文言を取得するURLを入力?text=" + encodeURI(inputText),
+        type: "GET",
+        async: true,
+        cache: false
+    }).done(function(data) {
+　　　　　　　　　　　　　　　　// 返答をチャット画面に表示
+        var chat = $("<div class='chatBox'><div class='bot chatBalloon'>" + esc(data) + "</div></div>");
+        $('#chat').append(chat);
+    }).fail(function(data) {}).always(function(data) {});
+　　　　　　　　
+    //返答したらテキストボックスは空に
+    $('#txt').val('').focus();
+}
+
+function esc(s) {
+    return s.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;');
+}
+
+function clickHandler(e) {
+    getBotSpeech();
+}
+
+function textareaHandler(e) {
+    if (!(e.keyCode == 13 && e.shiftKey)) return;
+    getBotSpeech();
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+　　　　// 送信ボタンをおしたとき
+    document.querySelector('.chat-btn').addEventListener('click', clickHandler);
+　　　　// Shift + Enterでも送信できるように
+    document.querySelector('#txt').addEventListener('keyup', textareaHandler);
+});
 			   </script>	
 </head>
 <body>
@@ -86,7 +133,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<div class="container">
 		<div class="header-top">
       		 <div class="logo">
-				<a href="index.html"><img src="images/logo.png" alt=""/></a>
+				<a href="products.php"><img src="images/logo.png" alt=""/></a>
 			 </div>
 		   <div class="header_right">
 			 <ul class="social">
@@ -110,8 +157,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		 </div>  
 		 <div class="apparel_box">
 			<ul class="login">
-				<li class="login_text"><a href="login.html">Login</a></li>
-				<li class="wish"><a href="checkout.html">Wish List</a></li>
+				<li class="login_text"><a href="loginH.php">Login</a></li>
+				<li class="wish"><a href="cart.php">Wish List</a></li>
 				<div class='clearfix'></div>
 		    </ul>
 		    <div class="cart_bg">
@@ -126,8 +173,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		      <div class='clearfix'></div>
 			 </div>
 			 <ul class="quick_access">
-				<li class="view_cart"><a href="checkout.html">View Cart</a></li>
-				<li class="check"><a href="checkout.html">Checkout</a></li>
+				<li class="view_cart"><a href="checkout.php">View Cart</a></li>
+				<li class="check"><a href="checkout.php">Checkout</a></li>
 				<div class='clearfix'></div>
 		     </ul>
 			<div class="search">
@@ -215,7 +262,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			    <div class="dreamcrub">
 			   	 <ul class="breadcrumbs">
                     <li class="home">
-                       <a href="index.html" title="Go to Home Page">Home</a>&nbsp;
+                       <a href="products.php" title="Go to Home Page">Home</a>&nbsp;
                        <span>&gt;</span>
                     </li>
                     <li class="home">&nbsp;
@@ -231,7 +278,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     </li>
                 </ul>
                 <ul class="previous">
-                	<li><a href="index.html">商品一覧へ</a></li>
+                	<li><a href="products.php">商品一覧へ</a></li>
                 </ul>
                 <div class="clearfix"></div>
 			   </div>
@@ -321,32 +368,42 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			</div>
 			<div class="clearfix"></div>
 		   </div>
-
-			<div class="text-center" id="horizontalTab" style="display: block; width: 100%; margin: 0px;">
+		   <div class="back2">
+			<div class="text-center">
 				<!-- 自分やユーザーの情報 -->
 				<div>
+				<div>
+				
 					<!-- 投稿者 -->
 					<div>
-						<p>ユーザ名</p>
-						<textarea name="" id="jsi-name" cols="10" rows="1"></textarea>
+					<p id="com0">
+				<img src="images/chat11.png" width="70px" height="70px">
+				出品者との取引チャット
+				</p>
+						<p id="com1"><img src="images/user.png" width="50px" height="50px">ユーザ名：
+						<textarea  id="jsi-name" cols="15" rows="1"></textarea>
+						</p>
+						
 					</div>
-
+					</div>
 					<!-- メッセージを打ち込む部分 -->
-					<div>
-						<p>内容</p>
-						<textarea name="" id="jsi-msg" cols="30" rows="4"></textarea>
+					<div class="inputText">
+						 <textarea rows="5" id="txt" class="form-control" placeholder="テキストを入力..."></textarea>
+						 <button type="button" class="btn btn-info chat-btn">送信</button>
+
 					</div>
 				</div>
-
-				<!-- メッセージを送る部分 -->
-				<button name="button" id="jsi-button">send message!</button>
-
 				<!-- チャット内容が動的に生成される部分 -->
-				<ul id="jsi-board" style="list-style:none;">
-					<li>〜チャット内容〜</li>
-				</ul>
+				<div class="panel panel-default">
+        <div class="panel-heading">
+            <h1 class="panel-title">チャット</h1>
+        </div>
+        <div class="panel-body">
+            <div id='chat'></div>
+        </div>
+    </div>
 			</div>
-			
+			</div>
 
 		   <div class="sap_tabs">	
 				     

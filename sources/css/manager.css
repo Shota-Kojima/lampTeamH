@@ -528,4 +528,112 @@ left:330px;
 	margin-top: -3px;
 	background: #333;
   }
-  
+  .back2{
+	  margin-top:20px;
+	padding: 0.5em;/*文字周りの余白*/
+	background:  #c1dcff;/*背景色*/
+	border-bottom: solid 3px #516ab6;/*下線*/
+  }
+  #jsi-button1{
+	background: 8px 9px #516ab6;
+	padding: 6px 17px;
+	border: none;
+	cursor: pointer;
+	line-height: 1.5em;
+	outline: none;
+	color:#FFFFFF;
+	position: relative;
+	left:95px;
+  }
+  #jsi-button{
+	background: 8px 9px #516ab6;
+	padding: 6px 17px;
+	border: none;
+	cursor: pointer;
+	line-height: 1.5em;
+	outline: none;
+	color:#FFFFFF;
+	position: relative;
+	left:110px;
+  }
+  .text-center{
+	  padding-right:400px;
+  }
+  .text-center #jsi-name{
+	position: relative;
+	top:5px;
+}
+  .text-center #com1 img{
+		border-radius: 50%;
+		position: relative;
+		right:10px;
+  }
+  .text-center #com1{
+	  padding:5px 170px 0px 0px;
+	  position: absolute;
+	  top:900px;
+	  right:400px;
+  }
+  .text-center #com0{
+	font-size:30px;
+	position: absolute;
+	top:790px;
+	left:40px;
+  }
+#jsi-board{
+	margin-top: 20px;
+	background: #ffffff;/*背景色*/
+  padding: 0.5em;/*文字まわり（上下左右）の余白*/
+
+}
+.panel {
+	position: relative;
+	left:440px;
+	margin: 0;
+	width:380px;
+}
+
+.panel-body {
+    height: 500px;
+    overflow: auto;
+}
+
+.chatBox {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+
+.chatBalloon {
+    display: inline-block;
+    border-radius: 10px;
+    padding: 5px;
+    margin: 5px;
+    background-color: white;
+}
+
+.bot {
+    float: left;
+    display: inline-block;
+}
+
+.usr {
+    float: right;
+    background-color: rgb(152, 252, 152);
+}
+
+.inputText {
+	text-align: right;
+	display: inline-block;
+}
+.inputText textarea{
+width:400px;
+position: absolute;
+top:970px;
+left:40px;
+}
+.inputText button{
+	position: absolute;
+	top:1100px;
+	left:385px;
+}

@@ -148,7 +148,21 @@ function deleteRow(obj)
       <input id="nav-input" type="checkbox" class="nav-unshown">
       <label id="nav-open" for="nav-input"><span></span></label>
       <label class="nav-unshown" id="nav-close" for="nav-input"></label>
-      <div id="nav-content">ここに中身を入れる</div>
+      <div id="nav-content">
+      <div class="hamburger-top"><label class="cancel" for="nav-input"></label></div>
+      <ul>
+      <p>
+      <img src="images/user.png" width="100px" height="100px">
+      ユーザID・メアド
+      </p>
+      <li><a href="#"><img src="images/top.png" width="40px" height="40px">Top</a></li>
+      <li><a href="manager_list.php"><img src="images/kanri.png" width="40px" height="40px">管理者一覧</a></li>
+      <li><a href="#"><img src="images/return.png" width="40px" height="40px">未返却リスト</a></li>
+      <li><a href="#"><img src="images/blacklist.png" width="40px" height="40px">ブラックリスト</a></li>
+      <li><a href="contact_list.php"><img src="images/contact.png" width="40px" height="40px">お問い合わせ一覧</a></li>
+      <li><a href="#"><img src="images/logout.png" width="40px" height="40px">ログアウト</a></li>
+      </ul>
+      </div>
   </div>
 </div>
    <div class="main">
@@ -169,7 +183,7 @@ function deleteRow(obj)
 					   	  	<li><a href="apparel.html">Brands</a></li>
 					   	  	<li><a href="apparel.html">Blog</a></li>
 					   	  	<li><a href="apparel.html">Gadgets</a></li>
-					   	  	<li><a href="contact.html">Contact</a></li>
+					   	  	<li><a href="contact.php">Contact</a></li>
 					   	 </ul>
 			   	    </div>
 			   	    <div class="side_banner">
@@ -183,7 +197,7 @@ function deleteRow(obj)
 			    <div class="dreamcrub">
 			   	 <ul class="breadcrumbs">
                     <li class="home">
-                       <a href="index.html" title="Go to Home Page">Home</a>&nbsp;
+                       <a href="products.php" title="Go to Home Page">Home</a>&nbsp;
                        <span>&gt;</span>
                     </li>
                     <li class="women">
@@ -191,7 +205,7 @@ function deleteRow(obj)
                     </li>
                 </ul>
                 <ul class="previous">
-                	<li><a href="index.html">前のページへ戻る</a></li>
+                	<li><a href="products.php">前のページへ戻る</a></li>
                 </ul>
                 <div class="clearfix"></div>
 			   </div>

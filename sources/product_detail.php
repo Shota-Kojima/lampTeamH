@@ -42,7 +42,7 @@ if(isset($_POST['product_id'])
 	$product_id = $_POST['product_id'];
 }
 //商品クラスを構築
-$product_obj = new cproduct();
+$product_obj = new cproductH();
 
 //配列に商品を$_POSTに取り出す
 //すでにPOSTされていたら、DBからは取り出さない
