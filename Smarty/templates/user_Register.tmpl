@@ -4,15 +4,12 @@ Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
+<!--cssはstyle.cssを編集せずにそのまま使いました-->
 <!DOCTYPE HTML>
 <html>
 <head>
-<<<<<<< HEAD
-<title>Surfhouse Bootstarp Website Template | Checkout :: w3layouts</title>
-=======
-{literal}
-<title>Surfhouse Bootstarp Website Template | Contact :: w3layouts</title>
->>>>>>> b20bfea047fe8f2145c518e7bf0883ad70708606
+
+<title>Surfhouse Bootstarp Website Template | Register :: w3layouts</title>
 <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="js/jquery.min.js"></script>
@@ -45,12 +42,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		</script>
 </head>
 <body>
-<<<<<<< HEAD
    <div class="single">
 	<div class="container">
 		<div class="header-top">
       		 <div class="logo">
-				<a href="products.php"><img src="images/logo.png" alt=""/></a>
+				<a href="index.html"><img src="images/logo.png" alt=""/></a>
 			 </div>
 		   <div class="header_right">
 			 <ul class="social">
@@ -94,116 +90,129 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<li class="check"><a href="checkout.html">Checkout</a></li>
 				<div class='clearfix'></div>
 		     </ul>
+			<div class="search">
+				{literal}
+			   <input type="text" value="Search" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search';}">
+			   <input type="submit" value="">
+			   {/literal}
+			</div>
 		  </div>
 		</div>
     </div>
+	<!--会員登録のクラス-->
     <div class="main">
 	   <div class="container">
-		   <div class="register">
-		  	  <h4 class="title">購入</h4>
-		  	  <div class="cart">購入カート内に商品はありません。<br>買い物をするには<a href="products.php">ここ</a>をクリック</div>
-            　<h4 class="title">レンタル</h4>
-		  	　<div class="cart">レンタルカート内に商品はありません。<br>買い物をするには<a href="products.php">ここ</a>をクリック</p>
+		  <div class="register">
+		  	  <form> 
+				 <div class="register-top-grid">
+					<h3>会員登録</h3>
+					 <div>
+						<span>氏<font color="red">　必須</font></span>
+						<input type="text" name="last_name"> 
+					 </div>
+					 <div>
+						<span>せい<font color="red">　必須</font></span>
+						<input type="text" name="last_name_kana"> 
+					 </div>
+					 <div>
+						<span>名<font color="red">　必須</font></span>
+						<input type="text" name="first_name"> 
+					 </div>
+					 <div>
+						<span>めい<font color="red">　必須</font></span>
+						<input type="text" name="first_name_kana"> 
+					 </div>
+					 <div>
+						<span>住所<font color="red">　必須</font></span>
+						<select name="ken">
+						<option value="" selected>都道府県</option>
+							<option value="1">北海道</option>
+							<option value="2">青森県</option>
+							<option value="3">岩手県</option>
+							<option value="4">宮城県</option>
+							<option value="5">秋田県</option>
+							<option value="6">山形県</option>
+							<option value="7">福島県</option>
+							<option value="8">茨城県</option>
+							<option value="9">栃木県</option>
+							<option value="10">群馬県</option>
+							<option value="11">埼玉県</option>
+							<option value="12">千葉県</option>
+							<option value="13">東京都</option>
+							<option value="14">神奈川県</option>
+							<option value="15">新潟県</option>
+							<option value="16">富山県</option>
+							<option value="17">石川県</option>
+							<option value="18">福井県</option>
+							<option value="19">山梨県</option>
+							<option value="20">長野県</option>
+							<option value="21">岐阜県</option>
+							<option value="22">静岡県</option>
+							<option value="23">愛知県</option>
+							<option value="24">三重県</option>
+							<option value="25">滋賀県</option>
+							<option value="26">京都府</option>
+							<option value="27">大阪府</option>
+							<option value="28">兵庫県</option>
+							<option value="29">奈良県</option>
+							<option value="30">和歌山県</option>
+							<option value="31">鳥取県</option>
+							<option value="32">島根県</option>
+							<option value="33">岡山県</option>
+							<option value="34">広島県</option>
+							<option value="35">山口県</option>
+							<option value="36">徳島県</option>
+							<option value="37">香川県</option>
+							<option value="38">愛媛県</option>
+							<option value="39">高知県</option>
+							<option value="40">福岡県</option>
+							<option value="41">佐賀県</option>
+							<option value="42">長崎県</option>
+							<option value="43">熊本県</option>
+							<option value="44">大分県</option>
+							<option value="45">宮崎県</option>
+							<option value="46">鹿児島県</option>
+							<option value="47">沖縄県</option>
+							</select>
+						<input type="text" name="address"> 
+					 </div>
+					 <div>
+						 <span>メールアドレス<font color="red">　必須</font></span>
+						 <input type="text" name="email" autocomplete="off"> 
+					 </div>
+					 <div class="clearfix"> </div>
+					   <a class="news-letter" href="#">
+						 <label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i> </i>メールでお知らせを受け取る</label>
+					   </a>
+					 </div>
+				     <div class="register-bottom-grid">
+							<h3>ID・パスワード登録</h3>
+							<div>
+								{if $customer_id_flg eq true}<font color="red">このIDは使用されています</font>{/if}
+								<span>ID<font color="red">　必須</font></span>
+								<input type="text" name="customer_id" autocomplete="off">
+							 </div>
+							 <div>
+								<span>パスワード(８文字以上　半角英数)<font color="red">　必須</font></span>
+								<input type="password" name="customer_password" size="30" minlength="8" pattern="[a-zA-Z0-9]+" title="パスワードは8文字以上の半角英数字で入力してください。" required autocomplete="off">
+							 </div>
+							 <div>
+								<span>パスワード確認<font color="red">　必須</font></span>
+								<input type="password" name="pass" size="30" minlength="8" pattern="[a-zA-Z0-9]+" title="パスワードは8文字以上の半角英数字で入力してください。" required autocomplete="off">
+							 </div>
+					 </div>
+				</form>
+				
+				<div class="register-but">
+				   <form>
+					   <input type="submit" value="確認">
+					   <div class="clearfix"> </div>
+				   </form>
+				</div>
 		   </div>
-	     </div>
 	    </div>
-=======
- <div class="map">
-   	 <div class="contact_logo">
-		<a href="index.html"><img src="images/logo.png" alt=""/></a>
-	 </div>
-     <iframe width="100%" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.co.in/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Lighthouse+Point,+FL,+United+States&amp;aq=4&amp;oq=light&amp;sll=26.275636,-80.087265&amp;sspn=0.04941,0.104628&amp;ie=UTF8&amp;hq=&amp;hnear=Lighthouse+Point,+Broward,+Florida,+United+States&amp;t=m&amp;z=14&amp;ll=26.275636,-80.087265&amp;output=embed"></iframe><br><small><a href="https://maps.google.co.in/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Lighthouse+Point,+FL,+United+States&amp;aq=4&amp;oq=light&amp;sll=26.275636,-80.087265&amp;sspn=0.04941,0.104628&amp;ie=UTF8&amp;hq=&amp;hnear=Lighthouse+Point,+Broward,+Florida,+United+States&amp;t=m&amp;z=14&amp;ll=26.275636,-80.087265" style="color:#666;text-align:left;font-size:12px"></a></small>
-   </div>
-   <div class="main">
-	  <div class="content_box">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-3">
-					<div class="menu_box">
-				   	  	<h3 class="menu_head">Menu</h3>
-				   	     <ul class="nav">
-					   	  	<li><a href="apparel.html">About</a></li>
-					   	  	<li><a href="apparel.html">Apparel</a></li>
-					   	  	<li><a href="apparel.html">Surf Apparel</a></li>
-					   	  	<li><a href="apparel.html">Windsurf</a></li>
-					   	  	<li><a href="apparel.html">Kitesurf</a></li>
-					   	  	<li><a href="apparel.html">Accessories</a></li>
-					   	  	<li><a href="apparel.html">Sale</a></li>
-					   	  	<li><a href="apparel.html">Brands</a></li>
-					   	  	<li><a href="apparel.html">Blog</a></li>
-					   	  	<li><a href="apparel.html">Gadgets</a></li>
-					   	  	<li><a href="contact.html">Contact</a></li>
-					   	 </ul>
-			   	    </div>
-			   	    <div class="side_banner">
-					   <div class="banner_img"><img src="images/pic9.jpg" class="img-responsive" alt=""/></div>
-					   <div class="banner_holder">
-						  <h3>Now <br> is <br> Open!</h3>
-					   </div>
-				     </div>
-			  </div>
-			  <div class="col-md-9">
-			    <div class="dreamcrub">
-			   	 <ul class="breadcrumbs">
-                    <li class="home">
-                       <a href="index.html" title="Go to Home Page">Home</a>&nbsp;
-                       <span>&gt;</span>
-                    </li>
-                    <li class="women">
-                       お問い合わせ
-                    </li>
-                </ul>
-                <ul class="previous">
-                	<li><a href="index.html">前のページへ戻る</a></li>
-                </ul>
-                <div class="clearfix"></div>
-			   </div>
-			   <div class="singel_right">
-			     <div class="lcontact span_1_of_contact">
-				      <div class="contact-form">
-				  	        <form method="post" action="contact-post.html">
-							  	<p class="comment-form-author"><label for="author">メールアドレス:</label>
-						     	   <input type="text" class="textbox" value="ここにメールアドレスを入力して下さい..." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'メールアドレス';}">
-						        </p>
-						        <p class="comment-form-author"><label for="author">メッセージ:</label>
-						    	  <textarea value="Enter your message here..." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'メッセージ';}">ここにメッセージを入力して下さい...</textarea>
-						        </p>
-						        <input name="submit" type="submit" id="submit" value="送信">
-					        </form>
-				       </div>
-			     </div>
-			     <div class="contact_grid span_2_of_contact_right">
-					<h3>Address</h3>
-				    <div class="address">
-						<i class="pin_icon"></i>
-					    <div class="contact_address">
-						  Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non
-					    </div>
-					    <div class="clearfix"></div>
-					</div>
-					<div class="address">
-						<i class="phone"></i>
-					    <div class="contact_address">
-						   1-25-2568-897
-					    </div>
-					    <div class="clearfix"></div>
-					</div>
-					<div class="address">
-						<i class="mail"></i>
-					    <div class="contact_email">
-						  info(at)surfhouse.com
-					    </div>
-					    <div class="clearfix"></div>
-					</div>
-		        </div>
-		        <div class="clearfix"></div>
-		    </div>
-		   </div>
-		  </div>
-	     </div>
-	    </div>
-	    </div>
->>>>>>> b20bfea047fe8f2145c518e7bf0883ad70708606
+	</div>
+
 		<div class="container">
 		  <div class="brands">
 			 <ul class="brand_icons">
@@ -286,13 +295,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				  <div class="footer-grid">
 					<h3>Newsletter</h3>
 					<p class="footer_desc">Nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat</p>
-<<<<<<< HEAD
-=======
 					<div class="search_footer">
+					{literal}
 			          <input type="text" class="text" value="Insert Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Insert Email';}">
 			          <input type="submit" value="Submit">
+					{/literal}
 			        </div>
->>>>>>> b20bfea047fe8f2145c518e7bf0883ad70708606
 			        <img src="images/payment.png" class="img-responsive" alt=""/>
 				 </div>
 				 <div class="footer-grid footer-grid_last">
@@ -312,8 +320,4 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         	</div>
         </div>
 </body>
-<<<<<<< HEAD
-=======
-{/literal}
->>>>>>> b20bfea047fe8f2145c518e7bf0883ad70708606
 </html>		
