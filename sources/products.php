@@ -12,17 +12,35 @@ require_once("inc_smarty.php");
 //1ページのリミット
 $limit = 12;
 $rows = array();
+
 readdata();
 $smarty->assign('limit',$limit);
 $smarty->assign('products',$rows);
+
 
 //データの読み込み
 function readdata(){
 	global $limit;
 	global $rows;
+	global $tgt_culmn;
+	$tgt_culmn = "product_id";
+if(isset($_GET['sort_method'])){
+	if($_GET['sort_method'] == "aiueo_order"){
+		$tgt_culmn = "product_name";
+	}
+	else if($_GET['sort_method'] == "sales_order"){
+		$tgt_culmn = "product_name";
+	}
+	else if($_GET['sort_method'] == "price_desk_order"){
+		$tgt_culmn = "price desc";
+	}
+	else if($_GET['sort_method'] == "price_ask_order"){
+		$tgt_culmn = "price";
+	}
+}
 	$obj = new cproductH();
 	$from = 0;
-		$rows = $obj->get_all(false,$from,$limit);
+	$rows = $obj->get_all_order(false,$from,$limit,$tgt_culmn);
 }
 //Smartyを使用した表示(テンプレートファイルの指定)
 $smarty->display('products.tmpl');

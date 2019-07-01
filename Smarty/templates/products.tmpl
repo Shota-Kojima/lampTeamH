@@ -77,7 +77,7 @@ cart_bgって名前のclassはオレンジ色にしたりする
         <div class="header-top">
 			<!-- ロゴ -->
       		<div class="logo">
-				<a href="index.html"><img src="images/logo.png" alt=""/></a>
+				<a href="products.php"><img src="images/logo.png" alt=""/></a>
 			</div>
 			<!-- SNS連携のアイコン -->
 		   	<div class="header_right">
@@ -118,9 +118,9 @@ cart_bgって名前のclassはオレンジ色にしたりする
 								<!-- ログインボタン関連 -->
 				   		 		<ul class="login">
 									<!-- ログインボタンを押したらlogin.htmlを表示する -->
-				   		 			<li class="login_text"><a href="login.html">Login</a></li>
+				   		 			<li class="login_text"><a href="loginH.php">Login</a></li>
 									<!-- 欲しいものリストを押したらcheckout.htmlを表示する -->
-									<li class="wish"><a href="checkout.html">Wish List</a></li>
+									<li class="wish"><a href="cart.php">Wish List</a></li>
 				   		 			<div class='clearfix'></div>
 				   		 		</ul>
 								<!-- カート値段とか×とか出してるところ	 -->
@@ -141,8 +141,8 @@ cart_bgって名前のclassはオレンジ色にしたりする
 								<!-- カートを表示(view cart)とチェックアウト(購入ページ説？わからん)を表示 -->
 								<ul class="quick_access">
 									<!-- 各ボタンを押した際、href=に設定したページへ遷移 -->
-				   		 			<li class="view_cart"><a href="checkout.html">View Cart</a></li>
-				   		 			<li class="check"><a href="checkout.html">Checkout</a></li>
+				   		 			<li class="view_cart"><a href="cart.php">View Cart</a></li>
+				   		 			<li class="check"><a href="cart.php">Checkout</a></li>
 				   		 			<div class='clearfix'></div>
 								</ul>
 								<!-- 検索できるところを作ってる	 -->
@@ -210,7 +210,7 @@ cart_bgって名前のclassはオレンジ色にしたりする
 				   	  <div class="banner-wrap">
 				   	       <div class="bannertop_box">
 				   		 		<ul class="login">
-				   		 			<li class="login_text"><a href="login.html">Login</a></li>
+				   		 			<li class="login_text"><a href="loginH.php">Login</a></li>
 				   		 			<li class="wish"><a href="#">Wish List</a></li>
 				   		 			<div class='clearfix'></div>
 				   		 		</ul>
@@ -285,7 +285,7 @@ cart_bgって名前のclassはオレンジ色にしたりする
 					   	  	<li><a href="apparel.html">Brands</a></li>
 					   	  	<li><a href="apparel.html">Blog</a></li>
 					   	  	<li><a href="apparel.html">Gadgets</a></li>
-					   	  	<li><a href="contact.html">Contact</a></li>
+					   	  	<li><a href="contact.php">Contact</a></li>
 					   	 </ul>
 					</div>
 					<!-- 黒髪の赤い服の女の人を出してるところ(キャンペーンの広告だしたりに使えそう) -->
@@ -305,11 +305,12 @@ cart_bgって名前のclassはオレンジ色にしたりする
 					<li class="tab">レンタル商品</li>
 					<li class="tab">フリマ商品</li>
 				</ul>
+				<form action="products.php" method="get">
 				<ul class="sort_command">
-					<li ><a href="#">五十音順</a></li>
-					<li ><a href="#">売れ筋順</a></li>
-					<li ><a href="#">価格高い順</a></li>
-					<li ><a href="#">価格低い順</a></li>
+					<li ><a href="products.php?sort_method=aiueo_order">五十音順</a></li>
+					<li ><a href="products.php?sort_method=sales_order">売れ筋順</a></li>
+					<li ><a href="products.php?sort_method=price_desk_order">価格高い順</a></li>
+					<li ><a href="products.php?sort_method=price_ask_order">価格低い順</a></li>
 					<ul>
 					</ul>
 					<ul>
@@ -320,6 +321,7 @@ cart_bgって名前のclassはオレンジ色にしたりする
 					<li ><a href="#">５</a></li>
 					</ul>
 				</ul>
+				</form>
 				<ul style="font-size:0">
 				<li style="display: inline-block">
 				<table width="150px" height="400px" class="product_category" border="1" cellspacing="0" cellpadding="5" bordercolor="#333333">
@@ -327,7 +329,8 @@ cart_bgって名前のclassはオレンジ色にしたりする
 				<td id="category">カテゴリ</td>
 				</tr>
 				<tr>
-				<td><a href="#">ライティング</a></td>
+				<form action="products.php" method="post">
+				<td><a>ライティング</a></td>
 				</tr>
 				<tr>
 				<td><a href="#">バッグ</a></td>
@@ -346,6 +349,7 @@ cart_bgって名前のclassはオレンジ色にしたりする
 				</tr>
 				<tr>
 				<td><a href="#">ファニチャー</a></td>
+				</form>
 				</tr>
 				</table>
 				</li>
@@ -354,8 +358,9 @@ cart_bgって名前のclassはオレンジ色にしたりする
 						<span class="panel is-show">
 						<div></div>
 							{for $start=0 to $limit}
+							{if $products[$start]['product_category'] == 1}
 							<div class="col_1_of_3 span_1_of_3"> 
-								<a href="single.html">
+								<a href="product_detail.php">
 									<div class="product_image">
 										<div style="height:60px;background:white;color:black;font-size:15px;text-align:center;">
 											<p style="display:inline-block;text-align:left;">{$products[$start]['product_name']}<p>
@@ -367,16 +372,53 @@ cart_bgって名前のclassはオレンジ色にしたりする
 									</div>
 								</a>
 							</div>
+							{/if}
 							{/for}
 						</span>
 					
 				
-						<div class="panel">
-						</div>
+						<span class="panel">
+						<div></div>
+							{for $start=0 to $limit}
+							{if $products[$start]['product_category'] == 2}
+							<div class="col_1_of_3 span_1_of_3"> 
+								<a href="product_detail.php">
+									<div class="product_image">
+										<div style="height:60px;background:white;color:black;font-size:15px;text-align:center;">
+											<p style="display:inline-block;text-align:left;">{$products[$start]['product_name']}<p>
+										</div>
+										<img src="images/{$products[$start]['product_pass']}" class="img-responsive"/>
+										<div style="height:60px;background:white;color:black;font-size:20px;text-align:center;">
+											<div style="display:inline-block;text-align:left;"><p style="margin-top:15px;">{$products[$start]['price']}円</p></div>
+										</div>
+									</div>
+								</a>
+							</div>
+							{/if}
+							{/for}
+						</span>
 			
 				
-						<div class="panel">
-						</div>
+						<span class="panel">
+						<div></div>
+							{for $start=0 to $limit}
+							{if $products[$start]['product_category'] == 3}
+							<div class="col_1_of_3 span_1_of_3"> 
+								<a href="product_detail.php">
+									<div class="product_image">
+										<div style="height:60px;background:white;color:black;font-size:15px;text-align:center;">
+											<p style="display:inline-block;text-align:left;">{$products[$start]['product_name']}<p>
+										</div>
+										<img src="images/{$products[$start]['product_pass']}" class="img-responsive"/>
+										<div style="height:60px;background:white;color:black;font-size:20px;text-align:center;">
+											<div style="display:inline-block;text-align:left;"><p style="margin-top:15px;">{$products[$start]['price']}円</p></div>
+										</div>
+									</div>
+								</a>
+							</div>
+							{/if}
+							{/for}
+						</span>
 				
 				</ul>
 				   <div class="clearfix"></div>
