@@ -485,7 +485,7 @@ class cproductH extends crecord {
 			"product_id=" . $id	//条件
 		);
 		return $this->fetch_assoc();
-	}
+    }
 	//--------------------------------------------------------------------------------------
 	/*!
 	@brief	デストラクタ

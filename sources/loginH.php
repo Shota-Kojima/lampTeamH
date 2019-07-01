@@ -29,7 +29,13 @@ if(isset($_POST['login_id']) && isset($_POST['login_pw'])){
         $_SESSION['ZTeam_adm']['login_id'] = strip_tags($_POST['login_id']);
         $_SESSION['ZTeam_adm']['customer_id'] = $customer_id;
         $_SESSION['ZTeam_adm']['admin_name'] = $admin_name;
-        cutil::redirect_exit("products.php");
+        if(true){
+            cutil::redirect_exit("products_user.php");
+        }
+        else{
+            cutil::redirect_exit("products_admin.php");
+        }
+        
     }
     else if($_POST['login_id'] == "" && $_POST['login_pw'] == ""){
        

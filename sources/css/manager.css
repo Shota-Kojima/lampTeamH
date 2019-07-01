@@ -464,34 +464,32 @@ left:330px;
 	  transform: translateX(410%);/*左に隠しておく*/
   }
   #nav-content p{
-	padding-top:10px;
-	padding-left:15px;
-}
-#nav-content p img{
-	border-radius: 50%;
-	}
-	#nav-content li{
-		float: none;
-		font-size: 15px;
-		padding: 10px 15px 10px 15px;
-		list-style: none;
-		text-align: left;
-		border-bottom: dashed 1px #fedbf1;
-	  }
-	 #nav-content li:last-child{
-		border: none;
-	 }
-	 #nav-content li a{
-		text-decoration: none;
-		color: #000;
-	 }
-	 #nav-content a:before{
-		font-family: FontAwesome;
-		content: "\f07b";
-		color: #00bb80;/*アイコン色*/
-		margin-right: 5px;
-	 }
+	  padding-top:10px;
+	  padding-left:15px;
+	  
+  }
+  #nav-content p img{
+  border-radius: 50%;
+  }
+  #nav-content li{
+	float: none;
+	font-size: 15px;
+	padding: 10px 15px 10px 15px;
+	list-style: none;
+	text-align: left;
+	border-bottom: medium solid #c0bebf;
+  }
+ #nav-content li:last-child{
+	border: none;
 	
+ }
+ #nav-content li a{
+	text-decoration: none;
+	color: #000;
+	font-size: 20px;
+
+ }
+
   /*チェックが入ったらもろもろ表示*/
   #nav-input:checked ~ #nav-close {
 	  display: block;/*カバーを表示*/
