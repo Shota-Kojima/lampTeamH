@@ -313,22 +313,29 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			<div class="clearfix"></div>
 		   </div>
 		   <div class="back2">
-			<div class="text-center">
-				<!-- 自分やユーザーの情報 -->
-				<div>
-				<div>
-				
-					<!-- 投稿者 -->
+				<div class="text-center">
+					<!-- 自分やユーザーの情報 -->
 					<div>
-					<p id="com0">
-				<img src="images/chat11.png" width="70px" height="70px">
-				出品者との取引チャット
-				</p>
-						<p id="com1"><img src="images/user.png" width="50px" height="50px">ユーザ名：
-						<textarea  id="jsi-name" cols="15" rows="1"></textarea>
-						</p>
+						<div>
 						
+							<!-- 投稿者 -->
+							<div>
+								<p id="com0">
+								<img src="images/chat11.png" width="70px" height="70px">
+								出品者との取引チャット
+								</p>
+								<p id="com1"><img src="images/user.png" width="50px" height="50px">ユーザ名：
+								<textarea  id="jsi-name" cols="15" rows="1"></textarea>
+								</p>	
+							</div>
+						</div>
+						<!-- メッセージを打ち込む部分 -->
+						<div class="inputText">
+							<textarea rows="5" id="txt" class="form-control" placeholder="テキストを入力..."></textarea>
+							<button type="button" class="btn btn-info chat-btn">送信</button>
+						</div>
 					</div>
+<<<<<<< HEAD
 					</div>
 					<!-- メッセージを打ち込む部分 -->
 					<div class="inputText">
@@ -349,6 +356,18 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		  </div>
 		  </div>
 			</div>
+=======
+					<!-- チャット内容が動的に生成される部分 -->
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h1 class="panel-title">チャット</h1>
+						</div>
+						<div class="panel-body">
+							<div id='chat'></div>
+						</div>
+					</div>
+				</div>
+>>>>>>> 59d6f64240b1e8650297740d25535c9c8c76a8c3
 			</div>
 			
 		   <div class="sap_tabs">	

@@ -13,12 +13,12 @@ define('DB_MYSQL_SET_NAMES','1');
 //ホスト(ローカルの場合は'localhost'と記述)
 define('DB_HOST','localhost');
 //ユーザー
-define('DB_USER','edb31');
+define('DB_USER','edb09');
 //パスワード
-// define('DB_PASS','ZskNC5a9UAjagZM8');
-define('DB_PASS','tyzppoFnUgzBhoo5');
+define('DB_PASS','ZskNC5a9UAjagZM8');
+//define('DB_PASS','syota3363');
 //DB名
-define('DB_NAME','edb31');
+define('DB_NAME','edb09');
 //DBのキャラセット
 define('DB_CHARSET','utf8');
 //PHPのキャラセット

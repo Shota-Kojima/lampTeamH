@@ -167,7 +167,7 @@ function regist(){
 	$dataarr['genre_id'] = (int)$_POST['genre_id'];
 	$dataarr['product_pass'] = (string)$_POST['product_pass'];
     $dataarr['product_text'] = (string)$_POST['product_text'];
-    $dataarr['price'] = (string)$_POST['price'];
+    $dataarr['price'] = (int)$_POST['price'];
     $dataarr['exhibistion_date'] = (string)$_POST['exhibistion_date'];
     $dataarr['stock_value'] = (int)$_POST['stock_value'];
     
