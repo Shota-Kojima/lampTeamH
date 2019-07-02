@@ -534,17 +534,6 @@ left:330px;
 	background:  #c1dcff;/*背景色*/
 	border-bottom: solid 3px #516ab6;/*下線*/
   }
-  #jsi-button1{
-	background: 8px 9px #516ab6;
-	padding: 6px 17px;
-	border: none;
-	cursor: pointer;
-	line-height: 1.5em;
-	outline: none;
-	color:#FFFFFF;
-	position: relative;
-	left:95px;
-  }
   #jsi-button{
 	background: 8px 9px #516ab6;
 	padding: 6px 17px;
@@ -553,8 +542,9 @@ left:330px;
 	line-height: 1.5em;
 	outline: none;
 	color:#FFFFFF;
-	position: relative;
-	left:110px;
+	position: absolute;
+	top:1100px;
+	left:375px;
   }
   .text-center{
 	  padding-right:400px;
@@ -581,11 +571,14 @@ left:330px;
 	left:40px;
   }
 #jsi-board{
-	margin-top: 20px;
-	background: #ffffff;/*背景色*/
+ background: #ffffff;/*背景色*/
   padding: 0.5em;/*文字まわり（上下左右）の余白*/
+  float:right;
+  background-color: rgb(152, 252, 152);
+  border-radius: 20%;
 
 }
+
 .panel {
 	position: relative;
 	left:440px;
@@ -596,25 +589,6 @@ left:330px;
 .panel-body {
     height: 500px;
     overflow: auto;
-}
-
-.chatBox {
-    width: 100%;
-    height: auto;
-    overflow: hidden;
-}
-
-.chatBalloon {
-    display: inline-block;
-    border-radius: 10px;
-    padding: 5px;
-    margin: 5px;
-    background-color: white;
-}
-
-.bot {
-    float: left;
-    display: inline-block;
 }
 
 .usr {
