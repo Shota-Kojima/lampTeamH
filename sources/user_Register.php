@@ -36,12 +36,10 @@ if(isset($_POST['customer_id'])){
 	$customerarr = $customer_obj->get_tgt(false,$customer_id);
 	//使われている場合
 	if($customerarr !== false){
-		echo '<script type="text/javascript">alert("id:true");</script>';
 		flgUpd(false);
 		$flg["customer_id"] = true;
 		$smarty->assign('flg',$flg);
 	}else{
-		echo '<script type="text/javascript">alert("id:false");</script>';
 		flgUpd(true);
 		$flg["customer_id"] = false;
 		$smarty->assign('flg',$flg);
@@ -52,11 +50,9 @@ if(isset($_POST['customer_id'])){
 if(isset($_POST['customer_email'])){
 	global $flg;
 	if (preg_match("/^([a-zA-Z0-9])+([a-zA-Z0-9\._-])*@([a-zA-Z0-9_-])+([a-zA-Z0-9\._-]+)+$/", $_POST['customer_email'])) {
-		echo '<script type="text/javascript">alert("email:false");</script>';
 		$flg["customer_email"] = false;
 		$smarty->assign('flg',$flg);
 	}else{
-		echo '<script type="text/javascript">alert("email:true");</script>';
 		flgUpd(false);
 		$flg["customer_email"] = true;
 		$smarty->assign('flg',$flg);
@@ -68,12 +64,10 @@ if(isset($_POST['last_name'])){
 	global $flg;
 	//20文字超えているかどうかチェックする
 	if(count($_POST['last_name']) >= 20){
-		echo '<script type="text/javascript">alert("lastname:true");</script>';
 		flgUpd(false);
 		$flg["last_name"] = true;
 		$smarty->assign('flg',$flg);
 	}else{
-		echo '<script type="text/javascript">alert("lastname:false");</script>';
 		$flg["last_name"] = false;
 		$smarty->assign('flg',$flg);
 	}
@@ -123,12 +117,10 @@ if(isset($_POST['customer_address'])){
 	global $flg;
 	//１０文字超えているかどうかチェックする
 	if(!count($_POST['customer_address']) >= 20){
-		echo '<script type="text/javascript">alert("customer_address:true");</script>';
 		flgUpd(false);
 		$flg["customer_address"] = true;
 		$smarty->assign('flg',$flg);
 	}else{
-		echo '<script type="text/javascript">alert("customer_address:false");</script>';
 		$flg["customer_address"] = false;
 		$smarty->assign('flg',$flg);
 	}
@@ -235,7 +227,6 @@ function paramchk(){
 */
 //--------------------------------------------------------------------------------------
 function regist(){
-	echo '<script type="text/javascript">alert("regist呼べました");</script>';
 	global $customer_id;
 	$_POST['customer_point'] = 0;
 	$_POST['icon_pass'] = "";

@@ -77,24 +77,6 @@ $imageUrl1 = "";
 $imageUrl2 = "";
 $imageUrl3 = ""; 
 $fulldir = "http://wiz.developluna.jp/~e09/PHPBase-master/sources/images/product_img/";
-// isset($_POST['product_name'])&&
-//     &&
-//     isset($_FILES["image_file2"]["tmp_name2"])&&
-//     isset($_FILES["image_file3"]["tmp_name3"])&&
-//     isset($_POST['product_text'])&&
-//     isset($_POST['price'])&&
-//     issset($_POST['genre'])&&
-//     isset($_POST['categoly'])
-
-// &&isset($_POST['product_category'])&&
-//     issset($_POST['genre_id'])
-//テキストなどの入力チェック
-// if(isset($_POST['product_category'])){
-//     echo ($_POST['product_category']);
-// }
-// if(isset($_POST['genre_id'])){
-//     echo ($_POST['genre_id']);
-// }
 
 if(isset($_POST['product_name'])&&isset($_POST['price'])&&
     isset($_POST['product_category'])&&isset($_POST['genre_id'])&&
@@ -172,16 +154,7 @@ function regist(){
     $dataarr['stock_value'] = (int)$_POST['stock_value'];
     
 	$chenge = new cchange_ex();
-	// if($member_id > 0){
-	// 	$chenge->update('member',$dataarr,'member_id=' . $member_id);
-	// 	regist_fruits($member_id);
-	// 	cutil::redirect_exit($_SERVER['PHP_SELF'] . '?mid=' . $member_id);
-	// }
-	// else{
     $mid = $chenge->insert('productH',$dataarr);
-	// 	regist_fruits($mid);
-    // cutil::redirect_exit($_SERVER['PHP_SELF'] . '?mid=' . $mid);
-    // }
     echo '<script type="text/javascript">alert("追加おｋ");</script>';
 }
 
