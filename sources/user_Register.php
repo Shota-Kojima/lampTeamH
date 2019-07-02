@@ -83,7 +83,6 @@ if(isset($_POST['last_name_kana'])){
 	global $flg;
 	//20文字超えているかどうかチェックする
 	if(count($_POST['last_name_kana']) >= 20){
-		echo '<script type="text/javascript">alert("namekana:true");</script>';
 		flgUpd(false);
 		$flg["last_name_kana"] = true;
 		$smarty->assign('flg',$flg);
@@ -124,10 +123,12 @@ if(isset($_POST['customer_address'])){
 	global $flg;
 	//１０文字超えているかどうかチェックする
 	if(!count($_POST['customer_address']) >= 20){
+		echo '<script type="text/javascript">alert("customer_address:true");</script>';
 		flgUpd(false);
 		$flg["customer_address"] = true;
 		$smarty->assign('flg',$flg);
 	}else{
+		echo '<script type="text/javascript">alert("customer_address:false");</script>';
 		$flg["customer_address"] = false;
 		$smarty->assign('flg',$flg);
 	}
@@ -160,58 +161,6 @@ if($registFlg){
 	regist();
 }
 
-
-
-
-//配列にメンバーを$_POSTに取り出す
-//すでにPOSTされていたら、DBからは取り出さない
-
-// if(isset($_POST['func'])){
-// 	switch($_POST['func']){
-// 		case 'set':
-// 			if(!paramchk()){
-// 				$_POST['func'] = 'edit';
-// 				$err_flag = 1;
-// 			}
-// 			else{
-// 				regist();
-// 				//regist()内でリダイレクトするので
-// 				//ここまで実行されればリダイレクト失敗
-// 				$_POST['func'] = 'edit';
-// 				//システムに問題のあるエラー
-// 				$err_flag = 2;
-// 			}
-// 		case 'conf':
-// 			if(!paramchk()){
-// 				$_POST['func'] = 'edit';
-// 				$err_flag = 1;
-// 			}
-// 		break;
-// 		case 'edit':
-// 			//戻るボタン。
-// 		break;
-// 		default:
-// 			//通常はありえない
-// 			echo '原因不明のエラーです。';
-// 			exit;
-// 		break;
-// 	}
-// }
-// else{
-// 	if($member_id > 0){
-// 		if(($_POST = $member_obj->get_tgt(false,$member_id)) === false){
-// 			$_POST['func'] = 'new';
-// 		}
-// 		else{
-// 			$_POST['fruits'] = $member_obj->get_all_fruits_match(false,$member_id);
-// 			$_POST['func'] = 'edit';
-// 		}
-// 	}
-// 	else{
-// 		//新規の入力フォーム
-// 		$_POST['func'] = 'new';
-// 	}
-// }
 
 /////////////////////////////////////////////////////////////////
 /// 関数ブロック
@@ -288,7 +237,7 @@ function paramchk(){
 function regist(){
 	echo '<script type="text/javascript">alert("regist呼べました");</script>';
 	global $customer_id;
-	$_POST['point'] = 0;
+	$_POST['customer_point'] = 0;
 	$_POST['icon_pass'] = "";
 	$_POST['customer_created_date'] = date('YmdHis');
 	$dataarr = array();
@@ -305,16 +254,16 @@ function regist(){
 	$dataarr['customer_password'] = (string)$_POST['customer_password'];//パス
 	$dataarr['customer_sex'] = (int)$_POST['customer_sex'];//性別
 	$chenge = new cchange_ex();
-	if($customer_id > 0){
-		$chenge->update('customer',$dataarr,'customer_id=' . $customer_id);
-		regist_fruits($customer_id);
-		cutil::redirect_exit($_SERVER['PHP_SELF'] . '?mid=' . $customer_id);
-	}
-	else{
+	// if($customer_id > 0){
+	// 	$chenge->update('customer',$dataarr,'customer_id=' . $customer_id);
+	// 	regist_fruits($customer_id);
+	// 	cutil::redirect_exit($_SERVER['PHP_SELF'] . '?mid=' . $customer_id);
+	// }
+	// else{
 		$mid = $chenge->insert('customer',$dataarr);
-		regist_fruits($mid);
-		cutil::redirect_exit($_SERVER['PHP_SELF'] . '?mid=' . $mid);
-	}
+		echo '<script type="text/javascript">alert("追加おｋ");</script>';
+		// cutil::redirect_exit($_SERVER['PHP_SELF'] . '?mid=' . $mid);
+	// }
 }
 //--------------------------------------------------------------------------------------
 /*!
@@ -335,15 +284,18 @@ function assign_page(){
 
 //--------------------------------------------------------------------------------------
 /*!
-@brief	メンバーIDのアサイン
+@brief	フルーツデータの追加／更新
 @return	なし
 */
 //--------------------------------------------------------------------------------------
-function assign_member_id(){
-	//$smartyをグローバル宣言（必須）
-	global $smarty;
-	global $member_id;
-	$smarty->assign('member_id',$member_id);
+function regist_customer($customer_id){
+	$chenge = new cchange_ex();
+	$chenge->delete("customer","customer_id=" . $customer_id);
+	foreach($_POST['fruits'] as $key => $val){
+		$dataarr = array();
+		$dataarr['customer_id'] = (String)$customer_id;
+		$chenge->insert('customer',$dataarr);
+	}
 }
 
 //--------------------------------------------------------------------------------------
