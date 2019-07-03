@@ -25,11 +25,25 @@ $page = 0;
 // 	&& $_GET['page'] > 0){
 // 	$page = $_GET['page'];
 // }
-
-if(isset($_GET['product_id']) 
+if(isset($_POST['buy_count'])
+	//cutilクラスのメンバ関数をスタティック呼出
+	&& cutil::is_number($_POST['buy_count'])
+	&& $_POST['buy_count'] > 0 && isset($_POST['product_id'])){
+		echo '<script type="text/javascript">alert("iine");</script>';
+	//カートクラスを構築
+	regist();
+	// $cart_obj = new ccart();
+	// $product_id = $_POST['product_id'];
+	// $dataarr = array();
+	// $dataarr['member_id'] = (int)$member_id;
+	// $dataarr['fruits_id'] = (int)$val;
+	// $chenge->insert('cart',$dataarr);
+	
+}else if(isset($_GET['product_id']) 
 //cutilクラスのメンバ関数をスタティック呼出
 	&& cutil::is_number($_GET['product_id'])
 	&& $_GET['product_id'] > 0){
+		echo '<script type="text/javascript">alert("get");</script>';
 	//商品Hクラスを構築
 	$product_obj = new cproductH();
 	$product_id = $_GET['product_id'];
@@ -47,123 +61,10 @@ if(isset($_GET['product_id'])
 	}
 	
 }else{
+	var_dump($_POST);
 	//購入時
-	if(isset($_POST['buy_count']) 
-	//cutilクラスのメンバ関数をスタティック呼出
-	&& cutil::is_number($_GET['buy_count'])
-	&& $_GET['buy_count'] > 0){
-	//商品Hクラスを構築
-		$product_obj = new cproductH();
-		$product_id = $_GET['product_id'];
-		$productarr = $product_obj->get_tgt(false,$product_id);
-		if($productarr !== false){
-			// echo '<script type="text/javascript">alert("'.$productarr[0].'");</script>';
-
-			//product_passを取得
-			$data = $productarr["product_pass"];
-			$productarr["product_pass"] = explode(',',$data);
-			//var_dump($productarr);
-			$smarty->assign('productarr',$productarr);
-		}else{
-			echo '<script type="text/javascript">alert("だめ2");</script>';
-		}
 	
-	}else{
-
-	}
 }
-// //$_POST優先
-// if(isset($_POST['member_id']) 
-// //cutilクラスのメンバ関数をスタティック呼出
-// 	&& cutil::is_number($_POST['member_id'])
-// 	&& $_POST['member_id'] > 0){
-// 	$member_id = $_POST['member_id'];
-// }
-
-
-
-//配列にメンバーを$_POSTに取り出す
-//すでにPOSTされていたら、DBからは取り出さない
-
-// if(isset($_POST['func'])){
-// 	switch($_POST['func']){
-// 		case 'set':
-// 			if(!paramchk()){
-// 				$_POST['func'] = 'edit';
-// 				$err_flag = 1;
-// 			}
-// 			else{
-// 				regist();
-// 				//regist()内でリダイレクトするので
-// 				//ここまで実行されればリダイレクト失敗
-// 				$_POST['func'] = 'edit';
-// 				//システムに問題のあるエラー
-// 				$err_flag = 2;
-// 			}
-// 		case 'conf':
-// 			if(!paramchk()){
-// 				$_POST['func'] = 'edit';
-// 				$err_flag = 1;
-// 			}
-// 		break;
-// 		case 'edit':
-// 			//戻るボタン。
-// 		break;
-// 		default:
-// 			//通常はありえない
-// 			echo '原因不明のエラーです。';
-// 			exit;
-// 		break;
-// 	}
-// }
-// else{
-// 	if($member_id > 0){
-// 		if(($_POST = $member_obj->get_tgt(false,$member_id)) === false){
-// 			$_POST['func'] = 'new';
-// 		}
-// 		else{
-// 			$_POST['fruits'] = $member_obj->get_all_fruits_match(false,$member_id);
-// 			$_POST['func'] = 'edit';
-// 		}
-// 	}
-// 	else{
-// 		//新規の入力フォーム
-// 		$_POST['func'] = 'new';
-// 	}
-// }
-
-/////////////////////////////////////////////////////////////////
-/// 関数ブロック
-/////////////////////////////////////////////////////////////////
-
-
-//--------------------------------------------------------------------------------------
-/*!
-@brief	エラー存在のアサイン
-@return	なし
-*/
-//--------------------------------------------------------------------------------------
-// function assign_err_flag(){
-// 	//$smartyをグローバル宣言（必須）
-// 	global $smarty;
-// 	global $err_flag;
-// 	$str = '';
-// 	switch($err_flag){
-// 		case 1:
-// 		$str =<<<END_BLOCK
-
-// <p class="red">入力エラーがあります。各項目のエラーを確認してください。</p>
-// END_BLOCK;
-// 		break;
-// 		case 2:
-// 		$str =<<<END_BLOCK
-
-// <p class="red">更新に失敗しました。サポートを確認下さい。</p>
-// END_BLOCK;
-// 		break;
-// 	}
-// 	$smarty->assign('err_flag',$str);
-// }
 
 //--------------------------------------------------------------------------------------
 /*!
@@ -196,48 +97,25 @@ function paramchk(){
 
 //--------------------------------------------------------------------------------------
 /*!
-@brief	フルーツデータの追加／更新
-@return	なし
-*/
-//--------------------------------------------------------------------------------------
-function regist_fruits($member_id){
-	$chenge = new cchange_ex();
-	$chenge->delete("fruits_match","member_id=" . $member_id);
-	foreach($_POST['fruits'] as $key => $val){
-		$dataarr = array();
-		$dataarr['member_id'] = (int)$member_id;
-		$dataarr['fruits_id'] = (int)$val;
-		$chenge->insert('fruits_match',$dataarr);
-	}
-}
-
-
-//--------------------------------------------------------------------------------------
-/*!
 @brief	メンバーデータの追加／更新。保存後自分自身を再読み込みする。
 @return	なし
 */
 //--------------------------------------------------------------------------------------
-// function regist(){
-// 	global $product_id;
-// 	$dataarr = array();
-// 	$dataarr['member_name'] = (string)$_POST['member_name'];
-// 	$dataarr['prefecture_id'] = (int)$_POST['prefecture_id'];
-// 	$dataarr['member_address'] = (string)$_POST['member_address'];
-// 	$dataarr['member_gender'] = (int)$_POST['member_gender'];
-// 	$dataarr['member_comment'] = (string)$_POST['member_comment'];
-// 	$chenge = new cchange_ex();
-// 	if($member_id > 0){
-// 		$chenge->update('member',$dataarr,'member_id=' . $member_id);
-// 		regist_fruits($member_id);
-// 		cutil::redirect_exit($_SERVER['PHP_SELF'] . '?mid=' . $member_id);
-// 	}
-// 	else{
-// 		$mid = $chenge->insert('member',$dataarr);
-// 		regist_fruits($mid);
-// 		cutil::redirect_exit($_SERVER['PHP_SELF'] . '?mid=' . $mid);
-// 	}
-// }
+function regist(){
+	global $member_id;
+	$_POST['customer_id'] = "kojikoji";
+	$dataarr = array();
+	$dataarr['customer_id'] = (string)$_POST['customer_id'];
+	$dataarr['product_id'] = (int)$_POST['product_id'];
+	$dataarr['product_value'] = (int)$_POST['buy_count'];
+    
+	$chenge = new cchange_ex();
+    $mid = $chenge->insert('cart',$dataarr);
+    echo '<script type="text/javascript">alert("おｋ");</script>';
+}
+
+
+
 //--------------------------------------------------------------------------------------
 /*!
 @brief	ページの出力(一覧に戻るリンク用)
@@ -354,15 +232,6 @@ function assign_product_rows(){
 $smarty->assign('err_array',$err_array);
 
 //Smartyを使用した表示(テンプレートファイルの指定)
-// if(isset($_POST['func']) && $_POST['func'] == 'conf'){
-// 	$button = '更新';
-// 	if($member_id <= 0){
-// 		$button = '追加';
-// 	}
-//     $smarty->assign('button',$button);
-//     $smarty->display('member_detail_smarty_conf.tmpl');
-// }
-// else{
-    $smarty->display('productDetail.tmpl');
-// }
+$smarty->display('productDetail.tmpl');
+
 ?>
