@@ -7,7 +7,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Surfhouse Bootstarp Website Template | Single :: w3layouts</title>
+<title>RE:SURVIVAL : 商品詳細</title>
 <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 {literal}
@@ -17,6 +17,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!-- Custom Theme files -->
 <link href="css/style.css" rel='stylesheet' type='text/css' />
 <link href="css/component.css" rel='stylesheet' type='text/css' />
+<link href="css/manager.css" rel='stylesheet' type='text/css' />
 <!-- Custom Theme files -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 {literal}
@@ -35,6 +36,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <link href="css/magnific-popup.css" rel="stylesheet" type="text/css">
 {literal}
 <script src="js/jquery.magnific-popup.js" type="text/javascript"></script>
+<script>
+//共通パーツ読み込み
+  $(function() {
+       $("#header").load("shere.html");
+});
+</script>
 <script>
 	$(document).ready(function() {
 		$('.popup-with-zoom-anim').magnificPopup({
@@ -92,6 +99,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	
 </head>
 <body>
+<div id="header"></div>
   <div class="single">
 	<div class="container">
 		<div class="header-top">

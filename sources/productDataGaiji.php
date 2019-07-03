@@ -76,7 +76,7 @@ $filedir3 = "";
 $imageUrl1 = "";
 $imageUrl2 = "";
 $imageUrl3 = ""; 
-$fulldir = "http://wiz.developluna.jp/~e09/PHPBase-master/sources/images/product_img/";
+$fulldir = "http://wiz.developluna.jp/~tmH2019/lampTeamH/sources/images/product_img/";
 // isset($_POST['product_name'])&&
 //     &&
 //     isset($_FILES["image_file2"]["tmp_name2"])&&
