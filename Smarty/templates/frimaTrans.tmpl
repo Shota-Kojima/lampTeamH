@@ -8,7 +8,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <html>
 {literal}
 <head>
-<title>Surfhouse Bootstarp Website Template | Single :: w3layouts</title>
+<title>RE:SURVIVAL : フリマ</title>
 <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
 <link type="text/css" rel="stylesheet" href="./css/bmesse.css" />
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -30,6 +30,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <link rel="stylesheet" href="./css/chat.css">
 <!-- Add fancyBox main JS and CSS files -->
 <script src="js/jquery.magnific-popup.js" type="text/javascript"></script>
+<script>
+//共通パーツ読み込み
+  $(function() {
+       $("#header").load("shere.html");
+});
+</script>
 <link href="css/magnific-popup.css" rel="stylesheet" type="text/css">
 		<script>
 			$(document).ready(function() {
@@ -73,6 +79,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 </head>
 <body>
+<div id="header"></div>
   <div class="single">
 	<div class="container">
 		<div class="header-top">
@@ -329,6 +336,16 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 								</p>	
 							</div>
 						</div>
+<<<<<<< HEAD
+						<!-- メッセージを打ち込む部分 -->
+						<div class="inputText">
+							<textarea rows="5" id="txt" class="form-control" placeholder="テキストを入力..."></textarea>
+							<button type="button" class="btn btn-info chat-btn">送信</button>
+						</div>
+					</div>
+					</div>
+=======
+>>>>>>> d2d89119dad229c908709e01edd08c7e652ea088
 					<!-- メッセージを打ち込む部分 -->
 					<div class="inputText">
 						 <textarea rows="5" id="jsi-msg" class="form-control" placeholder="テキストを入力..."></textarea>

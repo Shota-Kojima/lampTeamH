@@ -76,7 +76,25 @@ $filedir3 = "";
 $imageUrl1 = "";
 $imageUrl2 = "";
 $imageUrl3 = ""; 
-$fulldir = "http://wiz.developluna.jp/~e09/PHPBase-master/sources/images/product_img/";
+$fulldir = "http://wiz.developluna.jp/~tmH2019/lampTeamH/sources/images/product_img/";
+// isset($_POST['product_name'])&&
+//     &&
+//     isset($_FILES["image_file2"]["tmp_name2"])&&
+//     isset($_FILES["image_file3"]["tmp_name3"])&&
+//     isset($_POST['product_text'])&&
+//     isset($_POST['price'])&&
+//     issset($_POST['genre'])&&
+//     isset($_POST['categoly'])
+
+// &&isset($_POST['product_category'])&&
+//     issset($_POST['genre_id'])
+//テキストなどの入力チェック
+// if(isset($_POST['product_category'])){
+//     echo ($_POST['product_category']);
+// }
+// if(isset($_POST['genre_id'])){
+//     echo ($_POST['genre_id']);
+// }
 
 if(isset($_POST['product_name'])&&isset($_POST['price'])&&
     isset($_POST['product_category'])&&isset($_POST['genre_id'])&&

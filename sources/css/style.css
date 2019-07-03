@@ -1020,6 +1020,7 @@ p.email span:hover{
 .apparel_box {
 	width: 23%;
 	float: left;
+	margin-top:350px;
 	padding-bottom:2em;
 }
 ul.breadcrumbs{
@@ -1158,7 +1159,7 @@ ul.category_nav li a:hover {
 	margin: 0 3.6% 0 0;
 }
 .single {
-	background: url(../images/single.jpg)no-repeat center top;
+	background: url(../images/newcamp.jpg)no-repeat center top;
 	background-size: 100% 100%;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;

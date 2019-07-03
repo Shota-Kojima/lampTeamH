@@ -7,13 +7,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Surfhouse Bootstarp Website Template | Checkout :: w3layouts</title>
+<title>RE:SURVIVAL : カート</title>
 <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="js/jquery.min.js"></script>
 <!-- Custom Theme files -->
 <link href="css/style.css" rel='stylesheet' type='text/css' />
 <link href="css/component.css" rel='stylesheet' type='text/css' />
+<link href="css/manager.css" rel='stylesheet' type='text/css' />
 <!-- Custom Theme files -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
@@ -22,6 +23,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <script src="js/jquery.easydropdown.js"></script>
 <!-- Add fancyBox main JS and CSS files -->
 <script src="js/jquery.magnific-popup.js" type="text/javascript"></script>
+<script>
+//共通パーツ読み込み
+  $(function() {
+       $("#header").load("shere.html");
+});
+</script>
 <link href="css/magnific-popup.css" rel="stylesheet" type="text/css">
 		<script>
 			$(document).ready(function() {
@@ -40,6 +47,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		</script>
 </head>
 <body>
+<div id="header"></div>
    <div class="single">
 	<div class="container">
 		<div class="header-top">
@@ -68,7 +76,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		 </div>  
 		 <div class="apparel_box">
 			<ul class="login">
-				<li class="login_text"><a href="login.php">Login</a></li>
+				<li class="login_text"><a href="loginH.php">Login</a></li>
 				<li class="wish"><a href="cart.php">Wish List</a></li>
 				<div class='clearfix'></div>
 		    </ul>
