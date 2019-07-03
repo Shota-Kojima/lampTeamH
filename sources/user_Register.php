@@ -151,9 +151,6 @@ if(isset($_POST['customer_password'])&&isset($_POST['customer_password_check']))
 if($registFlg){
 	regist();
 }else{
-	echo '<script type="text/javascript">alert("あさいん");</script>';
-	var_dump($_POST);
-	$inputData = $_POST;
 	$smarty->assign('POST',$_POST);
 }
 

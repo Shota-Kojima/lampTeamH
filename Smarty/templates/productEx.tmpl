@@ -237,83 +237,97 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					<!-- end product_slider -->
 			  </div>
 			<div class="cont1 span_2_of_a1">
-                <!-- ここを入力にする -->
-                <form action="/" method="post" >
-                    <!-- 画像UPLOADのInputTag -->
-                    <input type="file" name="example1">
-                    <!-- 緑にしたいところ(テキストエリア) -->
-                    <div class="form-row align-items-center mb-5">
-                        <div class="col">
-                            <label for="text9c">商品名</label>
-                            <input type="text" id="text9c" class="form-control is-valid">
-                            <!-- <div class="valid-tooltip">OK</div> -->
-                        </div>
-                    </div>
-                    <br>
-                    <!-- <h4>ジャンル</h4> -->
-                    <label for="text9c">ジャンル</label>
-                    <!-- プルダウン -->
-                </form>
-                    <ul class="product-qty">
-				   <select>
-					 <option>ジャンル1</option>
-					 <option>ジャンル2</option>
-					 <option>ジャンル3</option>
-					 <option>ジャンル4</option>
-					 <option>ジャンル5</option>
-					 <option>ジャンル6</option>
-				   </select>
-			    </ul>
-			    <div class="price_single">
-                    <!-- <span class="reducedfrom">$140.00</span> -->
-                    <label for="text9c">値段</label>
-                    <div class="form-row align-items-center mb-5">
-                        <div class="col">
-                            <input type="text" id="text9c" class="form-control is-valid">円
-                            <!-- <div class="valid-tooltip">OK</div> -->
-                        </div>
-                    </div>
-				  <!-- <span class="actual">$120.00</span> -->
-				</div>
-				<h2 class="quick">商品説明</h2>
-				<div class="form-row align-items-center mb-5">
-                    <div class="col">
-                        <input type="text" id="text9c" class="form-control is-valid">
-                        <!-- <div class="valid-tooltip">OK</div> -->
-                    </div>
-                </div>
-			    <ul class="size">
-					<h3>Size</h3>
-					<li><a href="#">25</a></li>
-					<li><a href="#">26</a></li>
-					<li><a href="#">27</a></li>
-					<li><a href="#">28</a></li>
-					<li><a href="#">29</a></li>
-					<li><a href="#">30</a></li>
-					<li><a href="#">31</a></li>
-					<li><a href="#">32</a></li>
-					<li><a href="#">33</a></li>
-				</ul>
-				<ul class="size">
-					<h3>Length</h3>
-					<li><a href="#">32</a></li>
-					<li><a href="#">34</a></li>
-				</ul>
-				<ul class="product-qty">
-				   <span>Quantity:</span>
-				   <select>
-					 <option>1</option>
-					 <option>2</option>
-					 <option>3</option>
-					 <option>4</option>
-					 <option>5</option>
-					 <option>6</option>
-				   </select>
-			    </ul>
-			    <div class="btn_form">
-				   <form>
+                <form action="" method="post" enctype="multipart/form-data" autocomplete="off">
+					<p>
+					商品名<input type="text" name="product_name" size="100">
+					</p>
+					<p>
+					値段<input type="text" name="price" size="200">
+					</p>
+					<p>
+					在庫数<input type="text" name="stock_value" size="200">
+					</p>
+					<p>
+					カテゴリ
+					<select name="product_category">
+						<option value="1">販売</option>
+						<option value="2">レンタル</option>
+						<option value="3">フリマ</option>
+					</select>
+					</p>
+					<p>
+					<!-- ジャンル<input type="text" name="genre_id" size="200"> -->
+					ジャンル
+					<select name="genre_id">
+						<option value="1">ガソリンランタン </option>
+						<option value="2">LPガスランタン</option>
+						<option value="3">LEDライティング</option>
+						<option value="4">大人用 </option>
+						<option value="5">子供用</option>
+						<option value="6">テント</option>
+						<option value="7">タープ</option>
+						<option value="8">シェード</option>
+						<option value="9">マット</option>
+						<option value="10">レクタングラー（封筒型）</option>
+						<option value="11">エアーベッド</option>
+						<option value="12">バーナー </option>
+						<option value="13">グリル</option>
+						<option value="14">ヒーター</option>
+						<option value="15">クックウエア</option>
+						<option value="16">ハードクーラー</option>
+						<option value="17">ソフトクーラー</option>
+						<option value="18">ジャグ</option>
+						<option value="19">チェア</option>
+						<option value="20">テーブル</option>
+						<option value="21">キッチンテーブル</option>
+						<option value="22">オールインワン</option>
+					</select>
+					</p>
+					<p>
+					商品説明<br>
+					<textarea name="product_text" rows="4" cols="40"></textarea>
+					</p>
+					<p>
+					画像<br>
+					<input type="file" name="image_file1" accept="image/*">
+					<input type="file" name="image_file2" accept="image/*">
+					<input type="file" name="image_file3" accept="image/*">
+					</p>
+					<p>
+					<input type="submit" value="送信">
+					</p>
+				
+					<ul class="size">
+						<h3>Size</h3>
+						<li><a href="#">25</a></li>
+						<li><a href="#">26</a></li>
+						<li><a href="#">27</a></li>
+						<li><a href="#">28</a></li>
+						<li><a href="#">29</a></li>
+						<li><a href="#">30</a></li>
+						<li><a href="#">31</a></li>
+						<li><a href="#">32</a></li>
+						<li><a href="#">33</a></li>
+					</ul>
+					<ul class="size">
+						<h3>Length</h3>
+						<li><a href="#">32</a></li>
+						<li><a href="#">34</a></li>
+					</ul>
+					<ul class="product-qty">
+					<span>出品数</span>
+					<select name='stock'>
+						<option>1</option>
+						<option>2</option>
+						<option>3</option>
+						<option>4</option>
+						<option>5</option>
+						<option>6</option>
+					</select>
+					</ul>
+			    	<div class="btn_form">
 					 <input type="submit" value="出品" title="">
-				  </form>
+				</form>
 				</div>
 			</div>
 			<div class="clearfix"></div>
