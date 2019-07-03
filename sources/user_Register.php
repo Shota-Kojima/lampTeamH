@@ -20,6 +20,7 @@ $err_array = array();
 $err_flag = 0;
 $registFlg = false;
 $page = 0;
+$pageCount = 0;
 //それぞれのフラグを管理する配列
 $flg = array("customer_id"=>false,"customer_email"=>false,
 			"last_name"=>false,"last_name_kana"=>false,
@@ -36,12 +37,10 @@ if(isset($_POST['customer_id'])){
 	$customerarr = $customer_obj->get_tgt(false,$customer_id);
 	//使われている場合
 	if($customerarr !== false){
-		echo '<script type="text/javascript">alert("id:true");</script>';
 		flgUpd(false);
 		$flg["customer_id"] = true;
 		$smarty->assign('flg',$flg);
 	}else{
-		echo '<script type="text/javascript">alert("id:false");</script>';
 		flgUpd(true);
 		$flg["customer_id"] = false;
 		$smarty->assign('flg',$flg);
@@ -52,11 +51,9 @@ if(isset($_POST['customer_id'])){
 if(isset($_POST['customer_email'])){
 	global $flg;
 	if (preg_match("/^([a-zA-Z0-9])+([a-zA-Z0-9\._-])*@([a-zA-Z0-9_-])+([a-zA-Z0-9\._-]+)+$/", $_POST['customer_email'])) {
-		echo '<script type="text/javascript">alert("email:false");</script>';
 		$flg["customer_email"] = false;
 		$smarty->assign('flg',$flg);
 	}else{
-		echo '<script type="text/javascript">alert("email:true");</script>';
 		flgUpd(false);
 		$flg["customer_email"] = true;
 		$smarty->assign('flg',$flg);
@@ -68,12 +65,10 @@ if(isset($_POST['last_name'])){
 	global $flg;
 	//20文字超えているかどうかチェックする
 	if(count($_POST['last_name']) >= 20){
-		echo '<script type="text/javascript">alert("lastname:true");</script>';
 		flgUpd(false);
 		$flg["last_name"] = true;
 		$smarty->assign('flg',$flg);
 	}else{
-		echo '<script type="text/javascript">alert("lastname:false");</script>';
 		$flg["last_name"] = false;
 		$smarty->assign('flg',$flg);
 	}
@@ -117,18 +112,15 @@ if(isset($_POST['first_name_kana'])){
 		$smarty->assign('flg',$flg);
 	}
 }
-
 //住所
 if(isset($_POST['customer_address'])){
 	global $flg;
 	//１０文字超えているかどうかチェックする
 	if(!count($_POST['customer_address']) >= 20){
-		echo '<script type="text/javascript">alert("customer_address:true");</script>';
 		flgUpd(false);
 		$flg["customer_address"] = true;
 		$smarty->assign('flg',$flg);
 	}else{
-		echo '<script type="text/javascript">alert("customer_address:false");</script>';
 		$flg["customer_address"] = false;
 		$smarty->assign('flg',$flg);
 	}
@@ -137,7 +129,7 @@ if(isset($_POST['customer_address'])){
 //PASSWORDチェック
 if(isset($_POST['customer_password'])&&isset($_POST['customer_password_check'])){
 	global $flg;
-	//１０文字超えているかどうかチェックする
+	//15文字超えているかどうかチェックする
 	if(!count($_POST['customer_password']) <= 15){
 		//PASSWORDが一致しているときのみ処理
 		if($_POST['customer_password'] === $_POST['customer_password_check']){
@@ -148,7 +140,6 @@ if(isset($_POST['customer_password'])&&isset($_POST['customer_password_check']))
 			$flg["customer_password"] = true;
 			$smarty->assign('flg',$flg);
 		}
-		
 	}else{
 		flgUpd(false);
 		$flg["customer_password"] = false;
@@ -159,6 +150,8 @@ if(isset($_POST['customer_password'])&&isset($_POST['customer_password_check']))
 
 if($registFlg){
 	regist();
+}else{
+	$smarty->assign('POST',$_POST);
 }
 
 
@@ -235,7 +228,6 @@ function paramchk(){
 */
 //--------------------------------------------------------------------------------------
 function regist(){
-	echo '<script type="text/javascript">alert("regist呼べました");</script>';
 	global $customer_id;
 	$_POST['customer_point'] = 0;
 	$_POST['icon_pass'] = "";
@@ -254,16 +246,9 @@ function regist(){
 	$dataarr['customer_password'] = (string)$_POST['customer_password'];//パス
 	$dataarr['customer_sex'] = (int)$_POST['customer_sex'];//性別
 	$chenge = new cchange_ex();
-	// if($customer_id > 0){
-	// 	$chenge->update('customer',$dataarr,'customer_id=' . $customer_id);
-	// 	regist_fruits($customer_id);
-	// 	cutil::redirect_exit($_SERVER['PHP_SELF'] . '?mid=' . $customer_id);
-	// }
-	// else{
-		$mid = $chenge->insert('customer',$dataarr);
-		echo '<script type="text/javascript">alert("追加おｋ");</script>';
-		// cutil::redirect_exit($_SERVER['PHP_SELF'] . '?mid=' . $mid);
-	// }
+
+	$mid = $chenge->insert('customer',$dataarr);
+	echo '<script type="text/javascript">alert("追加おｋ");</script>';
 }
 //--------------------------------------------------------------------------------------
 /*!
@@ -297,75 +282,6 @@ function regist_customer($customer_id){
 		$chenge->insert('customer',$dataarr);
 	}
 }
-
-//--------------------------------------------------------------------------------------
-/*!
-@brief	メンバーIDのアサイン(新規の場合は「新規」)
-@return	なし
-*/
-//--------------------------------------------------------------------------------------
-// function assign_member_id_txt(){
-// 	//$smartyをグローバル宣言（必須）
-// 	global $smarty;
-// 	global $member_id;
-// 	if($member_id <= 0){
-// 		$smarty->assign('member_id_txt','新規');
-// 	}
-// 	else{
-// 		$smarty->assign('member_id_txt',$member_id);
-// 	}
-// }
-
-//--------------------------------------------------------------------------------------
-/*!
-@brief	都道府県プルダウンのアサイン
-@return	なし
-*/
-//--------------------------------------------------------------------------------------
-// function assign_prefecture_rows(){
-// 	//$smartyをグローバル宣言（必須）
-// 	global $smarty;
-// 	//都道府県の一覧を取得
-// 	$prefecture_obj = new cprefecture();
-// 	$allcount = $prefecture_obj->get_all_count(false);
-// 	$prefecture_rows = $prefecture_obj->get_all(false,0,$allcount);
-//     $smarty->assign('prefecture_rows',$prefecture_rows);
-// }
-//--------------------------------------------------------------------------------------
-/*!
-@brief	好きな果物のアサイン
-@return	なし
-*/
-//--------------------------------------------------------------------------------------
-// function assign_product_rows(){
-// 	//$smartyをグローバル宣言（必須）
-// 	global $smarty;
-// 	//フルーツの一覧を取得
-// 	$fruits_obj = new cfruits();
-// 	$fruits_rows = $fruits_obj->get_all(false);
-// 	if(!isset($_POST['fruits']))$_POST['fruits'] = array();
-// 	foreach($fruits_rows as $key => $val){
-// 		if(array_search($val['fruits_id'],$_POST['fruits']) !== false){
-// 			$fruits_rows[$key]['check'] = 1;
-// 		}
-// 		else{
-// 			$fruits_rows[$key]['check'] = 0;
-// 		}
-// 	}
-// 	$product_obj = new cproductH();
-// 	$product_rows = $product_obj->get_all(false);
-// 	if(!isset($_POST['fruits']))$_POST['fruits'] = array();
-// 	foreach($fruits_rows as $key => $val){
-// 		if(array_search($val['fruits_id'],$_POST['fruits']) !== false){
-// 			$fruits_rows[$key]['check'] = 1;
-// 		}
-// 		else{
-// 			$fruits_rows[$key]['check'] = 0;
-// 		}
-// 	}
-//     $smarty->assign('fruits_rows',$fruits_rows);
-// }
-
 
 /////////////////////////////////////////////////////////////////
 /// 関数呼び出しブロック

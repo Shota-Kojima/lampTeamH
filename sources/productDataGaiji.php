@@ -172,16 +172,7 @@ function regist(){
     $dataarr['stock_value'] = (int)$_POST['stock_value'];
     
 	$chenge = new cchange_ex();
-	// if($member_id > 0){
-	// 	$chenge->update('member',$dataarr,'member_id=' . $member_id);
-	// 	regist_fruits($member_id);
-	// 	cutil::redirect_exit($_SERVER['PHP_SELF'] . '?mid=' . $member_id);
-	// }
-	// else{
     $mid = $chenge->insert('productH',$dataarr);
-	// 	regist_fruits($mid);
-    // cutil::redirect_exit($_SERVER['PHP_SELF'] . '?mid=' . $mid);
-    // }
     echo '<script type="text/javascript">alert("追加おｋ");</script>';
 }
 

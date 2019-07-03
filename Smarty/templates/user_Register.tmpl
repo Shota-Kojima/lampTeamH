@@ -114,34 +114,30 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		  	  <form action="" method="post" enctype="multipart/form-data"> 
 				 <div class="register-top-grid">
 					<h3>会員登録</h3>
-					<div>
+					 <div>
+					 	{if $flg['last_name'] eq true}<font color="red">入力内容に問題があります</font>{/if}
+						<span>氏<font color="red">　必須</font></span>
 						<select name="customer_sex">
 							<option value="1">男</option>
 							<option value="2">女</option>
 							<option value="3">その他</option>
-						
 						</select>
-					</div>
-					
-					 <div>
-					 	{if $flg['last_name'] eq true}<font color="red">入力内容に問題があります</font>{/if}
-						<span>氏<font color="red">　必須</font></span>
-						<input type="text" name="last_name"> 
+						<input type="text" name="last_name" value="{if isset($POST['last_name'])}{$POST['last_name']}{/if}"> 
 					 </div>
 					 <div>
 					 	{if $flg['last_name_kana'] eq true}<font color="red">入力内容に問題があります</font>{/if}
 						<span>せい<font color="red">　必須</font></span>
-						<input type="text" name="last_name_kana"> 
+						<input type="text" name="last_name_kana" value="{if isset($POST['last_name_kana'])}{$POST['last_name_kana']}{/if}"> 
 					 </div>
 					 <div>
 					 	{if $flg['first_name'] eq true}<font color="red">入力内容に問題があります</font>{/if}
 						<span>名<font color="red">　必須</font></span>
-						<input type="text" name="first_name"> 
+						<input type="text" name="first_name" value="{if isset($POST['first_name'])}{$POST['first_name']}{/if}"> 
 					 </div>
 					 <div>
 					 	{if $flg['first_name_kana'] eq true}<font color="red">入力内容に問題があります</font>{/if}
 						<span>めい<font color="red">　必須</font></span>
-						<input type="text" name="first_name_kana"> 
+						<input type="text" name="first_name_kana" value="{if isset($POST['first_name_kana'])}{$POST['first_name_kana']}{/if}"> 
 					 </div>
 					 <div>
 					 	{if $flg['customer_address'] eq true}<font color="red">入力内容に問題があります</font>{/if}
@@ -196,12 +192,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 							<option value="46">鹿児島県</option>
 							<option value="47">沖縄県</option>
 							</select>
-						<input type="text" name="customer_address"> 
+						<input type="text" name="customer_address" value="{if isset($POST['customer_address'])}{$POST['customer_address']}{/if}"> 
 					 </div>
 					 <div>
 						 {if $flg['customer_email'] eq true}<font color="red">入力内容に問題があります</font>{/if}
 						 <span>メールアドレス<font color="red">　必須</font></span>
-						 <input type="text" name="customer_email" autocomplete="off">
+						 <input type="text" name="customer_email" autocomplete="off" value="{if isset($POST['customer_email'])}{$POST['customer_email']}{/if}">
 					 </div>
 					 <div class="clearfix"> </div>
 					   <a class="news-letter" href="#">
@@ -213,7 +209,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 							<div>
 								{if $flg['customer_id'] eq true}<font color="red">このIDは使用されています</font>{/if}
 								<span>ID<font color="red">　必須</font></span>
-								<input type="text" name="customer_id" autocomplete="off">
+								<input type="text" name="customer_id" autocomplete="off" value="{if isset($POST['customer_id'])}{$POST['customer_id']}{/if}">
 							 </div>
 							 <div>
 							 	{if $flg['customer_password'] eq true}<font color="red">パスワードに問題があります</font>{/if}
@@ -233,8 +229,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				
 					</div>
 				</form>
-				
-				
 		   </div>
 	    </div>
 	</div>

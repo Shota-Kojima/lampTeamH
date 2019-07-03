@@ -574,11 +574,12 @@ left:100px;
   }
 #jsi-board{
  background: #ffffff;/*背景色*/
-  padding: 0.5em;/*文字まわり（上下左右）の余白*/
-  float:right;
-  background-color: rgb(152, 252, 152);
-  border-radius: 20%;
-
+  padding:10em;/*文字まわり（上下左右）の余白*/
+  width:80%;
+	padding:10px;
+	margin: 5px 10px 0;
+	position: relative;
+	left:30px;
 }
 
 .panel {
@@ -615,4 +616,8 @@ left:40px;
 }
 #header{
 	height:140px;
+}
+.panel #chat{
+	
+
 }
