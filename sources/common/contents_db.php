@@ -1160,6 +1160,24 @@ class cgenre extends crecord {
 		return $arr;
     }
    
+	public function get_allH($debug){
+		$arr = array();
+		//親クラスのselect()メンバ関数を呼ぶ
+		$this->select(
+			$debug,			//デバッグ表示するかどうか
+			"*",			//取得するカラム
+			"genre",	//取得するテーブル
+			"1",			//条件
+			"genre_id asc"	//並び替え
+		);
+		//順次取り出す
+		while($row = $this->fetch_assoc()){
+			$arr[] = $row;
+		}
+		//取得した配列を返す
+		return $arr;
+	}
+	
 	//--------------------------------------------------------------------------------------
 	/*!
 	@brief	指定されたIDの配列を得る
