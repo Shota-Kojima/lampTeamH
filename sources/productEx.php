@@ -95,24 +95,11 @@ function regist(){
     $mid = $chenge->insert('productH',$dataarr);
     echo '<script type="text/javascript">alert("追加おｋ");</script>';
 }
-//useIDチェック
-// if(isset($_POST['customer_id'])){
-	// global $flg;
-	//IDが使われているかどうかチェックする
-	$customer_obj = new cgenre();
-	$customer_id = $_POST['customer_id'];
-	$customerarr = $customer_obj->get_tgt(false,$customer_id);
-	//使われている場合
-	if($customerarr !== false){
-		flgUpd(false);
-		$flg["customer_id"] = true;
-		$smarty->assign('flg',$flg);
-	}else{
-		flgUpd(true);
-		$flg["customer_id"] = false;
-		$smarty->assign('flg',$flg);
-	}
-// }
 
+//IDが使われているかどうかチェックする
+$genre_obj = new cgenre();
+$rows = $genre_obj->get_allH(false);
+$smarty->assign('rows',$rows);
+var_dump($rows);
 $smarty->display('productEx.tmpl');
 ?>
