@@ -572,11 +572,11 @@ left:330px;
   }
 #jsi-board{
  background: #ffffff;/*背景色*/
-  padding: 0.5em;/*文字まわり（上下左右）の余白*/
+  padding:10em;/*文字まわり（上下左右）の余白*/
   float:right;
-  background-color: rgb(152, 252, 152);
-  border-radius: 20%;
-
+  width:60%;
+	padding:10px;
+	margin: 5px 10px 0;
 }
 
 .panel {
@@ -591,10 +591,6 @@ left:330px;
     overflow: auto;
 }
 
-.usr {
-    float: right;
-    background-color: rgb(152, 252, 152);
-}
 
 .inputText {
 	text-align: right;
@@ -610,4 +606,9 @@ left:40px;
 	position: absolute;
 	top:1100px;
 	left:385px;
+}
+
+.panel #chat{
+	
+
 }
