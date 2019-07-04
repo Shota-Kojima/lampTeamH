@@ -100,6 +100,5 @@ function regist(){
 $genre_obj = new cgenre();
 $rows = $genre_obj->get_allH(false);
 $smarty->assign('rows',$rows);
-var_dump($rows);
 $smarty->display('productEx.tmpl');
 ?>
