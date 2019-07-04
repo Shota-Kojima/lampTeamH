@@ -1,0 +1,98 @@
+/*枠*/
+.box11{
+	width: 70%;
+    padding: 0.5em 1em;
+    margin: 2em 1em;
+    color: #5d627b;
+    background: white;
+    border-top: solid 5px #FF5B36;
+	box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+	position: relative;
+}
+.box11 p {
+    margin: 0; 
+    padding: 0;
+}
+/*発送*/
+.shipping{
+	font-size: 30px;
+	font-weight: bold;
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+.gou{
+	margin: 75px;
+	color: #FF5B36;
+}
+.ko{
+	margin: 10px;
+	color: #FF5B36;
+}
+.si{
+	margin: 30px;
+	color: #FF5B36;
+}
+.kei{
+	margin: 30px;
+}
+.ten{
+	margin: 30px;
+}
+.ha{
+	margin: 20px
+}
+/*商品画像*/
+.mono{
+	width: 400px;
+	padding: 10px;
+	margin-bottom: 30px;
+	overflow: hidden;
+}
+.mono1{
+	float: left;
+	margin: 0 10px 5px 0;
+}
+.mono p{
+	overflow: hidden;
+}
+/*再購入ボタン*/
+.re{
+	background: #f0e68c;
+}
+/*レビューボタン*/
+.review{
+	position: absolute;
+	right: 0;
+	bottom: 0;
+}
+/*ページ送り*/
+.paging {
+	margin: 0 0 10px;
+	padding: 10px 10px 5px;
+	background: #fff;
+	border: 1px solid #ccc;
+	text-align: center;
+}
+
+.paging li {
+	display: inline;
+	margin: 0 2px;
+	padding: 0;
+}
+
+.paging li span,
+.paging li a {
+	display: inline-block;
+	margin-bottom: 5px;
+	padding: 5px 13px;
+	background: #eeeff7;
+	text-decoration: none;
+	vertical-align: middle;
+}
+
+.paging li a:hover {
+	color: #000;
+	background: #ccf;
+	border-color: #00f;
+}
