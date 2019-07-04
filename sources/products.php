@@ -13,11 +13,12 @@ require_once("inc_smarty.php");
 $limit = 12;
 $rows = array();
 $use_rows = array();
-
+var_dump($_SESSION['HTeam_adm']['customer_id']);
 readdata();
 $smarty->assign('limit',$limit);
 $smarty->assign('products',$use_rows);
 $smarty->assign('limit',$limit);
+$smarty->assign('count',$count);
 
 //データの読み込み
 function readdata(){
@@ -42,13 +43,19 @@ if(isset($_GET['sort_method'])){
 }
 	$obj = new cproductH();
 	$from = 0;
+	global $count;
+	global $in;
 	$count = $obj->get_all_count(false);
 	$rows = $obj->get_all_order(false,$from,$limit,$tgt_culmn);
 	$use_rows = $rows;
-	for($i = 0; $i < $count; $i ++) {
-	$work = explode(",",$use_rows[$i]['product_pass']);
-	$use_rows[$i]['product_pass'] = $work[0];
-}
+	$in = $use_rows[0]['product_id'];
+	for($i = 0; $i < $count-1; $i ++) {
+		if(strpos($use_rows[$i]['product_pass'],',') !== false){
+			$work = explode(",",$use_rows[$i]['product_pass']);
+			$use_rows[$i]['product_pass'] = $work[0];
+		}
+	
+	}
 }
 //Smartyを使用した表示(テンプレートファイルの指定)
 $smarty->display('products.tmpl');

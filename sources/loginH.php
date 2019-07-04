@@ -1,4 +1,5 @@
 <?php
+ session_start();
 /*!
 @file login.php
 @brief  メインメニュー(管理画面)
@@ -12,28 +13,17 @@ require_once("inc_smarty.php");
 $ERR_STR = "";
 $customer_id = "";
 $admin_name = "";
-
-session_start();
-if(isset($_SESSION['ZTeam_adm']['err']) && $_SESSION['ZTeam_adm']['err'] != ""){
-    $ERR_STR = $_SESSION['ZTeam_adm']['err'];
-}
-
-session_unset();
-session_destroy();
-
 if(isset($_POST['login_id']) && isset($_POST['login_pw'])){
     if(chk_login_id(
         strip_tags($_POST['login_id']),
         strip_tags($_POST['login_pw']))){
-        session_start();
-        $_SESSION['ZTeam_adm']['login_id'] = strip_tags($_POST['login_id']);
-        $_SESSION['ZTeam_adm']['customer_id'] = $customer_id;
-        $_SESSION['ZTeam_adm']['admin_name'] = $admin_name;
         if(true){
-            cutil::redirect_exit("products_user.php");
+            session_start();
+            $_SESSION['HTeam_adm']['customer_id'] = $_POST['login_id'];
+            cutil::redirect_exit("products.php");
         }
         else{
-            cutil::redirect_exit("products_admin.php");
+            cutil::redirect_exit("products.php");
         }
         
     }
