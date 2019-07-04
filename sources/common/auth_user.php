@@ -20,7 +20,7 @@ if(isset($_SESSION['HTeam_adm']['customer_id'])&&
     //ユーザの情報を取得
     //------------------------
 	$customerarr = $customer_obj->get_tgt(false,$_SESSION['HTeam_adm']['customer_id']);
-	if($productarr !== false){
+	if($customerarr !== false){
         //セッション割り当て
         $_SESSION['HTeam_adm']['customer_email'] = $customerarr['customer_email'];
         $_SESSION['HTeam_adm']['last_name'] = $customerarr['last_name'];
@@ -30,10 +30,8 @@ if(isset($_SESSION['HTeam_adm']['customer_id'])&&
         $_SESSION['HTeam_adm']['postal_code'] = $customerarr['postal_code'];
         $_SESSION['HTeam_adm']['icon_pass'] = $customerarr['icon_pass'];
         $_SESSION['HTeam_adm']['customer_point'] = $customerarr['customer_point'];
-        $_SESSION['HTeam_adm']['postal_code'] = $customerarr['postal_code'];
         $_SESSION['HTeam_adm']['customer_created_date'] = $customerarr['customer_created_date'];
         $_SESSION['HTeam_adm']['customer_sex'] = $customerarr['customer_sex'];
-        $_SESSION['HTeam_adm']['postal_code'] = $customerarr['postal_code'];	
 		$smarty->assign('session',$_SESSION);
 	}else{
         
@@ -45,26 +43,26 @@ if(isset($_SESSION['HTeam_adm']['customer_id'])&&
     $cartarr = $cart_obj->get_allH(false,$_SESSION['HTeam_adm']['customer_id']);
 	if($cartarr !== false){
         //カート内の合計商品数
-        $product_count;
+        $product_count = 0;
         //カート内の合計金額
-        $product_sum;
+        $product_sum = 0;
         for($i = 0; $i < count($cartarr);$i++){
             //商品数カウント
-            $product_count+=$cartarr['product_value'];
+            $product_count+=$cartarr[$i]['product_value'];
             //商品テーブルの処理
             $product_obj = new cproductH();
-	        $product_id = $cartarr['product_id'];
+	        $product_id = $cartarr[$i]['product_id'];
             $productarr = $product_obj->get_tgt(false,$product_id);
             //取得出来たら商品の金額をセッションに格納
             if($productarr !== false){
-                $product_sum += $cartarr['product_value'] * $productarr["price"];
-                $_SESSION['HTeam_adm']['product_count'] = $productarr['product_count'];
-                $_SESSION['HTeam_adm']['product_sum'] = $productarr['product_sum'];
+                $product_sum += $cartarr[$i]['product_value'] * $productarr["price"];
+                $_SESSION['HTeam_adm']['product_count'] = $product_count;
+                $_SESSION['HTeam_adm']['product_sum'] = $product_sum;
                 //var_dump($productarr);
                 $smarty->assign('session',$_SESSION);
             }else{
-                echo '<script type="text/javascript">alert("66のelse");</script>';
-                 // ステータスコードを出力
+                // echo '<script type="text/javascript">alert("64のelse");</script>';
+                //  ステータスコードを出力
                 http_response_code( 301 ) ;
                 // リダイレクト
                 header( "Location: ./loginH.php" ) ;
@@ -72,13 +70,13 @@ if(isset($_SESSION['HTeam_adm']['customer_id'])&&
             }
         }
 	}else{
-        echo '<script type="text/javascript">alert("75のelse");</script>';
+        // echo '<script type="text/javascript">alert("75のelse");</script>';
         // ステータスコードを出力
         exit ;
     }
 
 }else{
-    echo '<script type="text/javascript">alert("81のelse");</script>';
+    // echo '<script type="text/javascript">alert("81のelse");</script>';
     // ステータスコードを出力
 	http_response_code( 301 ) ;
 	// リダイレクト
