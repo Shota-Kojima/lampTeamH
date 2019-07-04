@@ -9,7 +9,7 @@ $_SESSIONは多次元配列にする
              2018/7/3 Y.YAMANOI
 *********************************/
 session_start();
-
+require_once("inc_smarty.php");
 $row = array();
 $customer_obj = new ccustomer();
 $cart_obj = new ccart();
@@ -48,7 +48,7 @@ if(isset($_SESSION['HTeam_adm']['customer_id'])&&
         //------------------------
         //ユーザのカート情報を取得
         //------------------------
-        $cartarr = $cart_obj->get_allH(false,$_SESSION['HTeam_adm']['customer_id']);
+        $cartarr = $cart_obj->get_tgt(false,$_SESSION['HTeam_adm']['customer_id']);
         if($cartarr !== false){
             //カート内の合計商品数
             $product_count = 0;

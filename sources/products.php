@@ -20,7 +20,9 @@ $smarty->assign('limit',$limit);
 $smarty->assign('products',$use_rows);
 $smarty->assign('limit',$limit);
 $smarty->assign('count',$count);
-
+// echo($_SESSION['HTeam_adm']['product_sum']);
+// echo($_SESSION['HTeam_adm']['product_count']);
+$smarty->assign('session',$_SESSION);
 //データの読み込み
 function readdata(){
 	global $limit;
