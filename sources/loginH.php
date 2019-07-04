@@ -13,6 +13,7 @@ require_once("inc_smarty.php");
 $ERR_STR = "";
 $customer_id = "";
 $admin_name = "";
+//ログインチェック
 if(isset($_POST['login_id']) && isset($_POST['login_pw'])){
     if(chk_login_id(
         strip_tags($_POST['login_id']),

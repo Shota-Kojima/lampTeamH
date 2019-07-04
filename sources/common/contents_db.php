@@ -1480,7 +1480,25 @@ class ccart extends crecord {
         );
         return $this->fetch_assoc();
 	}
-	
+	//全部持ってくる
+	public function get_allH($debug){
+		$arr = array();
+		//親クラスのselect()メンバ関数を呼ぶ
+		$this->select(
+			$debug,			//デバッグ表示するかどうか
+			"*",			//取得するカラム
+			"cart",	//取得するテーブル
+			"1",			//条件
+			"customer_id asc"	//並び替え
+		);
+		//順次取り出す
+		while($row = $this->fetch_assoc()){
+			$arr[] = $row;
+		}
+		//取得した配列を返す
+		return $arr;
+	}
+
 	//--------------------------------------------------------------------------------------
 	/*!
 	@brief	デストラクタ
