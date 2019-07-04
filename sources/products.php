@@ -8,6 +8,7 @@ require_once("inc_base.php");
 require_once($CMS_COMMON_INCLUDE_DIR . "libs.php");
 //smartyクラスの初期化
 require_once("inc_smarty.php");
+require_once($CMS_COMMON_INCLUDE_DIR . "auth_user.php");
 
 //1ページのリミット
 $limit = 100;
