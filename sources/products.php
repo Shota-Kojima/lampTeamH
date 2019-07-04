@@ -10,10 +10,10 @@ require_once($CMS_COMMON_INCLUDE_DIR . "libs.php");
 require_once("inc_smarty.php");
 
 //1ページのリミット
-$limit = 12;
+$limit = 100;
 $rows = array();
 $use_rows = array();
-var_dump($_SESSION['HTeam_adm']['customer_id']);
+//var_dump($_SESSION['HTeam_adm']['customer_id']);
 readdata();
 $smarty->assign('limit',$limit);
 $smarty->assign('products',$use_rows);
@@ -44,11 +44,9 @@ if(isset($_GET['sort_method'])){
 	$obj = new cproductH();
 	$from = 0;
 	global $count;
-	global $in;
 	$count = $obj->get_all_count(false);
 	$rows = $obj->get_all_order(false,$from,$limit,$tgt_culmn);
 	$use_rows = $rows;
-	$in = $use_rows[0]['product_id'];
 	for($i = 0; $i < $count-1; $i ++) {
 		if(strpos($use_rows[$i]['product_pass'],',') !== false){
 			$work = explode(",",$use_rows[$i]['product_pass']);
