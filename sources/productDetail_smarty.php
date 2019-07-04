@@ -29,21 +29,14 @@ if(isset($_POST['buy_count'])
 	//cutilクラスのメンバ関数をスタティック呼出
 	&& cutil::is_number($_POST['buy_count'])
 	&& $_POST['buy_count'] > 0 && isset($_POST['product_id'])){
-		echo '<script type="text/javascript">alert("iine");</script>';
-	//カートクラスを構築
+	//購入
 	regist();
-	// $cart_obj = new ccart();
-	// $product_id = $_POST['product_id'];
-	// $dataarr = array();
-	// $dataarr['member_id'] = (int)$member_id;
-	// $dataarr['fruits_id'] = (int)$val;
-	// $chenge->insert('cart',$dataarr);
 	
 }else if(isset($_GET['product_id']) 
 //cutilクラスのメンバ関数をスタティック呼出
 	&& cutil::is_number($_GET['product_id'])
 	&& $_GET['product_id'] > 0){
-		echo '<script type="text/javascript">alert("get");</script>';
+		
 	//商品Hクラスを構築
 	$product_obj = new cproductH();
 	$product_id = $_GET['product_id'];
@@ -57,13 +50,14 @@ if(isset($_POST['buy_count'])
 		//var_dump($productarr);
 		$smarty->assign('productarr',$productarr);
 	}else{
-		echo '<script type="text/javascript">alert("だめ1");</script>';
 	}
 	
 }else{
-	var_dump($_POST);
-	//購入時
-	
+	// ステータスコードを出力
+	http_response_code( 301 ) ;
+	// リダイレクト
+	header( "Location: ./products.php" ) ;
+	exit ;
 }
 
 //--------------------------------------------------------------------------------------
@@ -111,7 +105,7 @@ function regist(){
     
 	$chenge = new cchange_ex();
     $mid = $chenge->insert('cart',$dataarr);
-    echo '<script type="text/javascript">alert("おｋ");</script>';
+    echo '<script type="text/javascript">alert("購入しました(購入完了画面に遷移予定)");</script>';
 }
 
 
