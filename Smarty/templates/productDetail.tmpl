@@ -245,7 +245,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 							{/if}
 						{/foreach}
 							<!--コメントアウト-->
-							{*<li>
+							<li>
 								<a href="optionallink.html">
 									<img class="etalage_thumb_image" src="images/s1.jpg" class="img-responsive" />
 									<img class="etalage_source_image" src="images/smal.jpg" class="img-responsive" />
@@ -275,7 +275,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 								<img class="etalage_thumb_image" src="images/s3.jpg" class="img-responsive" />
 								<img class="etalage_source_image" src="images/smal2.jpg" class="img-responsive" />
 							</li>
-							*}
+							
 						</ul>
 					<!-- end product_slider -->
 			  </div>
@@ -321,7 +321,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 								<option>6</option>
 							</select>
 						</ul>
-						<input type="hidden" name="product_id" value='{$productarr.product_id}'>
+						<input type="hidden" name="product_id" value='{$productarr['product_id']}'>
 					 	<input type="submit" value="カートに入れる" title="">
 					</form>
 				</div>
