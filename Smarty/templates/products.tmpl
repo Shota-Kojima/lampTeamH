@@ -51,6 +51,12 @@ cart_bgって名前のclassはオレンジ色にしたりする
 
 <!-- Add fancyBox main JS and CSS files -->
 <script src="js/jquery.magnific-popup.js" type="text/javascript"></script>
+<script>
+//共通パーツ読み込み
+  $(function() {
+       $("#header").load("shere.html");
+});
+</script>
 <link href="css/magnific-popup.css" rel="stylesheet" type="text/css">
 		<script>
 			$(document).ready(function() {
@@ -70,7 +76,7 @@ cart_bgって名前のclassはオレンジ色にしたりする
 </head>
 
 <body>
-<div id = ""
+<div id = "header"></div>
 <div class="header">	
 		<!-- BootStrapはコンテナごとに管理する　-->		
 	<div class="container">
