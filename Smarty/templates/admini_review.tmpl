@@ -9,7 +9,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <head>
 <title>Surfhouse Bootstarp Website Template | Login :: w3layouts</title>
 <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
-<link href="css/user_details.css" rel='stylesheet' type='text/css' />
+<link href="css/admini_review.css" rel='stylesheet' type='text/css' />
+<link href="css/manager.css" rel='stylesheet' type='text/css' />
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="js/jquery.min.js"></script>
 <!-- Custom Theme files -->
@@ -92,47 +93,174 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		  </div>
 		</div>
     </div>
-    <!-- ここからレビュー一覧(管理者側)-->
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    <!-- ここからレビュー一覧(管理者側) -->
+	<div class="all">
+		<!-- ヘッダー下～一覧上-->	
+	    <div class="dreamcrub">
+			<ul class="breadcrumbs">
+				<li class="home">
+					<a href="index.html" title="Go to Home Page">Home</a>&nbsp;
+					<span>&gt;</span>
+				</li>
+				<li class="women">
+					レビュー一覧
+				</li>
+            </ul>
+			<ul class="previous">
+				<li><a href="index.html">前のページへ戻る</a></li>
+			</ul>
+            <div class="clearfix"></div>
+		</div>
+		<!-- ここから一覧　-->
+        <div class="box">        
+			<div class="searcharea">
+			<h2 class="left">レビュー一覧</h2>
+				<div class="searchform">
+					<form id="form_s" action="自分のサイトURL">
+						<input id="serbox"  id="s" name="s" type="text" placeholder="キーワードを入力" />
+						<input id="serbtn" type="submit" value="検索" />
+					</form>
+                    <div class="kind">
+						<select name="kind">
+							<option value="全ての商品">全ての商品</option>
+							<option value="通常商品">販売中の商品のみ</option>
+							<option value="レンタル商品">レンタル商品のみ</option>
+						</select>
+					</div>
+					<div class="radio">
+						<form>
+							<label class="radio-in">
+								<input type="radio" name="search-radio" value="商品名で検索" checked>商品名で検索
+							</label>
+							<label class="radio-in">
+								<input type="radio" name="search-radio" value="ユーザーIDで検索">ユーザーIDで検索
+							</label>
+						</form>
+					</div>
+				</div>
+			</div>
+			<div class="table">
+				<table width="100%" border="0" cellspacing="0" cellpadding="0">
+					<tr id="odd">
+						<th>ユーザーID</th>
+						<th>商品名</th>
+						<th width="110" class="ac">投稿日時</th>
+					</tr>
+					<tr>
+						<td><h3><a href="#">camp12</a></h3></td>
+						<td>ノーススター（Ｒ）チューブマントルランタン</td>
+						<td>2019/6/30</td>
+						<td><input class="edibtn" type="button" id="delBtn1" value="詳細" onclick="location.href=''"><!--<input class="delbtn" type="button" id="delBtn1" value="削除" onclick="deleteRow(this)">--></td>
+					</tr>
+					<tr>
+						<td><h3><a href="#">user1</a></h3></td>
+						<td>ワンマントルランタン</td>
+						<td>2019/6/24</td>
+						<td><input class="edibtn" type="button" id="delBtn1" value="詳細" onclick="location.href=''"><!--<input class="delbtn" type="button" id="delBtn1" value="削除" onclick="deleteRow(this)">--></td>
+					</tr>
+					<tr>
+						<td><h3><a href="#">user2</a></h3></td>
+						<td>商品名</td>
+						<td>日時</td>
+						<td><input class="edibtn" type="button" id="delBtn1" value="詳細" onclick="location.href=''"><!--<input class="delbtn" type="button" id="delBtn1" value="削除" onclick="deleteRow(this)">--></td>
+					</tr>
+					<tr>
+						<td><h3><a href="#">camp12@jp</a></h3></td>
+						<td>商品名</td>
+						<td>日時</td>
+						<td><input class="edibtn" type="button" id="delBtn1" value="詳細" onclick="location.href=''"><!--<input class="delbtn" type="button" id="delBtn1" value="削除" onclick="deleteRow(this)">--></td>
+					</tr>
+					<tr>
+						<td><h3><a href="#">camp12@jp</a></h3></td>
+						<td>商品名</td>
+						<td>日時</td>
+						<td><input class="edibtn" type="button" id="delBtn1" value="詳細" onclick="location.href=''"><!--<input class="delbtn" type="button" id="delBtn1" value="削除" onclick="deleteRow(this)">--></td>
+					</tr>
+					<tr>
+						<td><h3><a href="#">camp12@jp</a></h3></td>
+						<td>商品名</td>
+						<td>日時</td>
+						<td><input class="edibtn" type="button" id="delBtn1" value="詳細" onclick="location.href=''"><!--<input class="delbtn" type="button" id="delBtn1" value="削除" onclick="deleteRow(this)">--></td>
+					</tr>
+					<tr>
+						<td><h3><a href="#">camp12@jp</a></h3></td>
+						<td>商品名</td>
+						<td>日時</td>
+						<td><input class="edibtn" type="button" id="delBtn1" value="詳細" onclick="location.href=''"><!--<input class="delbtn" type="button" id="delBtn1" value="削除" onclick="deleteRow(this)">--></td>
+					</tr>
+					<tr>
+						<td><h3><a href="#">camp12@jp</a></h3></td>
+						<td>商品名</td>
+						<td>日時</td>
+						<td><input class="edibtn" type="button" id="delBtn1" value="詳細" onclick="location.href=''"><!--<input class="delbtn" type="button" id="delBtn1" value="削除" onclick="deleteRow(this)">--></td>
+					</tr>
+					<tr>
+						<td><h3><a href="#">camp12@jp</a></h3></td>
+						<td>商品名</td>
+						<td>日時</td>
+						<td><input class="edibtn" type="button" id="delBtn1" value="詳細" onclick="location.href=''"><!--<input class="delbtn" type="button" id="delBtn1" value="削除" onclick="deleteRow(this)">--></td>
+					</tr>
+					<tr>
+						<td><h3><a href="#">camp12@jp</a></h3></td>
+						<td>商品名</td>
+						<td>日時</td>
+						<td><input class="edibtn" type="button" id="delBtn1" value="詳細" onclick="location.href=''"><!--<input class="delbtn" type="button" id="delBtn1" value="削除" onclick="deleteRow(this)">--></td>
+					</tr>
+					<tr>
+						<td><h3><a href="#">camp12@jp</a></h3></td>
+						<td>商品名</td>
+						<td>日時</td>
+						<td><input class="edibtn" type="button" id="delBtn1" value="詳細" onclick="location.href=''"><!--<input class="delbtn" type="button" id="delBtn1" value="削除" onclick="deleteRow(this)">--></td>
+					</tr>
+						<td><h3><a href="#">camp12@jp</a></h3></td>
+						<td>商品名</td>
+						<td>日時</td>
+						<td><input class="edibtn" type="button" id="delBtn1" value="詳細" onclick="location.href=''"><!--<input class="delbtn" type="button" id="delBtn1" value="削除" onclick="deleteRow(this)">--></td>
+					</tr>
+					<tr>
+						<td><h3><a href="#">camp12@jp</a></h3></td>
+						<td>商品名</td>
+						<td>日時</td>
+						<td><input class="edibtn" type="button" id="delBtn1" value="詳細" onclick="location.href=''"><!--<input class="delbtn" type="button" id="delBtn1" value="削除" onclick="deleteRow(this)">--></td>
+					</tr>
+					<tr>
+						<td><h3><a href="#">camp12@jp</a></h3></td>
+						<td>商品名</td>
+						<td>日時</td>
+						<td><input class="edibtn" type="button" id="delBtn1" value="詳細" onclick="location.href=''"><!--<input class="delbtn" type="button" id="delBtn1" value="削除" onclick="deleteRow(this)">--></td>
+					</tr>
+					<tr>
+						<td><h3><a href="#">camp12@jp</a></h3></td>
+						<td>商品名</td>
+						<td>日時</td>
+						<td><input class="edibtn" type="button" id="delBtn1" value="詳細" onclick="location.href=''"><!--<input class="delbtn" type="button" id="delBtn1" value="削除" onclick="deleteRow(this)">--></td>
+					</tr>
+					<tr>
+						<td><h3><a href="#">camp12@jp</a></h3></td>
+						<td>商品名</td>
+						<td>日時</td>
+						<td><input class="edibtn" type="button" id="delBtn1" value="詳細" onclick=""><!--<input class="delbtn" type="button" id="delBtn1" value="削除" onclick="deleteRow(this)">--></td>
+					</tr>
+				</table>
+				<div class="pagging">
+					<div class="left">表示中 1-16</div>
+					<div class="right">
+						<a href="#">前へ</a>
+						<a href="#">1</a>
+						<a href="#">2</a>
+						<a href="#">3</a>
+						<a href="#">4</a>
+						<a href="#">245</a>
+						<span>...</span>
+						<a href="#">次へ</a>
+						<a href="#">すべて表示</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+		</div>
+	<div class="clearfix"></div>
 <!-- アイコンだしてるだけ -->
 		<div class="container">
 		  <div class="brands">
