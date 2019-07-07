@@ -45,7 +45,19 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <div class="main">
 	   <div class="container">
 		   <div class="register">
-		  	  <h4 class="title">購入</h4>
+		  		{foreach from=$cart item=value}
+					{if $value != ""}
+						
+					{/if}
+				{/foreach}
+				{if $cart['HTeam_adm']['product_count'] === 0 }
+					
+				{elseif $name eq 'Wilma'}
+					Welcome Ma'am.
+				{else}
+					Welcome, whatever you are.
+				{/if}
+			<h4 class="title">購入</h4>
 		  	  <p class="cart">購入カート内に商品はありません。<br>買い物をするには<a href="products.php">ここ</a>をクリック</p>
 			<h4 class="title" style="margin-top:20px;">レンタル</h4>
 		  	  <p class="cart">レンタルカート内に商品はありません。<br>買い物をするには<a href="products.php">ここ</a>をクリック</p>
