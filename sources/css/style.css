@@ -1189,6 +1189,7 @@ ul.category_nav li a:hover {
 	-o-background-size: cover;
 	background-size: cover;
 	background-position: center;
+	height:500px;
 }
 .cont1 {
 	display: block;

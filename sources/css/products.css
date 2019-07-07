@@ -60,3 +60,8 @@
     font-size:17px;
     color:rgb(107, 101, 98);
 }
+.product_images{
+  display: block;
+  max-width: 100%;
+  height: auto;
+}

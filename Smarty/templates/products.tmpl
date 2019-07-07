@@ -72,30 +72,6 @@ cart_bgって名前のclassはオレンジ色にしたりする
 		</script>
 </head>
 <body>
-  <div class="single">
-	<div class="container">
-	</div>
-	</div>
-		   <div class="header_right">
-			 <ul class="social">
-				<li><a href=""> <i class="fb"> </i> </a></li>
-				<li><a href=""><i class="tw"> </i> </a></li>
-				<li><a href=""><i class="utube"> </i> </a></li>
-				<li><a href=""><i class="pin"> </i> </a></li>
-				<li><a href=""><i class="instagram"> </i> </a></li>
-			 </ul>
-		    <div class="lang_list">
-			  <select tabindex="4" class="dropdown">
-				<option value="" class="label" value="">En</option>
-				<option value="1">English</option>
-				<option value="2">French</option>
-				<option value="3">German</option>
-			  </select>
-   			</div>
-			<div class="clearfix"></div>
-          </div>
-          <div class="clearfix"></div>
-		 </div>  
 	<!-- ここから商品一覧らへん -->
 	<div class="main">
 	  <div class="content_box">
@@ -151,7 +127,7 @@ cart_bgって名前のclassはオレンジ色にしたりする
 							<div class="col_1_of_3 span_1_of_3"> 
 								<a href="productDetail_smarty.php?product_id={$products[$start]['product_id']}">
 									<div class="product_image">
-										<img src="{$products[$start]['product_pass']}" class="img-responsive"/>
+										<img src="{$products[$start]['product_pass']}" class="product_images"/>
 										<div id="add_info">
 											<div id="product_name">
 												<p style="display:inline-block;text-align:left;">{$products[$start]['product_name']}<p>
@@ -177,7 +153,7 @@ cart_bgって名前のclassはオレンジ色にしたりする
 										<div style="height:60px;background:white;color:black;font-size:15px;text-align:center;">
 											<p style="display:inline-block;text-align:left;">{$products[$start]['product_name']}<p>
 										</div>
-										<img src="{$products[$start]['product_pass']}" class="img-responsive"/>
+										<img src="{$products[$start]['product_pass']}" class="product_images"/>
 										<div style="height:60px;background:white;color:black;font-size:20px;text-align:center;">
 											<div style="display:inline-block;text-align:left;"><p style="margin-top:15px;">￥{$products[$start]['price']}</p></div>
 										</div>
@@ -198,7 +174,7 @@ cart_bgって名前のclassはオレンジ色にしたりする
 										<div style="height:60px;background:white;color:black;font-size:15px;text-align:center;">
 											<p style="display:inline-block;text-align:left;">{$products[$start]['product_name']}<p>
 										</div>
-										<img src="{$products[$start]['product_pass']}" class="img-responsive"/>
+										<img src="{$products[$start]['product_pass']}" class="product_images"/>
 										<div style="height:60px;background:white;color:black;font-size:20px;text-align:center;">
 											<div style="display:inline-block;text-align:left;"><p style="margin-top:15px;">￥{$products[$start]['price']}</p></div>
 										</div>
