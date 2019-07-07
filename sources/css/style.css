@@ -603,10 +603,10 @@ ul.article_links li a{
 .col_1_of_3 {
 	display: block;
 	float: left;
-	margin: 1% 0 1% 2.6%;
+	margin: 3% 0% 0% 3%
 }
 .span_1_of_3 {
-	width: 31.6%;
+	width: 30%;
 	-webkit-transition: all 0.4s ease;
 	-moz-transition: all 0.4s ease;
 	-o-transition: all 0.4s ease;
@@ -1020,6 +1020,7 @@ p.email span:hover{
 .apparel_box {
 	width: 23%;
 	float: left;
+	margin-top:350px;
 	padding-bottom:2em;
 }
 ul.breadcrumbs{
@@ -1158,7 +1159,7 @@ ul.category_nav li a:hover {
 	margin: 0 3.6% 0 0;
 }
 .single {
-	background: url(../images/single.jpg)no-repeat center top;
+	background: url(../images/newcamp.jpg)no-repeat center top;
 	background-size: 100% 100%;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
@@ -1815,7 +1816,7 @@ div.register-bottom-grid {
 h4.title {
 	color: #555;
 	margin-bottom: 0.5em;
-	font-size:1em;
+	font-size:1.5em;
 	line-height: 1.2;
 	font-weight: normal;
 	margin-top: 0px;
@@ -1828,8 +1829,8 @@ h4.title {
 p.cart {
 	color:#555;
 	font-size: 0.8125em;
-	line-height: 1.8em;
 	font-family: 'Roboto', sans-serif;
+	margin:top;
 }
 p.cart a{
 	color:red;
@@ -2307,7 +2308,6 @@ h3.like, h3.recent {
 }
 .sort_command{
 	background-color: rgb(223, 184, 148);
-	margin-left:40px;
 	height:40px;
 	line-height:40px;
 	margin-top:15px;
@@ -2325,4 +2325,16 @@ h3.like, h3.recent {
 	margin-left:60px;
 	display: inline-block;
 }
-
+.product_name{
+	height:50px !important;
+	background:white !important;
+	color:black !important;
+	font-size:20px !important;
+}
+.product_price{
+	height:50px;
+	display:inline-block;
+	background:white;
+	color:black;
+	font-size:20px;
+}

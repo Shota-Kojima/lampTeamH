@@ -36,6 +36,7 @@ cart_bgって名前のclassはオレンジ色にしたりする
 <script src="js/tab.js"></script>
 
 <!-- Custom Theme files -->
+<link href="css/products_header.css" rel='stylesheet' type='text/css' />
 <link href="./css/style.css" rel='stylesheet' type='text/css' />
 <link href="./css/tab.css" rel='stylesheet' type='text/css' />
 <!-- Custom Theme files -->
@@ -51,6 +52,7 @@ cart_bgって名前のclassはオレンジ色にしたりする
 
 <!-- Add fancyBox main JS and CSS files -->
 <script src="js/jquery.magnific-popup.js" type="text/javascript"></script>
+{include file='shere.tmpl'}
 <link href="css/magnific-popup.css" rel="stylesheet" type="text/css">
 		<script>
 			$(document).ready(function() {
@@ -70,290 +72,56 @@ cart_bgって名前のclassはオレンジ色にしたりする
 </head>
 
 <body>
-<div class="header">	
-		<!-- BootStrapはコンテナごとに管理する　-->		
+<div id="header"></div>
+  <div class="single">
 	<div class="container">
-		  <!-- 一番上の画像ゾーン  -->
-        <div class="header-top">
-			<!-- ロゴ -->
-      		<div class="logo">
-				<a href="index.html"><img src="images/logo.png" alt=""/></a>
-			</div>
-			<!-- SNS連携のアイコン -->
-		   	<div class="header_right">
-				<ul class="social">
-					<li><a href=""> <i class="fb"> </i> </a></li>
-					<li><a href=""><i class="tw"> </i> </a></li>
-					<li><a href=""><i class="utube"> </i> </a></li>
-					<li><a href=""><i class="pin"> </i> </a></li>
-					<li><a href=""><i class="instagram"> </i> </a></li>
-			 	</ul>
-				<!-- 言語選択のリスト表示 -->
-				<div class="lang_list">
-					<select tabindex="4" class="dropdown">
-						<option value="" class="label" value="">En</option>
-						<option value="1">English</option>
-						<option value="2">French</option>
-						<option value="3">German</option>
-					</select>
-				</div>
-				<!-- cleatfixのCSSはまだわからん -->
-				<div class="clearfix"></div>
-          	</div>
-          	<div class="clearfix"></div>
-		</div>
-		<div class="index-banner">
-       	   <div class="wmuSlider example1">
-			   <div class="wmuSliderWrapper">
-				   <!-- ーーーーーーーーーーーーーーーーーーーーーーーーーーーーー -->
-				   <!-- 見てくれ -->
-				   <!-- このすぐ下の<article>から</article>までがヘッダー部分(１、２、３) -->
-				   <!-- になってる。次へボタン押すごとに全部出力し直してるでしょ？(ヘッダーだけ表示しなおされてる) -->
-				   <!-- これはださいから修正 -->
-				   <!-- ーーーーーーーーーーーーーーーーーーーーーーーーーーーーー -->
-				   <article style="position: absolute; width: 100%; opacity: 0;"> 
-				   	<div class="banner-wrap">
-						   <!-- 左上のカートとかを出してる所 -->
-				   	       <div class="bannertop_box">
-								<!-- ログインボタン関連 -->
-				   		 		<ul class="login">
-									<!-- ログインボタンを押したらlogin.htmlを表示する -->
-				   		 			<li class="login_text"><a href="login.html">Login</a></li>
-									<!-- 欲しいものリストを押したらcheckout.htmlを表示する -->
-									<li class="wish"><a href="checkout.html">Wish List</a></li>
-				   		 			<div class='clearfix'></div>
-				   		 		</ul>
-								<!-- カート値段とか×とか出してるところ	 -->
-								<div class="cart_bg">
-					   		 		<ul class="cart">
-										<!-- カートのアイコン出して、 -->
-										<!-- 合計値段とかカート内の商品数を表示(ここはDBと通信して表示する) -->
-					   		 		   <i class="cart_icon"></i><p class="cart_desc">$1459.50<br><span class="yellow">2 items</span></p>
-					   		 		   <div class='clearfix'></div>
-										</ul>
-									<!-- 閉じるアイコン いらない説 -->
-					   		 		<ul class="product_control_buttons">
-							  	      <li><a href="#"><img src="images/close.png" alt=""/></a></li>
-							  	      <li><a href="#">Edit</a></li>
-							  		</ul>
-							  		<div class='clearfix'></div>
-							  	</div>
-								<!-- カートを表示(view cart)とチェックアウト(購入ページ説？わからん)を表示 -->
-								<ul class="quick_access">
-									<!-- 各ボタンを押した際、href=に設定したページへ遷移 -->
-				   		 			<li class="view_cart"><a href="checkout.html">View Cart</a></li>
-				   		 			<li class="check"><a href="checkout.html">Checkout</a></li>
-				   		 			<div class='clearfix'></div>
-								</ul>
-								<!-- 検索できるところを作ってる	 -->
-				   		 		<div class="search">
-					  			
-								</div>
-								<!-- 黄色いわけのわからん奴を作ってる   -->
-					  			<div class="welcome_box">
-					  				<h2>Welcome to Surfhouse</h2>
-					  				<p>The onliy online store you will ever need for all your windsurfing and kitesurfing and SUP nedds</p>
-					  			</div>
-							</div>
-							<!-- 黄色の文字を出してるところ	 -->
-				   		 	<div class="banner_right">
-				   		 		<h1>①１っつめ<br> 2014</h1>
-				   		 		<p>Super easy going freeride boards based on the X-Cite Ride shape concept with additional cpntrol and super easy jibing.</p>
-				   		 		<a href="#" class="banner_btn">Buy Now</a>
-				   		 	</div>
-				   		 	<div class='clearfix'></div>
-				   	  </div>
-					</article><!-- ←←←「ここまで」 -->
-					<!-- ここもおなじ -->
-				   <article style="position: relative; width: 100%; opacity: 1;"> 
-				   	   <div class="banner-wrap">
-				   	      <div class="bannertop_box">
-				   		 		<ul class="login">
-				   		 			<li class="login_text"><a href="#">Login</a></li>
-				   		 			<li class="wish"><a href="#">Wish List</a></li>
-				   		 			<div class='clearfix'></div>
-				   		 		</ul>
-				   		 		<div class="cart_bg">
-					   		 		<ul class="cart">
-					   		 		   <i class="cart_icon"></i><p class="cart_desc">$1459.50<br><span class="yellow">2 items</span></p>
-					   		 		   <div class='clearfix'></div>
-					   		 		</ul>
-					   		 		<ul class="product_control_buttons">
-							  	      <li><a href="#"><img src="images/close.png" alt=""/></a></li>
-							  	      <li><a href="#">Edit</a></li>
-							  		</ul>
-							  		<div class='clearfix'></div>
-							  	</div>
-							  	<ul class="quick_access">
-				   		 			<li class="view_cart"><a href="#">View Cart</a></li>
-				   		 			<li class="check"><a href="#">Checkout</a></li>
-				   		 			<div class='clearfix'></div>
-				   		 		</ul>
-				   		 		<div class="search">
-					  			 
-					  			</div>
-					  			<div class="welcome_box">
-					  				<h2>Welcome to Surfhouse</h2>
-					  				<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euism</p>
-					  			</div>
-				   		 	</div>
-				   		 	<div class="banner_right">
-				   		 		<h1>②２っつめ<br> 2014</h1>
-				   		 		<p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo.</p>
-				   		 		<a href="#" class="banner_btn">Buy Now</a>
-				   		 	</div>
-				   		 	<div class='clearfix'></div>
-				   		</div>
-				   </article>
-				   <!-- ここもおなじ -->
-				   <article style="position: absolute; width: 100%; opacity: 0;">
-				   	  <div class="banner-wrap">
-				   	       <div class="bannertop_box">
-				   		 		<ul class="login">
-				   		 			<li class="login_text"><a href="login.html">Login</a></li>
-				   		 			<li class="wish"><a href="#">Wish List</a></li>
-				   		 			<div class='clearfix'></div>
-				   		 		</ul>
-				   		 		<div class="cart_bg">
-					   		 		<ul class="cart">
-					   		 		   <i class="cart_icon"></i><p class="cart_desc">$1459.50<br><span class="yellow">2 items</span></p>
-					   		 		   <div class='clearfix'></div>
-					   		 		</ul>
-					   		 		<ul class="product_control_buttons">
-							  	      <li><a href="#"><img src="images/close.png" alt=""/></a></li>
-							  	      <li><a href="#">Edit</a></li>
-							  		</ul>
-							  		<div class='clearfix'></div>
-							  	</div>
-							  	<ul class="quick_access">
-				   		 			<li class="view_cart"><a href="#">View Cart</a></li>
-				   		 			<li class="check"><a href="#">Checkout</a></li>
-				   		 			<div class='clearfix'></div>
-				   		 		</ul>
-				   		 		
-					  			<div class="welcome_box">
-					  				<h2>Welcome to Surfhouse</h2>
-					  				<p>Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.</p>
-					  			</div>
-				   		 	</div>
-				   		 	<div class="banner_right">
-				   		 		<h1>③3っつめ<br> 2014</h1>
-				   		 		<p>Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera.</p>
-				   		 		<a href="#" class="banner_btn">Buy Now</a>
-				   		 	</div>
-				   		 	<div class='clearfix'></div>
-				   		 </div>
-					 </article>
-				 </div>
-
-				<a class="wmuSliderPrev">Previous</a><a class="wmuSliderNext">Next</a>
-                <ul class="wmuSliderPagination">
-                	<li><a href="#" class="">0</a></li>
-                	<li><a href="#" class="">1</a></li>
-                	<li><a href="#" class="wmuActive">2</a></li>
-                </ul>
-			</div>
-			<!-- おそらくクリックしたときに、スライドさせてくれる関数だと思われます -->
-			<!-- Jqueryむずすぎ -->
-            <script src="js/jquery.wmuSlider.js"></script> 
-			  <script>
-       			$('.example1').wmuSlider();         
-   		     </script> 	           	      
-      	</div>
-	 </div>     
-</div>
+	</div>
+	</div>
+		   <div class="header_right">
+			 <ul class="social">
+				<li><a href=""> <i class="fb"> </i> </a></li>
+				<li><a href=""><i class="tw"> </i> </a></li>
+				<li><a href=""><i class="utube"> </i> </a></li>
+				<li><a href=""><i class="pin"> </i> </a></li>
+				<li><a href=""><i class="instagram"> </i> </a></li>
+			 </ul>
+		    <div class="lang_list">
+			  <select tabindex="4" class="dropdown">
+				<option value="" class="label" value="">En</option>
+				<option value="1">English</option>
+				<option value="2">French</option>
+				<option value="3">German</option>
+			  </select>
+   			</div>
+			<div class="clearfix"></div>
+          </div>
+          <div class="clearfix"></div>
+		 </div>  
 	<!-- ここから商品一覧らへん -->
 	<div class="main">
 	  <div class="content_box">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-3">
-					<!-- classにメニューボックスってある通り左にある -->
-					<!-- メニューボタンを表示してる -->
-					<!-- このリンク先に商品IDを付与してアクセスすることでDBから対象の情報とかを持ってきて
-					表示させれば商品詳細は完了 -->
-					<div class="menu_box">
-				   	  	<h3 class="menu_head">Menu</h3>
-				   	     <ul class="nav">
-					   	  	<li><a href="apparel.html">About</a></li>
-					   	  	<li><a href="apparel.html">Apparel</a></li>
-					   	  	<li><a href="apparel.html">Surf Apparel</a></li>
-					   	  	<li><a href="apparel.html">Windsurf</a></li>
-					   	  	<li><a href="apparel.html">Kitesurf</a></li>
-					   	  	<li><a href="apparel.html">Accessories</a></li>
-					   	  	<li><a href="apparel.html">Sale</a></li>
-					   	  	<li><a href="apparel.html">Brands</a></li>
-					   	  	<li><a href="apparel.html">Blog</a></li>
-					   	  	<li><a href="apparel.html">Gadgets</a></li>
-					   	  	<li><a href="contact.html">Contact</a></li>
-					   	 </ul>
-					</div>
-					<!-- 黒髪の赤い服の女の人を出してるところ(キャンペーンの広告だしたりに使えそう) -->
-			   	    <div class="side_banner">
-					   <div class="banner_img"><img src="images/pic9.jpg" class="img-responsive" alt=""/ style="width:100%"></div>
-					   <div class="banner_holder">
-						  <h3>Now <br> is <br> Open!</h3>
-					   </div>
-					</div>
-					<!-- 英語読めんけどTags Widgetって書いてあるところ出してるクラス -->
-				    <div class="tags">
-				    	<h4 class="tag_head">Tags Widget</h4>
-				         <ul class="tags_links">
-							<li><a href="#">Kitesurf</a></li>
-							<li><a href="#">Super</a></li>
-							<li><a href="#">Duper</a></li>
-							<li><a href="#">Theme</a></li>
-							<li><a href="#">Men</a></li>
-							<li><a href="#">Women</a></li>
-							<li><a href="#">Equipment</a></li>
-							<li><a href="#">Best</a></li>
-							<li><a href="#">Accessories</a></li>
-							<li><a href="#">Men</a></li>
-							<li><a href="#">Apparel</a></li>
-							<li><a href="#">Super</a></li>
-							<li><a href="#">Duper</a></li>
-							<li><a href="#">Theme</a></li>
-							<li><a href="#">Responsiv</a></li>
-					        <li><a href="#">Women</a></li>
-							<li><a href="#">Equipment</a></li>
-						</ul>
-						<a href="#" class="link1">View all tags</a>
-					 </div>
-					 <!-- 一個上のコメントと同じ感じ -->
-				     <div class="tags">
-				      	<h4 class="tag_head">Articles Experts</h4>
-				      	 <ul class="article_links">
-							<li><a href="#">Eleifend option congue nihil</a></li>
-							<li><a href="#">Investigationes demonst</a></li>
-							<li><a href="#">Qui sequitur mutationem</a></li>
-							<li><a href="#">videntur parum clar sollemnes</a></li>
-							<li><a href="#">ullamcorper suscipit lobortis</a></li>
-							<li><a href="#">commodo consequat. Duis autem</a></li>
-							<li><a href="#">Investigationes demonst</a></li>
-							<li><a href="#">ullamcorper suscipit lobortis</a></li>
-							<li><a href="#">Qui sequitur mutationem</a></li>
-							<li><a href="#">videntur parum clar sollemnes</a></li>
-							<li><a href="#">ullamcorper suscipit lobortis</a></li>
-						  </ul>
-						 <a href="#" class="link1">View all</a>
-				      </div>
-				</div>
 				<!-- あと商品出してるだけ -->
-			   <div class="col-md-9">
-				<h3 class="m_1">Products</h3>
+			     <div class="col-md-12">
+				<h4 class="title">Products</h4>
 				<!--タブ-->
 				<ul class="tab-group">
 					<li class="tab is-active">販売商品</li>
 					<li class="tab">レンタル商品</li>
 					<li class="tab">フリマ商品</li>
 				</ul>
+				<form action="products.php" method="get">
 				<ul class="sort_command">
-					<li ><a href="#">五十音順</a></li>
-					<li ><a href="#">売れ筋順</a></li>
-					<li ><a href="#">価格高い順</a></li>
-					<li ><a href="#">価格低い順</a></li>
+					<span style="margin-left:100px">
+					<li ><a href="products.php?sort_method=aiueo_order">五十音順</a></li>
+					<li ><a href="products.php?sort_method=sales_order">売れ筋順</a></li>
+					<li ><a href="products.php?sort_method=price_desk_order">価格高い順</a></li>
+					<li ><a href="products.php?sort_method=price_ask_order">価格低い順</a></li>
 					<ul>
+					</span>
 					</ul>
+					<span style="margin-left:220px">
 					<ul>
 					<li ><a href="#">１</a></li>
 					<li ><a href="#">２</a></li>
@@ -361,7 +129,9 @@ cart_bgって名前のclassはオレンジ色にしたりする
 					<li ><a href="#">４</a></li>
 					<li ><a href="#">５</a></li>
 					</ul>
+					</span>
 				</ul>
+				</form>
 				<ul style="font-size:0">
 				<li style="display: inline-block">
 				<table width="150px" height="400px" class="product_category" border="1" cellspacing="0" cellpadding="5" bordercolor="#333333">
@@ -369,7 +139,8 @@ cart_bgって名前のclassはオレンジ色にしたりする
 				<td id="category">カテゴリ</td>
 				</tr>
 				<tr>
-				<td><a href="#">ライティング</a></td>
+				<form action="products.php" method="post">
+				<td><a>ライティング</a></td>
 				</tr>
 				<tr>
 				<td><a href="#">バッグ</a></td>
@@ -388,33 +159,77 @@ cart_bgって名前のclassはオレンジ色にしたりする
 				</tr>
 				<tr>
 				<td><a href="#">ファニチャー</a></td>
+				</form>
 				</tr>
 				</table>
 				</li>
 				<!--タブを切り替えて表示するコンテンツ-->
 				<div class="panel-group" style="float:right">
-					<li style="display: inline-block">
-						<div class="panel is-show">
-							{for $start=1 to $num}
+						<span class="panel is-show">
+						<div></div>
+							{for $start=0 to $limit}
+							{if $products[$start]['product_category'] == 1}
 							<div class="col_1_of_3 span_1_of_3"> 
-								<a href="single.html">
+								<a href="productDetail_smarty.php?product_id={$products[$start]['product_id']}">
 									<div class="product_image">
-										<img src="images/pic3.jpg" class="img-responsive" alt=""/>
-											<div>a</div>
+										<div style="height:60px;background:white;color:black;font-size:15px;text-align:center;">
+											<p style="display:inline-block;text-align:left;">{$products[$start]['product_name']}<p>
+										</div>
+										<img src="{$products[$start]['product_pass']}" class="img-responsive"/>
+										<div style="height:60px;background:white;color:black;font-size:20px;text-align:center;">
+											<div style="display:inline-block;text-align:left;"><p style="margin-top:15px;">￥{$products[$start]['price']}</p></div>
+										</div>
 									</div>
 								</a>
 							</div>
+							{/if}
 							{/for}
-						</div>
-					</li>
-					<li style="display: inline-block">
-						<div class="panel">
-						</div>
-					</li>
-					<li style="display: inline-block">
-						<div class="panel">
-						</div>
-					</li>
+						</span>
+					
+				
+						<span class="panel">
+						<div></div>
+							{for $start=0 to $limit}
+							{if $products[$start]['product_category'] == 2}
+							<div class="col_1_of_3 span_1_of_3"> 
+								<a href="productDetail_smarty.php?product_id={$products[$start]['product_id']}">
+									<div class="product_image">
+										<div style="height:60px;background:white;color:black;font-size:15px;text-align:center;">
+											<p style="display:inline-block;text-align:left;">{$products[$start]['product_name']}<p>
+										</div>
+										<img src="{$products[$start]['product_pass']}" class="img-responsive"/>
+										<div style="height:60px;background:white;color:black;font-size:20px;text-align:center;">
+											<div style="display:inline-block;text-align:left;"><p style="margin-top:15px;">￥{$products[$start]['price']}</p></div>
+										</div>
+									</div>
+								</a>
+							</div>
+							{/if}
+							{/for}
+						</span>
+			
+				
+						<span class="panel">
+						<div></div>
+							{for $start=0 to $limit}
+							{if $products[$start]['product_category'] == 3}
+							<div class="col_1_of_3 span_1_of_3"> 
+								<a href="productDetail_smarty.php?product_id={$products[$start]['product_id']}">
+									<div class="product_image">
+										<div style="height:60px;background:white;color:black;font-size:15px;text-align:center;">
+											<p style="display:inline-block;text-align:left;">{$products[$start]['product_name']}<p>
+										</div>
+										<img src="{$products[$start]['product_pass']}" class="img-responsive"/>
+										<div style="height:60px;background:white;color:black;font-size:20px;text-align:center;">
+											<div style="display:inline-block;text-align:left;"><p style="margin-top:15px;">￥{$products[$start]['price']}</p></div>
+										</div>
+									</div>
+								</a>
+							</div>
+							{/if}
+							{/for}
+						</span>
+				
 				</ul>
 				   <div class="clearfix"></div>
 			    </div>

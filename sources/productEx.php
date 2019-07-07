@@ -1,191 +1,104 @@
 <?php
-/*!
-@file member_list_smarty.php
-@brief メンバー一覧(Smarty版)
-@copyright Copyright (c) 2017 Yamanoi Yasushi,Shimojima Ryo.
-*/
-
-/////////////////////////////////////////////////////////////////
-/// 実行ブロック
-/////////////////////////////////////////////////////////////////
 
 //ライブラリをインクルード
 require_once("inc_base.php");
 require_once($CMS_COMMON_INCLUDE_DIR . "libs.php");
 require_once("inc_smarty.php");
 
-$show_mode = '';
-$ERR_STR = '';
+global $date;
+$date = date('YmdHis');
+//初期値
+$filedir1 = "";
+$filedir2 = "";
+$filedir3 = "";
+$imageUrl1 = "";
+$imageUrl2 = "";
+$imageUrl3 = ""; 
+$fulldir = "http://wiz.developluna.jp/~e09/PHPBase-master/sources/images/product_img/";
 
-//ページの設定
-//デフォルトは1
-$page = 1;
-//もしページが指定されていたら
-if(isset($_GET['page']) 
-    //なおかつ、数字だったら
-    && cutil::is_number($_GET['page'])
-    //なおかつ、0より大きかったら
-    && $_GET['page'] > 0){
-    //パラメータを設定
-    $page = $_GET['page'];
-}
-
-//1ページのリミット
-$limit = 20;
-$rows = array();
-
-if(is_func_active()){
-	if(param_chk()){
-		switch($_POST['func']){
-			case "del":
-				$show_mode = 'del';
-				//削除操作
-				deljob();
-				//リダイレクトするページの計算
-				$re_page = $page;
-				$obj = new cmember();
-				$allcount = $obj->get_all_count(false);
-				$last_page = (int)($allcount / $limit);
-				if($allcount % $limit){
-					$last_page++;
-				}
-				if($re_page > $last_page){
-					$re_page = $last_page;
-				}
-				//再読み込みのためにリダイレクト
-				cutil::redirect_exit($_SERVER['PHP_SELF'] 
-				. '?page=' . $re_page);
-			break;
-			default:
-			break;
-		}
-	}
-}
-$show_mode = 'edit';
-//データの読み込み
-readdata();
-
-/////////////////////////////////////////////////////////////////
-/// 関数ブロック
-/////////////////////////////////////////////////////////////////
-
-//--------------------------------------------------------------------------------------
-/*!
-@brief	コマンドが渡されたかどうか
-@return	渡されたらtrue
-*/
-//--------------------------------------------------------------------------------------
-function is_func_active(){
-    if(isset($_POST['func']) && $_POST['func'] != ""){
-        return true;
+if(isset($_POST['product_name'])&&isset($_POST['price'])&&
+    isset($_POST['product_category'])&&isset($_POST['genre_id'])&&
+    isset($_POST['product_text'])&&isset($_POST['stock'])){
+    
+    //画像のチェック
+    if(isset($_FILES["image_file1"]["tmp_name"])){
+        //画像の保存処理
+        //画像１枚目
+        if (is_uploaded_file($_FILES["image_file1"]["tmp_name"])) {
+            //ある時のみ値変更(無しの時の処理)
+            $filedir1 = "./images/product_img/".$date."1".".jpg";
+            //DBの画像パス
+            $imageUrl1 = $fulldir.$date."1".".jpg";
+            move_uploaded_file($_FILES["image_file1"]["tmp_name"], $filedir1);
+        }    
     }
-    return false;
+    if(isset($_FILES["image_file2"]["tmp_name"])){
+        //画像２枚目
+        if (is_uploaded_file($_FILES["image_file2"]["tmp_name"])) {
+            //ある時のみ値変更(無しの時の処理)
+            $filedir2 = "./images/product_img/".$date."2".".jpg";
+            $imageUrl2 = $fulldir.$date."2".".jpg";
+            move_uploaded_file($_FILES["image_file2"]["tmp_name"], $filedir2);
+        }
+    }
+    if(isset($_FILES["image_file3"]["tmp_name"])){
+        //画像３枚目
+        if (is_uploaded_file($_FILES["image_file3"]["tmp_name"])) {
+            //ある時のみ値変更(無しの時の処理)
+            $filedir3 = "./images/product_img/".$date."3".".jpg";
+            $imageUrl2 = $fulldir.$date."3".".jpg";
+            move_uploaded_file($_FILES["image_file3"]["tmp_name"], $filedir3);
+        }
+    }
+    $_POST['exhibistion_date'] = $date;
+    $_POST['product_pass'] = $imageUrl1.",".$imageUrl2.",".$imageUrl3;
+    regist();
 }
-
 
 //--------------------------------------------------------------------------------------
 /*!
-@brief	パラメータのチェック
-@return	エラーがあったらfalse
-*/
-//--------------------------------------------------------------------------------------
-function param_chk(){
-	 global $ERR_STR;
-	if(!isset($_POST['param']) 
-	|| !cutil::is_number($_POST['param'])
-	|| $_POST['param'] <= 0){
-		$ERR_STR .= "パラメータを取得できませんでした\n";
-		return false;
-	}
-	return true;
-}
-
-
-//--------------------------------------------------------------------------------------
-/*!
-@brief	データ読み込み
+@brief	フルーツデータの追加／更新
 @return	なし
 */
 //--------------------------------------------------------------------------------------
-function readdata(){
-	global $limit;
-	global $rows;
-	global $page;
-	$obj = new cmember();
-	$from = ($page - 1) * $limit;
-	$rows = $obj->get_all(false,$from,$limit);
-}
-
-//--------------------------------------------------------------------------------------
-/*!
-@brief	削除
-@return	なし
-*/
-//--------------------------------------------------------------------------------------
-function deljob(){
+function regist_puroductH($member_id){
 	$chenge = new cchange_ex();
-	if($_POST['param'] > 0){
-		$chenge->delete("member","member_id=" . $_POST['param']);
+	$chenge->delete("productH","product_id=" . $member_id);
+	foreach($_POST['fruits'] as $key => $val){
+		$dataarr = array();
+		$dataarr['product_id'] = (int)$member_id;
+		// $dataarr['fruits_id'] = (int)$val;
+		$chenge->insert('productH',$dataarr);
 	}
 }
 
 
 //--------------------------------------------------------------------------------------
 /*!
-@brief	ページャーのアサイン
+@brief	メンバーデータの追加／更新。保存後自分自身を再読み込みする。
 @return	なし
 */
 //--------------------------------------------------------------------------------------
-function assign_page_block(){
-	//$smartyをグローバル宣言（必須）
-	global $smarty;
-	global $limit;
-	global $page;
-	$retstr = '';
-	$obj = new cmember();
-	$allcount = $obj->get_all_count(false);
-	$ctl = new cpager($_SERVER['PHP_SELF'],$allcount,$limit);
-	$smarty->assign('pager_arr',$ctl->get('page',$page));
+function regist(){
+	global $member_id;
+	$dataarr = array();
+	$dataarr['product_name'] = (string)$_POST['product_name'];
+	$dataarr['product_category'] = (int)$_POST['product_category'];
+	$dataarr['genre_id'] = (int)$_POST['genre_id'];
+	$dataarr['product_pass'] = (string)$_POST['product_pass'];
+    $dataarr['product_text'] = (string)$_POST['product_text'];
+    $dataarr['price'] = (int)$_POST['price'];
+    $dataarr['exhibistion_date'] = (string)$_POST['exhibistion_date'];
+    $dataarr['stock_value'] = (int)$_POST['stock'];
+    
+	$chenge = new cchange_ex();
+    $mid = $chenge->insert('productH',$dataarr);
+    echo '<script type="text/javascript">alert("追加おｋ");</script>';
 }
 
-
-//--------------------------------------------------------------------------------------
-/*!
-@brief	一覧のアサイン
-@return	なし
-*/
-//--------------------------------------------------------------------------------------
-function assign_member_list(){
-	//$smartyをグローバル宣言（必須）
-	global $smarty;
-	global $rows;
-	$smarty->assign('rows',$rows);
-}
-
-//--------------------------------------------------------------------------------------
-/*!
-@brief	URIのアサイン
-@return	なし
-*/
-//--------------------------------------------------------------------------------------
-function assign_tgt_uri(){
-	//$smartyをグローバル宣言（必須）
-	global $smarty;
-	global $page;
-	$smarty->assign('tgt_uri',$_SERVER['PHP_SELF'] . '?page=' . $page);
-}
-
-
-/////////////////////////////////////////////////////////////////
-/// 関数呼び出しブロック
-/////////////////////////////////////////////////////////////////
-$smarty->assign('ERR_STR',$ERR_STR);
-assign_page_block();
-assign_member_list();
-assign_tgt_uri();
-
-//Smartyを使用した表示(テンプレートファイルの指定)
+//IDが使われているかどうかチェックする
+$genre_obj = new cgenre();
+$rows = $genre_obj->get_allH(false);
+$smarty->assign('rows',$rows);
 $smarty->display('productEx.tmpl');
-
-
 ?>

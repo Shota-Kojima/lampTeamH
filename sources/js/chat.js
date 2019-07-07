@@ -13,8 +13,7 @@ BAAS.cocoa = {
 			this.$button = $('#jsi-button');
 			this.$msgDom = $('<li>');
 
-			//各自登録時に出たコードに書き換え。「chatRoom」は任意でok。複数の部屋を作りたい場合はここを動的にする。
-			this.chatDataStore = new MilkCocoa('hotjxcje1pq.mlkcca.com').dataStore('chatRoom');
+			this.chatDataStore = new MilkCocoa('zoojxiyy95j.mlkcca.com').dataStore('chatRoom');
 		},
 
 		bindEvent:function(){

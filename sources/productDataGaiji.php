@@ -76,7 +76,11 @@ $filedir3 = "";
 $imageUrl1 = "";
 $imageUrl2 = "";
 $imageUrl3 = ""; 
+<<<<<<< HEAD
 $fulldir = "http://wiz.developluna.jp/~e31/public_html/Lamp%20H/sources/images/product_img/";
+=======
+$fulldir = "http://wiz.developluna.jp/~tmH2019/lampTeamH/sources/images/product_img/";
+>>>>>>> e639f2a3f738069daa79aa07f37439c4ead6470e
 // isset($_POST['product_name'])&&
 //     &&
 //     isset($_FILES["image_file2"]["tmp_name2"])&&
@@ -167,21 +171,12 @@ function regist(){
 	$dataarr['genre_id'] = (int)$_POST['genre_id'];
 	$dataarr['product_pass'] = (string)$_POST['product_pass'];
     $dataarr['product_text'] = (string)$_POST['product_text'];
-    $dataarr['price'] = (string)$_POST['price'];
+    $dataarr['price'] = (int)$_POST['price'];
     $dataarr['exhibistion_date'] = (string)$_POST['exhibistion_date'];
     $dataarr['stock_value'] = (int)$_POST['stock_value'];
     
 	$chenge = new cchange_ex();
-	// if($member_id > 0){
-	// 	$chenge->update('member',$dataarr,'member_id=' . $member_id);
-	// 	regist_fruits($member_id);
-	// 	cutil::redirect_exit($_SERVER['PHP_SELF'] . '?mid=' . $member_id);
-	// }
-	// else{
     $mid = $chenge->insert('productH',$dataarr);
-	// 	regist_fruits($mid);
-    // cutil::redirect_exit($_SERVER['PHP_SELF'] . '?mid=' . $mid);
-    // }
     echo '<script type="text/javascript">alert("追加おｋ");</script>';
 }
 

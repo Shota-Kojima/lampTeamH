@@ -1,11 +1,20 @@
 
-ul > li:first-child {
+ul#jsi-board > li:first-child {
 	color: black;
 	font-size: 25px;
 }
-ul > li:nth-child(2n) {
-	color: blue;
+ul#jsi-board > li:nth-child(2n) {
+	color: rgba(71, 71, 71, 0.644);
+	margin-top:10px;
+	
+	
 }
-ul > li:nth-child(2n):before {
-	content:"ユーザー名："
+ul#jsi-board > li:nth-child(2n):before {
+	content:"ユーザー名：";
+	
+}
+ul#jsi-board > li:nth-child(2n+3) {
+	background-color: rgb(152, 252, 152);
+	border-radius: 0.75em;
+	
 }

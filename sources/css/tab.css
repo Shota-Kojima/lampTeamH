@@ -20,11 +20,11 @@
     display:none;
 }
 .tab.is-active{
-    background:rgb(112, 99, 87);
+    background:#FF5B36;
     color:#FFF;
     transition: all 0.2s ease-out;
 }
 .panel.is-show{
     display:block;
-    margin-top:20px;
+    background:#F8F8F8;
 }
