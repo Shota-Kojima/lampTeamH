@@ -13,8 +13,7 @@ require_once($CMS_COMMON_INCLUDE_DIR . "auth_user.php");
 //1ページのリミット
 $limit = 100;
 $rows = array();
-$use_rows = array();
-//var_dump($_SESSION['HTeam_adm']['customer_id']);
+$use_rows = array();;
 readdata();
 $smarty->assign('limit',$limit);
 $smarty->assign('products',$use_rows);
