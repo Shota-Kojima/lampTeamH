@@ -8,7 +8,7 @@ require_once("inc_base.php");
 require_once($CMS_COMMON_INCLUDE_DIR . "libs.php");
 //smartyクラスの初期化
 require_once("inc_smarty.php");
-// require_once($CMS_COMMON_INCLUDE_DIR . "auth_user.php");
+require_once($CMS_COMMON_INCLUDE_DIR . "auth_user.php");
 
 //1ページのリミット
 $limit = 100;
@@ -23,6 +23,7 @@ $smarty->assign('count',$count);
 // echo($_SESSION['HTeam_adm']['product_sum']);
 // echo($_SESSION['HTeam_adm']['product_count']);
 $smarty->assign('session',$_SESSION);
+$smarty->assign('cart',$_SESSION);
 //データの読み込み
 function readdata(){
 	global $limit;
