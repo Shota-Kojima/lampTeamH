@@ -14,7 +14,8 @@
     
 }
 .panel-group{
-    width:75%;
+    width:85%;
+    margin-right:65px;
 }
 .panel{
     display:none;

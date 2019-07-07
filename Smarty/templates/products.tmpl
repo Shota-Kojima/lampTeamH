@@ -36,6 +36,7 @@ cart_bgって名前のclassはオレンジ色にしたりする
 <script src="js/tab.js"></script>
 
 <!-- Custom Theme files -->
+<link href="./css/products.css" rel='stylesheet' type='text/css' />
 <link href="css/products_header.css" rel='stylesheet' type='text/css' />
 <link href="./css/style.css" rel='stylesheet' type='text/css' />
 <link href="./css/tab.css" rel='stylesheet' type='text/css' />
@@ -70,33 +71,7 @@ cart_bgって名前のclassはオレンジ色にしたりする
 		});
 		</script>
 </head>
-
 <body>
-<div id="header"></div>
-  <div class="single">
-	<div class="container">
-	</div>
-	</div>
-		   <div class="header_right">
-			 <ul class="social">
-				<li><a href=""> <i class="fb"> </i> </a></li>
-				<li><a href=""><i class="tw"> </i> </a></li>
-				<li><a href=""><i class="utube"> </i> </a></li>
-				<li><a href=""><i class="pin"> </i> </a></li>
-				<li><a href=""><i class="instagram"> </i> </a></li>
-			 </ul>
-		    <div class="lang_list">
-			  <select tabindex="4" class="dropdown">
-				<option value="" class="label" value="">En</option>
-				<option value="1">English</option>
-				<option value="2">French</option>
-				<option value="3">German</option>
-			  </select>
-   			</div>
-			<div class="clearfix"></div>
-          </div>
-          <div class="clearfix"></div>
-		 </div>  
 	<!-- ここから商品一覧らへん -->
 	<div class="main">
 	  <div class="content_box">
@@ -132,39 +107,19 @@ cart_bgって名前のclassはオレンジ色にしたりする
 					</span>
 				</ul>
 				</form>
-				<ul style="font-size:0">
-				<li style="display: inline-block">
-				<table width="150px" height="400px" class="product_category" border="1" cellspacing="0" cellpadding="5" bordercolor="#333333">
-				<tr>
-				<td id="category">カテゴリ</td>
-				</tr>
-				<tr>
-				<form action="products.php" method="post">
-				<td><a>ライティング</a></td>
-				</tr>
-				<tr>
-				<td><a href="#">バッグ</a></td>
-				</tr>
-				<tr>
-				<td><a href="#">テント＆タープ</a></td>
-				</tr>
-				<tr>
-				<td><a href="#">スリーピングバッグ</a></td>
-				</tr>
-				<tr>
-				<td><a href="#">クッキング＆ヒーティング</a></td>
-				</tr>
-				<tr>
-				<td><a href="#">クーラー＆ジャグ</a></td>
-				</tr>
-				<tr>
-				<td><a href="#">ファニチャー</a></td>
-				</form>
-				</tr>
-				</table>
-				</li>
+				<span style="display:flex">
+				<span>
+				<h4 id="category">カテゴリ</h4>
+				<div id="category_list">ライティング</div>
+				<div id="category_list">バッグ</div>
+				<div id="category_list">テント＆タープ</div>
+				<div id="category_list">スリーピングバッグ</div>
+				<div id="category_list">クッキング＆<br>ヒーティング</div>
+				<div id="category_list">クーラー＆ジャグ</div>
+				<div id="category_list">ファニチャー</div>
+				</span>
 				<!--タブを切り替えて表示するコンテンツ-->
-				<div class="panel-group" style="float:right">
+				<span class="panel-group" style="float:right">
 						<span class="panel is-show">
 						<div></div>
 							{for $start=0 to $limit}
@@ -172,12 +127,14 @@ cart_bgって名前のclassはオレンジ色にしたりする
 							<div class="col_1_of_3 span_1_of_3"> 
 								<a href="productDetail_smarty.php?product_id={$products[$start]['product_id']}">
 									<div class="product_image">
-										<div style="height:60px;background:white;color:black;font-size:15px;text-align:center;">
-											<p style="display:inline-block;text-align:left;">{$products[$start]['product_name']}<p>
-										</div>
-										<img src="{$products[$start]['product_pass']}" class="img-responsive"/>
-										<div style="height:60px;background:white;color:black;font-size:20px;text-align:center;">
-											<div style="display:inline-block;text-align:left;"><p style="margin-top:15px;">￥{$products[$start]['price']}</p></div>
+										<img src="{$products[$start]['product_pass']}" class="product_images"/>
+										<div id="add_info">
+											<div id="product_name">
+												<p style="display:inline-block;text-align:left;">{$products[$start]['product_name']}<p>
+											</div>
+											<div id="product_price">
+												<div style="display:inline-block;text-align:left;"><p style="margin-top:15px;">￥{$products[$start]['price']}</p></div>
+											</div>
 										</div>
 									</div>
 								</a>
@@ -185,8 +142,7 @@ cart_bgって名前のclassはオレンジ色にしたりする
 							{/if}
 							{/for}
 						</span>
-					
-				
+						
 						<span class="panel">
 						<div></div>
 							{for $start=0 to $limit}
@@ -197,7 +153,7 @@ cart_bgって名前のclassはオレンジ色にしたりする
 										<div style="height:60px;background:white;color:black;font-size:15px;text-align:center;">
 											<p style="display:inline-block;text-align:left;">{$products[$start]['product_name']}<p>
 										</div>
-										<img src="{$products[$start]['product_pass']}" class="img-responsive"/>
+										<img src="{$products[$start]['product_pass']}" class="product_images"/>
 										<div style="height:60px;background:white;color:black;font-size:20px;text-align:center;">
 											<div style="display:inline-block;text-align:left;"><p style="margin-top:15px;">￥{$products[$start]['price']}</p></div>
 										</div>
@@ -207,8 +163,7 @@ cart_bgって名前のclassはオレンジ色にしたりする
 							{/if}
 							{/for}
 						</span>
-			
-				
+
 						<span class="panel">
 						<div></div>
 							{for $start=0 to $limit}
@@ -219,7 +174,7 @@ cart_bgって名前のclassはオレンジ色にしたりする
 										<div style="height:60px;background:white;color:black;font-size:15px;text-align:center;">
 											<p style="display:inline-block;text-align:left;">{$products[$start]['product_name']}<p>
 										</div>
-										<img src="{$products[$start]['product_pass']}" class="img-responsive"/>
+										<img src="{$products[$start]['product_pass']}" class="product_images"/>
 										<div style="height:60px;background:white;color:black;font-size:20px;text-align:center;">
 											<div style="display:inline-block;text-align:left;"><p style="margin-top:15px;">￥{$products[$start]['price']}</p></div>
 										</div>
@@ -229,8 +184,8 @@ cart_bgって名前のclassはオレンジ色にしたりする
 							{/if}
 							{/for}
 						</span>
-				
-				</ul>
+				</span>
+				</span>
 				   <div class="clearfix"></div>
 			    </div>
 			  </div>
