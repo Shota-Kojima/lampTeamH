@@ -56,7 +56,6 @@ if(isset($_SESSION['HTeam_adm']['customer_id'])&&
         $product_count = 0;
         //カート内の合計金額
         $product_sum = 0;
-        var_dump($cartarr);
 
         for($i = 0; $i < count($cartarr);$i++){
             $countWk=(int)$cartarr[$i]['product_value'];
