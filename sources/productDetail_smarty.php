@@ -4,7 +4,7 @@
 @brief メンバー詳細(Smarty版)
 @copyright Copyright (c) 2017 Yamanoi Yasushi,Shimojima Ryo.
 */
-
+session_start();
 /////////////////////////////////////////////////////////////////
 /// 実行ブロック
 /////////////////////////////////////////////////////////////////
@@ -33,7 +33,7 @@ if(isset($_POST['buy_count'])
 //cutilクラスのメンバ関数をスタティック呼出
 	&& cutil::is_number($_GET['product_id'])
 	&& $_GET['product_id'] > 0){
-		
+
 	//商品Hクラスを構築
 	$product_obj = new cproductH();
 	$product_id = $_GET['product_id'];

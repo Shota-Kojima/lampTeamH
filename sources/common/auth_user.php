@@ -8,6 +8,7 @@ $_SESSIONは多次元配列にする
 
              2018/7/3 Y.YAMANOI
 *********************************/
+//ss
 session_start();
 require_once("inc_smarty.php");
 $row = array();
@@ -40,7 +41,7 @@ if(isset($_SESSION['HTeam_adm']['customer_id'])&&
             $_SESSION['HTeam_adm']['customer_sex'] = $customerarr['customer_sex'];
             $smarty->assign('session',$_SESSION);
         }else{
-            exit ;
+            
         }
     }   
     
@@ -66,21 +67,18 @@ if(isset($_SESSION['HTeam_adm']['customer_id'])&&
                     $product_sum += $cartarr[$i]['product_value'] * $productarr["price"];
                     $_SESSION['HTeam_adm']['product_count'] = $product_count;
                     $_SESSION['HTeam_adm']['product_sum'] = $product_sum;
-                    var_dump($_SESSION);
                     $smarty->assign('session',$_SESSION);
                 }else{
                     // echo '<script type="text/javascript">alert("64のelse");</script>';
                     //  ステータスコードを出力
-                    http_response_code( 301 ) ;
-                    // リダイレクト
-                    header( "Location: ./loginH.php" ) ;
-                    exit ;
+                    
                 }
             }
         }else{
             // echo '<script type="text/javascript">alert("75のelse");</script>';
             // ステータスコードを出力
-            exit ;
+            $_SESSION['HTeam_adm']['product_count'] = 0;
+            $_SESSION['HTeam_adm']['product_sum'] = 0;
         }
     }
     
@@ -90,7 +88,7 @@ if(isset($_SESSION['HTeam_adm']['customer_id'])&&
     // ステータスコードを出力
 	http_response_code( 301 ) ;
 	// リダイレクト
-	header( "Location: ./logingH.php" ) ;
+	header( "Location: ./loginH.php" ) ;
 	exit ;
 }
 
