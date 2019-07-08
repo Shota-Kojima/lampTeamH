@@ -71,6 +71,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 					});
 				</script>
+{/literal}
 </head>
 <body>
 	<div class="main">
@@ -202,8 +203,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				   <div class="clearfix"></div>
 			    </ul>
 			    <div class="price_single">
-				  <span class="reducedfrom">{$productarr.price}</span>
-				  <span class="actual">$120.00</span><a href="#">click for offer</a>
+				  <span class="actual">{$productarr.price}</span>円
 				</div>
 				<h2 class="quick">商品説明:</h2>
 				<p class="quick_desc">{$productarr.product_text}</p>
@@ -277,6 +277,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						<li><img src="images/pic8.jpg" /><div class="grid-flex"><a href="#">Cheeky Zane</a><p>Rs 850</p></div></li>
 						<li><img src="images/pic7.jpg" /><div class="grid-flex"><a href="#">Synergy</a><p>Rs 870</p></div></li>
 				     </ul>
+					{literal}
 				    <script type="text/javascript">
 					 $(window).load(function() {
 						$("#flexiselDemo3").flexisel({
@@ -304,6 +305,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					    
 					});
 				   </script>
+				   {/literal}
 				   <script type="text/javascript" src="js/jquery.flexisel.js"></script>
 				   <h3 class="recent">Recently Viewed</h3>
 				   <ul id="flexiselDemo1">
@@ -313,6 +315,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						<li><img src="images/pic4.jpg" /><div class="grid-flex"><a href="#">Cheeky Zane</a><p>Rs 850</p></div></li>
 						<li><img src="images/pic5.jpg" /><div class="grid-flex"><a href="#">Synergy</a><p>Rs 870</p></div></li>
 				     </ul>
+					{literal}
 				    <script type="text/javascript">
 					 $(window).load(function() {
 						$("#flexiselDemo1").flexisel({
@@ -339,6 +342,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					    });					    
 					});
 				   </script>
+				   {/literal}
 			</div>
 		 </div>
 		</div>
@@ -426,8 +430,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					<h3>Newsletter</h3>
 					<p class="footer_desc">Nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat</p>
 					<div class="search_footer">
+					{literal}
 			          <input type="text" class="text" value="Insert Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Insert Email';}">
 			          <input type="submit" value="Submit">
+					{/literal}
 			        </div>
 			        <img src="images/payment.png" class="img-responsive" alt=""/>
 				 </div>
@@ -448,5 +454,5 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         	</div>
         </div>
 </body>
-{/literal}
+
 </html>		
