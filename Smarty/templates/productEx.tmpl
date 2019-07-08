@@ -6,16 +6,18 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 -->
 <!DOCTYPE HTML>
 <html>
-{literal}
 <head>
 <title>RE:SURVIVAL : 出品</title>
 <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="js/jquery.min.js"></script>
+<script language="JavaScript" src="js/fileSelect.js" type="text/javascript"></script>
+
 <!-- Custom Theme files -->
 <link href="css/style.css" rel='stylesheet' type='text/css' />
 <link href="css/component.css" rel='stylesheet' type='text/css' />
 <link href="css/manager.css" rel='stylesheet' type='text/css' />
+<link href="css/productEx.css" rel='stylesheet' type='text/css' />
 <!-- Custom Theme files -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
@@ -25,12 +27,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <script src="js/jquery.easydropdown.js"></script>
 <!-- Add fancyBox main JS and CSS files -->
 <script src="js/jquery.magnific-popup.js" type="text/javascript"></script>
-<script>
-//共通パーツ読み込み
-  $(function() {
-       $("#header").load("shere.html");
-});
-</script>
+{include file='shere_admin.tmpl'}
+{literal}
 <link href="css/magnific-popup.css" rel="stylesheet" type="text/css">
 		<script>
 			$(document).ready(function() {
@@ -85,13 +83,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 </head>
 {/literal}
 <body>
-<div id="header"></div>
-   <div class="single">
-	<div class="container">
-	</div>
-	</div>
-		 
-    </div>
 	<div class="main">
 	  <div class="content_box">
 		<div class="container">
@@ -195,17 +186,17 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					<!-- start product_slider -->
                     
 					<!-- end product_slider -->
-<<<<<<< HEAD
 			  		</div>
 				<div class="cont1 span_2_of_a1">
-					<form action="" method="post" enctype="multipart/form-data" autocomplete="off">
+					<form action="" method="post" enctype="multipart/form-data" autocomplete="off">	
 						<p>
 						商品名<input type="text" name="product_name" size="30">
 						</p>
+						<br>
 						<p>
 						値段<input type="text" name="price" size="20">
 						</p>
-					
+						<br>
 						<p>
 						カテゴリ
 						<select name="product_category">
@@ -213,6 +204,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 							<option value="2">レンタル商品</option>
 						</select>
 						</p>
+						<br>
 						<p>
 							<!-- ジャンル<input type="text" name="genre_id" size="200"> -->
 							ジャンル
@@ -222,17 +214,49 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 								{/foreach}
 							</select>
 						</p>
+						<br>	
+						<p>
+						在庫数<input type="text" name="stock" size="20" value=1>
+						</p>
+						<br>
 						<p>
 						商品説明<br>
 						<textarea name="product_text" rows="4" cols="40"></textarea>
 						</p>
+						<br>
+						<!--画像選択フォーム-->
 						<p>
-						画像<br>
-						<input type="file" name="image_file1" accept="image/*">
-						<input type="file" name="image_file2" accept="image/*">
-						<input type="file" name="image_file3" accept="image/*">
+							<label>
+								<span class="filelabel1" title="ファイルを選択">
+									<img src="./images/fileSelect.png" width="32" height="26">
+									<span id="selectednum1">選択</span>
+								</span>
+								<input type="file" name="image_file1" accept="image/*" id="filesend1" accept=".jpg,.gif,.png,image/gif,image/jpeg,image/png">
+							</label>
+							<!--画像プレビューボックス-->
+							<span id="previewbox1"></span>
 						</p>
-					
+						<p>
+							<label>
+								<span class="filelabel2" title="ファイルを選択">
+									<img src="./images/fileSelect.png" width="32" height="26" >
+									<span id="selectednum2">選択</span>
+								</span>
+								<input type="file" name="image_file2" accept="image/*" id="filesend2" accept=".jpg,.gif,.png,image/gif,image/jpeg,image/png">
+							</label>
+							<span id="previewbox2"></span>
+						</p>
+						<p>
+							<label>
+								<span class="filelabel3" title="ファイルを選択">
+									<img src="./images/fileSelect.png" width="32" height="26">
+									<span id="selectednum3">選択</span>
+								</span>
+								<input type="file" name="image_file3" accept="image/*" id="filesend3" accept=".jpg,.gif,.png,image/gif,image/jpeg,image/png">
+							</label>
+							<span id="previewbox3"></span>
+						</p>				
+						<!--意味はないけどそれっぽいから置いとけ-->	
 						<ul class="size">
 							<h3>Size</h3>
 							<li><a href="#">25</a></li>
@@ -245,124 +269,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 							<li><a href="#">32</a></li>
 							<li><a href="#">33</a></li>
 						</ul>
-						<ul class="size">
-							<h3>Length</h3>
-							<li><a href="#">32</a></li>
-							<li><a href="#">34</a></li>
-						</ul>
-						<ul class="product-qty">
-						<span>在庫数</span>
-						<select name='stock'>
-							<option>1</option>
-							<option>2</option>
-							<option>3</option>
-							<option>4</option>
-							<option>5</option>
-							<option>6</option>
-							<option>7</option>
-							<option>8</option>
-							<option>9</option>
-							<option>10</option>
-						</select>
-						</ul>
+						
+						<br>
 						<div class="btn_form">
 						<input type="submit" value="出品" title="">
 					</form>
-=======
-			  </div>
-			<div class="cont1 span_2_of_a1">
-                <form action="" method="post" enctype="multipart/form-data" autocomplete="off">
-					<p>
-					商品名<input type="text" name="product_name" size="100">
-					</p>
-					<p>
-					値段<input type="text" name="price" size="100">
-					</p>
-					<p>
-					在庫数<input type="text" name="stock_value" size="100">
-					</p>
-					<p>
-					カテゴリ
-					<select name="product_category">
-						<option value="1">販売</option>
-						<option value="2">レンタル</option>
-						<option value="3">フリマ</option>
-					</select>
-					</p>
-					<p>
-					<!-- ジャンル<input type="text" name="genre_id" size="200"> -->
-					ジャンル
-					<select name="genre_id">
-						<option value="1">ガソリンランタン </option>
-						<option value="2">LPガスランタン</option>
-						<option value="3">LEDライティング</option>
-						<option value="4">大人用 </option>
-						<option value="5">子供用</option>
-						<option value="6">テント</option>
-						<option value="7">タープ</option>
-						<option value="8">シェード</option>
-						<option value="9">マット</option>
-						<option value="10">レクタングラー（封筒型）</option>
-						<option value="11">エアーベッド</option>
-						<option value="12">バーナー </option>
-						<option value="13">グリル</option>
-						<option value="14">ヒーター</option>
-						<option value="15">クックウエア</option>
-						<option value="16">ハードクーラー</option>
-						<option value="17">ソフトクーラー</option>
-						<option value="18">ジャグ</option>
-						<option value="19">チェア</option>
-						<option value="20">テーブル</option>
-						<option value="21">キッチンテーブル</option>
-						<option value="22">オールインワン</option>
-					</select>
-					</p>
-					<p>
-					商品説明<br>
-					<textarea name="product_text" rows="4" cols="40"></textarea>
-					</p>
-					<p>
-					画像<br>
-					<input type="file" name="image_file1" accept="image/*">
-					<input type="file" name="image_file2" accept="image/*">
-					<input type="file" name="image_file3" accept="image/*">
-					</p>
-					<p>
-					<input type="submit" value="送信">
-					</p>
-				
-					<ul class="size">
-						<h3>Size</h3>
-						<li><a href="#">25</a></li>
-						<li><a href="#">26</a></li>
-						<li><a href="#">27</a></li>
-						<li><a href="#">28</a></li>
-						<li><a href="#">29</a></li>
-						<li><a href="#">30</a></li>
-						<li><a href="#">31</a></li>
-						<li><a href="#">32</a></li>
-						<li><a href="#">33</a></li>
-					</ul>
-					<ul class="size">
-						<h3>Length</h3>
-						<li><a href="#">32</a></li>
-						<li><a href="#">34</a></li>
-					</ul>
-					<ul class="product-qty">
-					<span>出品数</span>
-					<select name='stock'>
-						<option>1</option>
-						<option>2</option>
-						<option>3</option>
-						<option>4</option>
-						<option>5</option>
-						<option>6</option>
-					</select>
-					</ul>
-			    	<div class="btn_form">
-					 <input type="submit" value="出品" title="">
-				</form>
->>>>>>> 89652ef1154612da75cf659423ea8a7f05d255d0
 				</div>
 			</div>
 			<div class="clearfix"></div>
