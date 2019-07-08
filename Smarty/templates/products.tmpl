@@ -108,18 +108,68 @@ cart_bgって名前のclassはオレンジ色にしたりする
 				</ul>
 				</form>
 				<span style="display:flex">
-				<span>
+				<span id="category_zone" style="position:absolute;">
 				<h4 id="category">カテゴリ</h4>
-				<div id="category_list">ライティング</div>
-				<div id="category_list">バッグ</div>
-				<div id="category_list">テント＆タープ</div>
-				<div id="category_list">スリーピングバッグ</div>
-				<div id="category_list">クッキング＆<br>ヒーティング</div>
-				<div id="category_list">クーラー＆ジャグ</div>
-				<div id="category_list">ファニチャー</div>
+				<ul style="margin-top:40px;">
+				<div id="category_main">ライティング</div>
+				<ul id="category_sub">
+				<li id="category_detail"><a href="products.php?product_category=">ガソリンランタン</a></li>
+				<li id="category_detail"><a href="products.php?product_category=">LPガスランタン</a></li>
+				<li id="category_detail"><a href="products.php?product_category=">LEDライテイング</a></li>
+				</ul>
+				</ul>
+				<ul style="margin-top:105px;">
+				<div id="category_main">バッグ</div>
+				<ul id="category_sub">
+				<li id="category_detail"><a href="products.php?product_category=">大人用</a></li>
+				<li id="category_detail"><a href="products.php?product_category=">子供用</a></li>
+				</ul>
+				</ul>
+				<ul style="margin-top:170px;">
+				<div id="category_main">テント＆タープ</div>
+				<ul id="category_sub">
+				<li id="category_detail"><a href="products.php?product_category=">テント</a></li>
+				<li id="category_detail"><a href="products.php?product_category=">タープ</a></li>
+				<li id="category_detail"><a href="products.php?product_category=">シェード</a></li>
+				</ul>
+				</ul>
+				<ul style="margin-top:235px;">
+				<div id="category_main">スリーピングバッグ</div>
+				<ul id="category_sub">
+				<li id="category_detail"><a href="products.php?product_category=">マット</a></li>
+				<li id="category_detail"><a href="products.php?product_category=">レンタングラー</a></li>
+				<li id="category_detail"><a href="products.php?product_category=">エアーベッド</a></li>
+				</ul>
+				</ul>
+				<ul style="margin-top:300px;">
+				<div id="category_main">クッキング＆ヒーティング</div>
+				<ul id="category_sub">
+				<li id="category_detail"><a href="products.php?product_category=">バーナー</a></li>
+				<li id="category_detail"><a href="products.php?product_category=">グリル</a></li>
+				<li id="category_detail"><a href="products.php?product_category=">ヒーター</a></li>
+				<li id="category_detail"><a href="products.php?product_category=">クックウェア</a></li>
+				</ul>
+				</ul>
+				<ul style="margin-top:365px;">
+				<div id="category_main">クーラー＆ジャグ</div>
+				<ul id="category_sub">
+				<li id="category_detail"><a href="products.php?product_category=">ハードクーラー</a></li>
+				<li id="category_detail"><a href="products.php?product_category=">ソフトクーラー</a></li>
+				<li id="category_detail"><a href="products.php?product_category=">ジャグ</a></li>
+				</ul>
+				</ul>
+				<ul style="margin-top:430px;">
+				<div id="category_main">ファニチャー</div>
+				<ul id="category_sub">
+				<li id="category_detail"><a href="products.php?product_category=">チェア</a></li>
+				<li id="category_detail"><a href="products.php?product_category=">テーブル</a></li>
+				<li id="category_detail"><a href="products.php?product_category=">キッチンテーブル</a></li>
+				<li id="category_detail"><a href="products.php?product_category=">オールインワン</a></li>
+				</ul>
+				</ul>
 				</span>
 				<!--タブを切り替えて表示するコンテンツ-->
-				<span class="panel-group" style="float:right">
+				<span class="panel-group" style="float:right position:absolute">
 						<span class="panel is-show">
 						<div></div>
 							{for $start=0 to $limit}
