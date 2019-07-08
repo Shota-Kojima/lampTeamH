@@ -38,5 +38,161 @@
 	box-shadow: 0 0 5px 1px #ccc; 
 	position: absolute;
 	left:1000px;
-	top:210px;
+	top:230px;
    }
+   .box11{
+	width: 70%;
+    padding: 0.5em 1em;
+    color: #5d627b;
+    background: white;
+    border-top: solid 5px #FF5B36;
+	box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+}
+.box11 p {
+    margin: 0; 
+    padding: 0;
+}
+.mono{
+	width: 400px;
+	padding: 10px;
+	overflow: hidden;
+}
+.mono1{
+	float: left;
+	margin: 0 10px 5px 0;
+}
+.mono p{
+	overflow: hidden;
+}
+.siha{
+	position: absolute;
+	top:260px;
+	left:380px;
+}
+.otodo{
+	
+}
+.poi{
+	position: absolute;
+	top:260px;
+	left: 580px;
+}
+.tentou{
+	position: absolute;
+	top:420px;
+	left:120px;	
+}
+.tentou b{
+	color:rgb(250, 192, 137);
+}
+.seikyu{
+	position: absolute;
+	top:350px;
+	left: 380px;
+}
+.seikyu p{
+	color:rgb(143, 142, 142);
+}
+.btn222 form input[type="submit"]{
+	cursor: pointer;
+	border: none;
+	outline: none;
+	display: inline-block;
+	font-size: 1em;
+	padding: 13px 20px;
+	background: #fb4d01;
+	color: #FFF;
+	text-transform: uppercase;
+	-webkit-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+	margin-bottom: 1em;
+   }
+   .btn222 form input[type="submit"] {
+	font-size: 0.85em;
+	padding: 10px 50px;
+	position: relative;
+	left:18px;
+}
+.btn222 form input[type="submit"]:hover{
+	background: #ee4a02;
+}
+.title{
+	color: #555;
+	margin-bottom: 0.5em;
+	font-size:1em;
+	line-height: 1.2;
+	font-weight: normal;
+	margin-top: 0px;
+	letter-spacing: -1px;
+	text-transform: uppercase;
+	border-bottom: 1px solid #DFDDDD;
+	font-family: 'Roboto', sans-serif;
+}
+.btn222 p{
+	color:rgb(122, 122, 122);
+}
+.seikyu1{
+	color: rgb(255, 54, 54);
+}
+
+.kakomi-box2{
+    
+	margin: 1em auto;
+	padding: 1em;
+	width: 20%;
+	background-color: #FFF5EE;
+	box-shadow: 0 0 5px 1px #ccc; 
+	position: absolute;
+	left:1000px;
+	top:230px;
+   }
+   .kakomi-box3{
+	padding: 1em;
+	width: 70%;
+	height: 270px;
+	background-color: #f8f8f8; /* 背景色 */
+	border: 1px solid #ccc; /* 枠線 */
+
+   }
+   .kakomi-box11{
+	margin: 1em auto;
+	padding: 1em;
+	width: 70%;
+	background-color: #FFF5EE;
+	box-shadow: 0 0 5px 1px #ccc; 
+	margin-bottom:200px;
+   }
+   .kakomi-box12{
+	margin: 1em auto;
+	padding: 1em;
+	width: 70%;
+	background-color: #FFF5EE;
+	box-shadow: 0 0 5px 1px #ccc; 
+	margin-bottom:200px;
+   }
+   .kakomi-box12 p{
+	   font-size:30px;
+	   color:rgb(252, 149, 126);
+   }
+   ul{
+	   list-style-type: none;
+   }
+   .mae1{
+	   
+	   position: absolute;
+	   top:200px;
+	   left:1000px;
+   }
+   ul.mae1 li a{
+	color:#999;
+	font-size:0.8125em;
+}
+ul.mae2 li a{
+	position: absolute;
+	top:23px;
+	left:190px;
+	color:#ee4a02;
+	font-size:0.8125em;
+}
