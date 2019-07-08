@@ -1,0 +1,120 @@
+.sort_command{
+	background-color: rgb(160, 160, 160);
+	border-style:groove;
+	box-shadow:0px 0px 1px;
+	height:40px;
+	line-height:40px;
+	margin-top:15px;
+	margin-bottom:15px;
+}
+.sort_command li{
+	text-decoration: underline;
+	display: inline-block;
+	margin-right:20px;
+}
+.sort_command a{
+	vertical-align:middle;
+	color:rgb(235, 233, 233);
+}
+.sort_command ul{
+	margin-left:60px;
+	display: inline-block;
+}
+.product_name{
+	height:50px !important;
+	background:white !important;
+	color:black !important;
+	font-size:20px !important;
+}
+.product_price{
+	height:50px;
+	display:inline-block;
+	background:white;
+	color:black;
+	font-size:20px;
+}
+#category_zone{
+	width:47%;
+}
+#category{
+    width:50.3%;
+ 	color: #555;
+	font-size:1.3em;
+    line-height: 1.2;
+    margin-bottom:10px;
+    margin-right:160px;
+    font-weight: normal;
+    letter-spacing: -1px;
+    padding-bottom:5px;
+	text-transform: uppercase;
+	border-bottom: 3px solid #DFDDDD;
+	font-family: 'Roboto', sans-serif;
+	position:absolute;
+}
+#category_main{
+	position:absolute;
+    box-shadow:0px 0px 2px;
+    border-style:solid;
+    border-top:3px;
+    border-right:1px;
+	text-align:top;
+	padding-top:20px;
+    padding-left:5px;
+	font-size:18px;
+	color:rgb(235, 233, 233);
+	color:white(107, 101, 98);
+	background-color: rgb(160, 160, 160);
+	display:inline-block;
+	height:65px;
+	width:50%;
+	font-family:'arial black';
+	color:rgb(235, 233, 233);
+	cursor:default;
+}
+#category_sub{
+	pointer-events:auto;
+	display:none;
+	position:absolute;
+	margin-left:275.5px;
+	width:200px;
+	height:65px;
+}
+#category_detail{
+	display:block;
+	height:50%;
+	border-style:solid;
+	padding-top:3px;
+	background:rgb(211, 200, 192);
+}
+#category_main:hover{
+	background-color: rgb(194, 184, 184);
+}
+#category_main:hover+ #category_sub{
+	display:inline-block;
+}
+#category_main:hover>#category_detail{
+	display:block;
+}
+#category_sub:hover{
+	display:inline-block;
+}
+#category_sub:hover #category_detail{
+	display:block;
+}
+#category_sub+ #category_main:hover{
+	background-color: rgb(194, 184, 184);
+}
+.product_images{
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin-top:15px;
+}
+.submenues{
+	display: none;
+	margin-bottom:500px;
+	margin-right:500px;
+}
+.new:hover .submenues{
+	display: block;
+}

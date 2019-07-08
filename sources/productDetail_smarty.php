@@ -4,7 +4,7 @@
 @brief メンバー詳細(Smarty版)
 @copyright Copyright (c) 2017 Yamanoi Yasushi,Shimojima Ryo.
 */
-
+// session_start();
 /////////////////////////////////////////////////////////////////
 /// 実行ブロック
 /////////////////////////////////////////////////////////////////
@@ -13,7 +13,7 @@
 require_once("inc_base.php");
 require_once($CMS_COMMON_INCLUDE_DIR . "libs.php");
 require_once("inc_smarty.php");
-
+require_once($CMS_COMMON_INCLUDE_DIR . "auth_user.php");
 
 $product_id = 0;
 $err_array = array();
@@ -33,7 +33,7 @@ if(isset($_POST['buy_count'])
 //cutilクラスのメンバ関数をスタティック呼出
 	&& cutil::is_number($_GET['product_id'])
 	&& $_GET['product_id'] > 0){
-		
+
 	//商品Hクラスを構築
 	$product_obj = new cproductH();
 	$product_id = $_GET['product_id'];
@@ -105,7 +105,8 @@ function regist(){
 /////////////////////////////////////////////////////////////////
 
 $smarty->assign('err_array',$err_array);
-
+$smarty->assign('session',$_SESSION);
+$smarty->assign('cart',$_SESSION);
 //Smartyを使用した表示(テンプレートファイルの指定)
 $smarty->display('productDetail.tmpl');
 

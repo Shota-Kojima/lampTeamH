@@ -13,7 +13,9 @@
 require_once("inc_base.php");
 require_once($CMS_COMMON_INCLUDE_DIR . "libs.php");
 require_once("inc_smarty.php");
-
+require_once($CMS_COMMON_INCLUDE_DIR . "auth_user.php");
+$smarty->assign('session',$_SESSION);
+$smarty->assign('cart',$_SESSION);
 $show_mode = '';
 $ERR_STR = '';
 
@@ -30,57 +32,36 @@ if(isset($_GET['page'])
     $page = $_GET['page'];
 }
 
-//1ページのリミット
-$limit = 20;
-$rows = array();
+if(isset($_GET['product_id']) 
+//cutilクラスのメンバ関数をスタティック呼出
+	&& cutil::is_number($_GET['product_id'])
+	&& $_GET['product_id'] > 0){
 
-if(is_func_active()){
-	if(param_chk()){
-		switch($_POST['func']){
-			case "del":
-				$show_mode = 'del';
-				//削除操作
-				deljob();
-				//リダイレクトするページの計算
-				$re_page = $page;
-				$obj = new cmember();
-				$allcount = $obj->get_all_count(false);
-				$last_page = (int)($allcount / $limit);
-				if($allcount % $limit){
-					$last_page++;
-				}
-				if($re_page > $last_page){
-					$re_page = $last_page;
-				}
-				//再読み込みのためにリダイレクト
-				cutil::redirect_exit($_SERVER['PHP_SELF'] 
-				. '?page=' . $re_page);
-			break;
-			default:
-			break;
-		}
+	//商品Hクラスを構築
+	$product_obj = new cproductH();
+	$product_id = $_GET['product_id'];
+	$productarr = $product_obj->get_tgt(false,$product_id);
+	if($productarr !== false){
+		
+		$data = $productarr["product_pass"];
+		$productarr["product_pass"] = explode(',',$data);
+		$smarty->assign('productarr',$productarr);
+	}else{
+
 	}
+	
+}else{
+	// ステータスコードを出力
+	http_response_code( 301 ) ;
+	// リダイレクト
+	header( "Location: ./products.php" ) ;
+	exit ;
 }
-$show_mode = 'edit';
-//データの読み込み
-readdata();
 
 /////////////////////////////////////////////////////////////////
 /// 関数ブロック
 /////////////////////////////////////////////////////////////////
 
-//--------------------------------------------------------------------------------------
-/*!
-@brief	コマンドが渡されたかどうか
-@return	渡されたらtrue
-*/
-//--------------------------------------------------------------------------------------
-function is_func_active(){
-    if(isset($_POST['func']) && $_POST['func'] != ""){
-        return true;
-    }
-    return false;
-}
 
 
 //--------------------------------------------------------------------------------------
@@ -101,88 +82,12 @@ function param_chk(){
 }
 
 
-//--------------------------------------------------------------------------------------
-/*!
-@brief	データ読み込み
-@return	なし
-*/
-//--------------------------------------------------------------------------------------
-function readdata(){
-	global $limit;
-	global $rows;
-	global $page;
-	$obj = new cmember();
-	$from = ($page - 1) * $limit;
-	$rows = $obj->get_all(false,$from,$limit);
-}
-
-//--------------------------------------------------------------------------------------
-/*!
-@brief	削除
-@return	なし
-*/
-//--------------------------------------------------------------------------------------
-function deljob(){
-	$chenge = new cchange_ex();
-	if($_POST['param'] > 0){
-		$chenge->delete("member","member_id=" . $_POST['param']);
-	}
-}
-
-
-//--------------------------------------------------------------------------------------
-/*!
-@brief	ページャーのアサイン
-@return	なし
-*/
-//--------------------------------------------------------------------------------------
-function assign_page_block(){
-	//$smartyをグローバル宣言（必須）
-	global $smarty;
-	global $limit;
-	global $page;
-	$retstr = '';
-	$obj = new cmember();
-	$allcount = $obj->get_all_count(false);
-	$ctl = new cpager($_SERVER['PHP_SELF'],$allcount,$limit);
-	$smarty->assign('pager_arr',$ctl->get('page',$page));
-}
-
-
-//--------------------------------------------------------------------------------------
-/*!
-@brief	一覧のアサイン
-@return	なし
-*/
-//--------------------------------------------------------------------------------------
-function assign_member_list(){
-	//$smartyをグローバル宣言（必須）
-	global $smarty;
-	global $rows;
-	$smarty->assign('rows',$rows);
-}
-
-//--------------------------------------------------------------------------------------
-/*!
-@brief	URIのアサイン
-@return	なし
-*/
-//--------------------------------------------------------------------------------------
-function assign_tgt_uri(){
-	//$smartyをグローバル宣言（必須）
-	global $smarty;
-	global $page;
-	$smarty->assign('tgt_uri',$_SERVER['PHP_SELF'] . '?page=' . $page);
-}
-
 
 /////////////////////////////////////////////////////////////////
 /// 関数呼び出しブロック
 /////////////////////////////////////////////////////////////////
 $smarty->assign('ERR_STR',$ERR_STR);
-assign_page_block();
-assign_member_list();
-assign_tgt_uri();
+
 
 //Smartyを使用した表示(テンプレートファイルの指定)
 $smarty->display('frimaTrans.tmpl');

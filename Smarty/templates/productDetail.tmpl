@@ -34,14 +34,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!-- Add fancyBox main JS and CSS files -->
 
 <link href="css/magnific-popup.css" rel="stylesheet" type="text/css">
+{include file='shere.tmpl'}
 {literal}
 <script src="js/jquery.magnific-popup.js" type="text/javascript"></script>
-<script>
-//共通パーツ読み込み
-  $(function() {
-       $("#header").load("shere.html");
-});
-</script>
+
 <script>
 	$(document).ready(function() {
 		$('.popup-with-zoom-anim').magnificPopup({
@@ -99,33 +95,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	
 </head>
 <body>
-<div id="header"></div>
-  <div class="single">
-	<div class="container">
-	</div>
-	</div>
-		
-		   <div class="header_right">
-			 <ul class="social">
-				<li><a href=""> <i class="fb"> </i> </a></li>
-				<li><a href=""><i class="tw"> </i> </a></li>
-				<li><a href=""><i class="utube"> </i> </a></li>
-				<li><a href=""><i class="pin"> </i> </a></li>
-				<li><a href=""><i class="instagram"> </i> </a></li>
-			 </ul>
-		    <div class="lang_list">
-			  <select tabindex="4" class="dropdown">
-				<option value="" class="label" value="">En</option>
-				<option value="1">English</option>
-				<option value="2">French</option>
-				<option value="3">German</option>
-			  </select>
-   			</div>
-			<div class="clearfix"></div>
-          </div>
-          <div class="clearfix"></div>
-		
-    </div>
 	<div class="main">
 	  <div class="content_box">
 		<div class="container">
@@ -244,37 +213,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 								</li>
 							{/if}
 						{/foreach}
-							<!--コメントアウト-->
-							<li>
-								<a href="optionallink.html">
-									<img class="etalage_thumb_image" src="images/s1.jpg" class="img-responsive" />
-									<img class="etalage_source_image" src="images/smal.jpg" class="img-responsive" />
-								</a>
-							</li>
-							<li>
-								<img class="etalage_thumb_image" src="images/s2.jpg" class="img-responsive" />
-								<img class="etalage_source_image" src="images/smal1.jpg" class="img-responsive" />
-							</li>
-							<li>
-								<img class="etalage_thumb_image" src="images/s3.jpg" class="img-responsive" />
-								<img class="etalage_source_image" src="images/smal2.jpg" class="img-responsive" />
-							</li>
-							<li>
-								<img class="etalage_thumb_image" src="images/s3.jpg" class="img-responsive" />
-								<img class="etalage_source_image" src="images/smal3.jpg" class="img-responsive" />
-							</li>
-							<li>
-								<img class="etalage_thumb_image" src="images/s1.jpg" class="img-responsive" />
-								<img class="etalage_source_image" src="images/smal.jpg" class="img-responsive" />
-							</li>
-							<li>
-								<img class="etalage_thumb_image" src="images/s2.jpg" class="img-responsive" />
-								<img class="etalage_source_image" src="images/smal1.jpg" class="img-responsive" />
-							</li>
-							<li>
-								<img class="etalage_thumb_image" src="images/s3.jpg" class="img-responsive" />
-								<img class="etalage_source_image" src="images/smal2.jpg" class="img-responsive" />
-							</li>
 							
 						</ul>
 					<!-- end product_slider -->
@@ -292,7 +230,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<h2 class="quick">商品説明:</h2>
 				<p class="quick_desc">{$productarr.product_text}</p>
 			    <ul class="size">
-					<h3>Size</h3>
+					<h3>サイズ</h3>
 					<li><a href="#">25</a></li>
 					<li><a href="#">26</a></li>
 					<li><a href="#">27</a></li>
@@ -302,11 +240,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					<li><a href="#">31</a></li>
 					<li><a href="#">32</a></li>
 					<li><a href="#">33</a></li>
-				</ul>
-				<ul class="size">
-					<h3>Length</h3>
-					<li><a href="#">32</a></li>
-					<li><a href="#">34</a></li>
 				</ul>
 				<div class="btn_form">
 				   	<form action="" method="post" enctype="multipart/form-data" autocomplete="off">

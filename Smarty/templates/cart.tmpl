@@ -23,12 +23,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <script src="js/jquery.easydropdown.js"></script>
 <!-- Add fancyBox main JS and CSS files -->
 <script src="js/jquery.magnific-popup.js" type="text/javascript"></script>
-<script>
-//共通パーツ読み込み
-  $(function() {
-       $("#header").load("shere.html");
-});
-</script>
+{include file='shere_nonimage.tmpl'}
 <link href="css/magnific-popup.css" rel="stylesheet" type="text/css">
 		<script>
 			$(document).ready(function() {
@@ -47,40 +42,48 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		</script>
 </head>
 <body>
-<div id="header"></div>
-   <div class="single">
-	<div class="container">
-	</div>
-	</div>
-		   <div class="header_right">
-			 <ul class="social">
-				<li><a href=""> <i class="fb"> </i> </a></li>
-				<li><a href=""><i class="tw"> </i> </a></li>
-				<li><a href=""><i class="utube"> </i> </a></li>
-				<li><a href=""><i class="pin"> </i> </a></li>
-				<li><a href=""><i class="instagram"> </i> </a></li>
-			 </ul>
-		    <div class="lang_list">
-			  <select tabindex="4" class="dropdown">
-				<option value="" class="label" value="">En</option>
-				<option value="1">English</option>
-				<option value="2">French</option>
-				<option value="3">German</option>
-			  </select>
-   			</div>
-			<div class="clearfix"></div>
-          </div>
-          <div class="clearfix"></div>
-		 
-    </div>
     <div class="main">
 	   <div class="container">
 		   <div class="register">
-		  	  <h4 class="title">購入</h4>
-		  	  <p class="cart">購入カート内に商品はありません。<br>買い物をするには<a href="products.php">ここ</a>をクリック</p>
-			<h4 class="title" style="margin-top:20px;">レンタル</h4>
-		  	  <p class="cart">レンタルカート内に商品はありません。<br>買い物をするには<a href="products.php">ここ</a>をクリック</p>
-             </div>
+		   		{if isset($cart) }
+				   <h4 class="title">購入</h4><br>
+					{foreach from=$cart key=i item=value}
+
+						{if $value['product_category'] === 1}
+							<p>{$value['product_name']}</p><br>
+							<img class="etalage_thumb_image" src="{$value['product_pass'][0]}" class="img-responsive" /><br>
+							<p>個数：{$value['cart_count']}</p><br>
+							<p>金額：{$value['price']}</p><br>
+							<!--ここで一区切りの線ひきたい-->
+						{/if}
+
+					{/foreach}
+					<h4 class="title" style="margin-top:20px;">レンタル</h4><br>
+					{foreach from=$cart key=i item=value}
+
+						{if $value['product_category'] === 2}
+							<p>{$value['product_name']}</p><br>
+							<img class="etalage_thumb_image" src="{$value['product_pass'][0]}" class="img-responsive" /><br>
+							<p>個数：{$value['cart_count']}</p><br>
+							<p>金額：{$value['price']}</p><br>
+						{/if}
+
+					{/foreach}
+					
+					<p>合計金額：{$session['HTeam_adm']['product_sum']} 円</p>
+				
+				{else}
+
+					<h4 class="title">購入</h4>
+					<p class="cart">購入カート内に商品はありません。<br>買い物をするには<a href="products.php">ここ</a>をクリック</p>
+					<h4 class="title" style="margin-top:20px;">レンタル</h4>
+					<p class="cart">レンタルカート内に商品はありません。<br>買い物をするには<a href="products.php">ここ</a>をクリック</p>
+
+				{/if}
+		  		
+				
+			
+			</div>
 		   
 	     </div>
 	    </div>
