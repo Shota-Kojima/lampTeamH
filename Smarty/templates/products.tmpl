@@ -112,7 +112,7 @@ cart_bgって名前のclassはオレンジ色にしたりする
 				<h4 id="category">カテゴリ</h4>
 				<ul style="margin-top:40px;">
 				<div id="category_main">ライティング</div>
-				<ul id="category_sub">
+				<ul class="category_sub">
 				<li id="category_detail"><a href="products.php?product_category=1">ガソリンランタン</a></li>
 				<li id="category_detail"><a href="products.php?product_category=2">LPガスランタン</a></li>
 				<li id="category_detail"><a href="products.php?product_category=3">LEDライテイング</a></li>
@@ -120,14 +120,14 @@ cart_bgって名前のclassはオレンジ色にしたりする
 				</ul>
 				<ul style="margin-top:105px;">
 				<div id="category_main">バッグ</div>
-				<ul id="category_sub">
+				<ul class="category_sub">
 				<li id="category_detail"><a href="products.php?product_category=4">大人用</a></li>
 				<li id="category_detail"><a href="products.php?product_category=5">子供用</a></li>
 				</ul>
 				</ul>
 				<ul style="margin-top:170px;">
 				<div id="category_main">テント＆タープ</div>
-				<ul id="category_sub">
+				<ul class="category_sub">
 				<li id="category_detail"><a href="products.php?product_category=6">テント</a></li>
 				<li id="category_detail"><a href="products.php?product_category=7">タープ</a></li>
 				<li id="category_detail"><a href="products.php?product_category=8">シェード</a></li>
@@ -135,7 +135,7 @@ cart_bgって名前のclassはオレンジ色にしたりする
 				</ul>
 				<ul style="margin-top:235px;">
 				<div id="category_main">スリーピングバッグ</div>
-				<ul id="category_sub">
+				<ul class="category_sub">
 				<li id="category_detail"><a href="products.php?product_category=9">マット</a></li>
 				<li id="category_detail"><a href="products.php?product_category=10">レンタングラー</a></li>
 				<li id="category_detail"><a href="products.php?product_category=11">エアーベッド</a></li>
@@ -143,7 +143,7 @@ cart_bgって名前のclassはオレンジ色にしたりする
 				</ul>
 				<ul style="margin-top:300px;">
 				<div id="category_main">クッキング＆ヒーティング</div>
-				<ul id="category_sub">
+				<ul class="category_sub">
 				<li id="category_detail"><a href="products.php?product_category=12">バーナー</a></li>
 				<li id="category_detail"><a href="products.php?product_category=13">グリル</a></li>
 				<li id="category_detail"><a href="products.php?product_category=14">ヒーター</a></li>
@@ -152,7 +152,7 @@ cart_bgって名前のclassはオレンジ色にしたりする
 				</ul>
 				<ul style="margin-top:365px;">
 				<div id="category_main">クーラー＆ジャグ</div>
-				<ul id="category_sub">
+				<ul class="category_sub">
 				<li id="category_detail"><a href="products.php?product_category=16">ハードクーラー</a></li>
 				<li id="category_detail"><a href="products.php?product_category=">ソフトクーラー</a></li>
 				<li id="category_detail"><a href="products.php?product_category=">ジャグ</a></li>
@@ -160,7 +160,7 @@ cart_bgって名前のclassはオレンジ色にしたりする
 				</ul>
 				<ul style="margin-top:430px;">
 				<div id="category_main">ファニチャー</div>
-				<ul id="category_sub">
+				<ul class="category_sub">
 				<li id="category_detail"><a href="products.php?product_category=">チェア</a></li>
 				<li id="category_detail"><a href="products.php?product_category=">テーブル</a></li>
 				<li id="category_detail"><a href="products.php?product_category=">キッチンテーブル</a></li>
@@ -168,8 +168,27 @@ cart_bgって名前のclassはオレンジ色にしたりする
 				</ul>
 				</ul>
 				</span>
+				<script>
+				const category_zone = document.getElementById('category_zone');
+				const category_sub = document.getElementsByClassName('category_sub');
+				const category_sub1 = document.getElementsByClassName('category_sub');
+				const category_detail = document.getElementById('category_detail');
+				const panel_group = document.getElementById('panel-group');
+				category_zone.addEventListener('mouseenter', () => {
+					category_zone.style.zIndex="3";
+				}, false);
+				//OUT
+				for(var i = 0; i<7; i++){
+				category_sub[i].addEventListener('mouseleave', () => {
+					category_zone.style.zIndex = "0";
+				}, false);
+				}
+				</script>
+				
+				<span style="width:300px;margin-left:280px;pointer-events:none;z-index:-1 ">
+				</span>
 				<!--タブを切り替えて表示するコンテンツ-->
-				<span class="panel-group" style="float:right position:absolute">
+				<span id="panel-group" style="float:right">
 						<span class="panel is-show">
 						<div></div>
 							{for $start=0 to $limit}
