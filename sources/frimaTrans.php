@@ -23,14 +23,7 @@ $ERR_STR = '';
 //デフォルトは1
 $page = 1;
 //もしページが指定されていたら
-if(isset($_GET['page']) 
-    //なおかつ、数字だったら
-    && cutil::is_number($_GET['page'])
-    //なおかつ、0より大きかったら
-    && $_GET['page'] > 0){
-    //パラメータを設定
-    $page = $_GET['page'];
-}
+
 
 if(isset($_GET['product_id']) 
 //cutilクラスのメンバ関数をスタティック呼出
@@ -47,7 +40,11 @@ if(isset($_GET['product_id'])
 		$productarr["product_pass"] = explode(',',$data);
 		$smarty->assign('productarr',$productarr);
 	}else{
-
+		// ステータスコードを出力
+		http_response_code( 301 ) ;
+		// リダイレクト
+		header( "Location: ./products.php" ) ;
+		exit ;
 	}
 	
 }else{

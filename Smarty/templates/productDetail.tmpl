@@ -255,7 +255,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 							</select>
 						</ul>
 						<input type="hidden" name="product_id" value='{$productarr['product_id']}'>
-					 	<input type="submit" value="カートに入れる" title="">
+						{if (int)$productarr['product_category'] === 3}
+							<input type="submit" value="購入" title="">
+						{else}
+							<input type="submit" value="カートに入れる" title="">
+						{/if}				 	
 					</form>
 				</div>
 			</div>
@@ -476,13 +480,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				 <div class="clearfix"> </div>
 			</div>
 		</div>
-        <div class="footer_bottom">
-        	<div class="container">
-        		<div class="copy">
-				   <p>&copy; 2014 Template by <a href="http://w3layouts.com" target="_blank"> w3layouts</a></p>
-			    </div>
-        	</div>
-        </div>
 </body>
 
 </html>		
