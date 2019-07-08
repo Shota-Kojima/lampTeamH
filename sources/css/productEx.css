@@ -1,0 +1,75 @@
+.filelabel1 {
+    background-color: orange;  /* 背景色 */
+    color: white;              /* 文字色 */
+    border: 2px solid orange;  /* 枠線 */
+    border-radius: 3em;        /* 角丸 */
+    padding: 12px 9px;         /* 内側の余白 */
+    display: inline-block;     /* インラインブロック化 */
+ }
+ .filelabel1 img {
+    vertical-align: bottom;    /* 画像の垂直方向の配置 */
+ }
+ .filelabel1:hover {
+    opacity: 0.5;              /* 半透明 */
+    border: 2px solid red;     /* 枠線(赤色) */
+    cursor: pointer;           /* マウス形状(ポインタ) */
+ }
+ #filesend1 {
+    display: none;  /* 本来のファイル選択フォームは非表示に */
+ }
+ #previewbox1 {
+    display: inline-block;     /* プレビュー領域をボタンと横並びに配置する */
+    vertical-align: middle;    /* プレビュー画像の垂直方向の配置 */
+ }
+
+ /*  */
+
+ .filelabel2 {
+   background-color: orange;  /* 背景色 */
+   color: white;              /* 文字色 */
+   border: 2px solid orange;  /* 枠線 */
+   border-radius: 3em;        /* 角丸 */
+   padding: 12px 9px;         /* 内側の余白 */
+   display: inline-block;     /* インラインブロック化 */
+}
+.filelabel2 img {
+   vertical-align: bottom;    /* 画像の垂直方向の配置 */
+}
+.filelabel2:hover {
+   opacity: 0.5;              /* 半透明 */
+   border: 2px solid red;     /* 枠線(赤色) */
+   cursor: pointer;           /* マウス形状(ポインタ) */
+}
+#filesend2 {
+   display: none;  /* 本来のファイル選択フォームは非表示に */
+}
+#previewbox2 {
+   display: inline-block;     /* プレビュー領域をボタンと横並びに配置する */
+   vertical-align: middle;    /* プレビュー画像の垂直方向の配置 */
+}
+
+/*  */
+
+.filelabel3 {
+   background-color: orange;  /* 背景色 */
+   color: white;              /* 文字色 */
+   border: 2px solid orange;  /* 枠線 */
+   border-radius: 3em;        /* 角丸 */
+   padding: 12px 9px;         /* 内側の余白 */
+   display: inline-block;     /* インラインブロック化 */
+}
+.filelabe3 img {
+   vertical-align: bottom;    /* 画像の垂直方向の配置 */
+}
+.filelabe3:hover {
+   opacity: 0.5;              /* 半透明 */
+   border: 2px solid red;     /* 枠線(赤色) */
+   cursor: pointer;           /* マウス形状(ポインタ) */
+}
+#filesend3 {
+   display: none;  /* 本来のファイル選択フォームは非表示に */
+}
+#previewbox3 {
+   display: inline-block;     /* プレビュー領域をボタンと横並びに配置する */
+   vertical-align: middle;    /* プレビュー画像の垂直方向の配置 */
+}
