@@ -1,0 +1,42 @@
+.kakomi-box {
+	padding: 1em;
+	width: 70%;
+	background-color: #f8f8f8; /* 背景色 */
+	border: 1px solid #ccc; /* 枠線 */
+   }
+   .btn111 form input[type="submit"]{
+	cursor: pointer;
+	border: none;
+	outline: none;
+	display: inline-block;
+	font-size: 1em;
+	padding: 13px 20px;
+	background: #fb4d01;
+	color: #FFF;
+	text-transform: uppercase;
+	-webkit-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+	margin-bottom: 2em;
+   }
+   .btn111 form input[type="submit"] {
+	font-size: 0.85em;
+	padding: 10px 50px;
+	position: relative;
+	left:20px;
+}
+.btn111 form input[type="submit"]:hover{
+	background: #ee4a02;
+}
+.kakomi-box1 {
+    
+	margin: 1em auto;
+	padding: 1em;
+	width: 17%;
+	background-color: #FFF5EE;
+	box-shadow: 0 0 5px 1px #ccc; 
+	position: absolute;
+	left:1000px;
+	top:210px;
+   }
