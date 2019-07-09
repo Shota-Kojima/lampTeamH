@@ -24,6 +24,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <script src="js/jquery.easydropdown.js"></script>
 <!-- Add fancyBox main JS and CSS files -->
 <script src="js/jquery.magnific-popup.js" type="text/javascript"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
+<script src="js/validate.js" type="text/javascript"></script>
 <link href="css/magnific-popup.css" rel="stylesheet" type="text/css">
 {include file='shere_admin.tmpl'}
 		<script>
@@ -53,28 +56,31 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 <p class="cart"><b style="font-size:20px;">クレジットカード以外のお支払い方法</b></p>
                 <h4 class="title"></h4>
              <p class="cart">
-             <input type="radio" name="trigger" value=""><b>代金引換</b>国内配送のみ。代引手数料がかかります。獲得したポイントは、支払い後に確定します。詳しくはこちらをご確認ください。
-             <br><br>
-             <input type="radio" name="trigger" value=""><b>コンビニ・ATM・ネットバンキング・ 電子マネー払い</b>代金のお支払い後に商品が発送されます。なお、お支払いの際に必要となるお支払い番号は、出荷準備に入り次第発行されます。発行後は注文履歴からもお支払い番号を確認できます。その他の詳細はこちら。</p>
-                <p class="cart" style="margin-top:20px;"><b style="font-size:20px;">RE:SURVIVALポイント</b></p>
-                <h4 class="title"></h4>
-                <p class="cart">
-                <b>RE:SURVIVALポイント:</b>
-                <br>
-             <input type="radio" name="survival" value="">今回の注文で利用可能なポイントをすべて利用する
-             <br><br>
-             <input type="radio" name="survival" value="">一部のポイントを利用する<input type="">pt
-			 <br><br>
-			 <input type="radio" name="survival" value="">ポイントを利用しない</p>
-              </div>
-              <div class="kakomi-box1">
-              <div class="btn111">
-				   <form action="final_confirmation.php">
-					 <input type="submit" value="次に進む" title="">
-				  </form>
-                  注文の最終確認ができます
+			 <form action="" id="purchase" method="post" enctype="multipart/form-data" autocomplete="off">
+			 
+				<input type="radio" name="trigger" value=""><b>代金引換</b>国内配送のみ。代引手数料がかかります。獲得したポイントは、支払い後に確定します。詳しくはこちらをご確認ください。
+				<br><br>
+				<input type="radio" name="trigger" value=""><b>コンビニ・ATM・ネットバンキング・ 電子マネー払い</b>代金のお支払い後に商品が発送されます。なお、お支払いの際に必要となるお支払い番号は、出荷準備に入り次第発行されます。発行後は注文履歴からもお支払い番号を確認できます。その他の詳細はこちら。</p>
+					<p class="cart" style="margin-top:20px;"><b style="font-size:20px;">RE:SURVIVALポイント</b></p>
+					<h4 class="title"></h4>
+					<p class="cart">
+					<b>RE:SURVIVALポイント:{$session['HTeam_adm']['customer_point']}</b>
+					<br>
+				<input type="radio" name="survival" value="">今回の注文で利用可能なポイントをすべて利用する
+				<br><br>
+				<input type="radio" name="survival" value="">一部のポイントを利用する<input type="" name="usepoint">pt
+				<br><br>
+				<input type="radio" name="survival" value="">ポイントを利用しない</p>
 				</div>
-                </div>
+				<div class="kakomi-box1">
+				<div class="btn111">
+					
+				<input type="submit" value="次に進む" title="">
+					
+					注文の最終確認ができます
+					</div>
+					</div>
+			</form>
 			<h4 class="title" style="margin-top:20px;">その他のお支払いオプション</h4>
 		  	  <p class="cart"><b style="font-size:20px;">クレジットカード</b><br>以下のクレジットカードをご利用いただけます<br>
                 <img src="images/Visa.png"  height="30px">

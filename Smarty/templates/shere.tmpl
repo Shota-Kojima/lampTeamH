@@ -26,10 +26,11 @@
       <ul>
       <p>
       <img src="images/user.png" width="100px" height="100px">
-      <p>ユーザID</p>
-      <p>メアド</p>
+      <p>{$session['HTeam_adm']['customer_id']}</p>
+      <p>{$session['HTeam_adm']['customer_email']}</p>
+      
       </p>
-      <li><a href="#"><img src="images/top.png" width="40px" height="40px">Top</a></li>
+      <li><a href="products.php"><img src="images/top.png" width="40px" height="40px">Top</a></li>
       <li><a href="cart.php"><img src="images/cart1.png" width="40px" height="40px">カート</a></li>
       <li><a href="#"><img src="images/tutorial.png" width="40px" height="40px">初めての方へ</a></li>
       <li><a href="#"><img src="images/message.png" width="40px" height="40px">お問い合わせ</a></li>
@@ -45,7 +46,7 @@
 		    </ul>
 		    <div class="cart_bg">
 			  <ul class="cart">
-				<i class="cart_icon"></i><p class="cart_desc">{$cart['HTeam_adm']['product_sum']}<br><span class="yellow">{$cart['HTeam_adm']['product_count']}個の商品</span></p>
+				<i class="cart_icon"></i><p class="cart_desc">{(int)$cart['HTeam_adm']['product_sum']円}<br><span class="yellow">{$cart['HTeam_adm']['product_count']}個の商品</span></p>
 			    <div class='clearfix'></div>
 			  </ul>
 			  <ul class="product_control_buttons">
