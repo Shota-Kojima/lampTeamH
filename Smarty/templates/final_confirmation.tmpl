@@ -57,11 +57,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
            <div class="siha">
            <b>支払い方法</b>
            <br>
-           <img src="images/Jcb.png"  height="30px">下4桁
+           <p>代金引換（国内配送のみ。<br>代引手数料がかかります。）</p>
            </div>
            <div class="poi">
            <b>RE:SURVIVALポイントを利用する:</b><br>
-           <input type="">pt<button type="button"  class="btn btn-info chat-btn">適用</button>
+           <input type="" class="point1">pt<button type="button"  class="btn btn-info chat-btn">適用</button>
            </div>
 		   <div class="tentou">
            <b>店頭受取もご利用いただけます</b>
@@ -79,13 +79,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
            </div>
             <div class="box11">
 				{foreach from=$cart key=i item=value}
-					<div class="mono">
-						<div class="mono1">
-							<img src="{$value['product_pass'][0]}"  width="120" height="120">
-						</div>
-							<p><b><font size="5">{$value['product_name']}</font></b><br><font color="#ff0000">¥{$value['price']}</font><br><font color="#ff0000">{$value['cart_count']}個</font></p>
-						<h4 class="title"></h4>
-					</div>
+					<p class="name1">{$value['product_name']}</p>
+							<p class="price1">金額：{$value['price']} 円</p>
+							<p class="count1">個数：{$value['cart_count']}</p>
+							<img class="etalage_thumb_image" src="{$value['product_pass'][0]}" class="img-responsive" width="100px"/><br>
+						<div class="sen"></div>
 				{/foreach}
               </div>
               <div class="kakomi-box2">
@@ -94,10 +92,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					 <input type="submit" name="commit" value="注文を確定する" title="">
 				  </form>
                   <b>注文内容</b>
-                  <p>商品の小計：{$session['HTeam_adm']['product_sum']}円</p>
-                  <p>配送料・手数料：530円</p>
+                  <p>商品の小計：<div class="syou">{$session['HTeam_adm']['product_sum']}円</p></div>
+                  <p>配送料・手数料：<div class="haiso">530円</p></div>
             　　<div class="title"></div>
-                <b class="seikyu1">ご請求額：{$session['HTeam_adm']['fake_sum']}円</b>
+                <b class="seikyu1">ご請求額：<div class="gose">{$session['HTeam_adm']['fake_sum']}円</b></div>
 				</div>
                 </div>
 			

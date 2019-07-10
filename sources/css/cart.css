@@ -1,0 +1,158 @@
+.box15{
+    padding: 0.5em 1em;
+    width: 70%;
+    margin: 0.5em 0;
+    color: #5d627b;
+    background: white;
+    border-top: solid 5px #FF5B36;
+	box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+}
+.box15 p {
+    margin-bottom: -20px; 
+    padding: 0;
+    font-size:20px;
+}
+.box15 img{
+    position: relative;
+    bottom:10px;
+}
+.box15 .name1{
+    position: relative;
+    top:20px;
+    left:110px;
+}
+.box15 .count1{
+    width:50%;
+    position: relative;
+    top:70px;
+    left:200px;
+}
+.box15 .price1{
+    width:50%;
+    position: relative;
+    top:62px;
+    left:350px;
+}
+.box15 .zaiko{
+    position: relative;
+    top:30px;
+    left:110px;
+    font-size:17px;
+    color: rgb(154, 196, 112);
+}
+.sen{
+    color: #555;
+	margin-bottom: 0em;
+	font-size:1.8em;
+	line-height: 1.2;
+	font-weight: normal;
+	margin-top: 0px;
+	letter-spacing: -1px;
+	text-transform: uppercase;
+	border-bottom: 1px solid #DFDDDD;
+	padding-bottom: 13px;
+	font-family: 'Roboto', sans-serif;
+}
+.btn222 form input[type="submit"]{
+	cursor: pointer;
+	border: none;
+	outline: none;
+	display: inline-block;
+	font-size: 1em;
+	padding: 13px 20px;
+	background: #fb4d01;
+	color: #FFF;
+	text-transform: uppercase;
+	-webkit-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+	margin-bottom: 1em;
+   }
+   .btn222 form input[type="submit"] {
+	font-size: 0.85em;
+	padding: 10px 50px;
+	position: relative;
+	left:18px;
+}
+.btn222 form input[type="submit"]:hover{
+	background: #ee4a02;
+}
+.btn222 .kou{
+position: absolute;
+top:69px;
+left:195px;
+}
+.btn222 .ren{
+    position: absolute;
+    top:90px;
+    left:195px;
+    }
+.btn222 .kou1{
+    position: absolute;
+    top:138px;
+    left:170px;
+    }
+.btn222 b{
+    position: relative;
+    left:15px;
+}
+
+.kakomi-box2{
+    
+	margin: 1em auto;
+	padding: 1em;
+	width: 18%;
+	background-color: #FFF5EE;
+	box-shadow: 0 0 5px 1px #ccc; 
+	position: absolute;
+	left:1000px;
+	top:230px;
+   }
+   .sen1{
+    color: #555;
+	margin-bottom: 0em;
+	font-size:1.8em;
+	line-height: 1.2;
+	font-weight: normal;
+	margin-top: 0px;
+	letter-spacing: -1px;
+	text-transform: uppercase;
+	border-bottom: 1px solid #DFDDDD;
+	padding-bottom: 0px;
+	font-family: 'Roboto', sans-serif;
+}
+.otodoke{
+    font-size: 20px;
+    color:rgb(196, 94, 94);
+}
+.delete2{
+    float: left;
+    position: relative;
+    bottom:25px;
+    left:710px;
+    
+}
+ul{
+    list-style-type: none;
+}
+.mae1{
+    
+    position: absolute;
+    top:200px;
+    left:1000px;
+}
+ul.mae1 li a{
+ color:#999;
+ font-size:0.8125em;
+}
+.delete1{
+position: relative;
+left: 700px;
+}
+#spin1{
+    height:30px;
+    width:42px;
+    font-size:18px;
+    
+}
