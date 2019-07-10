@@ -74,6 +74,7 @@ if(isset($_SESSION['HTeam_adm']['customer_id'])&&
                 $product_sum += $valueWk * $priceWk;
                 $_SESSION['HTeam_adm']['product_count'] = (int)$product_count;
                 $_SESSION['HTeam_adm']['product_sum'] = (int)$product_sum;
+                $_SESSION['HTeam_adm']['fake_sum'] = $_SESSION['HTeam_adm']['product_sum'] + 530;
                 // $smarty->assign('cart',$_SESSION);
             }else{
                 // echo '<script type="text/javascript">alert("64のelse");</script>';

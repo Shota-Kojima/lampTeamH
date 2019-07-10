@@ -75,7 +75,7 @@ function regist(){
     
 	$chenge = new cchange_ex();
     $mid = $chenge->insert('productH',$dataarr);
-    echo '<script type="text/javascript">alert("追加おｋ");</script>';
+    echo '<script type="text/javascript">alert('.$mid.');</script>';
 }
 
 //ジャンル取得してアサイン

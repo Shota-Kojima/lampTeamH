@@ -78,31 +78,26 @@ License URL: http://creativecommons.org/licenses/by/3.0/
            </div>
            </div>
             <div class="box11">
+				{foreach from=$cart key=i item=value}
 					<div class="mono">
 						<div class="mono1">
-							<a href="#"><img src="images/pic2.jpg"  width="120" height="120">
+							<img src="{$value['product_pass'][0]}"  width="120" height="120">
 						</div>
-							<p><b><font size="5">商品名</font></b></a><br><font color="#ff0000">¥2,500</font></p>
+							<p><b><font size="5">{$value['product_name']}</font></b><br><font color="#ff0000">¥{$value['price']}</font><br><font color="#ff0000">{$value['cart_count']}個</font></p>
+						<h4 class="title"></h4>
 					</div>
-             <h4 class="title"></h4>
-             		<div class="mono">
-						<div class="mono1">
-							<a href="#"><img src="images/pic2.jpg"  width="120" height="120">
-						</div>
-							<p><b><font size="5">商品名</font></b></a><br><font color="#ff0000">¥2,500</font></p>
-
-					</div>
+				{/foreach}
               </div>
               <div class="kakomi-box2">
               <div class="btn222">
-				   <form action="final_done.php">
-					 <input type="submit" value="注文を確定する" title="">
+				   <form action="final_done.php" method="post">
+					 <input type="submit" name="commit" value="注文を確定する" title="">
 				  </form>
                   <b>注文内容</b>
-                  <p>商品の小計：</p>
-                  <p>配送料・手数料：</p>
+                  <p>商品の小計：{$session['HTeam_adm']['product_sum']}円</p>
+                  <p>配送料・手数料：530円</p>
             　　<div class="title"></div>
-                <b class="seikyu1">ご請求額：</b>
+                <b class="seikyu1">ご請求額：{$session['HTeam_adm']['fake_sum']}円</b>
 				</div>
                 </div>
 			
