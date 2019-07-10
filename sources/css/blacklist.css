@@ -1,0 +1,21 @@
+.all {
+	width: 70%;
+	margin-left: 15%;
+	margin-right: 15%;
+}
+.hd {
+    position: relative;
+	background:#919191;
+	height:30px;
+	color:#fff;
+	padding:0 10px;
+	white-space:nowrap;
+	border-bottom:solid 1px #fff;
+}
+#bla {
+    background-color: rgb(238, 205, 174);
+    height: 50px;
+}
+#bla th {
+    width: 20%;
+}
