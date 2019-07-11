@@ -40,10 +40,9 @@ if(isset($_POST['buy_count'])
 	$productarr = $product_obj->get_tgt(false,$product_id);
 	if($productarr !== false){
 		// echo '<script type="text/javascript">alert("ここか？");</script>';
-		//product_passを取得
+		// product_passを取得
 		$data = $productarr["product_pass"];
 		$productarr["product_pass"] = explode(',',$data);
-		//var_dump($productarr);
 		$smarty->assign('productarr',$productarr);
 	}else{
 
@@ -95,7 +94,8 @@ function regist(){
     
 	$chenge = new cchange_ex();
     $mid = $chenge->insert('cart',$dataarr);
-    echo '<script type="text/javascript">alert("購入しました(購入完了画面に遷移予定)");</script>';
+	echo '<script type="text/javascript">alert("カートに入れました(カートIN確認画面に遷移予定)");</script>';
+	cutil::redirect_exit("productDetail_smarty.php");
 }
 
 

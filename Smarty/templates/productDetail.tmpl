@@ -244,6 +244,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<div class="btn_form">
 				   	<form action="" method="post" enctype="multipart/form-data" autocomplete="off">
 						<ul class="product-qty">
+						{if (int)$productarr['product_category'] !== 3}
 							<span>Quantity:</span>
 							<select name="buy_count">
 								<option>1</option>
@@ -253,6 +254,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 								<option>5</option>
 								<option>6</option>
 							</select>
+						{/if}
+							
 						</ul>
 						<input type="hidden" name="product_id" value='{$productarr['product_id']}'>
 						{if (int)$productarr['product_category'] === 3}

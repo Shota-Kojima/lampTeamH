@@ -1624,7 +1624,7 @@ class ccontact extends crecord {
             $debug,         //デバッグ表示するかどうか
             "*",          //取得するカラム
             "contact",    //取得するテーブル
-            "contact_id like '{$id}'"    //条件
+            "contact_id = '{$id}'"    //条件
         );
         return $this->fetch_assoc();
 	}

@@ -6,7 +6,7 @@ auth_user.php
 メンバーログイン認証
 $_SESSIONは多次元配列にする
 
-             2018/7/3 Y.YAMANOI
+2018/7/3 Y.YAMANOI
 *********************************/
 //ss
 session_start();
@@ -18,17 +18,20 @@ $product_obj = new cproductH();
 // var_dump($_SESSION);
 if(isset($_SESSION['HTeam_adm']['customer_id'])&& 
     $_SESSION['HTeam_adm']['customer_id'] !== ''){
+        
     //sesionが作られていない時に作成
-    if(isset($_SESSION['HTeam_adm']['customer_email']) && isset($_SESSION['HTeam_adm']['last_name']) &&
-        isset($_SESSION['HTeam_adm']['last_name_kana']) && isset($_SESSION['HTeam_adm']['first_name']) &&
-        isset($_SESSION['HTeam_adm']['first_name_kana']) && isset($_SESSION['HTeam_adm']['postal_code']) &&
-        isset($_SESSION['HTeam_adm']['icon_pass']) && isset($_SESSION['HTeam_adm']['customer_point']) &&
-        isset($_SESSION['HTeam_adm']['customer_created_date']) && isset($_SESSION['HTeam_adm']['customer_sex'])){
+    // if(!isset($_SESSION['HTeam_adm']['customer_email']) && !isset($_SESSION['HTeam_adm']['last_name']) &&
+    //     !isset($_SESSION['HTeam_adm']['last_name_kana']) && !isset($_SESSION['HTeam_adm']['first_name']) &&
+    //     !isset($_SESSION['HTeam_adm']['first_name_kana']) && !isset($_SESSION['HTeam_adm']['postal_code']) &&
+    //     !isset($_SESSION['HTeam_adm']['icon_pass']) && !isset($_SESSION['HTeam_adm']['customer_point']) &&
+    //     !isset($_SESSION['HTeam_adm']['customer_created_date']) && !isset($_SESSION['HTeam_adm']['customer_sex'])){
+            
         //------------------------
         //ユーザの情報を取得
         //------------------------
         $customerarr = $customer_obj->get_tgt(false,$_SESSION['HTeam_adm']['customer_id']);
         if($customerarr !== false){
+            
             //セッション割り当て
             $_SESSION['HTeam_adm']['customer_email'] = $customerarr['customer_email'];
             $_SESSION['HTeam_adm']['last_name'] = $customerarr['last_name'];
@@ -40,18 +43,17 @@ if(isset($_SESSION['HTeam_adm']['customer_id'])&&
             $_SESSION['HTeam_adm']['customer_point'] = $customerarr['customer_point'];
             $_SESSION['HTeam_adm']['customer_created_date'] = $customerarr['customer_created_date'];
             $_SESSION['HTeam_adm']['customer_sex'] = $customerarr['customer_sex'];
-            // $smarty->assign('session',$_SESSION);
         }else{
-            
+           
         }
-    }   
+    // }   
     
     
     //------------------------
     //ユーザのカート情報を取得
     //------------------------
     $cartarr = $cart_obj->get_allH(false,$_SESSION['HTeam_adm']['customer_id']);
-    if($cartarr !== false){
+    if(count($cartarr) > 0){
         //カート内の合計商品数
         $product_count = 0;
         //カート内の合計金額
@@ -70,8 +72,9 @@ if(isset($_SESSION['HTeam_adm']['customer_id'])&&
                 $valueWk=(int)$cartarr[$i]['product_value'];
                 $priceWk=(int)$productarr["price"];
                 $product_sum += $valueWk * $priceWk;
-                $_SESSION['HTeam_adm']['product_count'] = $product_count;
-                $_SESSION['HTeam_adm']['product_sum'] = $product_sum;
+                $_SESSION['HTeam_adm']['product_count'] = (int)$product_count;
+                $_SESSION['HTeam_adm']['product_sum'] = (int)$product_sum;
+                $_SESSION['HTeam_adm']['fake_sum'] = $_SESSION['HTeam_adm']['product_sum'] + 530;
                 // $smarty->assign('cart',$_SESSION);
             }else{
                 // echo '<script type="text/javascript">alert("64のelse");</script>';
@@ -80,7 +83,6 @@ if(isset($_SESSION['HTeam_adm']['customer_id'])&&
             }
         }
     }else{
-        // echo '<script type="text/javascript">alert("75のelse");</script>';
         // ステータスコードを出力
         $_SESSION['HTeam_adm']['product_count'] = 0;
         $_SESSION['HTeam_adm']['product_sum'] = 0;
@@ -88,7 +90,6 @@ if(isset($_SESSION['HTeam_adm']['customer_id'])&&
     
 
 }else{
-    // echo '<script type="text/javascript">alert("81のelse");</script>';
     // ステータスコードを出力
 	http_response_code( 301 ) ;
 	// リダイレクト
