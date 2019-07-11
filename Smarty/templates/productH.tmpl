@@ -297,7 +297,7 @@ cart_bgって名前のclassはオレンジ色にしたりする
 					</div>
 				</div>
 				<!-- あと商品出してるだけ -->
-			     <div class="col-md-10">
+			   <div class="col-md-10">
 				<h4 class="title" style="margin-left:40px;">Products</h4>
 				<!--タブ-->
 				<ul class="tab-group">
@@ -305,12 +305,11 @@ cart_bgって名前のclassはオレンジ色にしたりする
 					<li class="tab">レンタル商品</li>
 					<li class="tab">フリマ商品</li>
 				</ul>
-				<form action="products.php" method="get">
 				<ul class="sort_command">
-					<li ><a href="products.php?sort_method=aiueo_order">五十音順</a></li>
-					<li ><a href="products.php?sort_method=sales_order">売れ筋順</a></li>
-					<li ><a href="products.php?sort_method=price_desk_order">価格高い順</a></li>
-					<li ><a href="products.php?sort_method=price_ask_order">価格低い順</a></li>
+					<li ><a href="#">五十音順</a></li>
+					<li ><a href="#">売れ筋順</a></li>
+					<li ><a href="#">価格高い順</a></li>
+					<li ><a href="#">価格低い順</a></li>
 					<ul>
 					</ul>
 					<ul>
@@ -321,7 +320,6 @@ cart_bgって名前のclassはオレンジ色にしたりする
 					<li ><a href="#">５</a></li>
 					</ul>
 				</ul>
-				</form>
 				<ul style="font-size:0">
 				<li style="display: inline-block">
 				<table width="150px" height="400px" class="product_category" border="1" cellspacing="0" cellpadding="5" bordercolor="#333333">
@@ -329,8 +327,7 @@ cart_bgって名前のclassはオレンジ色にしたりする
 				<td id="category">カテゴリ</td>
 				</tr>
 				<tr>
-				<form action="products.php" method="post">
-				<td><a>ライティング</a></td>
+				<td><a href="#">ライティング</a></td>
 				</tr>
 				<tr>
 				<td><a href="#">バッグ</a></td>
@@ -349,7 +346,6 @@ cart_bgって名前のclassはオレンジ色にしたりする
 				</tr>
 				<tr>
 				<td><a href="#">ファニチャー</a></td>
-				</form>
 				</tr>
 				</table>
 				</li>
@@ -358,67 +354,29 @@ cart_bgって名前のclassはオレンジ色にしたりする
 						<span class="panel is-show">
 						<div></div>
 							{for $start=0 to $limit}
-							{if $products[$start]['product_category'] == 1}
 							<div class="col_1_of_3 span_1_of_3"> 
-								<a href="productDetail_smarty.php?product_id={$products[$start]['product_id']}">
+								<a href="single.html">
 									<div class="product_image">
 										<div style="height:60px;background:white;color:black;font-size:15px;text-align:center;">
 											<p style="display:inline-block;text-align:left;">{$products[$start]['product_name']}<p>
 										</div>
-										<img src="{$products[$start]['product_pass']}" class="img-responsive"/>
+										<img src="images/{$products[$start]['product_pass']}" class="img-responsive"/>
 										<div style="height:60px;background:white;color:black;font-size:20px;text-align:center;">
-											<div style="display:inline-block;text-align:left;"><p style="margin-top:15px;">￥{$products[$start]['price']}</p></div>
+											<div style="display:inline-block;text-align:left;"><p style="margin-top:15px;">{$products[$start]['price']}円</p></div>
 										</div>
 									</div>
 								</a>
 							</div>
-							{/if}
 							{/for}
 						</span>
 					
 				
-						<span class="panel">
-						<div></div>
-							{for $start=0 to $limit}
-							{if $products[$start]['product_category'] == 2}
-							<div class="col_1_of_3 span_1_of_3"> 
-								<a href="productDetail_smarty.php?product_id={$products[$start]['product_id']}">
-									<div class="product_image">
-										<div style="height:60px;background:white;color:black;font-size:15px;text-align:center;">
-											<p style="display:inline-block;text-align:left;">{$products[$start]['product_name']}<p>
-										</div>
-										<img src="{$products[$start]['product_pass']}" class="img-responsive"/>
-										<div style="height:60px;background:white;color:black;font-size:20px;text-align:center;">
-											<div style="display:inline-block;text-align:left;"><p style="margin-top:15px;">￥{$products[$start]['price']}</p></div>
-										</div>
-									</div>
-								</a>
-							</div>
-							{/if}
-							{/for}
-						</span>
+						<div class="panel">
+						</div>
 			
 				
-						<span class="panel">
-						<div></div>
-							{for $start=0 to $limit}
-							{if $products[$start]['product_category'] == 3}
-							<div class="col_1_of_3 span_1_of_3"> 
-								<a href="productDetail_smarty.php?product_id={$products[$start]['product_id']}">
-									<div class="product_image">
-										<div style="height:60px;background:white;color:black;font-size:15px;text-align:center;">
-											<p style="display:inline-block;text-align:left;">{$products[$start]['product_name']}<p>
-										</div>
-										<img src="{$products[$start]['product_pass']}" class="img-responsive"/>
-										<div style="height:60px;background:white;color:black;font-size:20px;text-align:center;">
-											<div style="display:inline-block;text-align:left;"><p style="margin-top:15px;">￥{$products[$start]['price']}</p></div>
-										</div>
-									</div>
-								</a>
-							</div>
-							{/if}
-							{/for}
-						</span>
+						<div class="panel">
+						</div>
 				
 				</ul>
 				   <div class="clearfix"></div>

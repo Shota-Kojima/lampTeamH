@@ -310,7 +310,6 @@ left:100px;
 	
    h1 {
 	text-align:center;
-	height:30px;
 	margin:25px auto 55px;
 	
    }
@@ -616,8 +615,4 @@ left:40px;
 }
 #header{
 	height:140px;
-}
-.panel #chat{
-	
-
 }

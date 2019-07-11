@@ -230,7 +230,7 @@ function paramchk(){
 function regist(){
 	global $customer_id;
 	$_POST['customer_point'] = 0;
-	$_POST['icon_pass'] = "";
+	$_POST['icon_pass'] = "http://wiz.developluna.jp/~tmH2019/lampTeamH/sources/images/user_icon/user.png";
 	$_POST['customer_created_date'] = date('YmdHis');
 	$dataarr = array();
 	$dataarr['customer_id'] = (string)$_POST['customer_id'];//ID

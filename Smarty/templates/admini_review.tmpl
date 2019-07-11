@@ -7,9 +7,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Surfhouse Bootstarp Website Template | Login :: w3layouts</title>
+<title>RE:SURVIVAR : レビュー一覧</title>
 <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
-<link href="css/user_details.css" rel='stylesheet' type='text/css' />
+<link href="css/admini_review.css" rel='stylesheet' type='text/css' />
 <link href="css/manager.css" rel='stylesheet' type='text/css' />
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="js/jquery.min.js"></script>
@@ -24,12 +24,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <script src="js/jquery.easydropdown.js"></script>
 <!-- Add fancyBox main JS and CSS files -->
 <script src="js/jquery.magnific-popup.js" type="text/javascript"></script>
-<script>
-//共通パーツ読み込み
-  $(function() {
-       $("#header").load("shere.html");
-});
-</script>
+{include file='shere_admin.tmpl'}
 <link href="css/magnific-popup.css" rel="stylesheet" type="text/css">
 		<script>
 			$(document).ready(function() {
@@ -48,99 +43,189 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		</script>
 </head>
 <body>
-<div id="header"></div>
-   <div class="single">
-	<div class="container">
-		<div class="header-top">
-      		 <div class="logo">
-				<a href="products.php"><img src="images/logo.png" alt=""/></a>
-			 </div>
-		   <div class="header_right">
-			 <ul class="social">
-				<li><a href=""> <i class="fb"> </i> </a></li>
-				<li><a href=""><i class="tw"> </i> </a></li>
-				<li><a href=""><i class="utube"> </i> </a></li>
-				<li><a href=""><i class="pin"> </i> </a></li>
-				<li><a href=""><i class="instagram"> </i> </a></li>
-			 </ul>
-		    <div class="lang_list">
-			  <select tabindex="4" class="dropdown">
-				<option value="" class="label" value="">En</option>
-				<option value="1">English</option>
-				<option value="2">French</option>
-				<option value="3">German</option>
-			  </select>
-   			</div>
-			<div class="clearfix"></div>
-          </div>
-          <div class="clearfix"></div>
-		 </div>  
-		 <div class="apparel_box">
-			<ul class="login">
-				<li class="login_text"><a href="login.php">Login</a></li>
-				<li class="wish"><a href="cart.php">Wish List</a></li>
-				<div class='clearfix'></div>
-		    </ul>
-		    <div class="cart_bg">
-			  <ul class="cart">
-				<i class="cart_icon"></i><p class="cart_desc">$1459.50<br><span class="yellow">2 items</span></p>
-			    <div class='clearfix'></div>
-			  </ul>
-			  <ul class="product_control_buttons">
-				 <li><a href="#"><img src="images/close.png" alt=""/></a></li>
-				 <li><a href="#">Edit</a></li>
-			  </ul>
-		      <div class='clearfix'></div>
-			 </div>
-			 <ul class="quick_access">
-				<li class="view_cart"><a href="cart.php">View Cart</a></li>
-				<li class="check"><a href="cart.php">Checkout</a></li>
-				<div class='clearfix'></div>
-		     </ul>
-		  </div>
+    <!-- ここからレビュー一覧(管理者側) -->
+	<div class="all">
+		<!-- ヘッダー下～一覧上-->	
+	    <div class="dreamcrub">
+			<ul class="breadcrumbs">
+				<li class="home">
+					<a href="index.html" title="Go to Home Page">Home</a>&nbsp;
+					<span>&gt;</span>
+				</li>
+				<li class="women">
+					レビュー一覧
+				</li>
+            </ul>
+			<ul class="previous">
+				<li><a href="index.html">前のページへ戻る</a></li>
+			</ul>
+            <div class="clearfix"></div>
 		</div>
-    </div>
-    <!-- ここからレビュー一覧(管理者側)-->
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+		<!-- ここから一覧　-->
+        <div class="box">        
+			<div class="searcharea">
+			<p class="re">レビュー一覧</p>
+				<div class="searchform">
+					<form id="form_s" action="自分のサイトURL">
+						<input id="serbox"  id="s" name="s" type="text" placeholder="キーワードを入力" />
+						<input id="serbtn" type="submit" value="検索" />
+					</form>
+                    <div class="kind">
+						<select name="kind">
+							<option value="全ての商品">全ての商品</option>
+							<option value="通常商品">販売中の商品のみ</option>
+							<option value="レンタル商品">レンタル商品のみ</option>
+						</select>
+					</div>
+					<form id="radiobtn">
+						<label class="radio-in">
+							<input type="radio" name="search-radio" value="商品名で検索" checked>商品名で検索
+						</label>
+						<label class="radio-in">
+							<input type="radio" name="search-radio" value="ユーザーIDで検索">ユーザーIDで検索
+						</label>
+					</form>
+				</div>
+			</div>
+			<div class="table">
+				<table width="100%" border="0" cellspacing="0" cellpadding="0">
+					<tr id="con">
+						<th width="20%">ユーザーID</th>
+						<th width="50%">商品名</th>
+						<th width="10%">評価</th>
+						<th width="20%" class="ac">投稿日時</th>
+					</tr>
+					<tr>
+						<td><h3><a href="#">camp12</a></h3></td>
+						<td>ノーススター（Ｒ）チューブマントルランタン</td>
+						<td>&ensp;5</td>
+						<td>2019/6/30</td>	
+						<td><input class="edibtn" type="button" id="delBtn1" value="詳細" onclick="location.href='http://wiz.developluna.jp/~tmH2019/lampTeamH/sources/review_details.php'"><!--<input class="delbtn" type="button" id="delBtn1" value="削除" onclick="deleteRow(this)">--></td>
+					</tr>
+					<tr>
+						<td><h3><a href="#">user1</a></h3></td>
+						<td>ワンマントルランタン</td>
+						<td>&ensp;3</td>
+						<td>2019/6/24</td>
+						<td><input class="edibtn" type="button" id="delBtn1" value="詳細" onclick="location.href='http://wiz.developluna.jp/~tmH2019/lampTeamH/sources/review_details.php'"><!--<input class="delbtn" type="button" id="delBtn1" value="削除" onclick="deleteRow(this)">--></td>
+					</tr>
+					<tr>
+						<td><h3><a href="#">user2</a></h3></td>
+						<td>商品名</td>
+						<td>&ensp;-</td>
+						<td>日時</td>
+						<td><input class="edibtn" type="button" id="delBtn1" value="詳細" onclick="location.href='http://wiz.developluna.jp/~tmH2019/lampTeamH/sources/review_details.php'"><!--<input class="delbtn" type="button" id="delBtn1" value="削除" onclick="deleteRow(this)">--></td>
+					</tr>
+					<tr>
+						<td><h3><a href="#">camp12@jp</a></h3></td>
+						<td>商品名</td>
+						<td>&ensp;-</td>
+						<td>日時</td>
+						<td><input class="edibtn" type="button" id="delBtn1" value="詳細" onclick="location.href='http://wiz.developluna.jp/~tmH2019/lampTeamH/sources/review_details.php'"><!--<input class="delbtn" type="button" id="delBtn1" value="削除" onclick="deleteRow(this)">--></td>
+					</tr>
+					<tr>
+						<td><h3><a href="#">camp12@jp</a></h3></td>
+						<td>商品名</td>
+						<td>&ensp;-</td>
+						<td>日時</td>
+						<td><input class="edibtn" type="button" id="delBtn1" value="詳細" onclick="location.href='http://wiz.developluna.jp/~tmH2019/lampTeamH/sources/review_details.php'"><!--<input class="delbtn" type="button" id="delBtn1" value="削除" onclick="deleteRow(this)">--></td>
+					</tr>
+					<tr>
+						<td><h3><a href="#">camp12@jp</a></h3></td>
+						<td>商品名</td>
+						<td>&ensp;-</td>
+						<td>日時</td>
+						<td><input class="edibtn" type="button" id="delBtn1" value="詳細" onclick="location.href='http://wiz.developluna.jp/~tmH2019/lampTeamH/sources/review_details.php'"><!--<input class="delbtn" type="button" id="delBtn1" value="削除" onclick="deleteRow(this)">--></td>
+					</tr>
+					<tr>
+						<td><h3><a href="#">camp12@jp</a></h3></td>
+						<td>商品名</td>
+						<td>&ensp;-</td>
+						<td>日時</td>
+						<td><input class="edibtn" type="button" id="delBtn1" value="詳細" onclick="location.href='http://wiz.developluna.jp/~tmH2019/lampTeamH/sources/review_details.php'"><!--<input class="delbtn" type="button" id="delBtn1" value="削除" onclick="deleteRow(this)">--></td>
+					</tr>
+					<tr>
+						<td><h3><a href="#">camp12@jp</a></h3></td>
+						<td>商品名</td>
+						<td>&ensp;-</td>
+						<td>日時</td>
+						<td><input class="edibtn" type="button" id="delBtn1" value="詳細" onclick="location.href='http://wiz.developluna.jp/~tmH2019/lampTeamH/sources/review_details.php'"><!--<input class="delbtn" type="button" id="delBtn1" value="削除" onclick="deleteRow(this)">--></td>
+					</tr>
+					<tr>
+						<td><h3><a href="#">camp12@jp</a></h3></td>
+						<td>商品名</td>
+						<td>&ensp;-</td>
+						<td>日時</td>
+						<td><input class="edibtn" type="button" id="delBtn1" value="詳細" onclick="location.href='http://wiz.developluna.jp/~tmH2019/lampTeamH/sources/review_details.php'"><!--<input class="delbtn" type="button" id="delBtn1" value="削除" onclick="deleteRow(this)">--></td>
+					</tr>
+					<tr>
+						<td><h3><a href="#">camp12@jp</a></h3></td>
+						<td>商品名</td>
+						<td>&ensp;-</td>
+						<td>日時</td>
+						<td><input class="edibtn" type="button" id="delBtn1" value="詳細" onclick="location.href='http://wiz.developluna.jp/~tmH2019/lampTeamH/sources/review_details.php'"><!--<input class="delbtn" type="button" id="delBtn1" value="削除" onclick="deleteRow(this)">--></td>
+					</tr>
+					<tr>
+						<td><h3><a href="#">camp12@jp</a></h3></td>
+						<td>商品名</td>
+						<td>&ensp;-</td>
+						<td>日時</td>
+						<td><input class="edibtn" type="button" id="delBtn1" value="詳細" onclick="location.href='http://wiz.developluna.jp/~tmH2019/lampTeamH/sources/review_details.php'"><!--<input class="delbtn" type="button" id="delBtn1" value="削除" onclick="deleteRow(this)">--></td>
+					</tr>
+						<td><h3><a href="#">camp12@jp</a></h3></td>
+						<td>商品名</td>
+						<td>&ensp;-</td>
+						<td>日時</td>
+						<td><input class="edibtn" type="button" id="delBtn1" value="詳細" onclick="location.href='http://wiz.developluna.jp/~tmH2019/lampTeamH/sources/review_details.php'"><!--<input class="delbtn" type="button" id="delBtn1" value="削除" onclick="deleteRow(this)">--></td>
+					</tr>
+					<tr>
+						<td><h3><a href="#">camp12@jp</a></h3></td>
+						<td>商品名</td>
+						<td>&ensp;-</td>
+						<td>日時</td>
+						<td><input class="edibtn" type="button" id="delBtn1" value="詳細" onclick="location.href='http://wiz.developluna.jp/~tmH2019/lampTeamH/sources/review_details.php'"><!--<input class="delbtn" type="button" id="delBtn1" value="削除" onclick="deleteRow(this)">--></td>
+					</tr>
+					<tr>
+						<td><h3><a href="#">camp12@jp</a></h3></td>
+						<td>商品名</td>
+						<td>&ensp;-</td>
+						<td>日時</td>
+						<td><input class="edibtn" type="button" id="delBtn1" value="詳細" onclick="location.href='http://wiz.developluna.jp/~tmH2019/lampTeamH/sources/review_details.php'"><!--<input class="delbtn" type="button" id="delBtn1" value="削除" onclick="deleteRow(this)">--></td>
+					</tr>
+					<tr>
+						<td><h3><a href="#">camp12@jp</a></h3></td>
+						<td>商品名</td>
+						<td>&ensp;-</td>
+						<td>日時</td>
+						<td><input class="edibtn" type="button" id="delBtn1" value="詳細" onclick="location.href='http://wiz.developluna.jp/~tmH2019/lampTeamH/sources/review_details.php'"><!--<input class="delbtn" type="button" id="delBtn1" value="削除" onclick="deleteRow(this)">--></td>
+					</tr>
+					<tr>
+						<td><h3><a href="#">camp12@jp</a></h3></td>
+						<td>商品名</td>
+						<td>&ensp;-</td>
+						<td>日時</td>
+						<td><input class="edibtn" type="button" id="delBtn1" value="詳細" onclick=""><!--<input class="delbtn" type="button" id="delBtn1" value="削除" onclick="deleteRow(this)">--></td>
+					</tr>
+				</table>
+				<div class="pagging">
+					<div class="left">表示中 1-16</div>
+					<div class="right">
+						<a href="#">前へ</a>
+						<a href="#">1</a>
+						<a href="#">2</a>
+						<a href="#">3</a>
+						<a href="#">4</a>
+						<a href="#">245</a>
+						<span>...</span>
+						<a href="#">次へ</a>
+						<a href="#">すべて表示</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+		</div>
+	<div class="clearfix"></div>
 <!-- アイコンだしてるだけ -->
 		<div class="container">
 		  <div class="brands">

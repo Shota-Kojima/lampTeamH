@@ -57,24 +57,6 @@ if(isset($_POST['product_name'])&&isset($_POST['price'])&&
 
 //--------------------------------------------------------------------------------------
 /*!
-@brief	フルーツデータの追加／更新
-@return	なし
-*/
-//--------------------------------------------------------------------------------------
-function regist_puroductH($member_id){
-	$chenge = new cchange_ex();
-	$chenge->delete("productH","product_id=" . $member_id);
-	foreach($_POST['fruits'] as $key => $val){
-		$dataarr = array();
-		$dataarr['product_id'] = (int)$member_id;
-		// $dataarr['fruits_id'] = (int)$val;
-		$chenge->insert('productH',$dataarr);
-	}
-}
-
-
-//--------------------------------------------------------------------------------------
-/*!
 @brief	メンバーデータの追加／更新。保存後自分自身を再読み込みする。
 @return	なし
 */
@@ -93,10 +75,10 @@ function regist(){
     
 	$chenge = new cchange_ex();
     $mid = $chenge->insert('productH',$dataarr);
-    echo '<script type="text/javascript">alert("追加おｋ");</script>';
+    echo '<script type="text/javascript">alert('.$mid.');</script>';
 }
 
-//IDが使われているかどうかチェックする
+//ジャンル取得してアサイン
 $genre_obj = new cgenre();
 $rows = $genre_obj->get_allH(false);
 $smarty->assign('rows',$rows);

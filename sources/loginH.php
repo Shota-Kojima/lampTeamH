@@ -37,6 +37,8 @@ if(isset($_POST['login_id']) && isset($_POST['login_pw'])){
               strip_tags($_POST['login_pw']))
               && $_POST['login_id'] != ""
               && $_POST['login_pw'] != ""){
+                  var_dump($_POST['login_id']);
+                   var_dump($_POST['login_pw']);
               $smarty->assign('err_message','ユーザ名またはパスワードが違います。');
     } 
     else if($_POST['login_id'] == ""){
@@ -71,10 +73,12 @@ function chk_login_id($login_id,$login_pw){
     $customer = new ccustomer();
     $row = $customer->get_tgt(false,$login_id);
     if($row === false || !isset($row['customer_id'])){
+          var_dump($row['customer_password']);
         return false;
     }
     if($_POST['login_pw']!=$row['customer_password']){
-        return false;
+           var_dump($row['customer_password']);
+         return false;
     }
     $customer_id = $row_id['customer_id'];
     return true;

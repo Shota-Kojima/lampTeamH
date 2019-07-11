@@ -621,7 +621,30 @@ ul.article_links li a{
 	position: relative;
 }
 .product_image {
-	border:10px solid #fff;
+	box-shadow:0px 0px 3px;
+}
+#add_info{
+	border-style : dotted;
+	border-bottom:2px;
+	border-right:2px;
+	border-left:2px;
+	border-color: rgb(129, 122, 122);
+}
+#product_name{
+	height:60px;
+	background:white;
+	color:black;
+	font-size:20px;
+	text-align:center;
+	background-color: rgb(233, 230, 230);	
+}
+#product_price{
+	height:60px;
+	background:white;
+	color:black;
+	font-size:20px;
+	text-align:center;
+	background-color: rgb(233, 230, 230);	
 }
 .sale-box, .sale-box1{
 	position: absolute;
@@ -1159,13 +1182,14 @@ ul.category_nav li a:hover {
 	margin: 0 3.6% 0 0;
 }
 .single {
-	background: url(../images/newcamp.jpg)no-repeat center top;
+	background: url(../images/5.PNG)no-repeat center top;
 	background-size: 100% 100%;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	background-size: cover;
 	background-position: center;
+	height:500px;
 }
 .cont1 {
 	display: block;
@@ -1816,7 +1840,7 @@ div.register-bottom-grid {
 h4.title {
 	color: #555;
 	margin-bottom: 0.5em;
-	font-size:1.5em;
+	font-size:1.8em;
 	line-height: 1.2;
 	font-weight: normal;
 	margin-top: 0px;
@@ -2287,54 +2311,4 @@ h3.like, h3.recent {
 .logo {
 	margin-left: 0em;
 }
-}
-.product_category{
-	width:200px;
-	height:400px;
-	margin-top:20px;
-	font-size:15px;
-	text-align:center;
-}
-.product_category td{
-	background: rgb(224, 230, 238);
-	border-block-end-color: rgb(224, 199, 224);
-	border-block-start-color: rgb(224, 199, 224);
-	border-right-color:  rgb(224, 199, 224);
-	border-left-color: rgb(224, 199, 224);
-	color: rgb(85, 84, 112);
-}
-#category{
-	background: rgb(188, 210, 243);
-}
-.sort_command{
-	background-color: rgb(223, 184, 148);
-	height:40px;
-	line-height:40px;
-	margin-top:15px;
-	margin-bottom:15px;
-}
-.sort_command li{
-	text-decoration: underline;
-	display: inline-block;
-	margin-right:20px;
-}
-.sort_command a{
-	vertical-align:middle;
-}
-.sort_command ul{
-	margin-left:60px;
-	display: inline-block;
-}
-.product_name{
-	height:50px !important;
-	background:white !important;
-	color:black !important;
-	font-size:20px !important;
-}
-.product_price{
-	height:50px;
-	display:inline-block;
-	background:white;
-	color:black;
-	font-size:20px;
 }

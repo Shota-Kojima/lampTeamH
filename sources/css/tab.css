@@ -13,11 +13,13 @@
     cursor:pointer;
     
 }
-.panel-group{
-    width:75%;
+#panel-group{
+    width:77%;
+    z-index:2;
 }
 .panel{
     display:none;
+
 }
 .tab.is-active{
     background:#FF5B36;
@@ -27,4 +29,5 @@
 .panel.is-show{
     display:block;
     background:#F8F8F8;
+ 
 }

@@ -15,6 +15,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <link href="css/style.css" rel='stylesheet' type='text/css' />
 <link href="css/component.css" rel='stylesheet' type='text/css' />
 <link href="css/manager.css" rel='stylesheet' type='text/css' />
+<link href="css/cart.css" rel='stylesheet' type='text/css' />
 <!-- Custom Theme files -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
@@ -23,12 +24,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <script src="js/jquery.easydropdown.js"></script>
 <!-- Add fancyBox main JS and CSS files -->
 <script src="js/jquery.magnific-popup.js" type="text/javascript"></script>
-<script>
-//共通パーツ読み込み
-  $(function() {
-       $("#header").load("shere.html");
-});
-</script>
+{include file='shere_nonimage.tmpl'}
 <link href="css/magnific-popup.css" rel="stylesheet" type="text/css">
 		<script>
 			$(document).ready(function() {
@@ -47,40 +43,72 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		</script>
 </head>
 <body>
-<div id="header"></div>
-   <div class="single">
-	<div class="container">
-	</div>
-	</div>
-		   <div class="header_right">
-			 <ul class="social">
-				<li><a href=""> <i class="fb"> </i> </a></li>
-				<li><a href=""><i class="tw"> </i> </a></li>
-				<li><a href=""><i class="utube"> </i> </a></li>
-				<li><a href=""><i class="pin"> </i> </a></li>
-				<li><a href=""><i class="instagram"> </i> </a></li>
-			 </ul>
-		    <div class="lang_list">
-			  <select tabindex="4" class="dropdown">
-				<option value="" class="label" value="">En</option>
-				<option value="1">English</option>
-				<option value="2">French</option>
-				<option value="3">German</option>
-			  </select>
-   			</div>
-			<div class="clearfix"></div>
-          </div>
-          <div class="clearfix"></div>
-		 
-    </div>
     <div class="main">
 	   <div class="container">
 		   <div class="register">
-		  	  <h4 class="title">購入</h4>
-		  	  <p class="cart">購入カート内に商品はありません。<br>買い物をするには<a href="products.php">ここ</a>をクリック</p>
-			<h4 class="title" style="margin-top:20px;">レンタル</h4>
-		  	  <p class="cart">レンタルカート内に商品はありません。<br>買い物をするには<a href="products.php">ここ</a>をクリック</p>
-             </div>
+		   		{if isset($cart) }
+				   <h4 class="title">購入</h4>
+				   <p class="otodoke">お届け予定日〇〇月〇〇日～〇〇月〇〇日</p>
+			<div class="box15">
+					{foreach from=$cart key=i item=value}
+
+						{if $value['product_category'] === 1}
+						    <p class="name1">{$value['product_name']}</p>
+							<p class="count1">個数：<input type="number" value="{$value['cart_count']}" id="spin1" min="1" max="20"/></p>
+							<p class="price1">金額：{$value['price']} 円</p>
+							<p class="zaiko">在庫あり</p>
+							<img class="etalage_thumb_image" src="{$value['product_pass'][0]}" class="img-responsive" width="100px"/><br>
+							<button type="button"  class="btn btn-info chat-btn delete1">削除</button>
+							<!--ここで一区切りの線ひきたい-->
+						<div class="sen"></div>
+
+						{/if}
+
+					{/foreach}
+			</div>
+					<h4 class="title" style="margin-top:20px;">レンタル</h4><br>
+					<div class="box15">
+					{foreach from=$cart key=i item=value}
+
+						{if $value['product_category'] === 2}
+							<p class="name1">{$value['product_name']}</p>
+							<p class="count1">個数：<input type="number" value="{$value['cart_count']}" id="spin1" min="1" max="20"/></p>
+							<p class="price1">金額：{$value['price']} 円</p>
+							<p class="zaiko">在庫あり</p>
+							<img class="etalage_thumb_image" src="{$value['product_pass'][0]}" class="img-responsive" width="100px"/><br>
+							<button type="button"  class="btn btn-info chat-btn delete1">削除</button>
+							<div class="sen"></div>
+						{/if}
+
+					{/foreach}
+			</div>
+					<div class="kakomi-box2">
+              <div class="btn222">
+				   <form action="purchase.php">
+					 <input type="submit" value="購入へ進む" title="">
+				  </form>
+				<p><b>購入：</b><div class="kou"> 点</p></div>
+				<p><b>レンタル：</b><div class="ren"> 点</p></div>
+            　　<div class="sen1"></div>
+                <p><b>合計金額：</b><div class="kou1">{$session['HTeam_adm']['product_sum']} 円</p></div>
+				</div>
+                </div>
+					
+				
+				{else}
+
+					<h4 class="title">購入</h4>
+					<p class="cart">購入カート内に商品はありません。<br>買い物をするには<a href="products.php">ここ</a>をクリック</p>
+					<h4 class="title" style="margin-top:20px;">レンタル</h4>
+					<p class="cart">レンタルカート内に商品はありません。<br>買い物をするには<a href="products.php">ここ</a>をクリック</p>
+
+				{/if}
+		  		
+				
+			<ul class="mae1">
+                	<li><a href="products.php">前のページへ戻る</a></li>
+                </ul>
+			</div>
 		   
 	     </div>
 	    </div>

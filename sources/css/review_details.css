@@ -1,0 +1,53 @@
+#sou {
+    position: relative;
+	top:15px;
+	display: inline-block;
+	left: 660px ;
+	padding: 13px 25px;
+	background: #acacac;
+	color: #FFF;
+	font-size: 1em;
+	line-height: 18px;
+	text-transform: uppercase;
+	border: none;
+	outline: none;
+	transition: 0.2s;
+	-webkit-transition: 0.2s;
+	-moz-transition: 0.2s;
+	-o-transition: 0.2s;
+}
+#sou:hover {
+    background-color: #59b1eb;
+}
+#saku {
+    position: relative;
+	top:15px;
+	display: inline-block;
+	left: 660px;
+	padding: 13px 25px;
+	background: #acacac;
+	color: #FFF;
+	font-size: 1em;
+	line-height: 18px;
+	text-transform: uppercase;
+	border: none;
+	outline: none;
+	transition: 0.2s;
+	-webkit-transition: 0.2s;
+	-moz-transition: 0.2s;
+	-o-transition: 0.2s;
+}
+#saku:hover {
+    background-color: #59b1eb;
+}
+.all {
+	width: 60%;
+	margin-left: 20%;
+	margin-right: 20%;
+}
+textarea {
+    resize: none;
+}
+.rate {
+	margin-left: 5px;
+}
