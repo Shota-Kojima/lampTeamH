@@ -76,3 +76,10 @@
 input[type="radio"] {
 	margin-right: 5px;
 }
+#con {
+    background-color: rgb(238, 205, 174);
+    height: 50px;
+}
+#con th {
+    width: 20%;
+}
