@@ -40,10 +40,9 @@ if(isset($_POST['buy_count'])
 	$productarr = $product_obj->get_tgt(false,$product_id);
 	if($productarr !== false){
 		// echo '<script type="text/javascript">alert("ここか？");</script>';
-		//product_passを取得
+		// product_passを取得
 		$data = $productarr["product_pass"];
 		$productarr["product_pass"] = explode(',',$data);
-		//var_dump($productarr);
 		$smarty->assign('productarr',$productarr);
 	}else{
 
