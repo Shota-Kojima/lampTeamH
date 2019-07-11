@@ -7,8 +7,10 @@
 </ul>
 </div>
 <div id="header_shere">
- <img class="users" src="images/user.png">
-<h1><a href="#"><img src="images/title_logo.png" width="130px" height="100px"></a></h1>
+    {if isset($cart)}
+        <img class="users" src="{$cart['HTeam_adm']['icon_pass']}" width="100px" height="100px">
+    {/if}
+<h1><a href="products.php"><img src="images/title_logo.png" width="130px" height="100px"></a></h1>
 <form id="form1" action="URL">
 <input id="sbox"  id="s" name="s" type="text" placeholder="キーワードを入力" />
 <input id="sbtn" type="submit" value="検索" />
@@ -25,15 +27,21 @@
       <div class="hamburger-top"><label class="cancel" for="nav-input"></label></div>
       <ul>
       <p>
-      <img src="images/user.png" width="100px" height="100px">
-      <p>{$session['HTeam_adm']['customer_id']}</p>
-      <p>{$session['HTeam_adm']['customer_email']}</p>
+      {if isset($cart)}
+        <img src="{$cart['HTeam_adm']['icon_pass']}" width="100px" height="100px">
+        <p>{$cart['HTeam_adm']['customer_id']}</p>
+        <p>{$cart['HTeam_adm']['customer_email']}</p>
+      {else}
+        <!--<img src="images/user.png" width="100px" height="100px">-->
+        <p>ログインしていません</p>
+      {/if}
+
       
       </p>
       <li><a href="products.php"><img src="images/top.png" width="40px" height="40px">Top</a></li>
       <li><a href="cart.php"><img src="images/cart1.png" width="40px" height="40px">カート</a></li>
       <li><a href="#"><img src="images/tutorial.png" width="40px" height="40px">初めての方へ</a></li>
-      <li><a href="#"><img src="images/message.png" width="40px" height="40px">お問い合わせ</a></li>
+      <li><a href="contact.php"><img src="images/message.png" width="40px" height="40px">お問い合わせ</a></li>
       <li><a href="#"><img src="images/logout.png" width="40px" height="40px">ログアウト</a></li>
       </ul>
       </div>

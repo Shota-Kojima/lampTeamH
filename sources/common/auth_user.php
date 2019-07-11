@@ -20,11 +20,11 @@ if(isset($_SESSION['HTeam_adm']['customer_id'])&&
     $_SESSION['HTeam_adm']['customer_id'] !== ''){
         
     //sesionが作られていない時に作成
-    if(!isset($_SESSION['HTeam_adm']['customer_email']) && !isset($_SESSION['HTeam_adm']['last_name']) &&
-        !isset($_SESSION['HTeam_adm']['last_name_kana']) && !isset($_SESSION['HTeam_adm']['first_name']) &&
-        !isset($_SESSION['HTeam_adm']['first_name_kana']) && !isset($_SESSION['HTeam_adm']['postal_code']) &&
-        !isset($_SESSION['HTeam_adm']['icon_pass']) && !isset($_SESSION['HTeam_adm']['customer_point']) &&
-        !isset($_SESSION['HTeam_adm']['customer_created_date']) && !isset($_SESSION['HTeam_adm']['customer_sex'])){
+    // if(!isset($_SESSION['HTeam_adm']['customer_email']) && !isset($_SESSION['HTeam_adm']['last_name']) &&
+    //     !isset($_SESSION['HTeam_adm']['last_name_kana']) && !isset($_SESSION['HTeam_adm']['first_name']) &&
+    //     !isset($_SESSION['HTeam_adm']['first_name_kana']) && !isset($_SESSION['HTeam_adm']['postal_code']) &&
+    //     !isset($_SESSION['HTeam_adm']['icon_pass']) && !isset($_SESSION['HTeam_adm']['customer_point']) &&
+    //     !isset($_SESSION['HTeam_adm']['customer_created_date']) && !isset($_SESSION['HTeam_adm']['customer_sex'])){
             
         //------------------------
         //ユーザの情報を取得
@@ -46,14 +46,14 @@ if(isset($_SESSION['HTeam_adm']['customer_id'])&&
         }else{
            
         }
-    }   
+    // }   
     
     
     //------------------------
     //ユーザのカート情報を取得
     //------------------------
     $cartarr = $cart_obj->get_allH(false,$_SESSION['HTeam_adm']['customer_id']);
-    if($cartarr !== false){
+    if(count($cartarr) > 0){
         //カート内の合計商品数
         $product_count = 0;
         //カート内の合計金額

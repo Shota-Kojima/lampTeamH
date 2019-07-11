@@ -5,7 +5,7 @@ require_once("inc_smarty.php");
 require_once($CMS_COMMON_INCLUDE_DIR . "auth_user.php");
 
 if(isset($_POST["commit"])){
-    echo '<script type="text/javascript">alert("8");</script>';
+    
     $cartarr = $cart_obj->get_allH(false,$_SESSION['HTeam_adm']['customer_id']);
     //--------------------------
     //カート内の全商品取得
@@ -74,8 +74,8 @@ if(isset($_POST["commit"])){
             $dataarr = array();
             $dataarr['customer_id'] = (String)$_SESSION['HTeam_adm']['customer_id'];
             $dataarr['purchase_date'] = (String)date('YmdHis');
-            
-            $chenge = new cchange_ex();
+            $cart_obj = new ccart();
+            $chenge = new cchange_ex(); 
             $mid = $chenge->insert('transaction_info',$dataarr);
             
             $dataarr = array();
@@ -84,15 +84,26 @@ if(isset($_POST["commit"])){
                 $dataarr['transaction_id'] = (int)$mid;
                 $dataarr['product_id'] = (int)$cart[$i]['product_id'];
                 $dataarr['purchase_value'] = (int)$cart[$i]['cart_count'];
-                $dataarr['purchase_price'] = (int)$cart[$i]['purchase_price'];
+                $dataarr['purchase_price'] = (int)$cart[$i]['price'];
                 //レンタル期間
-                $dataarr['rental_date'] = (int)$cart[$i]['cart_count'];
+                $dataarr['rental_date'] = "";
                 $dataarr['transaction_category'] = (int)$cart[$i]['product_category'];
                 $mid = $chenge->insert('transaction_details',$dataarr);
             }
             // $_SESSION[];
+            $_SESSION['HTeam_adm']['product_count']=0;
+            $_SESSION['HTeam_adm']['product_sum']=0;
+            $_SESSION['HTeam_adm']['fake_sum']=0;
+
+            $cartarr = $cart_obj->get_allH(false,$_SESSION['HTeam_adm']['customer_id']);
+            if($cartarr !== false){
+                $chenge->delete("cart","customer_id=" . '"'.$_SESSION['HTeam_adm']['customer_id'].'"');
+                echo '<script type="text/javascript">alert(購入完了);</script>';    
+            }else{
+                echo '<script type="text/javascript">alert(ダメでしょ);</script>';     
+            }
             
-            echo '<script type="text/javascript">alert('.$mid.');</script>';
+          
         // for($i=0; $i < count($cart); $i++){
         // }
 

@@ -95,7 +95,8 @@ function regist(){
     
 	$chenge = new cchange_ex();
     $mid = $chenge->insert('cart',$dataarr);
-    echo '<script type="text/javascript">alert("カートに入れました(カートIN確認画面に遷移予定)");</script>';
+	echo '<script type="text/javascript">alert("カートに入れました(カートIN確認画面に遷移予定)");</script>';
+	cutil::redirect_exit("productDetail_smarty.php");
 }
 
 
