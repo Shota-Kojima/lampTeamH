@@ -33,19 +33,13 @@
 	color:black;
 	font-size:20px;
 }
-#category_zone{
-	width:47%;
-	z-index:1;
-}
-#category_zone:hover{
-	width:47%;
-}
+
 #category{
     width:50.3%;
  	color: #555;
 	font-size:1.3em;
     line-height: 1.2;
-    margin-bottom:10px;
+    margin-top:35px;
     margin-right:160px;
     font-weight: normal;
     letter-spacing: -1px;
@@ -55,7 +49,7 @@
 	font-family: 'Roboto', sans-serif;
 	position:absolute;
 }
-#category_main{
+.category_main{
 	position:absolute;
     box-shadow:0px 0px 2px;
     border-style:solid;
@@ -70,18 +64,60 @@
 	background-color: rgb(160, 160, 160);
 	display:inline-block;
 	height:65px;
-	width:50%;
+	width:24%;
 	font-family:'arial black';
 	color:rgb(235, 233, 233);
 	cursor:default;
 }
-.category_sub{
+
+#category_sub1{
 	position:absolute;
-	margin-left:275.5px;
+	width:200px;
+	margin-top:145px;
+	height:65px;
+	display:none;
+}
+#category_sub2{
+	position:absolute;
+	width:200px;
+	margin-top:210px;
+	height:65px;
+	display:none;
+}
+#category_sub3{
+	position:absolute;
+	margin-top:275px;
 	width:200px;
 	height:65px;
 	display:none;
-
+}
+#category_sub4{
+	position:absolute;
+	margin-top:340px;
+	width:200px;
+	height:65px;
+	display:none;
+}
+#category_sub5{
+	position:absolute;
+	margin-top:405px;
+	width:200px;
+	height:65px;
+	display:none;
+}
+#category_sub6{
+	position:absolute;
+	margin-top:470px;
+	width:200px;
+	height:65px;
+	display:none;
+}
+#category_sub7{
+	position:absolute;
+	margin-top:535px;
+	width:200px;
+	height:65px;
+	display:none;
 }
 #category_detail{
 	display:block;
@@ -91,27 +127,7 @@
 	background:rgb(211, 200, 192);
 	
 }
-#category_main:hover{
-	background-color: rgb(194, 184, 184);
-}
-#category_main:hover+ .category_sub{
-	display:inline-block;
 
-}
-#category_main:hover>#category_detail{
-	display:block;
-	
-}
-.category_sub:hover{
-	display:inline-block;
-}
-.category_sub:hover #category_detail{
-	
-	display:block;
-}
-.category_sub+ #category_main:hover{
-	background-color: rgb(194, 184, 184);
-}
 
 .product_images{
   display: block;
