@@ -1582,6 +1582,23 @@ class ccontact extends crecord {
 			return 0;
 		}
 	}
+	public function get_tgt_count($debug,$flag){
+		//親クラスのselect()メンバ関数を呼ぶ
+		$this->select(
+			$debug,					//デバッグ文字を出力するかどうか
+			"count(*)",				//取得するカラム
+			"contact",			//取得するテーブル
+			"$flag"			//条件
+		);
+		if($row = $this->fetch_assoc()){
+			//取得した個数を返す
+			return $row['count(*)'];
+		}
+		else{
+			return 0;
+		}
+	}
+	
 	//--------------------------------------------------------------------------------------
 	/*!
 	@brief	指定された範囲の配列を得る
@@ -1608,7 +1625,26 @@ class ccontact extends crecord {
 		}
 		//取得した配列を返す
 		return $arr;
-    }
+	}
+	public function get_all_reply($debug,$flag,$from,$limit){
+		$arr = array();
+		//親クラスのselect()メンバ関数を呼ぶ
+		$this->select(
+			$debug,			//デバッグ表示するかどうか
+			"*",			//取得するカラム
+			"contact",	//取得するテーブル
+		    "$flag",			//条件
+			"contact_id asc",	//並び替え
+			"limit " . $from . "," . $limit		//抽出開始行と抽出数
+		);
+		//順次取り出す
+		while($row = $this->fetch_assoc()){
+			$arr[] = $row;
+		}
+		//取得した配列を返す
+		return $arr;
+	}
+	
    
 	//--------------------------------------------------------------------------------------
 	/*!
@@ -1629,9 +1665,10 @@ class ccontact extends crecord {
         );
         return $this->fetch_assoc();
 	}
+   
 	
 	//--------------------------------------------------------------------------------------
-	/*!
+	/*
 	@brief	デストラクタ
 	*/
 	//--------------------------------------------------------------------------------------

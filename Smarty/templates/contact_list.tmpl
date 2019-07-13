@@ -27,6 +27,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
 {include file='shere_admin.tmpl'}
 <link href="css/magnific-popup.css" rel="stylesheet" type="text/css">
+{literal}
 		<script>
 			$(document).ready(function() {
 				$('.popup-with-zoom-anim').magnificPopup({
@@ -42,7 +43,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			});
 		});
 		</script>
-
+{/literal}
 </head>
 <body>
    <div class="main">
@@ -70,13 +71,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					<li id="not_reply"class="tab is-active">未返信</li>
 					<li id="replyed"class="tab">返信済み</li>
 				</ul>
-				  
-				   <div id="box1"class="box"style="width:1000px;">
+				  <form name="form"action="contact_list.php" method="post">
+				   <div id="box1"class="box"style="width:1100px;">
                     <div class="box-head">
                         <h2 class="left"style="margin-top:8px;">お問い合わせ一覧</h2>
                         <div class="right">
                             <label>検索</label>
-                            <input type="text" class="field small-field" />
+                            <input type="text"name="search_text1"class="field small-field" />
                             <input type="submit" class="button" value="search" id="search" />
                         </div>
                     </div>
@@ -85,19 +86,19 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             <table width="100%" border="0" cellspacing="0" cellpadding="0">
                                 <tr id="odd">
                                     <th width="13"></th>
-									<th width="5%">ユーザID</th>
-                                    <th width="10%">メールアドレス</th>
-                                    <th width="60%">お問い合わせ</th>
-                                    <th width="10%">返信状況</th>
+									<th width="5%"style="min-width:96px">ユーザID</th>
+                                    <th width="25%"style="min-width:10%">メールアドレス</th>
+                                    <th width="50%">お問い合わせ</th>
+                                    <th width="10%"style="min-width:91.5px">返信状況</th>
                                     <th width="10%" class="ac">削除</th>
                                 </tr>
-								{foreach from=$contact_replyed item=contact}
+								{foreach from=$contact_replyed item=contact1}
                                 <tr>
 								<form name="form"action="contact_list.php" method="post">
-                                    <td><input type="checkbox"name="con[]"value="{$contact['contact_id']}"class="checkbox" style="margin-bottom:7px;"onClick="DisChecked();" /></td>
-									<td>{$contact['customer_id']}</td>
-                                    <td><h3 style="padding-top:17px"><a href="#">{$contact['customer_email']}</a></h3></td>
-                                    <td>{$contact['contact_text']}</td>
+                                    <td><input type="checkbox"name="con1[]"value="{$contact1['contact_id']}"class="checkbox" style="margin-bottom:7px;"onClick="DisChecked1();" /></td>
+									<td>{$contact1['customer_id']}</td>
+                                    <td>{$contact1['customer_email']}</td>
+                                    <td>{$contact1['contact_text']}</td>
                                     <td>返信済み</td>
                                     <td><input class="delbtn" type="submit" id="delBtn1" value="削除"style="width:50px;height:30px"></td>
                                
@@ -105,36 +106,36 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 								{/foreach}
                             </table>
                              <div class="pagging">
-								<div class="left">表示中 {$count+1}-{$count+2}</div>
+								<div class="left">表示中 {$count1+1}-{$count1+2}</div>
 								<div class="right">
-									{if $now_page-1>0}
-									<a href="contact_list.php?page={$now_page-1}">前へ</a>
+									{if $now_page1-1>0}
+									<a href="contact_list.php?page1={$now_page1-1}">前へ</a>
 									{else}
-									<a href="contact_list.php?page={$now_page}">前へ</a>
+									<a href="contact_list.php?page1={$now_page1}">前へ</a>
 									{/if}
-									{for $start=1 to $limit_page+1}
-									<a href="contact_list.php?page={$start}">{$start}</a>
+									{for $start1=1 to $limit_page1+1}
+									<a href="contact_list.php?page1={$start1}">{$start1}</a>
 									{/for}
-									{if $limit_page>5}
+									{if $limit_page1>4}
 									<span>...</span>
-									<a href="contact_list.php?page={$page_max}">{$page_max}</a>
+									<a href="contact_list.php?page1={$page_max1}">{$page_max1}</a>
 									{/if}
-									{if $now_page+1>$page_max}
-									<a href="contact_list.php?page={$now_page}">次へ</a>
+									{if $now_page1+1>$page_max1}
+									<a href="contact_list.php?page1={$now_page1}">次へ</a>
 									{else}
-									<a href="contact_list.php?page={$now_page+1}">次へ</a>
+									<a href="contact_list.php?page1={$now_page1+1}">次へ</a>
 									{/if}
-									<a href="contact_list.php?limit=over">全て表示</a>
+									<a href="contact_list.php?limit1=over">全て表示</a>
 								</div>
                             </div>
                         </div>
 		        </div>
-		    <div id="box2"class="box"style="width:1000px;position:absolute;display:none">
+		    <div id="box2"class="box"style="width:1100px;">
                     <div class="box-head">
                         <h2 class="left"style="margin-top:8px;">お問い合わせ一覧</h2>
                         <div class="right">
                             <label>検索</label>
-                            <input type="text" class="field small-field" />
+                            <input type="text"name="search_text2"class="field small-field" />
                             <input type="submit" class="button" value="search" id="search" />
                         </div>
                     </div>
@@ -142,72 +143,70 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             <table width="100%" border="0" cellspacing="0" cellpadding="0">
                                 <tr id="odd">
                                     <th width="13"></th>
-									<th>ユーザID</th>
-                                    <th>メールアドレス</th>
-                                    <th>お問い合わせ</th>
-                                    <th>返信状況</th>
+									<th width="5%"style="min-width:96px">ユーザID</th>
+                                    <th width="25%"style="min-width:10%">メールアドレス</th>
+                                    <th width="50%">お問い合わせ</th>
+                                    <th width="10%"style="min-width:91.5px">返信状況</th>
                                     <th width="110" class="ac">返信</th>
                                 </tr>
-								{foreach from=$contact_not_reply item=contact}
+								{foreach from=$contact_not_reply item=contact2}
                                 <tr>
                                     <td><input type="checkbox"class="checkbox"style="margin-bottom:7px;visibility:hidden"/></td>
-									<td>{$contact['customer_id']}</td>
-                                    <td><h3 style="padding-top:17px"><a href="#">{$contact['customer_email']}</a></h3></td>
-                                    <td>{$contact['contact_text']}</td>
+									<td>{$contact2['customer_id']}</td>
+                                    <td>{$contact2['customer_email']}</td>
+                                    <td>{$contact2['contact_text']}</td>
                                     <td>未返信</td>
-                                    <td><input class="edibtn" type="button" id="delBtn1" value="返信" onclick="location.href='contact_detail.php'"style="width:50px;height:30px"></td>
+                                    <td><a style="color:black"href="contact_detail.php?contact_id={$contact2['contact_id']}"><input class="edibtn" type="button" id="delBtn1" value="返信" onclick="location.href='contact_detail.php'"style="width:50px;height:30px"></a></td>
                                 </tr>
 								{/foreach}
                             </table>
-                                            <div class="pagging">
-								<div class="left">表示中 {$count+1}-{$count+2}</div>
+                            <div class="pagging">
+								<div class="left">表示中 {$count2+1}-{$count2+2}</div>
 								<div class="right">
-									{if $now_page-1>0}
-									<a href="contact_list.php?page={$now_page-1}">前へ</a>
+									{if $now_page2-1>0}
+									<a href="contact_list.php?page2={$now_page2-1}">前へ</a>
 									{else}
-									<a href="contact_list.php?page={$now_page}">前へ</a>
+									<a href="contact_list.php?page2={$now_page2}">前へ</a>
 									{/if}
-									{for $start=1 to $limit_page+1}
-									<a href="contact_list.php?page={$start}">{$start}</a>
+									{for $start2=1 to $limit_page2+1}
+									<a href="contact_list.php?page2={$start2}">{$start2}</a>
 									{/for}
-									{if $limit_page>5}
+									{if $limit_page2>5}
 									<span>...</span>
-									<a href="contact_list.php?page={$page_max}">{$page_max}</a>
+									<a href="contact_list.php?page2={$page_max2}">{$page_max}</a>
 									{/if}
-									{if $now_page+1>$page_max}
-									<a href="contact_list.php?page={$now_page}">次へ</a>
+									{if $now_page2+1>$page_max2}
+									<a href="contact_list.php?page2={$now_page2}">次へ</a>
 									{else}
-									<a href="contact_list.php?page={$now_page+1}">次へ</a>
+									<a href="contact_list.php?page2={$now_page2+1}">次へ</a>
 									{/if}
-									<a href="contact_list.php?limit=over">全て表示</a>
+									<a href="contact_list.php?limit2=over">全て表示</a>
 								</div>
                             </div>
                     </div>
 		        </div>
 		    </div>
-		
+			 {literal}
 			<script>
+			$(function() {
 					// クッキー保存されている or いない場合
 					if ($.cookie('num')) {
 						num = $.cookie('num');  //←★1
 					} else {
 						num = 0;    // ←★2
 					}
-					 alert("あ");
 				
 					// タブ処理
 					tabSwitching(num);
-				
+						
 				
 					// クリックされた場合
 					$('.tab-group li').click(function() {
 						// クリックされた <li> のインデックス番号を取得
 						num = $('.tab-group li').index(this);
-							
 						// タブ処理
 						tabSwitching(num);
-				
-				
+						
 						// クッキーを保存
 						// 有効期限は1日(ブラウザを閉じたら初期化)
 						$.cookie('num', num, {expires: 1});     // ←★3
@@ -215,7 +214,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				
 				
 					// タブ切り替え処理
-					function tabSwitching( num ){
+					function tabSwitching(num){
 						// リストに設定されている class="chose" を削除
 						$('.tab-group li').removeClass('chose');
 				
@@ -223,38 +222,39 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						$('.tab-group li').eq(num).addClass('chose');
 				
 						// tabContents に class="hide" を追加
-						$('.tabContents').addClass('hide');
+						$('.box').addClass('hide');
 				
 						// 取得したインデックス番号の class="hide" を削除
-						$('.tabContents').eq(num).removeClass('hide');
+						$('.box').eq(num).removeClass('hide');
 					}
-				
-				
+				});
+							
 				//チェックボタン
 				// 「全て選択」チェックで全てにチェック付く
 				function AllChecked(){
 					var check =  document.form.all.checked;
-
-					for (var i=0; i<document.form.elements['con[]'].length; i++){
-						document.form.elements['con[]'][i].checked = check;
+					for (var i=0; i<document.form.elements['con1[]'].length; i++){
+						document.form.elements['con1[]'][i].checked = check;
 					}
 				}
 				// 一つでもチェックを外すと「全て選択」のチェック外れる
 				function　DisChecked(){
-					var checks = document.form.elements['con[]'];
+					var checks = document.form.elements['con1[]'];
 					var checksCount = 0;
 					for (var i=0; i<checks.length; i++){
-					if(document.form.elements['con[]'][i].checked == false){
-						document.form.all.checked = false;
-					}else{
-						checksCount += 1;
-						if(checksCount == document.form.elements['con[]'][i].length){
-						document.form.all.checked = true;
+						if(document.form.elements['con1[]'][i].checked == false){
+							document.form.all.checked = false;
+						}else{
+							checksCount += 1;
+							if(checksCount == document.form.elements['con1[]'][i].length){
+							document.form.all.checked = true;
+							}
 						}
-					}
 					}
 				}
 			</script>
+			 {/literal}
+			<noscript>スクリプトが使えないときに表示されます</noscript>
 		   </div>
 		  </div>
 	     </div>
