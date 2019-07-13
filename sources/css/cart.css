@@ -5,7 +5,8 @@
     color: #5d627b;
     background: white;
     border-top: solid 5px #FF5B36;
-	box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+    border-radius: 0.75em;
 }
 .box15 p {
     margin-bottom: -20px; 
@@ -67,7 +68,8 @@
 	-moz-transition: all 0.3s ease-in-out;
 	-o-transition: all 0.3s ease-in-out;
 	transition: all 0.3s ease-in-out;
-	margin-bottom: 1em;
+    margin-bottom: 1em;
+    border-radius: 0.75em;
    }
    .btn222 form input[type="submit"] {
 	font-size: 0.85em;
@@ -107,7 +109,8 @@ left:195px;
 	box-shadow: 0 0 5px 1px #ccc; 
 	position: absolute;
 	left:1000px;
-	top:230px;
+    top:230px;
+    border-radius: 0.75em;
    }
    .sen1{
     color: #555;
@@ -154,5 +157,6 @@ left: 700px;
     height:30px;
     width:42px;
     font-size:18px;
-    
+    border-radius: 0.30em;
+
 }
