@@ -20,6 +20,10 @@
  #previewbox1 {
     display: inline-block;     /* プレビュー領域をボタンと横並びに配置する */
     vertical-align: middle;    /* プレビュー画像の垂直方向の配置 */
+    position: absolute;
+    left: 380px;
+    top: 513px;
+    border: solid 0.5px;
  }
 
  /*  */
@@ -46,6 +50,10 @@
 #previewbox2 {
    display: inline-block;     /* プレビュー領域をボタンと横並びに配置する */
    vertical-align: middle;    /* プレビュー画像の垂直方向の配置 */
+   position: absolute;
+   left: 380px;
+   top: 620px;
+   border: solid 0.5px;
 }
 
 /*  */
@@ -72,6 +80,10 @@
  #previewbox3 {
     display: inline-block;     /* プレビュー領域をボタンと横並びに配置する */
     vertical-align: middle;    /* プレビュー画像の垂直方向の配置 */
+    position: absolute;
+    left: 380px;
+    top: 727px;
+    border: solid 0.5px;
  }
 .cont1 p{
 width: 223px;
@@ -91,6 +103,7 @@ margin:0;
     width: 50%;
     font-size: 0.8125em;
     padding: 0.5em;
+    background: #f3f3f3;
 }
 .nedan{
    line-height: 35px;
@@ -103,6 +116,7 @@ margin:0;
    width: 50%;
    font-size: 0.8125em;
    padding: 0.5em;
+   background: #f3f3f3;
 
 }
 .category1{
@@ -112,7 +126,21 @@ margin:0;
    position: absolute;
    left:255px;
    top:220px;
-   font-size: 25px;
+   font-size: 20px;
+   background: #f3f3f3;
+   -webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	margin-bottom: 20px;
+	padding: 7px 30px 7px 10px;
+	line-height: 1.1em;
+	border-radius: 5px;
+	border: none;
+	background-image: url(../images/icon_arrow.png);
+	background-repeat: no-repeat;
+	background-size: 16px 10px;
+	background-position: right 10px center;
+	background-color: #60ca77;
 }
 .genre1{
    line-height: 35px;
@@ -121,7 +149,22 @@ margin:0;
    position: absolute;
    left:255px;
    top:278px;
-   font-size: 25px;
+   font-size: 20px;
+   background: #f3f3f3;
+   -webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	margin-bottom: 20px;
+	padding: 7px 30px 7px 10px;
+	line-height: 1.1em;
+	border-radius: 5px;
+	border: none;
+	background-image: url(../images/icon_arrow.png);
+	background-repeat: no-repeat;
+	background-size: 16px 10px;
+	background-position: right 10px center;
+	background-color: #60ca77;
+
 }
 .zaiko{
    line-height: 35px; 
@@ -131,6 +174,9 @@ margin:0;
    left:255px;
    top:334px;
    font-size: 23px;
+   background: #f3f3f3;
+   width:50px;
+
 }
 .syouhin1{
    line-height: 100px; 
@@ -143,6 +189,14 @@ margin:0;
    width: 50%;
    font-size: 0.8125em;
    padding: 0.8em;
+   background: #f3f3f3;
+   border-bottom-width: 2px;
+   border-top-width: 2px;
+   border-left-width: 2px;
+   border-right-width: 2px;
+   border-bottom-color: rgb(238,238,238);
+   border-right-color: rgb(238,238,238);
+   resize: none;
 }
 .gazou{
    line-height: 55px;   
@@ -171,9 +225,13 @@ margin:0;
    width:100px;   
    display: inline-block;    
    color:#FFF;
-   margin: 100px 0 0 0;
+   margin: 180px 0 0 0;
    position: relative;
    left: 580px;
+   border-bottom-width: 0px;
+   border-top-width: 0px;
+   border-left-width: 0px;
+   border-right-width: 0px;
 }
 .Exhibition:hover {
    opacity: 0.5;              /* 半透明 */
