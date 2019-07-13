@@ -68,8 +68,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 <div class="clearfix"></div>
 			   </div>
                  <ul class="tab-group" style="width:20%;height:20%;">
-					<li id="not_reply"class="tab is-active">未返信</li>
-					<li id="replyed"class="tab">返信済み</li>
+					<li id="not_reply"class="tab is-active">返信済み</li>
+					<li id="replyed"class="tab">未返信</li>
 				</ul>
 				  <form name="form"action="contact_list.php" method="post">
 				   <div id="box1"class="box"style="width:1100px;">
@@ -113,7 +113,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 									{else}
 									<a href="contact_list.php?page1={$now_page1}">前へ</a>
 									{/if}
-									{for $start1=1 to $limit_page1+1}
+									{for $start1=1 to $limit_page1}
 									<a href="contact_list.php?page1={$start1}">{$start1}</a>
 									{/for}
 									{if $limit_page1>4}
@@ -168,10 +168,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 									{else}
 									<a href="contact_list.php?page2={$now_page2}">前へ</a>
 									{/if}
-									{for $start2=1 to $limit_page2+1}
+									{for $start2=1 to $limit_page2}
 									<a href="contact_list.php?page2={$start2}">{$start2}</a>
 									{/for}
-									{if $limit_page2>5}
+									{if $limit_page2>4}
 									<span>...</span>
 									<a href="contact_list.php?page2={$page_max2}">{$page_max}</a>
 									{/if}
@@ -226,6 +226,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				
 						// 取得したインデックス番号の class="hide" を削除
 						$('.box').eq(num).removeClass('hide');
+						if(num==1){
+							$('#all_delete').addClass('hide');
+							$('#all_check').addClass('hide');
+						}
+						else{
+							$('#all_delete').removeClass('hide');
+							$('#all_check').removeClass('hide');
+						}
 					}
 				});
 							
@@ -260,114 +268,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	     </div>
 	    </div>
 	    </div>
-			<span id="all_check"style="position:absolute;top:240px;left:61%"><input name="all" type="checkbox"style="transform:scale(1.2);margin-right:5px;margin-top:4px;"onClick="AllChecked();"/>全てチェック</span>
-			<input id="all_delete"type="submit"style="position:absolute;height:30px;top:235px;left:71.5%;font-size:15px;"value="チェックを全て削除"/>
+			<span id="all_check"style="position:absolute;top:240px;left:67%"><input name="all" type="checkbox"style="transform:scale(1.2);margin-right:5px;margin-top:4px;"onClick="AllChecked();"/>全てチェック</span>
+			<input id="all_delete"type="submit"style="position:absolute;height:30px;top:235px;left:78.5%;font-size:15px;"value="チェックを全て削除"/>
 		 </form>
 		 {literal}
-		<div class="container">
-		  <div class="brands">
-			 <ul class="brand_icons">
-				<li><img src='images/icon1.jpg' class="img-responsive" alt=""/></li>
-				<li><img src='images/icon2.jpg' class="img-responsive" alt=""/></li>
-				<li><img src='images/icon3.jpg' class="img-responsive" alt=""/></li>
-				<li><img src='images/icon4.jpg' class="img-responsive" alt=""/></li>
-				<li><img src='images/icon5.jpg' class="img-responsive" alt=""/></li>
-				<li><img src='images/icon6.jpg' class="img-responsive" alt=""/></li>
-				<li class="last"><img src='images/icon7.jpg' class="img-responsive" alt=""/></li>
-			 </ul>
-		   </div>
-	    </div>
-	    <div class="container">
-	      <div class="instagram_top">
-	      	<div class="instagram text-center">
-				<h3><i class="insta_icon"> </i> Instagram feed:&nbsp;<span class="small">#Surfhouse</span></h3>
-			</div>
-	        <ul class="instagram_grid">
-			  <li><a class="popup-with-zoom-anim" href="#small-dialog1"><img src="images/i1.jpg" class="img-responsive"alt=""/></a></li>
-			  <li><a class="popup-with-zoom-anim" href="#small-dialog1"><img src="images/i2.jpg" class="img-responsive" alt=""/></a></li>
-			  <li><a class="popup-with-zoom-anim" href="#small-dialog1"><img src="images/i3.jpg" class="img-responsive" alt=""/></a></li>
-			  <li><a class="popup-with-zoom-anim" href="#small-dialog1"><img src="images/i4.jpg" class="img-responsive" alt=""/></a></li>
-			  <li><a class="popup-with-zoom-anim" href="#small-dialog1"><img src="images/i5.jpg" class="img-responsive" alt=""/></a></li>
-			  <li class="last_instagram"><a class="popup-with-zoom-anim" href="#small-dialog1"><img src="images/i6.jpg" class="img-responsive" alt=""/></a></li>
-			  <div class="clearfix"></div>
-			  <div id="small-dialog1" class="mfp-hide">
-				<div class="pop_up">
-					<h4>A Sample Photo Stream</h4>
-					<img src="images/i_zoom.jpg" class="img-responsive" alt=""/>
-				</div>
-			  </div>
-			</ul>
-		  </div>
-	      <ul class="footer_social">
-			<li><a href="#"> <i class="fb"> </i> </a></li>
-			<li><a href="#"><i class="tw"> </i> </a></li>
-			<li><a href="#"><i class="pin"> </i> </a></li>
-			<div class="clearfix"></div>
-		   </ul>
-	    </div>
-        <div class="footer">
-			<div class="container">
-				<div class="footer-grid">
-					<h3>Category</h3>
-					<ul class="list1">
-					  <li><a href="#">Home</a></li>
-					  <li><a href="#">About us</a></li>
-					  <li><a href="#">Eshop</a></li>
-					  <li><a href="#">Features</a></li>
-					  <li><a href="#">New Collections</a></li>
-					  <li><a href="#">Blog</a></li>
-					  <li><a href="#">Contact</a></li>
-				    </ul>
-				</div>
-				<div class="footer-grid">
-					<h3>Our Account</h3>
-				    <ul class="list1">
-					  <li><a href="#">Your Account</a></li>
-					  <li><a href="#">Personal information</a></li>
-					  <li><a href="#">Addresses</a></li>
-					  <li><a href="#">Discount</a></li>
-					  <li><a href="#">Orders history</a></li>
-					  <li><a href="#">Addresses</a></li>
-					  <li><a href="#">Search Terms</a></li>
-				    </ul>
-				</div>
-				<div class="footer-grid">
-					<h3>Our Support</h3>
-					<ul class="list1">
-					  <li><a href="#">Site Map</a></li>
-					  <li><a href="#">Search Terms</a></li>
-					  <li><a href="#">Advanced Search</a></li>
-					  <li><a href="#">Mobile</a></li>
-					  <li><a href="#">Contact Us</a></li>
-					  <li><a href="#">Mobile</a></li>
-					  <li><a href="#">Addresses</a></li>
-				    </ul>
-				  </div>
-				  <div class="footer-grid">
-					<h3>Newsletter</h3>
-					<p class="footer_desc">Nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat</p>
-					<div class="search_footer">
-			          <input type="text" class="text" value="Insert Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Insert Email';}">
-			          <input type="submit" value="Submit">
-			        </div>
-			        <img src="images/payment.png" class="img-responsive" alt=""/>
-				 </div>
-				 <div class="footer-grid footer-grid_last">
-					<h3>About Us</h3>
-					<p class="footer_desc">Diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam,.</p>
-                    <p class="f_text">Phone:  &nbsp;&nbsp;&nbsp;00-250-2131</p>
-                    <p class="email">Email: &nbsp;&nbsp;&nbsp;<span>info(at)Surfhouse.com</span></p>	
-                 </div>
-				 <div class="clearfix"> </div>
-			</div>
-		</div>
-        <div class="footer_bottom">
-        	<div class="container">
-        		<div class="copy">
-				   <p>&copy; 2014 Template by <a href="http://w3layouts.com" target="_blank"> w3layouts</a></p>
-			    </div>
-        	</div>
-        </div>
+		
 </body>
 {/literal}
 </html>	

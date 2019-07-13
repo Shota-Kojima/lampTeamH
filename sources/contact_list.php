@@ -1,4 +1,4 @@
-        <?php
+<?php
 require_once("inc_base.php");
 require_once($CMS_COMMON_INCLUDE_DIR . "libs.php");
 require_once("inc_smarty.php");
@@ -57,9 +57,9 @@ function readdata(){
     $count1 = 0;
     $count2 = 0;
     $from1 = 0;
-    $limit1 = 1;
+    $limit1 = 3;
     $from2 = 0;
-    $limit2 = 1;
+    $limit2 = 3;
     if(isset($_POST['search_text1'])){
          $search_text1 = $_POST['search_text1'];
     }
@@ -116,13 +116,13 @@ function readdata(){
     $now_page1 = 1;
     $now_page2 = 1;
     if($page_max1<5){
-        $limit_page1 = $page_max1-1;
+        $limit_page1 = $page_max1;
     }
     else{
         $limit_page1 = 5;
     }
      if($page_max2<5){
-        $limit_page2 = $page_max2-1;
+        $limit_page2 = $page_max2;
     }
     else{
         $limit_page2 = 5;

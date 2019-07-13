@@ -1714,7 +1714,7 @@ class ccontact extends crecord {
 }
 
 //--------------------------------------------------------------------------------------
-///	レンタルクラス(開発用)
+///	レンタルクラス(開発用)消さないで
 //--------------------------------------------------------------------------------------
 class crental extends crecord {
 	//--------------------------------------------------------------------------------------
@@ -1738,7 +1738,11 @@ class crental extends crecord {
 		$this->select(
 			$debug,					//デバッグ文字を出力するかどうか
 			"count(*)",				//取得するカラム
-			"rental",			//取得するテーブル
+			"(transaction_details as details
+			 inner join transaction_info as info
+			 on deails.transaction_id = info.transaction_id)
+			 inner join customer
+			 on info.customer_id = customer.customer_id",			//取得するテーブル join句などもここで
 			"1"					//条件
 		);
 		if($row = $this->fetch_assoc()){
@@ -1765,6 +1769,28 @@ class crental extends crecord {
 			$debug,			//デバッグ表示するかどうか
 			"*",			//取得するカラム
 			"rental",	//取得するテーブル
+			"1",			//条件
+			"transaction_id asc",	//並び替え
+			"limit " . $from . "," . $limit		//抽出開始行と抽出数
+		);
+		//順次取り出す
+		while($row = $this->fetch_assoc()){
+			$arr[] = $row;
+		}
+		//取得した配列を返す
+		return $arr;
+	}
+	public function get_all_info($debug,$from,$limit){
+		$arr = array();
+		//親クラスのselect()メンバ関数を呼ぶ
+		$this->select(
+			$debug,			//デバッグ表示するかどうか
+			"*",			//取得するカラム
+			"(transaction_details as details
+			 inner join transaction_info as info
+			 on deails.transaction_id = info.transaction_id)
+			 inner join customer
+			 on info.customer_id = customer.customer_id",	//取得するテーブル
 			"1",			//条件
 			"transaction_id asc",	//並び替え
 			"limit " . $from . "," . $limit		//抽出開始行と抽出数
