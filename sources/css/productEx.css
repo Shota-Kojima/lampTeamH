@@ -1,7 +1,7 @@
 .filelabel1 {
-    background-color: orange;  /* 背景色 */
-    color: white;              /* 文字色 */
-    border: 2px solid orange;  /* 枠線 */
+   background: linear-gradient(0deg, rgba(46,182,209,1) 0%, rgba(47,214,55,1) 100%);
+   color: white;              /* 文字色 */
+   border: 2px solid linear-gradient(0deg, rgba(46,182,209,1) 0%, rgba(47,214,55,1) 100%);  /* 枠線 */
     border-radius: 3em;        /* 角丸 */
     padding: 12px 9px;         /* 内側の余白 */
     display: inline-block;     /* インラインブロック化 */
@@ -25,9 +25,9 @@
  /*  */
 
  .filelabel2 {
-   background-color: orange;  /* 背景色 */
+   background: linear-gradient(0deg, rgba(46,182,209,1) 0%, rgba(47,214,55,1) 100%);
    color: white;              /* 文字色 */
-   border: 2px solid orange;  /* 枠線 */
+   border: 2px solid linear-gradient(0deg, rgba(46,182,209,1) 0%, rgba(47,214,55,1) 100%);  /* 枠線 */
    border-radius: 3em;        /* 角丸 */
    padding: 12px 9px;         /* 内側の余白 */
    display: inline-block;     /* インラインブロック化 */
@@ -51,25 +51,142 @@
 /*  */
 
 .filelabel3 {
-   background-color: orange;  /* 背景色 */
+   background: linear-gradient(0deg, rgba(46,182,209,1) 0%, rgba(47,214,55,1) 100%);
    color: white;              /* 文字色 */
-   border: 2px solid orange;  /* 枠線 */
-   border-radius: 3em;        /* 角丸 */
-   padding: 12px 9px;         /* 内側の余白 */
-   display: inline-block;     /* インラインブロック化 */
+   border: 2px solid linear-gradient(0deg, rgba(46,182,209,1) 0%, rgba(47,214,55,1) 100%);  /* 枠線 */
+    border-radius: 3em;        /* 角丸 */
+    padding: 12px 9px;         /* 内側の余白 */
+    display: inline-block;     /* インラインブロック化 */
+ }
+ .filelabel3 img {
+    vertical-align: bottom;    /* 画像の垂直方向の配置 */
+ }
+ .filelabel3:hover {
+    opacity: 0.5;              /* 半透明 */
+    border: 2px solid red;     /* 枠線(赤色) */
+    cursor: pointer;           /* マウス形状(ポインタ) */
+ }
+ #filesend3 {
+    display: none;  /* 本来のファイル選択フォームは非表示に */
+ }
+ #previewbox3 {
+    display: inline-block;     /* プレビュー領域をボタンと横並びに配置する */
+    vertical-align: middle;    /* プレビュー画像の垂直方向の配置 */
+ }
+.cont1 p{
+width: 223px;
+margin:0;
+    padding: 0 16px;
+    background: #d1d2d3;
+    font-size: 16px;
 }
-.filelabe3 img {
-   vertical-align: bottom;    /* 画像の垂直方向の配置 */
+.syouhin{
+   line-height: 35px;
 }
-.filelabe3:hover {
+.proname{
+   position: absolute;
+   left:255px;
+   top:105px;
+   outline-color: #fb4d01;
+    width: 50%;
+    font-size: 0.8125em;
+    padding: 0.5em;
+}
+.nedan{
+   line-height: 35px;
+}
+.pri{
+   position: absolute;
+   left:255px;
+   top:162px;
+   outline-color: #fb4d01;
+   width: 50%;
+   font-size: 0.8125em;
+   padding: 0.5em;
+
+}
+.category1{
+   line-height: 35px;
+}
+.category2{
+   position: absolute;
+   left:255px;
+   top:220px;
+   font-size: 25px;
+}
+.genre1{
+   line-height: 35px;
+}
+.genre2{
+   position: absolute;
+   left:255px;
+   top:278px;
+   font-size: 25px;
+}
+.zaiko{
+   line-height: 35px; 
+}
+.zaiko1{
+   position: absolute;
+   left:255px;
+   top:334px;
+   font-size: 23px;
+}
+.syouhin1{
+   line-height: 100px; 
+}
+.syouhin2{
+   position: absolute;
+   left: 255px;
+   top: 393px;
+   outline-color: #fb4d01;
+   width: 50%;
+   font-size: 0.8125em;
+   padding: 0.8em;
+}
+.gazou{
+   line-height: 55px;   
+}
+
+.filelabel1{
+   position: absolute;
+   left:255px;
+   top:515px;
+}
+.filelabel2{
+   position: absolute;
+   left:255px;
+   top:575px;
+}
+.filelabel3{
+   position: absolute;
+   left:255px;
+   top:635px;
+}
+.btn_form .Exhibition{
+   background: linear-gradient(0deg, rgba(46,182,209,1) 0%, rgba(47,214,55,1) 100%); 
+   border: 2px solid linear-gradient(0deg, rgba(46,182,209,1) 0%, rgba(47,214,55,1) 100%); 
+   border-radius: 3em;       
+   padding: 12px 9px;    
+   width:100px;   
+   display: inline-block;    
+   color:#FFF;
+   margin: 100px 0 0 0;
+   position: relative;
+   left: 580px;
+}
+.Exhibition:hover {
    opacity: 0.5;              /* 半透明 */
    border: 2px solid red;     /* 枠線(赤色) */
    cursor: pointer;           /* マウス形状(ポインタ) */
 }
-#filesend3 {
-   display: none;  /* 本来のファイル選択フォームは非表示に */
-}
-#previewbox3 {
-   display: inline-block;     /* プレビュー領域をボタンと横並びに配置する */
-   vertical-align: middle;    /* プレビュー画像の垂直方向の配置 */
+.mida {
+    line-height: 38px;
+    margin-bottom: 24px;
+    padding-left: 10px;
+    border-left: 5px solid #29c278;
+    font-size: 24px;
+    position: absolute;
+    left: 400px;
+    top: 206px;
 }

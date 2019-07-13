@@ -157,6 +157,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					   </div>
 				     </div>
 			  </div>
+			  					<h2 class="mida">商品情報の入力</h2>
 				<div class="col-md-9">
 					<div class="dreamcrub">
 						<ul class="breadcrumbs">
@@ -179,6 +180,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						<ul class="previous">
 							<li><a href="products.php">商品一覧へ</a></li>
 						</ul>
+						
 						<div class="clearfix"></div>
 					</div>
 			   <div class="singel_right">
@@ -189,44 +191,50 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			  		</div>
 				<div class="cont1 span_2_of_a1">
 					<form action="" method="post" enctype="multipart/form-data" autocomplete="off">	
-						<p>
-						商品名<input type="text" name="product_name" size="30">
+						<p class="syouhin">
+						商品名
 						</p>
+						<input type="text" class="proname" name="product_name" size="30">
 						<br>
-						<p>
-						値段<input type="text" name="price" size="20">
+						<p class="nedan">
+						値段
 						</p>
+						<input type="text" class="pri"name="price" size="20">
 						<br>
-						<p>
+						<p class="category1">
 						カテゴリ
-						<select name="product_category">
+						</p>
+						<select name="product_category" class="category2">
 							<option value="1">販売商品</option>
 							<option value="2">レンタル商品</option>
 						</select>
-						</p>
 						<br>
-						<p>
+						<p class="genre1">
 							<!-- ジャンル<input type="text" name="genre_id" size="200"> -->
 							ジャンル
-							<select name="genre_id">
+						</p>
+						<select name="genre_id" class="genre2">
 								{foreach from=$rows item=valueString}
 									<option value="{$valueString['genre_id']}">{$valueString['genre_name']}</option>
 								{/foreach}
 							</select>
-						</p>
 						<br>	
-						<p>
-						在庫数<input type="text" name="stock" size="20" value=1>
+						<p class="zaiko">
+						在庫数
 						</p>
+						<input type="text" class="zaiko1" name="stock" size="20" value=1>
 						<br>
-						<p>
-						商品説明<br>
-						<textarea name="product_text" rows="4" cols="40"></textarea>
+						<p class="syouhin1">
+						商品説明<br>					
 						</p>
+						<textarea name="product_text" class="syouhin2" rows="4" cols="40"></textarea>
 						<br>
 						<!--画像選択フォーム-->
-						<p>
-							<label>
+						<p class="gazou">
+							画像
+						</p>	
+						<div class="gazou1">	
+						<label>
 								<span class="filelabel1" title="ファイルを選択">
 									<img src="./images/fileSelect.png" width="32" height="26">
 									<span id="selectednum1">選択</span>
@@ -235,8 +243,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 							</label>
 							<!--画像プレビューボックス-->
 							<span id="previewbox1"></span>
-						</p>
-						<p>
 							<label>
 								<span class="filelabel2" title="ファイルを選択">
 									<img src="./images/fileSelect.png" width="32" height="26" >
@@ -245,8 +251,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 								<input type="file" name="image_file2" accept="image/*" id="filesend2" accept=".jpg,.gif,.png,image/gif,image/jpeg,image/png">
 							</label>
 							<span id="previewbox2"></span>
-						</p>
-						<p>
 							<label>
 								<span class="filelabel3" title="ファイルを選択">
 									<img src="./images/fileSelect.png" width="32" height="26">
@@ -255,24 +259,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 								<input type="file" name="image_file3" accept="image/*" id="filesend3" accept=".jpg,.gif,.png,image/gif,image/jpeg,image/png">
 							</label>
 							<span id="previewbox3"></span>
-						</p>				
-						<!--意味はないけどそれっぽいから置いとけ-->	
-						<ul class="size">
-							<h3>Size</h3>
-							<li><a href="#">25</a></li>
-							<li><a href="#">26</a></li>
-							<li><a href="#">27</a></li>
-							<li><a href="#">28</a></li>
-							<li><a href="#">29</a></li>
-							<li><a href="#">30</a></li>
-							<li><a href="#">31</a></li>
-							<li><a href="#">32</a></li>
-							<li><a href="#">33</a></li>
-						</ul>
+						</div>		
+						
 						
 						<br>
 						<div class="btn_form">
-						<input type="submit" value="出品" title="">
+						<input type="submit" class="Exhibition" value="出品" title="">
 					</form>
 				</div>
 			</div>
