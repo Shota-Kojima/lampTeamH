@@ -815,7 +815,24 @@ class ctransaction_info extends crecord {
 		}
 		//取得した配列を返す
 		return $arr;
-    }
+	}
+
+	public function get_allH($debug,$id){
+		$arr = array();
+		//親クラスのselect()メンバ関数を呼ぶ
+		$this->select(
+			$debug,			//デバッグ表示するかどうか
+			"*",			//取得するカラム
+			"transaction_info",	//取得するテーブル
+			"customer_id = '{$id}'"			//条件
+		);
+		//順次取り出す
+		while($row = $this->fetch_assoc()){
+			$arr[] = $row;
+		}
+		//取得した配列を返す
+		return $arr;
+	}
    
 	//--------------------------------------------------------------------------------------
 	/*!
@@ -1100,7 +1117,25 @@ class ctransaction_details extends crecord {
 		}
 		//取得した配列を返す
 		return $arr;
-    }
+	}
+	
+	//全部持ってくる
+	public function get_allH($debug,$id){
+		$arr = array();
+		//親クラスのselect()メンバ関数を呼ぶ
+		$this->select(
+			$debug,			//デバッグ表示するかどうか
+			"*",			//取得するカラム
+			"transaction_details",	//取得するテーブル
+			"transaction_id = '{$id}'"			//条件
+		);
+		//順次取り出す
+		while($row = $this->fetch_assoc()){
+			$arr[] = $row;
+		}
+		//取得した配列を返す
+		return $arr;
+	}
    
 	//--------------------------------------------------------------------------------------
 	/*!
