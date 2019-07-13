@@ -473,14 +473,15 @@ class cproductH extends crecord {
 	@return	配列（2次元配列になる）
 	*/
 	//--------------------------------------------------------------------------------------
-    public function get_all_order($debug,$from,$limit,$tgt_culmn){
+    public function get_all_order($debug,$from,$limit,$conditions,$tgt_genre,$tgt_culmn,$tgt_category){
 		$arr = array();
 		//親クラスのselect()メンバ関数を呼ぶ
 		$this->select(
 			$debug,			//デバッグ表示するかどうか
 			"*",			//取得するカラム
 			"productH",	//取得するテーブル
-			"1",			//条件
+			"product_category=" .$tgt_category." and "
+			 .$conditions .$tgt_genre,	//条件
 			$tgt_culmn,	//並び替え
 			"limit " . $from . "," . $limit		//抽出開始行と抽出数
 		);
@@ -490,6 +491,41 @@ class cproductH extends crecord {
 		}
 		//取得した配列を返す
 		return $arr;
+	}
+	public function get_all_genre_count($debug,$conditions,$tgt_genre){
+		$arr = array();
+		//親クラスのselect()メンバ関数を呼ぶ
+		$this->select(
+			$debug,			//デバッグ表示するかどうか
+			"count(*)",			//取得するカラム
+			"productH",	//取得するテーブル
+			$conditions .$tgt_genre			//条件
+		);
+		if($row = $this->fetch_assoc()){
+			//取得した個数を返す
+			return $row['count(*)'];
+		}
+		else{
+			return 0;
+		}
+	}
+	public function get_all_category_genre_count($debug,$conditions,$tgt_genre,$tgt_category){
+		$arr = array();
+		//親クラスのselect()メンバ関数を呼ぶ
+		$this->select(
+			$debug,			//デバッグ表示するかどうか
+			"count(*)",			//取得するカラム
+			"productH",	//取得するテーブル
+			"product_category=" .$tgt_category." and "
+			 .$conditions .$tgt_genre		//条件
+		);
+		if($row = $this->fetch_assoc()){
+			//取得した個数を返す
+			return $row['count(*)'];
+		}
+		else{
+			return 0;
+		}
 	}
     
 	//--------------------------------------------------------------------------------------
@@ -525,6 +561,7 @@ class cproductH extends crecord {
 		parent::__destruct();
 	}
 }
+
 
 //--------------------------------------------------------------------------------------
 ///	顧客クラス(開発用)
@@ -778,7 +815,24 @@ class ctransaction_info extends crecord {
 		}
 		//取得した配列を返す
 		return $arr;
-    }
+	}
+
+	public function get_allH($debug,$id){
+		$arr = array();
+		//親クラスのselect()メンバ関数を呼ぶ
+		$this->select(
+			$debug,			//デバッグ表示するかどうか
+			"*",			//取得するカラム
+			"transaction_info",	//取得するテーブル
+			"customer_id = '{$id}'"			//条件
+		);
+		//順次取り出す
+		while($row = $this->fetch_assoc()){
+			$arr[] = $row;
+		}
+		//取得した配列を返す
+		return $arr;
+	}
    
 	//--------------------------------------------------------------------------------------
 	/*!
@@ -1063,7 +1117,25 @@ class ctransaction_details extends crecord {
 		}
 		//取得した配列を返す
 		return $arr;
-    }
+	}
+	
+	//全部持ってくる
+	public function get_allH($debug,$id){
+		$arr = array();
+		//親クラスのselect()メンバ関数を呼ぶ
+		$this->select(
+			$debug,			//デバッグ表示するかどうか
+			"*",			//取得するカラム
+			"transaction_details",	//取得するテーブル
+			"transaction_id = '{$id}'"			//条件
+		);
+		//順次取り出す
+		while($row = $this->fetch_assoc()){
+			$arr[] = $row;
+		}
+		//取得した配列を返す
+		return $arr;
+	}
    
 	//--------------------------------------------------------------------------------------
 	/*!
@@ -1545,6 +1617,23 @@ class ccontact extends crecord {
 			return 0;
 		}
 	}
+	public function get_tgt_count($debug,$flag){
+		//親クラスのselect()メンバ関数を呼ぶ
+		$this->select(
+			$debug,					//デバッグ文字を出力するかどうか
+			"count(*)",				//取得するカラム
+			"contact",			//取得するテーブル
+			"$flag"			//条件
+		);
+		if($row = $this->fetch_assoc()){
+			//取得した個数を返す
+			return $row['count(*)'];
+		}
+		else{
+			return 0;
+		}
+	}
+	
 	//--------------------------------------------------------------------------------------
 	/*!
 	@brief	指定された範囲の配列を得る
@@ -1571,7 +1660,26 @@ class ccontact extends crecord {
 		}
 		//取得した配列を返す
 		return $arr;
-    }
+	}
+	public function get_all_reply($debug,$flag,$from,$limit){
+		$arr = array();
+		//親クラスのselect()メンバ関数を呼ぶ
+		$this->select(
+			$debug,			//デバッグ表示するかどうか
+			"*",			//取得するカラム
+			"contact",	//取得するテーブル
+		    "$flag",			//条件
+			"contact_id asc",	//並び替え
+			"limit " . $from . "," . $limit		//抽出開始行と抽出数
+		);
+		//順次取り出す
+		while($row = $this->fetch_assoc()){
+			$arr[] = $row;
+		}
+		//取得した配列を返す
+		return $arr;
+	}
+	
    
 	//--------------------------------------------------------------------------------------
 	/*!
@@ -1592,9 +1700,10 @@ class ccontact extends crecord {
         );
         return $this->fetch_assoc();
 	}
+   
 	
 	//--------------------------------------------------------------------------------------
-	/*!
+	/*
 	@brief	デストラクタ
 	*/
 	//--------------------------------------------------------------------------------------

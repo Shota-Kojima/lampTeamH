@@ -27,7 +27,7 @@ cart_bgって名前のclassはオレンジ色にしたりする
 <head>
 
 <!-- タイトル名の設定と、CSSの読み込み -->
-<title>Surfhouse Bootstarp Website Template | Home :: w3layouts</title>
+<title>RE:SURVIVAL : トップ</title>
 <link href="./css/bootstrap.css" rel='stylesheet' type='text/css' />
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -74,7 +74,7 @@ cart_bgって名前のclassはオレンジ色にしたりする
 <body>
 	<!-- ここから商品一覧らへん -->
 	<div class="main">
-	  <div class="content_box">
+	  <div class="content_box" style="min-height:700px">
 		<div class="container">
 			<div class="row">
 				<!-- あと商品出してるだけ -->
@@ -86,7 +86,284 @@ cart_bgって名前のclassはオレンジ色にしたりする
 					<li class="tab">レンタル商品</li>
 					<li class="tab">フリマ商品</li>
 				</ul>
-				<form action="products.php" method="get">
+				<span style="display:flex">
+				<h4 id="category">カテゴリ</h4>
+				<ul style="margin-top:80px;">
+				<a href="products.php?genre_id=0" style="color:white"><div class="category_main" id="c0">すべて</div></a>
+				</ul>
+				<ul style="margin-top:145px;">
+				<div class="category_main" id="c1">ライティング</div>
+				</ul>
+				<ul style="margin-top:210px;">
+				<div class="category_main" id="c2">バッグ</div>
+				</ul>
+				<ul style="margin-top:275px;">
+				<div class="category_main" id="c3">テント＆タープ</div>
+				</ul>
+				<ul style="margin-top:340px;">
+				<div class="category_main" id="c4">スリーピングバッグ</div>
+				
+				</ul>
+				<ul style="margin-top:405px;">
+				<div class="category_main" id="c5">クッキング＆ヒーティング</div>
+			
+				</ul>
+				<ul style="margin-top:470px;">
+				<div class="category_main" id="c6">クーラー＆ジャグ</div>
+				
+				</ul>
+				<ul style="margin-top:535px;">
+				<div class="category_main" id="c7">ファニチャー</div>
+				</ul>
+				
+				<span style="width:300px;margin-left:280px;pointer-events:none;z-index:-1 ">
+				</span>
+				<!--タブを切り替えて表示するコンテンツ-->
+				<span id="panel-group" style="float:right;min-width:877.8px">
+				<ul class="category_sub"id="category_sub1">
+				<li id="category_detail"><a href="products.php?genre_id=1">ガソリンランタン</a></li>
+				<li id="category_detail"><a href="products.php?genre_id=2">LPガスランタン</a></li>
+				<li id="category_detail"><a href="products.php?genre_id=3">LEDライテイング</a></li>
+				</ul>
+
+				<ul class="category_sub"id="category_sub2">
+				<li id="category_detail"><a href="products.php?genre_id=4">大人用</a></li>
+				<li id="category_detail"><a href="products.php?genre_id=5">子供用</a></li>
+				</ul>
+
+				<ul class="category_sub"id="category_sub3">
+				<li id="category_detail"><a href="products.php?genre_id=6">テント</a></li>
+				<li id="category_detail"><a href="products.php?genre_id=7">タープ</a></li>
+				<li id="category_detail"><a href="products.php?genre_id=8">シェード</a></li>
+				</ul>
+
+				<ul class="category_sub"id="category_sub4">
+				<li id="category_detail"><a href="products.php?genre_id=9">マット</a></li>
+				<li id="category_detail"><a href="products.php?genre_id=10">レンタングラー</a></li>
+				<li id="category_detail"><a href="products.php?genre_id=11">エアーベッド</a></li>
+				</ul>
+
+				<ul class="category_sub"id="category_sub5">		
+				<li id="category_detail"><a href="products.php?genre_id=12">バーナー</a></li>
+				<li id="category_detail"><a href="products.php?genre_id=13">グリル</a></li>
+				<li id="category_detail"><a href="products.php?genre_id=14">ヒーター</a></li>
+				<li id="category_detail"><a href="products.php?genre_id=15">クックウェア</a></li>
+				</ul>
+
+				<ul class="category_sub"id="category_sub6">
+				<li id="category_detail"><a href="products.php?genre_id=16">ハードクーラー</a></li>
+				<li id="category_detail"><a href="products.php?genre_id=17">ソフトクーラー</a></li>
+				<li id="category_detail"><a href="products.php?genre_id=18">ジャグ</a></li>
+				</ul>
+
+				<ul class="category_sub"id="category_sub7">
+				<li id="category_detail"><a href="products.php?genre_id=19">チェア</a></li>
+				<li id="category_detail"><a href="products.php?genre_id=20">テーブル</a></li>
+				<li id="category_detail"><a href="products.php?genre_id=21">キッチンテーブル</a></li>
+				<li id="category_detail"><a href="products.php?genre_id=22">オールインワン</a></li>
+				</ul>
+				<!--上から順のジャンルタグ(クソゴミコード)-->
+				<script>
+				const c0 = document.getElementById('c0');
+				const c1 = document.getElementById('c1');
+				const c2 = document.getElementById('c2');
+				const c3 = document.getElementById('c3');
+				const c4 = document.getElementById('c4');
+				const c5 = document.getElementById('c5');
+				const c6 = document.getElementById('c6');
+				const c7 = document.getElementById('c7');
+				const category_sub1 = document.getElementById('category_sub1');
+				const category_sub2 = document.getElementById('category_sub2');
+				const category_sub3 = document.getElementById('category_sub3');
+				const category_sub4 = document.getElementById('category_sub4');
+				const category_sub5 = document.getElementById('category_sub5');
+				const category_sub6 = document.getElementById('category_sub6');
+				const category_sub7 = document.getElementById('category_sub7');
+
+				c0.addEventListener('mouseenter', () => {
+					c0.style.backgroundColor = "rgb(207, 189, 177)";
+				}, false);
+				c0.addEventListener('mousemove', () => {
+					c0.style.cursor = "pointer";
+				}, false);
+				c0.addEventListener('mouseleave', () => {
+					c0.style.backgroundColor = "rgb(160, 160, 160)";
+				}, false);
+				
+				c1.addEventListener('mouseenter', () => {
+					category_sub1.style.display = 'inline';
+					c1.style.backgroundColor = "rgb(207, 189, 177)";
+				}, false);
+				c1.addEventListener('mouseleave', () => {
+					category_sub1.style.display = 'none';
+					c1.style.backgroundColor = "rgb(160, 160, 160)";
+				}, false);
+				c1.addEventListener('mouseenter', () => {
+					category_sub1.style.display = 'inline';
+					}, false);
+				category_sub1.addEventListener('mouseleave', () => {
+					category_sub1.style.display = 'none';
+				}, false);
+				category_sub1.addEventListener('mouseenter', () => {
+					category_sub1.style.display = 'inline';
+					
+				}, true);
+
+				c2.addEventListener('mouseenter', () => {
+					category_sub2.style.display = 'inline';
+					c2.style.backgroundColor = "rgb(207, 189, 177)";
+				}, false);
+				c2.addEventListener('mouseleave', () => {
+					category_sub2.style.display = 'none';
+					c2.style.backgroundColor = "rgb(160, 160, 160)";
+				}, false);
+				c2.addEventListener('mouseenter', () => {
+				
+					}, false);
+				category_sub2.addEventListener('mouseleave', () => {
+					category_sub2.style.display = 'none';
+				}, false);
+				category_sub2.addEventListener('mouseenter', () => {
+					category_sub2.style.display = 'inline';
+				}, true);
+
+				c3.addEventListener('mouseenter', () => {
+					category_sub3.style.display = 'inline';
+					c3.style.backgroundColor = "rgb(207, 189, 177)";
+				}, false);
+				c3.addEventListener('mouseleave', () => {
+					category_sub3.style.display = 'none';
+					c3.style.backgroundColor = "rgb(160, 160, 160)";
+				}, false);
+				c3.addEventListener('mouseenter', () => {
+					category_sub3.style.display = 'inline';
+					}, false);
+				category_sub3.addEventListener('mouseleave', () => {
+					category_sub3.style.display = 'none';
+				}, false);
+				category_sub3.addEventListener('mouseenter', () => {
+					category_sub3.style.display = 'inline';
+				}, true);
+
+				c4.addEventListener('mouseenter', () => {
+					category_sub4.style.display = 'inline';
+					c4.style.backgroundColor = "rgb(207, 189, 177)";
+				}, false);
+				c4.addEventListener('mouseleave', () => {
+					category_sub4.style.display = 'none';
+					c4.style.backgroundColor = "rgb(160, 160, 160)";
+				}, false);
+				c4.addEventListener('mouseenter', () => {
+					category_sub4.style.display = 'inline';
+					}, false);
+				category_sub4.addEventListener('mouseleave', () => {
+					category_sub4.style.display = 'none';
+				}, false);
+				category_sub4.addEventListener('mouseenter', () => {
+					category_sub4.style.display = 'inline';
+				}, true);
+
+				c5.addEventListener('mouseenter', () => {
+					category_sub5.style.display = 'inline';
+					c5.style.backgroundColor = "rgb(207, 189, 177)";
+				}, false);
+				c5.addEventListener('mouseleave', () => {
+					category_sub5.style.display = 'none';
+					c5.style.backgroundColor = "rgb(160, 160, 160)";
+				}, false);
+				c5.addEventListener('mouseenter', () => {
+					category_sub5.style.display = 'inline';
+					}, false);
+				category_sub5.addEventListener('mouseleave', () => {
+					category_sub5.style.display = 'none';
+				}, false);
+				category_sub5.addEventListener('mouseenter', () => {
+					category_sub5.style.display = 'inline';
+				}, true);
+
+				c6.addEventListener('mouseenter', () => {
+					category_sub6.style.display = 'inline';
+					c6.style.backgroundColor = "rgb(207, 189, 177)";
+				}, false);
+				c6.addEventListener('mouseleave', () => {
+					category_sub6.style.display = 'none';
+					c6.style.backgroundColor = "rgb(160, 160, 160)";
+				}, false);
+				c6.addEventListener('mouseenter', () => {
+					category_sub6.style.display = 'inline';
+					}, false);
+				category_sub6.addEventListener('mouseleave', () => {
+					category_sub6.style.display = 'none';
+				}, false);
+				category_sub6.addEventListener('mouseenter', () => {
+					category_sub6.style.display = 'inline';
+				}, true);
+
+				c7.addEventListener('mouseenter', () => {
+					category_sub7.style.display = 'inline';
+					c7.style.backgroundColor = "rgb(207, 189, 177)";
+				}, false);
+				c7.addEventListener('mouseleave', () => {
+					category_sub7.style.display = 'none';
+					c7.style.backgroundColor = "rgb(160, 160, 160)";
+				}, false);
+				c7.addEventListener('mouseenter', () => {
+					category_sub7.style.display = 'inline';
+					}, false);
+				category_sub7.addEventListener('mouseleave', () => {
+					category_sub7.style.display = 'none';
+				}, false);
+				category_sub7.addEventListener('mouseenter', () => {
+					category_sub7.style.display = 'inline';
+				}, true);
+				</script>
+				<!--クソゴミジャンルタグイベントコード終了-->
+
+
+						<span class="panel is-show"style="min-height:877.8px">
+						<form>
+				<ul class="sort_command">
+					<span style="margin-left:100px;">
+					<li ><a href="products.php?sort_method=aiueo_order">五十音順</a></li>
+					<li ><a href="products.php?sort_method=sales_order">売れ筋順</a></li>
+					<li ><a href="products.php?sort_method=price_desk_order">価格高い順</a></li>
+					<li ><a href="products.php?sort_method=price_ask_order">価格低い順</a></li>
+					</span>
+					<span style="margin-left:75px">
+					<ul>
+					{for $start=1 to $page}
+					{if $start == $comp}
+					<li >{$start}</li>
+					{else}
+					<li ><a href="products.php?page={$start}">{$start}</a></li>
+					{/if}
+					{/for}
+					</ul>
+					</span>
+				</ul>
+				</form>
+							{foreach from=$products item=product}
+							
+							<div class="col_1_of_3 span_1_of_3"style="margin-bottom:30px;"> 
+								<a href="productDetail_smarty.php?product_id={$product['product_id']}">
+									<div class="product_image" >
+										<img src="{$product['product_pass']}" class="product_images"/>
+										<div id="add_info">
+											<div id="product_name">
+												<p style="display:inline-block;text-align:left;">{$product['product_name']}<p>
+											</div>
+											<div id="product_price">
+												<div style="display:inline-block;text-align:left;"><p style="margin-top:15px;">￥{$product['price']}</p></div>
+											</div>
+										</div>
+									</div>
+								</a>
+							</div>
+							{/foreach}
+						</span>
+						
+						<span class="panel">
+						<form action="products.php" method="get">
 				<ul class="sort_command">
 					<span style="margin-left:100px">
 					<li ><a href="products.php?sort_method=aiueo_order">五十音順</a></li>
@@ -96,162 +373,73 @@ cart_bgって名前のclassはオレンジ色にしたりする
 					<ul>
 					</span>
 					</ul>
-					<span style="margin-left:220px">
+						<span style="margin-left:75px">
 					<ul>
-					<li ><a href="#">１</a></li>
-					<li ><a href="#">２</a></li>
-					<li ><a href="#">３</a></li>
-					<li ><a href="#">４</a></li>
-					<li ><a href="#">５</a></li>
+					{for $start=0 to $page-1}
+					<li ><a href="#">{$start+1}</a></li>
+					{/for}
 					</ul>
 					</span>
 				</ul>
 				</form>
-				<span style="display:flex">
-				<span id="category_zone" style="position:absolute;">
-				<h4 id="category">カテゴリ</h4>
-				<ul style="margin-top:40px;">
-				<div id="category_main">ライティング</div>
-				<ul class="category_sub">
-				<li id="category_detail"><a href="products.php?product_category=1">ガソリンランタン</a></li>
-				<li id="category_detail"><a href="products.php?product_category=2">LPガスランタン</a></li>
-				<li id="category_detail"><a href="products.php?product_category=3">LEDライテイング</a></li>
-				</ul>
-				</ul>
-				<ul style="margin-top:105px;">
-				<div id="category_main">バッグ</div>
-				<ul class="category_sub">
-				<li id="category_detail"><a href="products.php?product_category=4">大人用</a></li>
-				<li id="category_detail"><a href="products.php?product_category=5">子供用</a></li>
-				</ul>
-				</ul>
-				<ul style="margin-top:170px;">
-				<div id="category_main">テント＆タープ</div>
-				<ul class="category_sub">
-				<li id="category_detail"><a href="products.php?product_category=6">テント</a></li>
-				<li id="category_detail"><a href="products.php?product_category=7">タープ</a></li>
-				<li id="category_detail"><a href="products.php?product_category=8">シェード</a></li>
-				</ul>
-				</ul>
-				<ul style="margin-top:235px;">
-				<div id="category_main">スリーピングバッグ</div>
-				<ul class="category_sub">
-				<li id="category_detail"><a href="products.php?product_category=9">マット</a></li>
-				<li id="category_detail"><a href="products.php?product_category=10">レンタングラー</a></li>
-				<li id="category_detail"><a href="products.php?product_category=11">エアーベッド</a></li>
-				</ul>
-				</ul>
-				<ul style="margin-top:300px;">
-				<div id="category_main">クッキング＆ヒーティング</div>
-				<ul class="category_sub">
-				<li id="category_detail"><a href="products.php?product_category=12">バーナー</a></li>
-				<li id="category_detail"><a href="products.php?product_category=13">グリル</a></li>
-				<li id="category_detail"><a href="products.php?product_category=14">ヒーター</a></li>
-				<li id="category_detail"><a href="products.php?product_category=15">クックウェア</a></li>
-				</ul>
-				</ul>
-				<ul style="margin-top:365px;">
-				<div id="category_main">クーラー＆ジャグ</div>
-				<ul class="category_sub">
-				<li id="category_detail"><a href="products.php?product_category=16">ハードクーラー</a></li>
-				<li id="category_detail"><a href="products.php?product_category=">ソフトクーラー</a></li>
-				<li id="category_detail"><a href="products.php?product_category=">ジャグ</a></li>
-				</ul>
-				</ul>
-				<ul style="margin-top:430px;">
-				<div id="category_main">ファニチャー</div>
-				<ul class="category_sub">
-				<li id="category_detail"><a href="products.php?product_category=">チェア</a></li>
-				<li id="category_detail"><a href="products.php?product_category=">テーブル</a></li>
-				<li id="category_detail"><a href="products.php?product_category=">キッチンテーブル</a></li>
-				<li id="category_detail"><a href="products.php?product_category=">オールインワン</a></li>
-				</ul>
-				</ul>
-				</span>
-				<script>
-				const category_zone = document.getElementById('category_zone');
-				const category_sub = document.getElementsByClassName('category_sub');
-				const category_sub1 = document.getElementsByClassName('category_sub');
-				const category_detail = document.getElementById('category_detail');
-				const panel_group = document.getElementById('panel-group');
-				category_zone.addEventListener('mouseenter', () => {
-					category_zone.style.zIndex="3";
-				}, false);
-				//OUT
-				for(var i = 0; i<7; i++){
-				category_sub[i].addEventListener('mouseleave', () => {
-					category_zone.style.zIndex = "0";
-				}, false);
-				}
-				</script>
-				
-				<span style="width:300px;margin-left:280px;pointer-events:none;z-index:-1 ">
-				</span>
-				<!--タブを切り替えて表示するコンテンツ-->
-				<span id="panel-group" style="float:right">
-						<span class="panel is-show">
 						<div></div>
-							{for $start=0 to $limit}
-							{if $products[$start]['product_category'] == 1}
-							<div class="col_1_of_3 span_1_of_3"> 
-								<a href="productDetail_smarty.php?product_id={$products[$start]['product_id']}">
-									<div class="product_image">
-										<img src="{$products[$start]['product_pass']}" class="product_images"/>
+						{foreach from=$products item=product}
+							<div class="col_1_of_3 span_1_of_3"style="margin-bottom:30px;"> 
+								<a href="productDetail_smarty.php?product_id={$product['product_id']}">
+									<div class="product_image" >
+										<img src="{$product['product_pass']}" class="product_images"/>
 										<div id="add_info">
 											<div id="product_name">
-												<p style="display:inline-block;text-align:left;">{$products[$start]['product_name']}<p>
+												<p style="display:inline-block;text-align:left;">{$product['product_name']}<p>
 											</div>
 											<div id="product_price">
-												<div style="display:inline-block;text-align:left;"><p style="margin-top:15px;">￥{$products[$start]['price']}</p></div>
+												<div style="display:inline-block;text-align:left;"><p style="margin-top:15px;">￥{$product['price']}</p></div>
 											</div>
 										</div>
 									</div>
 								</a>
 							</div>
-							{/if}
-							{/for}
-						</span>
-						
-						<span class="panel">
-						<div></div>
-							{for $start=0 to $limit}
-							{if $products[$start]['product_category'] == 2}
-							<div class="col_1_of_3 span_1_of_3"> 
-								<a href="productDetail_smarty.php?product_id={$products[$start]['product_id']}">
-									<div class="product_image">
-										<div style="height:60px;background:white;color:black;font-size:15px;text-align:center;">
-											<p style="display:inline-block;text-align:left;">{$products[$start]['product_name']}<p>
-										</div>
-										<img src="{$products[$start]['product_pass']}" class="product_images"/>
-										<div style="height:60px;background:white;color:black;font-size:20px;text-align:center;">
-											<div style="display:inline-block;text-align:left;"><p style="margin-top:15px;">￥{$products[$start]['price']}</p></div>
-										</div>
-									</div>
-								</a>
-							</div>
-							{/if}
-							{/for}
+							{/foreach}
 						</span>
 
 						<span class="panel">
+						<form action="products.php" method="get">
+				<ul class="sort_command">
+					<span style="margin-left:100px">
+					<li ><a href="products.php?sort_method=aiueo_order">五十音順</a></li>
+					<li ><a href="products.php?sort_method=sales_order">売れ筋順</a></li>
+					<li ><a href="products.php?sort_method=price_desk_order">価格高い順</a></li>
+					<li ><a href="products.php?sort_method=price_ask_order">価格低い順</a></li>
+					<ul>
+					</span>
+					</ul>
+						<span style="margin-left:75px">
+					<ul>
+					{for $start=0 to $page-1}
+					<li ><a href="#">{$start+1}</a></li>
+					{/for}
+					</ul>
+					</span>
+				</ul>
+				</form>
 						<div></div>
-							{for $start=0 to $limit}
-							{if $products[$start]['product_category'] == 3}
-							<div class="col_1_of_3 span_1_of_3"> 
-								<a href="productDetail_smarty.php?product_id={$products[$start]['product_id']}">
-									<div class="product_image">
-										<div style="height:60px;background:white;color:black;font-size:15px;text-align:center;">
-											<p style="display:inline-block;text-align:left;">{$products[$start]['product_name']}<p>
-										</div>
-										<img src="{$products[$start]['product_pass']}" class="product_images"/>
-										<div style="height:60px;background:white;color:black;font-size:20px;text-align:center;">
-											<div style="display:inline-block;text-align:left;"><p style="margin-top:15px;">￥{$products[$start]['price']}</p></div>
+				{foreach from=$products item=product}
+							<div class="col_1_of_3 span_1_of_3"style="margin-bottom:30px;"> 
+								<a href="productDetail_smarty.php?product_id={$product['product_id']}">
+									<div class="product_image" >
+										<img src="{$product['product_pass']}" class="product_images"/>
+										<div id="add_info">
+											<div id="product_name">
+												<p style="display:inline-block;text-align:left;">{$product['product_name']}<p>
+											</div>
+											<div id="product_price">
+												<div style="display:inline-block;text-align:left;"><p style="margin-top:15px;">￥{$product['price']}</p></div>
+											</div>
 										</div>
 									</div>
 								</a>
 							</div>
-							{/if}
-							{/for}
+							{/foreach}
 						</span>
 				</span>
 				</span>

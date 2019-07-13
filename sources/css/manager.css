@@ -616,8 +616,14 @@ left:40px;
 	height:140px;
 }
 label#customer_email-error {
-    color: red;
+	color: red;
+	position: absolute;
+    bottom:324px;
+    left:118px;
 }
 label#contact_text-error {
-    color: red;
+	color: red;
+	position: absolute;
+    bottom:228px;
+    left:90px;
 }
