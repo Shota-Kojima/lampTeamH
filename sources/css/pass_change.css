@@ -1,0 +1,40 @@
+/*CHANGEの枠*/
+.register-box30 {
+    width: 60%;
+    margin: 2em 0 0 13em;
+    background: #f1f1f1;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.22);
+}
+.register-box30 .register-box-title {
+    font-size: 1.2em;
+    background: #FF5B36;
+    padding: 4px;
+    text-align: center;
+    color: #FFF;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+}
+.passchange{
+    margin: 0 0 0 100px;
+}
+.passchange h4{
+    margin: 10px 0 0 150px;
+}
+.passchange h5{
+    margin: 0 0 0 10px;
+}
+.id{
+    margin: 15px 0 0 110px;
+}
+.id2{
+    margin-left: 0;
+}
+.newpass{
+    margin: 20px 0 5px 110px;
+}
+.check{
+    margin: 20px 0 5px 110px;
+}
+.email{
+    margin: 30px 0 0 150px;
+}
