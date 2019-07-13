@@ -14,6 +14,8 @@ if(isset($_SESSION['HTeam_adm']['customer_id']) && $_SESSION['HTeam_adm']['custo
     if($cartarr !== false){
         //カート内の合計商品数
         $product_count = 0;
+        $hanbai_count = 0;
+        $rental_count = 0;
         //カート内の合計金額
         $product_sum = 0;
         //重複して入る配列
@@ -71,6 +73,16 @@ if(isset($_SESSION['HTeam_adm']['customer_id']) && $_SESSION['HTeam_adm']['custo
                                 'cart_count'=> $cnt);
             }
         }
+
+        for($i=0;$i<count($cart);$i++){
+            if($cart[$i]['product_category'] === 1){
+                $hanbai_count += $cart[$i]['cart_count'];
+            }else if($cart[$i]['product_category'] === 2){
+                $rental_count += $cart[$i]['cart_count'];
+            }
+        }
+        $_SESSION['HTeam_adm']['hanbai_count']=$hanbai_count;
+        $_SESSION['HTeam_adm']['rental_count']=$rental_count;
         $smarty->assign('cart',$cart);
 
     }

@@ -269,16 +269,15 @@ background: url(../images/grid_view.png)no-repeat;
 
 }
 .tab.is-active{
-    background:rgb(163, 145, 121);
-    color:#FFF;
     transition: all 0.2s ease-out;
 }
 .panel.is-show{
     display:block;
  
 }
-#tab-group li.chose{
-    background-color: #fff;
+.chose{
+	background:rgb(163, 145, 121);
+	 color:#FFF;
 }
  
 .hide{

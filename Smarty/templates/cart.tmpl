@@ -87,8 +87,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				   <form action="purchase.php">
 					 <input type="submit" value="購入へ進む" title="">
 				  </form>
-				<p><b>購入：</b><div class="kou"> 点</p></div>
-				<p><b>レンタル：</b><div class="ren"> 点</p></div>
+				<p><b>購入：</b><div class="kou">{$session['HTeam_adm']['hanbai_count']}点</p></div>
+				<p><b>レンタル：</b><div class="ren">{$session['HTeam_adm']['rental_count']}点</p></div>
             　　<div class="sen1"></div>
                 <p><b>合計金額：</b><div class="kou1">{$session['HTeam_adm']['product_sum']} 円</p></div>
 				</div>
