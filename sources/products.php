@@ -9,38 +9,24 @@ require_once($CMS_COMMON_INCLUDE_DIR . "libs.php");
 //smartyクラスの初期化
 require_once("inc_smarty.php");
 require_once($CMS_COMMON_INCLUDE_DIR . "auth_user.php");
-
+if(!isset($_GET['page'])&&!isset($_GET['genre_id'])&&!isset($_GET['sort_method'])){
+		unset($_SESSION['HTeam_adm']['genre_id']);
+		unset($_SESSION['HTeam_adm']['sort_method']);
+}
+//1ページのリミット
 
 //デフォルト値
 readdata();
 // foreach($use_rows as $value){
 // var_dump($value['product_name']);
 // }
-$smarty->assign('products1',$category_array1);
-$smarty->assign('products2',$category_array2);
-$smarty->assign('products3',$category_array3);
-$smarty->assign('page1',$page1);
-$smarty->assign('page2',$page2);
-$smarty->assign('page3',$page3);
-if(isset($_GET['page1'])){
-	$smarty->assign('comp1',$_GET['page1']);
+$smarty->assign('products',$use_rows);
+$smarty->assign('page',$page);
+if(isset($_GET['page'])){
+	$smarty->assign('comp',$_GET['page']);
 }
 else{
-	$smarty->assign('comp1',0);
-}
-
-if(isset($_GET['page2'])){
-	$smarty->assign('comp2',$_GET['page2']);
-}
-else{
-	$smarty->assign('comp2',0);
-}
-
-if(isset($_GET['page3'])){
-	$smarty->assign('comp3',$_GET['page3']);
-}
-else{
-	$smarty->assign('comp3',0);
+	$smarty->assign('comp',0);
 }
 // echo($_SESSION['HTeam_adm']['product_sum']);
 // echo($_SESSION['HTeam_adm']['product_count']);
@@ -50,18 +36,8 @@ $smarty->assign('cart',$_SESSION);
 
 //データの読み込み
 function readdata(){
-	global $category_array1;
-	global $category_array2;
-	global $category_array3;
-	$category_array1 = array();
-	$category_array2 = array();
-	$category_array3 = array();
-	global $page1;
-	global $page2;
-	global $page3;
-	global $max1;
-	global $max2;
-	global $max3;
+	global $page;
+    global $max;
 	global $rows;
 	global $use_rows;
 	global $tgt_culmn;
@@ -69,12 +45,8 @@ function readdata(){
 	global $count;
 	global $limit;
 	$obj = new cproductH();
-	$page1 = 1;
-	$page2 = 1;
-	$page3 = 1;
-	$from1 = 0;
-	$from2 = 0;
-	$from3 = 0;
+	$page = 1;
+	$from = 0;
 	$limit = 9;
 	//デフォルトでの抽出条件はidが0より上のもの＝すべて
 	$tgt_culmn = "product_id";
@@ -127,57 +99,25 @@ function readdata(){
 	}
 	//ページング処理ゾーンはじまり
 	//現在の検索条件での抽出件数を格納
-	$max1 = $obj->get_all_category_genre_count(false,$conditions,$tgt_genre,1);
-	$max2 = $obj->get_all_category_genre_count(false,$conditions,$tgt_genre,2);
-	$max3 = $obj->get_all_category_genre_count(false,$conditions,$tgt_genre,3);
+	$max = $obj->get_all_category_genre_count(false,$conditions,$tgt_genre,1);
 
 	//１ページに表示する数を抽出件数が上回っている場合
-	if($max1>$limit){
+	if($max>$limit){
 		//上回っている回数分だけページを作り出す
 		//例）１ページに表示する数が3で抽出件数が10の場合
 		//    3ページ作り出す
-		$page1 = ($max1/$limit+1)+1;
-		
-	}
-	if($max2>$limit){
-		//上回っている回数分だけページを作り出す
-		//例）１ページに表示する数が3で抽出件数が10の場合
-		//    3ページ作り出す
-	
-		$page2 = ($max2/$limit+1)+1;
-	}
-	if($max3>$limit){
-		//上回っている回数分だけページを作り出す
-		//例）１ページに表示する数が3で抽出件数が10の場合
-		//    3ページ作り出す
-	
-		$page3 = ($max3/$limit+1)+1;
+		$page = ($max/$limit+1)+1;
 	}
 
 	//ページ送りがクリックされた場合
-	if(isset($_GET['page1'])){
+	if(isset($_GET['page'])){
 		//現在の抽出条件の何番目からを表示するか指定
 		//ちなみにlimitが１ページに何枚表示するかを格納する変数
-		$from1 = ($_GET['page1']-1)*$limit;
-	}
-	if(isset($_GET['page2'])){
-		//現在の抽出条件の何番目からを表示するか指定
-		//ちなみにlimitが１ページに何枚表示するかを格納する変数
-		$from2= ($_GET['page2']-1)*$limit;
-	}
-	if(isset($_GET['page3'])){
-		//現在の抽出条件の何番目からを表示するか指定
-		//ちなみにlimitが１ページに何枚表示するかを格納する変数
-		$from3 = ($_GET['page3']-1)*$limit;
+		$from = ($_GET['page']-1)*$limit;
 	}
 	//ページング処理ゾーンおわり
 	//ここまでで指定した抽出条件を送り、値を格納した配列を取得
-	$tgt_category = 1;
-	$category_array1 = $obj->get_all_order(false,$from1,$limit,$conditions,$tgt_genre,$tgt_culmn,$tgt_category);
-	$tgt_category = 2;
-	$category_array2 = $obj->get_all_order(false,$from2,$limit,$conditions,$tgt_genre,$tgt_culmn,$tgt_category);
-	$tgt_category = 3;
-	$category_array3 = $obj->get_all_order(false,$from3,$limit,$conditions,$tgt_genre,$tgt_culmn,$tgt_category);
+	$rows = $obj->get_all_order(false,$from,$limit,$conditions,$tgt_genre,$tgt_culmn,1);
 	$use_rows = $rows;
 	// for($i = 0; $i < $limit; $i ++) {
 	// 	if(strpos($use_rows[$i]['product_pass'],',') !== false){
@@ -186,26 +126,14 @@ function readdata(){
 	// 	}
 	// }
 	//指定した画像たちの一番最初だけを抽出
-	foreach($category_array1 as &$value) {
+	foreach($use_rows as &$value) {
 		if(strpos($value['product_pass'],',') !== false){
 	 		$work = explode(",",$value['product_pass']);
 			$value['product_pass'] = $work[0];
 		}
 	}
-	foreach($category_array2 as &$value) {
-		if(strpos($value['product_pass'],',') !== false){
-	 		$work = explode(",",$value['product_pass']);
-			$value['product_pass'] = $work[0];
-		}
-	}
-	foreach($category_array3 as &$value) {
-		if(strpos($value['product_pass'],',') !== false){
-	 		$work = explode(",",$value['product_pass']);
-			$value['product_pass'] = $work[0];
-		}
-	}
-	//カテゴリ分別
 	
+
 }
 
 //Smartyを使用した表示(テンプレートファイルの指定)

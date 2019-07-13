@@ -331,18 +331,19 @@ cart_bgって名前のclassはオレンジ色にしたりする
 					</span>
 					<span style="margin-left:75px">
 					<ul>
-					{for $start1=1 to $page1}
-					{if $start1 == $comp1}
-					<li >{$start1}</li>
+					{for $start=1 to $page}
+					{if $start == $comp}
+					<li >{$start}</li>
 					{else}
-					<li ><a href="products.php?page={$start1}">{$start1}</a></li>
+					<li ><a href="products.php?page={$start}">{$start}</a></li>
 					{/if}
 					{/for}
 					</ul>
 					</span>
 				</ul>
 				</form>
-							{foreach from=$products1 item=product}
+							{foreach from=$products item=product}
+							
 							<div class="col_1_of_3 span_1_of_3"style="margin-bottom:30px;"> 
 								<a href="productDetail_smarty.php?product_id={$product['product_id']}">
 									<div class="product_image" >
@@ -374,19 +375,15 @@ cart_bgって名前のclassはオレンジ色にしたりする
 					</ul>
 						<span style="margin-left:75px">
 					<ul>
-					{for $start2=1 to $page2}
-					{if $start2 == $comp2}
-					<li >{$start2}</li>
-					{else}
-					<li ><a href="products.php?page={$start2}">{$start2}</a></li>
-					{/if}
+					{for $start=0 to $page-1}
+					<li ><a href="#">{$start+1}</a></li>
 					{/for}
 					</ul>
 					</span>
 				</ul>
 				</form>
 						<div></div>
-						{foreach from=$products2 item=product}
+						{foreach from=$products item=product}
 							<div class="col_1_of_3 span_1_of_3"style="margin-bottom:30px;"> 
 								<a href="productDetail_smarty.php?product_id={$product['product_id']}">
 									<div class="product_image" >
@@ -418,19 +415,15 @@ cart_bgって名前のclassはオレンジ色にしたりする
 					</ul>
 						<span style="margin-left:75px">
 					<ul>
-					{for $start3=1 to $page3}
-					{if $start3 == $comp3}
-					<li >{$start3}</li>
-					{else}
-					<li ><a href="products.php?page={$start3}">{$start3}</a></li>
-					{/if}
+					{for $start=0 to $page-1}
+					<li ><a href="#">{$start+1}</a></li>
 					{/for}
 					</ul>
 					</span>
 				</ul>
 				</form>
 						<div></div>
-				{foreach from=$products3 item=product}
+				{foreach from=$products item=product}
 							<div class="col_1_of_3 span_1_of_3"style="margin-bottom:30px;"> 
 								<a href="productDetail_smarty.php?product_id={$product['product_id']}">
 									<div class="product_image" >
