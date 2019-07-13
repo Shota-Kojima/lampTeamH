@@ -1,41 +1,51 @@
-.icon{
-	width: 18%;
-	height: 18%;
-	border-radius: 50%;/*アイコンを丸くする*/
-	margin: 20px;
-  }
-/*商品の横スクロール*/
-.horizontal-list {
-	overflow-x: scroll;
-	white-space: nowrap;
-	-webkit-overflow-scrolling: touch;
+.main{
+	margin: 70px 0 150px 0;
 }
-.item {
-	/* 横スクロール用 */
-	display: inline-block;
-	width: 100px;
-
-	/* 見た目調整 */
-	height: 110px;
-	margin: 10px;
+.icon{
+	width: 160px;
+  	height: 160px;
+	border-radius: 50%;/*アイコンを丸くする*/
   }
-/*ボタン*/
+.username{
+	margin: 0 0 0 0 ;
+	font-size: 25px;
+}
+.userevaluation{
+	margin: 0 0 0 25px; 
+}
+/* ユーザー総合評価★レート */
+.star-rating {
+	position: relative;
+	width: 5em;
+	height: 1em;
+	font-size: 25px;
+	margin-left: 20px;
+  }
+  .star-rating-front {
+	position: absolute;
+	top: 0;
+	left: 0;
+	overflow: hidden;
+	color: #ffcc33;
+  }
+  .star-rating-back {
+	color:#808080;
+  }
+.pt{
+	margin: 20px 0 0 10px;
+}
 .btn-real-dent {
-	/*周りの凹み*/
 	display: inline-block;
 	position: relative;
 	text-decoration: none;
-	color:#FF5B36;
+	color:#696969;
 	width: 100px;
 	height: 100px;
 	border-radius: 50%;
 	text-align: center;
-	background: #f7f7f7;
-	box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.08);
+	margin: 0 0 0 25px;
   }
 .btn-real-dent i {
-	/*ボタン自体*/
-	position: absolute;
 	content: '';
 	width: 80px;
 	height: 80px;
@@ -53,19 +63,138 @@
 	box-shadow: inset 0 1px 0 rgba(255,255,255,0.5), 0 2px 2px rgba(0, 0, 0, 0.19);
 	border-bottom: solid 2px #d8d8d8;
   }
-.point{
-	position: absolute; left: 330px; bottom: -730px;
+  .btn-real-dent:hover {
+	color: #000000;
+  }
+
+/*商品の横スクロール*/
+.horizontal_scroll_wrap{
+    height: 270px;
+    overflow-y: hidden;
+	margin: 0 -10px;
+	display: inline-block;
 }
-.pt{
-	font-size: 50px;
-	position: absolute; left: 330px; bottom: -700px;
+.scroll_lst {
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    padding-bottom: 50px;
+    margin: 25px 0 0;
+    -webkit-overflow-scrolling: touch;
 }
-.userpagebox{
-	position: relative;
+.scroll_item {
+    margin: 0 10px;
+    display: inline-block;
+    width: 180px;
+    border: 1px solid #ddd;
+    background: #b7f8b7;
 }
-.saikin{
-	position: absolute; right: 100px; top: 1270px;
+.scroll_item:first-child {
+    margin-left: 10px;
 }
-.osusume{
-	position: absolute; right: 100px; top: 1460px;
+.scroll_item_inr {
+    display: block;
+}
+.scroll_item_info {
+    white-space: normal;
+	padding: 8px;
+	text-align: center;
+}
+
+.scroll_item_thum{
+	margin:10px 0 0 9px;
+}
+/*タブ切り替え全体のスタイル*/
+.tabs {
+	background-color: #fff;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+	width: 700px;
+	height: 350px;
+	margin: 0 40px;
+	position: absolute; top:880px; right:200px;
+  }
+  
+  /*タブのスタイル*/
+  .tab_item {
+	width: calc(100%/2);
+	height: 50px;
+	border-bottom: 3px solid #5ab4bd;
+	background-color: #d9d9d9;
+	line-height: 50px;
+	font-size: 16px;
+	text-align: center;
+	color: #565656;
+	display: block;
+	float: left;
+	font-weight: bold;
+	transition: all 0.2s ease;
+  }
+  .tab_item:hover {
+	opacity: 0.75;
+  }
+  
+  /*ラジオボタンを全て消す*/
+  input[name="tab_item"] {
+	display: none;
+  }
+  
+  /*タブ切り替えの中身のスタイル*/
+  .tab_content {
+	display: none;
+	width: 700px;
+	overflow: auto;
+  }
+  .tab_content::-webkit-scrollbar {
+	display: none;
+  }
+  /*選択されているタブのコンテンツのみを表示*/
+  #all:checked ~ #all_content,
+  #evaluation:checked ~ #evaluation_content {
+	display: block;
+  }
+  
+  /*選択されているタブのスタイルを変える*/
+  .tabs input:checked + .tab_item {
+	background-color: #5ab4bd;
+	color: #fff;
+  }
+  /* リスト */
+  #all_content li {
+	padding: 5px;
+  }
+  #evaluation_content li {
+	padding: 5px;
+  }
+
+.sap_tabs_mypage{
+	margin: 0 0 0 340px;
+	width: 70%;
+	clear:both;
+	padding: 1em 0 4em;
+	font-family: 'Roboto', sans-serif;
+}
+.sap_tabs_mypage{
+	padding-top:0;
+}
+.sap_tabs_mypage{
+	padding: 1em 0 2em;
+}
+h3.like_mypage, h3.recent_mypage{
+	color: #333;
+	font-size: 1.7em;
+	text-transform: uppercase;
+	font-family: 'Roboto', sans-serif;
+	font-style: italic;
+	font-weight: bold;
+	margin-bottom: 1em;
+}
+h3.like_mypage, h3.recent_mypage {
+	font-size: 1.2em;
+}
+h3.recent_mypage{
+	padding-top:2em;
+}
+.grid-flex_mypage{
+	margin:10px 0 20px 0;
+	font-family: 'Roboto', sans-serif;
 }
