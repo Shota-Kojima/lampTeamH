@@ -76,14 +76,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             <table width="100%" border="0" cellspacing="0" cellpadding="0">
                                 <tr>
 
-                                <th>{$contactarr['customer_email']}</th>
+                                <th>メールアドレス:{$contactarr['customer_email']}</th>
                                 </tr>
                                 <tr>
-                                <th>お問い合わせ内容</th>
+                                <th>お問い合わせ内容:{$contactarr['contact_text']}</th>
                                 </tr>
                             </table>
                             <form action="cgi-bin/formmail.cgi" method="post">
-                            <textarea id="co" rows="10" cols="110">{$contactarr['contact_text']}</textarea><br>
+                            <textarea id="co" rows="10" cols="110"></textarea><br>
                             <input id="re" type="reset" value="リセット"><input id="so" type="submit" value="送信">
                             </form>
                         </div>
