@@ -41,8 +41,8 @@ function readdata(){
         $limit = 10000;
     }
     $not_returned = array();
-    $rows = $obj->get_all_reply(false,$from,$limit);
-    $max  = $obj->get_tgt_count(false);
+    $rows = $obj->get_all_info(false,$from,$limit);
+    $max  = $obj->get_all_count(false);
     
     $page_max = ceil($max/$limit);
     $page = 1;

@@ -1740,7 +1740,7 @@ class crental extends crecord {
 			"count(*)",				//取得するカラム
 			"(transaction_details as details
 			 inner join transaction_info as info
-			 on deails.transaction_id = info.transaction_id)
+			 on details.transaction_id = info.transaction_id)
 			 inner join customer
 			 on info.customer_id = customer.customer_id",			//取得するテーブル join句などもここで
 			"1"					//条件
