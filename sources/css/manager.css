@@ -614,3 +614,13 @@ left:40px;
 }
 #header{
 	height:140px;
+<<<<<<< HEAD
+=======
+}
+label#customer_email-error {
+    color: red;
+}
+label#contact_text-error {
+    color: red;
+}
+>>>>>>> 8a13382a0a77b871432f363dbd7fa62c16f8309a

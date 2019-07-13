@@ -3,6 +3,7 @@
 	width: 70%;
 	background-color: #f8f8f8; /* 背景色 */
 	border: 1px solid #ccc; /* 枠線 */
+	border-radius: 0.75em;
    }
    .btn111 input[type="submit"]{
 	cursor: pointer;
@@ -19,6 +20,7 @@
 	-o-transition: all 0.3s ease-in-out;
 	transition: all 0.3s ease-in-out;
 	margin-bottom: 2em;
+	border-radius: 0.75em;
    }
    .btn111 input[type="submit"] {
 	font-size: 0.85em;
@@ -40,6 +42,8 @@
 	position: absolute;
 	left:1000px;
 	top:230px;
+	border-radius: 0.75em;
+
    }
    .box11{
 	width: 70%;
@@ -72,9 +76,9 @@
 	position: relative;
     top:38px;
 	left:200px;
-	color:red;
-	border: double 5px rgb(121, 190, 104);
-	border-radius: 0.75em;
+	color:rgb(219, 83, 83);
+	border: double 5px rgb(141, 184, 131);
+	border-radius: 0.50em;
 
 }
 .box11 .price1{
@@ -82,9 +86,9 @@
     position: relative;
     top:70px;
 	left:350px;
-	color:red;
-	border: double 5px rgb(121, 190, 104);
-	border-radius: 0.75em;
+	color:rgb(219, 83, 83);
+	border: double 5px rgb(141, 184, 131);
+	border-radius: 0.50em;
 
 }
 .sen{
@@ -100,18 +104,7 @@
 	padding-bottom: 13px;
 	font-family: 'Roboto', sans-serif;
 }
-.mono{
-	width: 400px;
-	padding: 10px;
-	overflow: hidden;
-}
-.mono1{
-	float: left;
-	margin: 0 10px 5px 0;
-}
-.mono p{
-	overflow: hidden;
-}
+
 .siha{
 	position: absolute;
 	top:260px;
@@ -123,7 +116,12 @@
 .poi{
 	position: absolute;
 	top:260px;
-	left: 580px;
+	left: 600px;
+}
+.poi .btn{
+	position: relative;
+	left:10px;
+	
 }
 .tentou{
 	position: absolute;
@@ -237,6 +235,7 @@
 	background-color: #FFF5EE;
 	box-shadow: 0 0 5px 1px #ccc; 
 	margin-bottom:200px;
+	border-radius: 0.75em;
    }
    .kakomi-box12 p{
 	   font-size:30px;
@@ -277,6 +276,7 @@ ul.mae2 li a{
 	-o-transition: all 0.3s ease-in-out;
 	transition: all 0.3s ease-in-out;
 	margin-bottom: 1em;
+	border-radius: 0.75em;
    }
    .btn333 form input[type="submit"] {
 	font-size: 0.85em;
@@ -292,6 +292,9 @@ label{
 	color:red;
 }
 .point1{
-	border-radius: 0.75em;
+	border-radius: 0.40em;
 
+}
+.userpoint{
+    border-radius: 0.40em;
 }
