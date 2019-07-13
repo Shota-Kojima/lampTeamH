@@ -29,23 +29,23 @@ function regist(){
     $dataarr['contact_text'] = (string)$_POST['contact_text'];
     $dataarr['reply_flag'] = (int)0;
     echo '<script type="text/javascript">alert("きちゃった");</script>';
-    // $chenge = new cchange_ex();
-    // $mid = $chenge->insert('contact',$dataarr);
-    // if($mid > 0){
-    //     mb_language("Japanese");
-    //     mb_internal_encoding("UTF-8");
+    $chenge = new cchange_ex();
+    $mid = $chenge->insert('contact',$dataarr);
+    if($mid > 0){
+        mb_language("Japanese");
+        mb_internal_encoding("UTF-8");
         
         
-    //     if(mb_send_mail("zeal17310029@c-league.jp", "お問い合わせ", $_POST['contact_text'])){
-    //         echo '<script type="text/javascript">alert("送信しました(送信完了画面に遷移予定)");</script>';
-    //     } else {
-    //         echo '<script type="text/javascript">alert("送信に失敗しました(送信失敗画面に遷移予定)");</script>';
-    //     }
+        if(mb_send_mail("zeal17310029@c-league.jp", "お問い合わせ", $_POST['contact_text'])){
+            echo '<script type="text/javascript">alert("送信しました(送信完了画面に遷移予定)");</script>';
+        } else {
+            echo '<script type="text/javascript">alert("送信に失敗しました(送信失敗画面に遷移予定)");</script>';
+        }
         
-    // }else{
-    //     echo '<script type="text/javascript">alert("送信に失敗しました(送信失敗画面に遷移予定)");</script>';
-    // }
-    // echo '<script type="text/javascript">alert("送信しました(送信完了画面に遷移予定)");</script>';
+    }else{
+        echo '<script type="text/javascript">alert("送信に失敗しました(送信失敗画面に遷移予定)");</script>';
+    }
+    echo '<script type="text/javascript">alert("送信しました(送信完了画面に遷移予定)");</script>';
 }
 
 
