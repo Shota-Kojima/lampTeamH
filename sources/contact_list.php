@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once("inc_base.php");
 require_once($CMS_COMMON_INCLUDE_DIR . "libs.php");
 require_once("inc_smarty.php");
@@ -62,9 +63,17 @@ function readdata(){
     $limit2 = 3;
     if(isset($_POST['search_text1'])){
          $search_text1 = $_POST['search_text1'];
+         $_SESSION['HTeam']['search_text1'] = $search_text1;
+    }
+    else if(isset($_SESSION['HTeam']['search_text1'])){
+         $search_text1 = $_SESSION['HTeam']['search_text1'];
     }
     if(isset($_POST['search_text2'])){
          $search_text2 = $_POST['search_text2'];
+         $_SESSION['HTeam']['search_text2'] = $search_text2;
+    }
+    else if(isset($_SESSION['HTeam']['search_text2'])){
+         $search_text2 = $_SESSION['HTeam']['search_text2'];
     }
     //ページ送りがクリックされた場合
 	if(isset($_GET['page1'])){
@@ -87,7 +96,7 @@ function readdata(){
     }
     $replyed = array();
     $not_reply = array();
-    if(isset($_POST['search_text1'])){
+    if(isset($_POST['search_text1'])||isset($_SESSION['HTeam']['search_text1'])){
          $search_text1 = '%'.$search_text1.'%';
          $flag1 = "reply_flag = 0 and contact_text like '$search_text1'";
          $rows1 = $obj->get_all_reply(false,$flag1,$from1,$limit1);
@@ -98,7 +107,7 @@ function readdata(){
          $rows1 = $obj->get_all_reply(false,$flag1,$from1,$limit1);
          $max1 = $obj->get_tgt_count(false,$flag1);
     }
-    if(isset($_POST['search_text2'])){
+    if(isset($_SESSION['HTeam']['search_text2'])){
          $search_text2 = '%'.$search_text2.'%';
          $flag2 = "reply_flag = 1 and contact_text like '$search_text2'";
          $rows2 = $obj->get_all_reply(false,$flag2,$from2,$limit2);

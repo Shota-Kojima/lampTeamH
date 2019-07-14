@@ -1737,13 +1737,13 @@ class crental extends crecord {
 		//親クラスのselect()メンバ関数を呼ぶ
 		$this->select(
 			$debug,					//デバッグ文字を出力するかどうか
-			"count(*)",				//取得するカラム
-			"(transaction_details as details
-			 inner join transaction_info as info
-			 on details.transaction_id = info.transaction_id)
+			"distinct count(*)",				//取得するカラム
+			"(transaction_info as info
 			 inner join customer
-			 on info.customer_id = customer.customer_id",			//取得するテーブル join句などもここで
-			"1"					//条件
+			 on info.customer_id = customer.customer_id)
+			 inner join transaction_details as details
+			 on info.transaction_id = details.transaction_id",	//取得するテーブル
+			"details.transaction_category = 2"
 		);
 		if($row = $this->fetch_assoc()){
 			//取得した個数を返す
@@ -1785,14 +1785,14 @@ class crental extends crecord {
 		//親クラスのselect()メンバ関数を呼ぶ
 		$this->select(
 			$debug,			//デバッグ表示するかどうか
-			"*",			//取得するカラム
-			"(transaction_details as details
-			 inner join transaction_info as info
-			 on deails.transaction_id = info.transaction_id)
+			"distinct info.customer_id,customer_email",			//取得するカラム
+			"(transaction_info as info
 			 inner join customer
-			 on info.customer_id = customer.customer_id",	//取得するテーブル
-			"1",			//条件
-			"transaction_id asc",	//並び替え
+			 on info.customer_id = customer.customer_id)
+			 inner join transaction_details as details
+			 on info.transaction_id = details.transaction_id",	//取得するテーブル
+			"details.transaction_category = 2",			//条件
+			"info.transaction_id asc",	//並び替え
 			"limit " . $from . "," . $limit		//抽出開始行と抽出数
 		);
 		//順次取り出す

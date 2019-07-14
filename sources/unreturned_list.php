@@ -56,7 +56,7 @@ function readdata(){
     }
 
     foreach($rows as $value){
-       
+        var_dump($value['customer_id']);
         $not_returned[] = $value;
     }
 
