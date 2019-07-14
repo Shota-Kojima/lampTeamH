@@ -19,6 +19,7 @@ input,textarea,select{
 	font-size:11px
 }
 .checkbox{
+	width:13px;
 	height:13px;
 	vertical-align:top;
 	position:relative;
@@ -187,6 +188,7 @@ a.ico:hover{
 .box-head{
 	-moz-border-radius-topleft:5px;
 	-moz-border-radius-topright:5px;
+	-webkit-border-top-left-radius:5px;
 	-webkit-border-top-right-radius:5px
 }
 .field,.button{
@@ -255,9 +257,9 @@ a.ico:hover{
     padding: 0;
 }
 h1 img{
-position: absolute;
-top:40px;
-left:100px;
+    position: absolute;
+    top: 40px;
+    left: 100px;
 }
 .back1{
 	
@@ -308,7 +310,7 @@ left:100px;
 	
    h1 {
 	text-align:center;
-	margin:25px auto 55px;
+		margin:25px auto 55px;
 	
    }
 	
@@ -323,23 +325,23 @@ left:100px;
 	padding:0 10px;
    }
    #form1{
-	position: absolute;;
-	top:55px;	
-	left:320px;
-	max-width:270px;
-	margin-bottom:15px; 	
-	}
+    position: absolute;
+    top: 55px;
+    left: 320px;
+    max-width: 270px;
+    margin-bottom: 15px;
+   }
 	
 	#sbox{
-	position:absolute;
-	left:0;
-	top:0; 	
-	outline:0;	
-	height:50px;
-	width:270px;	
-	padding:0 10px;	 
-	border-radius:2px 0 0 2px;
-	background:#eee;		
+        position: absolute;
+        left: 0;
+        top: 0;
+        outline: 0;
+        height: 50px;
+        width: 270px;
+        padding: 0 10px;
+        border-radius: 2px 0 0 2px;
+        background: #eee;	
 	}
 	
 	#sbtn{
@@ -367,17 +369,17 @@ left:100px;
 	  }
 	  .btn-border {
 		display: inline-block;
-		max-width: 180px;
-		text-align: left;
-		border: 2px solid #7fbfff;
-		font-size: 16px;
-		color: #7fbfff;
-		text-decoration: none;
-		font-weight: bold;
-		padding: 8px 25px;
-		border-radius: 4px;
-		transition: .4s;
-		margin-right:10px
+    max-width: 180px;
+    text-align: left;
+    border: 2px solid #7fbfff;
+    font-size: 16px;
+    color: #7fbfff;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 25px;
+    border-radius: 4px;
+    transition: .4s;
+    margin-right: 10px;
 	  }
 	  
 	  .btn-border:hover {
@@ -387,19 +389,19 @@ left:100px;
 		
 	  }
 	  .users{
-	  border-radius: 50%;
-	  position: relative;
-	  left:1100px;
-	  top:25px;
-	  }
+        border-radius: 50%;
+        position: relative;
+        left:1100px;
+        top:25px;
+        }
 	  /*ヘッダーまわりはご自由に*/
 
   
-  #nav-drawer {
-	position: absolute;
-	top:68px;
-	left:1260px;
-  }
+      #nav-drawer {
+        position: absolute;
+        top:68px;
+        left:1260px;
+      }
   
   /*チェックボックス等は非表示に*/
   .nav-unshown {
@@ -502,7 +504,6 @@ left:100px;
   .hamburger-top {
 	height: 40px;
 	margin-top: 5px;
-	margin-right : 100px;
   }
   .cancel {
 	display: inline-block;
@@ -570,13 +571,13 @@ left:100px;
 	left:40px;
   }
 #jsi-board{
- background: #ffffff;/*背景色*/
-  padding:10em;/*文字まわり（上下左右）の余白*/
-  width:80%;
-	padding:10px;
-	margin: 5px 10px 0;
-	position: relative;
-	left:30px;
+    background: #ffffff;/*背景色*/
+    padding:10em;/*文字まわり（上下左右）の余白*/
+    width:80%;
+      padding:10px;
+      margin: 5px 10px 0;
+      position: relative;
+      left:30px;
 }
 
 .panel {
@@ -611,18 +612,8 @@ left:40px;
 	top:1100px;
 	left:385px;
 }
-#header{
-	height:140px;
-}
-label#customer_email-error {
-	color: red;
-	position: absolute;
-    bottom:324px;
-    left:118px;
-}
-label#contact_text-error {
-	color: red;
-	position: absolute;
-    bottom:228px;
-    left:90px;
+
+.panel #chat{
+	
+
 }
