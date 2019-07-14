@@ -1,0 +1,77 @@
+.box3 {
+	width: 30%;
+    padding: 0.5em 1em;
+    margin: 2em 0;
+    color: #2c2c2f;
+	background: #ffa07a;/*背景色*/
+}
+.box3 p{
+	padding: 0px 50px 0px ;
+}
+.btn111 form input[type="submit"]{
+    cursor: pointer;
+    border: none;
+    outline: none;
+    display: inline-block;
+    font-size: 1em;
+    padding: 13px 20px;
+    background: #fb4d01;
+    color: #FFF;
+    text-transform: uppercase;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    margin-bottom: 2em;
+   }
+   .btn111 form input[type="submit"] {
+    font-size: 0.85em;
+    padding: 10px 50px;
+    position: relative;
+    left:20px;
+}
+.btn111 form input[type="submit"]:hover{
+    background: #ee4a02;
+}
+/*枠*/
+.box11{
+	width: 70%;
+    padding: 0.5em 1em;
+    margin: 2em 1em 2em 10em;
+    color: #5d627b;
+    background: white;
+    border-top: solid 5px #FF5B36;
+	box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+    position: relative;
+    border-radius: 3em ;
+}
+.box11 p {
+    margin: 0; 
+    padding: 0;
+}
+/*商品画像*/
+.mono{
+	width: 400px;
+	padding: 10px;
+	margin-bottom: 30px;
+	overflow: hidden;
+}
+.mono1{
+	float: left;
+	margin: 0 10px 5px 0;
+}
+.mono p{
+	overflow: hidden;
+}
+/*購入ボタン*/
+.re{
+    background: #f0e68c;
+}
+/*削除ボタン*/
+.de{
+    background: #ff6347;
+}
+.memo{
+	position: absolute; right:60px; top:100px;
+}
+

@@ -2,7 +2,7 @@
     display: flex;
     justify-content: center;
     width:60%;
-    margin-top:25px;
+	margin-top:25px;
 }
 .tab{
     flex-grow: 1;
@@ -11,23 +11,35 @@
     border:solid 1px #CCC;
     text-align:center;
     cursor:pointer;
-    
+    -webkit-border-top-left-radius:5px
 }
-#panel-group{
+.panel-group{
     width:77%;
     z-index:2;
+    font-family: 'Tahoma';
 }
 .panel{
-    display:none;
-
 }
 .tab.is-active{
-    background:#FF5B36;
-    color:#FFF;
     transition: all 0.2s ease-out;
 }
-.panel.is-show{
-    display:block;
-    background:#F8F8F8;
+.chose{
+	background:rgb(163, 145, 121);
+	 color:#FFF;
+}
  
+.hide{
+    display: none;
+}
+.visible{
+    display: inline;
+}
+.color_befor{
+    background : rgb(160, 160, 160);
+}
+.color_after{
+    background : rgb(207, 189, 177);
+}
+.mouse{
+   cursor:pointer; 
 }

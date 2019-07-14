@@ -10,6 +10,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <title>RE:SURVIVAL : 初心者の方へ</title>
 <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
 <link href="css/beginner.css" rel='stylesheet' type='text/css' />
+<!-- aos.css -->
+<link href="css/aos.css" rel='stylesheet' type='text/css' />
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="js/jquery.min.js"></script>
 <!-- Custom Theme files -->
@@ -28,6 +30,16 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <link href="css/magnific-popup.css" rel="stylesheet" type="text/css">
 <!-- 試験的js導入 -->
 <script type="text/javascript" src="js/beginner.js"></script>
+<script src='//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+<script type="text/javascript" src="js/loader.js"></script>
+<!-- aos.js -->
+<script type="text/javascript" src="js/aos.js"></script>
+<!-- loader -->
+<link href="css/loader.css" rel='stylesheet' type='text/css' />
+<!-- aos/スクロールでのエフェクト追加実行-->
+<script>
+    AOS.init();
+</script>
 		<script>
 			$(document).ready(function() {
 				$('.popup-with-zoom-anim').magnificPopup({
@@ -44,14 +56,30 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		});
 		</script>
 </head>
-<!-- こ↑こ↓から初心者心得 -->
-<div class="be">
-	<section class="effect-fade">
-	 <h1>ー初めてのキャンプの前にー</h1>
-	</section>
-</div>
-
-
+<body>
+<div class="wrap">
+	<!-- ローディングアニメーション -->
+	<div class="loading">
+		<div class="spinner">
+			<div class="double-bounce1"></div>
+			<div class="double-bounce2"></div>
+		</div>
+		<div class="animation">Now Loading...</div>
+	</div>
+	<!-- こ↑こ↓から初心者心得 -->
+	<div class="beginner">
+		<div data-aos="fade" data-aos-duration="500" data-aos-offset="300">
+			<img class="camp3" src='images/camp3.jpg'>
+		</div>
+		<h1>初めてのキャンプの前に</h1>
+		<div data-aos="fade" data-aos-duration="500" data-aos-offset="300">
+			<img class="camp2" src='images/camp2.jpg'>
+		</div>
+		<div data-aos="fade-up" data-aos-duration="500" class="sono1">
+			<p>準備しておきたいもの</p>
+			<img src='images/camp1.jpg'>
+		</div>
+	</div>
 <!-- アイコンだしてるだけ -->
 		<div class="container">
 		  <div class="brands">
@@ -162,6 +190,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
            <p>&copy; 2014 Template by <a href="http://w3layouts.com" target="_blank"> w3layouts</a></p>
         </div>
     </div>
+</div>
 </div>
 </body>
 </html>

@@ -7,7 +7,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>RE:SURVIVAL : 内容確認</title>
+<title>RE:SURVIVAL : パスワード変更用メール送信</title>
 <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="js/jquery.min.js"></script>
@@ -15,6 +15,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <link href="css/style.css" rel='stylesheet' type='text/css' />
 <link href="css/component.css" rel='stylesheet' type='text/css' />
 <link href="css/manager.css" rel='stylesheet' type='text/css' />
+<link href="css/pass_change.css" rel='stylesheet' type='text/css' />
 <!-- Custom Theme files -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
@@ -26,8 +27,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 {include file='shere_noncart.tmpl'}
 {literal}
 <link href="css/magnific-popup.css" rel="stylesheet" type="text/css">
-<!--会員登録のcss-->
-<link href="css/register.css" rel="stylesheet" type="text/css">
 		<script>
 			$(document).ready(function() {
 				$('.popup-with-zoom-anim').magnificPopup({
@@ -48,33 +47,31 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <div class="main">
 	   <div class="container">
 		  <div class="register">
+          <form action="" method="post" enctype="multipart/form-data">
 		    <div class="register-box30">
-			<div class="register-box-title">CHECK</div>
-			<p>
-		  	  <form> 
-				<div class="register-top-grid">
-				 <center>
-				 	<h3><font size="5">会員情報確認</font></h3>
-					 <h4>氏：</h4>
-					 <h4>名：</h4>
-					 <h4>メールアドレス：</h4>
-					 <h4>ID:</h4>
-					 <h4>パスワード:</h4>
-				 </center>
-				</div>
+			<div class="register-box-title">FORGET</div>
+		  	  <form action="" method="post" enctype="multipart/form-data"> 
+					<div class="passchange">
+							<h4>パスワードを忘れた方へ</h4><br>
+                            <h5>パスワード再設定用のフォームを送るのでメールアドレスの入力をお願いします</h5>
+								<div class="email">
+									<span>メールアドレス</span><br>
+									<input type="text" class="id2" name="customer_email" autocomplete="off">
+								</div>
+					</div>
 				</form>
 				<div class="clearfix"> </div>
 				<div class="register-but">
 				<center>
 				   <form>
-					   <input type="submit" value="登録" formaction="kanryou.php">
+					   <input type="submit" value="送信" formaction="kanryou.php">
 					   <div class="clearfix"> </div>
 				   </form>
 				</center>
 				</div>
-			</p>
 			</div>
 		   </div>
+
 	     </div>
 	    </div>
 		<div class="container">

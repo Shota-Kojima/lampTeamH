@@ -71,43 +71,45 @@ if(isset($_POST["commit"])){
         }
         
         
+        $dataarr = array();
+        $dataarr['customer_id'] = (String)$_SESSION['HTeam_adm']['customer_id'];
+        $dataarr['purchase_date'] = (String)date('YmdHis');
+        $dataarr['total_money'] = $_SESSION['HTeam_adm']['product_sum'];
+        $dataarr['total_value'] = $_SESSION['HTeam_adm']['product_count'];
+        $cart_obj = new ccart();
+        $chenge = new cchange_ex(); 
+        $mid = $chenge->insert('transaction_info',$dataarr);
+        
+        
+        for($i=0;$i<count($cart);$i++){
             $dataarr = array();
-            $dataarr['customer_id'] = (String)$_SESSION['HTeam_adm']['customer_id'];
-            $dataarr['purchase_date'] = (String)date('YmdHis');
-            $cart_obj = new ccart();
-            $chenge = new cchange_ex(); 
-            $mid = $chenge->insert('transaction_info',$dataarr);
-            
-            $dataarr = array();
+            $dataarr['transaction_id'] = (int)$mid;
+            $dataarr['product_id'] = (int)$cart[$i]['product_id'];
+            $dataarr['purchase_value'] = (int)$cart[$i]['cart_count'];
+            $dataarr['purchase_price'] = (int)$cart[$i]['price']/(int)$cart[$i]['cart_count'];
+            //レンタル期間
+            $dataarr['rental_date'] = "";
+            $dataarr['transaction_category'] = (int)$cart[$i]['product_category'];
+            $chenge->insert('transaction_details',$dataarr);
+        }
+        // $_SESSION[];
+        $_SESSION['HTeam_adm']['product_count']=0;
+        $_SESSION['HTeam_adm']['product_sum']=0;
+        $_SESSION['HTeam_adm']['fake_sum']=0;
 
-            for($i=0;$i<count($cart);$i++){
-                $dataarr['transaction_id'] = (int)$mid;
-                $dataarr['product_id'] = (int)$cart[$i]['product_id'];
-                $dataarr['purchase_value'] = (int)$cart[$i]['cart_count'];
-                $dataarr['purchase_price'] = (int)$cart[$i]['price'];
-                //レンタル期間
-                $dataarr['rental_date'] = "";
-                $dataarr['transaction_category'] = (int)$cart[$i]['product_category'];
-                $mid = $chenge->insert('transaction_details',$dataarr);
-            }
-            // $_SESSION[];
-            $_SESSION['HTeam_adm']['product_count']=0;
-            $_SESSION['HTeam_adm']['product_sum']=0;
-            $_SESSION['HTeam_adm']['fake_sum']=0;
-
-            $cartarr = $cart_obj->get_allH(false,$_SESSION['HTeam_adm']['customer_id']);
-            if($cartarr !== false){
-                $chenge->delete("cart","customer_id=" . '"'.$_SESSION['HTeam_adm']['customer_id'].'"');
-                echo '<script type="text/javascript">alert(購入完了);</script>';    
-            }else{
-                echo '<script type="text/javascript">alert(ダメでしょ);</script>';     
-            }
+        $deleteChk = $cart_obj->get_allH(false,$_SESSION['HTeam_adm']['customer_id']);
+        if($deleteChk !== false){
+            $chenge->delete("cart","customer_id=" . '"'.$_SESSION['HTeam_adm']['customer_id'].'"');
+            echo '<script type="text/javascript">alert(購入完了);</script>';    
+        }else{
+            echo '<script type="text/javascript">alert(ダメでしょ);</script>';     
+        }
             
           
         // for($i=0; $i < count($cart); $i++){
         // }
 
-        $smarty->assign('cart',$cart);
+        $smarty->assign('cart',$_SESSION);
 
     }
     

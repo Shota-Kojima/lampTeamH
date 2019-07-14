@@ -7,7 +7,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>RE:SURVIVAL : 内容確認</title>
+{literal}
+<title>RE:SURVIVAL : マイリスト</title>
 <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="js/jquery.min.js"></script>
@@ -23,11 +24,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <script src="js/jquery.easydropdown.js"></script>
 <!-- Add fancyBox main JS and CSS files -->
 <script src="js/jquery.magnific-popup.js" type="text/javascript"></script>
-{include file='shere_noncart.tmpl'}
-{literal}
 <link href="css/magnific-popup.css" rel="stylesheet" type="text/css">
-<!--会員登録のcss-->
-<link href="css/register.css" rel="stylesheet" type="text/css">
+<!--マイリストのcss-->
+<link href="css/mylist.css" rel='stylesheet' type='text/css' />
+<!--アイコン-->
+<link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+
 		<script>
 			$(document).ready(function() {
 				$('.popup-with-zoom-anim').magnificPopup({
@@ -45,38 +47,64 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		</script>
 </head>
 <body>
+	<div class="gray top"> 
+		<ul> <li><a href="#">TOP</a></li>
+			 <li><a href="#">お買い物カゴ</a></li>
+			 <li><a href="#">お問い合わせ</a></li> 
+			 <li><a href="#">ガイド/返品</a></li> </ul> 
+	</div>  
+		<img class="users" src="images/user.png"> 
+		<h1><a href="#"><img src="images/logo.png" width="130px" height="100px"></a></h1>
+		<form id="form1" action="URL"> <input id="sbox"  id="s" name="s" type="text" placeholder="キーワードを入力" /> 
+		<input id="sbtn" type="submit" value="検索" /> </form> 
+		<div class="container1"> 
+			<a href="#" class="btn-border">ログイン</a> 
+			<a href="#" class="btn-border">新規登録</a> 
+		</div> 
+		<div id="nav-drawer">       
+			<input id="nav-input" type="checkbox" class="nav-unshown">       
+			<label id="nav-open" for="nav-input"><span></span></label>       
+			<label class="nav-unshown" id="nav-close" for="nav-input"></label>  
+			<div id="nav-content">       
+				<div class="hamburger-top">
+					<label class="cancel" for="nav-input"></label>
+				</div>       
+				<ul><p><img src="images/user.png" width="100px" height="100px">ユーザID・メアド</p>       
+				<li><a href="#"><img src="images/top.png" width="40px" height="40px">Top</a></li>       
+				<li><a href="manager_list.php"><img src="images/kanri.png" width="40px" height="40px">管理者一覧</a></li>      
+				<li><a href="#"><img src="images/return.png" width="40px" height="40px">未返却リスト</a></li>       
+				<li><a href="#"><img src="images/blacklist.png" width="40px" height="40px">ブラックリスト</a></li>       
+				<li><a href="contact_list.php"><img src="images/contact.png" width="40px" height="40px">お問い合わせ一覧</a></li>       
+				<li><a href="#"><img src="images/logout.png" width="40px" height="40px">ログアウト</a></li></ul>       
+			</div>   
+		</div> 
     <div class="main">
 	   <div class="container">
-		  <div class="register">
-		    <div class="register-box30">
-			<div class="register-box-title">CHECK</div>
-			<p>
-		  	  <form> 
-				<div class="register-top-grid">
-				 <center>
-				 	<h3><font size="5">会員情報確認</font></h3>
-					 <h4>氏：</h4>
-					 <h4>名：</h4>
-					 <h4>メールアドレス：</h4>
-					 <h4>ID:</h4>
-					 <h4>パスワード:</h4>
-				 </center>
-				</div>
-				</form>
-				<div class="clearfix"> </div>
-				<div class="register-but">
-				<center>
-				   <form>
-					   <input type="submit" value="登録" formaction="kanryou.php">
-					   <div class="clearfix"> </div>
-				   </form>
-				</center>
-				</div>
-			</p>
+		<font size="7" color="#FF5B36">マイリスト</font>
+			<div class="box11">
+    				<font color="#FF5B36">登録日</font>
+					<br>2019/06/29
+                		<div class="mono">
+							<div class="mono1">
+								<a href="#"><img src="images/pic1.jpg"  width="120" height="120">
+							</div>
+							<p><b><font size="5" color="#4169e1">商品名</font></b></a><br><font color="#ff0000">¥9,600</font></p>
+							残り8点　ご注文はお早めに
+								<textarea class="memo" cols="40" rows="4"  placeholder="メモ欄"></textarea>
+						</div>
 			</div>
-		   </div>
-	     </div>
-	    </div>
+			<div class="box11">
+    				<font color="#FF5B36">登録日</font>
+					<br>2019/06/20
+                		<div class="mono">
+							<div class="mono1">
+								<a href="#"><img src="images/pic2.jpg"  width="120" height="120">
+							</div>
+							<p><b><font size="5" color="#4169e1">商品名</font></b></a><br><font color="#ff0000">¥400</font></p>
+							残り2点　ご注文はお早めに
+								<textarea class="memo" cols="40" rows="4"  placeholder="メモ欄"></textarea>
+						</div>
+			</div>
 		<div class="container">
 		  <div class="brands">
 			 <ul class="brand_icons">

@@ -9,8 +9,8 @@ require_once($CMS_COMMON_INCLUDE_DIR . "libs.php");
 //smartyクラスの初期化
 require_once("inc_smarty.php");
 require_once($CMS_COMMON_INCLUDE_DIR . "auth_user.php");
-if(!isset($_GET['page'])&&!isset($_GET['genre_id'])&&!isset($_GET['sort_method'])){
-		unset($_SESSION['HTeam_adm']['genre_id']);
+if(!isset($_GET['page'])&&!isset($_GET['sale_genre_id'])&&!isset($_GET['sort_method'])){
+		unset($_SESSION['HTeam_adm']['sale_genre_id']);
 		unset($_SESSION['HTeam_adm']['sort_method']);
 }
 //1ページのリミット
@@ -20,8 +20,8 @@ readdata();
 // foreach($use_rows as $value){
 // var_dump($value['product_name']);
 // }
-$smarty->assign('products',$use_rows);
-$smarty->assign('page',$pass_data[1]['page']);
+$smarty->assign('product_sale',$use_rows);
+$smarty->assign('page1',$pass_data[1]['page']);
 if(isset($_GET['page'])){
 	$smarty->assign('comp',$_GET['page']);
 }
@@ -50,8 +50,8 @@ function readdata(){
 	$pass_data[1]['tgt_culmn'] = "product_id";
 	$pass_data[1]['conditions'] = "genre_id >";
 	$pass_data[1]['tgt_genre'] = "0";
-	if(isset($_GET['genre_id'])){
-		unset($_SESSION['HTeam_adm']['genre_id']);
+	if(isset($_GET['sale_genre_id'])){
+		unset($_SESSION['HTeam_adm']['sale_genre_id']);
 		unset($_SESSION['HTeam_adm']['sort_method']);
 	}
 	// if(isset($_GET['genre_id'])){
@@ -60,18 +60,18 @@ function readdata(){
 
 	//genre_idが送られてきている(ジャンルタブがクリックされている)場合
 	//かつジャンルタブの「すべて」以外がクリックされている場合
-	if(isset($_GET['genre_id'])&&($_GET['genre_id']!="0")){
+	if(isset($_GET['sale_genre_id'])&&($_GET['sale_genre_id']!="0")){
 		//抽出条件がクリックされたタブのジャンルのものとなる
 		//同時にgenre_idをsessionに保持
 		$pass_data[1]['conditions'] = "genre_id =";
-		$pass_data[1]['tgt_genre'] = $_GET['genre_id'];
-		$_SESSION['HTeam_adm']['genre_id'] = $pass_data[1]['tgt_genre'];
+		$pass_data[1]['tgt_genre'] = $_GET['sale_genre_id'];
+		$_SESSION['HTeam_adm']['sale_genre_id'] = $pass_data[1]['tgt_genre'];
 	}
 	//sessionにgenre_idが保持されていた場合
-	if(isset($_SESSION['HTeam_adm']['genre_id'])){
+	if(isset($_SESSION['HTeam_adm']['sale_genre_id'])){
 		$pass_data[1]['conditions'] = "genre_id =";
 		//保持されているgenre_idを抽出条件にする
-		$pass_data[1]['tgt_genre'] = $_SESSION['HTeam_adm']['genre_id'];
+		$pass_data[1]['tgt_genre'] = $_SESSION['HTeam_adm']['sale_genre_id'];
 	}
 	//order byの条件の設定	
 	//並べ替えのボタンがクリックされた場合
@@ -135,7 +135,7 @@ function readdata(){
 }
 
 //Smartyを使用した表示(テンプレートファイルの指定)
-$smarty->display('products.tmpl');
+$smarty->display('product_list.tmpl');
 
 //▲▲▲▲▲▲関数呼び出しブロック▲▲▲▲▲▲
 

@@ -1,0 +1,633 @@
+<!--
+	ここ最後まで読んでくれ
+	よめ
+	よめ
+	よめ
+	よめ
+「商品一覧ページ」
+class は　CSSなどにあらかじめ設定してある色などを設定することができる
+cart_bgって名前のclassはオレンジ色にしたりする
+(css/style.cssの174行目参照)
+
+	ーーーーーーーーーーーーーー見るところーーーーーーーーーーーーーーーーーー
+	1.CSSファイルは読まなくていい(時間の無駄)
+	2.Clasに設定している物によって、「何色に変わるか」、「どんなフォントになるか」「どんな配置になるか」
+	を見てくれ
+	3.Classでよく使われている [clearfix]そして、[container] ってのがあるんだけど、
+	これが超重要になる 
+	clearfixについて：http://creator.aainc.co.jp/archives/4721
+	container:https://www.ipentec.com/document/html-css-bootstrap-container
+	ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+
+	６分くらいでよめるから頑張ってくれ！
+	あと時間あったらJquery調べといて！よろ
+-->
+<!DOCTYPE HTML>
+<html>
+<head>
+
+<!-- タイトル名の設定と、CSSの読み込み -->
+<title>RE:SURVIVAL : トップ</title>
+<link href="./css/bootstrap.css" rel='stylesheet' type='text/css' />
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<!-- jQueryの読み込み -->
+<script src="js/jquery.min.js"></script>
+<script src="js/tab.js"></script>
+
+<!-- Custom Theme files -->
+<link href="./css/products.css" rel='stylesheet' type='text/css' />
+<link href="css/products_header.css" rel='stylesheet' type='text/css' />
+<link href="./css/style.css" rel='stylesheet' type='text/css' />
+<link href="./css/tab.css" rel='stylesheet' type='text/css' />
+<!-- Custom Theme files -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+
+<!--webfont-->
+<!-- これ大事 -->
+<!-- CDN(URLでCSSを読み込むことができるもの)でフォントを設定する -->
+<link href='http://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700,800,900' rel='stylesheet' type='text/css'>
+<script src="js/jquery.easydropdown.js"></script>
+
+<!-- Add fancyBox main JS and CSS files -->
+<script src="js/jquery.magnific-popup.js" type="text/javascript"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+{include file='shere.tmpl'}
+<link href="css/magnific-popup.css" rel="stylesheet" type="text/css">
+		<script>
+			$(document).ready(function() {
+				$('.popup-with-zoom-anim').magnificPopup({
+					type: 'inline',
+					fixedContentPos: false,
+					fixedBgPos: true,
+					overflowY: 'auto',
+					closeBtnInside: true,
+					preloader: false,
+					midClick: true,
+					removalDelay: 300,
+					mainClass: 'my-mfp-zoom-in'
+			});
+		});
+		</script>
+</head>
+<body>
+	<!-- ここから商品一覧らへん -->
+	<div class="main">
+	  <div class="content_box" style="min-height:700px">
+		<div class="container">
+			<div class="row">
+				<!-- あと商品出してるだけ -->
+			     <div class="col-md-12">
+				<h4 class="title">Products</h4>
+				<!--タブ-->
+				<ul class="tab-group">
+					<li class="tab is-active">販売商品</li>
+					<li class="tab">レンタル商品</li>
+					<li class="tab">フリマ商品</li>
+				</ul>
+				<span style="display:flex">
+                    <h4 id="category">カテゴリ</h4>
+                    <ul style="margin-top:80px;">
+                    <a href="product_list.php?genre_id=0" style="color:white"><div class="category_main" id="c0">すべて</div></a>
+                    </ul>
+                    <ul style="margin-top:145px;">
+                    <div class="category_main" id="c1">ライティング</div>
+                    </ul>
+                    <ul style="margin-top:210px;">
+                    <div class="category_main" id="c2">バッグ</div>
+                    </ul>
+                    <ul style="margin-top:275px;">
+                    <div class="category_main" id="c3">テント＆タープ</div>
+                    </ul>
+                    <ul style="margin-top:340px;">
+                    <div class="category_main" id="c4">スリーピングバッグ</div>
+                    
+                    </ul>
+                    <ul style="margin-top:405px;">
+                    <div class="category_main" id="c5">クッキング＆ヒーティング</div>
+                
+                    </ul>
+                    <ul style="margin-top:470px;">
+                    <div class="category_main" id="c6">クーラー＆ジャグ</div>
+                    
+                    </ul>
+                    <ul style="margin-top:535px;">
+                    <div class="category_main" id="c7">ファニチャー</div>
+                    </ul>
+                    <span style="width:300px;margin-left:280px;pointer-events:none;z-index:-1 ">
+                    </span>
+                    <!--タブを切り替えて表示するコンテンツ-->
+                    <span class="panel-group" style="float:right;min-width:877.8px">
+                        <ul class="category_sub"id="category_sub1">
+                            <li id="category_detail"><a href="product_list.php?sale_genre_id=1">ガソリンランタン</a></li>
+                            <li id="category_detail"><a href="product_list.php?sale_genre_id=2">LPガスランタン</a></li>
+                            <li id="category_detail"><a href="product_list.php?sale_genre_id=3">LEDライテイング</a></li>
+                        </ul>
+
+                        <ul class="category_sub"id="category_sub2">
+                            <li id="category_detail"><a href="product_list.php?sale_genre_id=4">大人用</a></li>
+                            <li id="category_detail"><a href="product_list.php?sale_genre_id=5">子供用</a></li>
+                        </ul>
+
+                        <ul class="category_sub"id="category_sub3">
+                            <li id="category_detail"><a href="product_list.php?sale_genre_id=6">テント</a></li>
+                            <li id="category_detail"><a href="product_list.php?sale_genre_id=7">タープ</a></li>
+                            <li id="category_detail"><a href="product_list.php?sale_genre_id=8">シェード</a></li>
+                        </ul>
+
+                        <ul class="category_sub"id="category_sub4">
+                            <li id="category_detail"><a href="product_list.php?sale_genre_id=9">マット</a></li>
+                            <li id="category_detail"><a href="product_list.php?sale_genre_id=10">レンタングラー</a></li>
+                            <li id="category_detail"><a href="product_list.php?sale_genre_id=11">エアーベッド</a></li>
+                        </ul>
+
+                        <ul class="category_sub"id="category_sub5">		
+                            <li id="category_detail"><a href="product_list.php?sale_genre_id=12">バーナー</a></li>
+                            <li id="category_detail"><a href="product_list.php?sale_genre_id=13">グリル</a></li>
+                            <li id="category_detail"><a href="product_list.php?sale_genre_id=14">ヒーター</a></li>
+                            <li id="category_detail"><a href="product_list.php?sale_genre_id=15">クックウェア</a></li>
+                        </ul>
+
+                        <ul class="category_sub"id="category_sub6">
+                            <li id="category_detail"><a href="product_list.php?sale_genre_id=16">ハードクーラー</a></li>
+                            <li id="category_detail"><a href="product_list.php?sale_genre_id=17">ソフトクーラー</a></li>
+                            <li id="category_detail"><a href="product_list.php?sale_genre_id=18">ジャグ</a></li>
+                        </ul>   
+
+                        <ul class="category_sub"id="category_sub7">
+                            <li id="category_detail"><a href="product_list.php?sale_genre_id=19">チェア</a></li>
+                            <li id="category_detail"><a href="product_list.php?sale_genre_id=20">テーブル</a></li>
+                            <li id="category_detail"><a href="product_list.php?sale_genre_id=21">キッチンテーブル</a></li>
+                            <li id="category_detail"><a href="product_list.php?sale_genre_id=22">オールインワン</a></li>
+                        </ul>
+                        
+                            <span class="panel"style="min-height:877.8px">
+                                <form>
+                                    <ul class="sort_command">
+                                        <span style="margin-left:100px;margin-top:100px;">
+                                            <li ><a href="product_list.php?sort_method=aiueo_order">五十音順</a></li>
+                                            <li ><a href="product_list.php?sort_method=sales_order">売れ筋順</a></li>
+                                            <li ><a href="product_list.php?sort_method=price_desk_order">価格高い順</a></li>
+                                            <li ><a href="product_list.php?sort_method=price_ask_order">価格低い順</a></li>
+                                        </span>
+                                    </ul>
+                                </form>
+                                {foreach from=$product_sale item=product}
+                                    <div class="col_1_of_3 span_1_of_3"style="margin-top:0px;"> 
+                                        <a href="productDetail_smarty.php?product_id={$product['product_id']}">
+                                            <div class="product_image"style="margin-top:0px;margin-bottom:20px">
+                                                <img src="{$product['product_pass']}" class="product_images"style="margin-top:4px"/>
+                                                <div id="add_info">
+                                                    <div id="product_name">
+                                                        <p style="display:inline-block;text-align:left;">{$product['product_name']}<p>
+                                                    </div>
+                                                    <div id="product_price">
+                                                        <div style="display:inline-block;text-align:left;"><p style="margin-top:15px;">￥{$product['price']}</p></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                {/foreach}
+                            <div class="pagging">
+								<div class="left">表示中 1-20</div>
+								<div class="right">
+                                	{if $page1-1>0}
+									<a href="contact_list.php?page1={$page1-1}">前へ</a>
+									{else}
+									<a href="contact_list.php?page1={$page1}">前へ</a>
+									{/if}
+									{for $start1=1 to 5}
+									<a href="contact_list.php?page1={$start1}">{$start1}</a>
+									{/for}
+									{if $page1>4}
+									<span>...</span>
+									<a href="contact_list.php?page1={$page1}">10</a>
+									{/if}
+									{if $page1+1>$page1}
+									<a href="contact_list.php?page1={$page1}">次へ</a>
+									{else}
+									<a href="contact_list.php?page1={$page+1}">次へ</a>
+									{/if}
+									
+                            	</div>
+                            </div>
+                        </span>
+	              </span>
+                  <span class="panel-group" style="float:right;min-width:877.8px">
+                        <ul class="category_sub"id="category_sub1">
+                            <li id="category_detail"><a href="product_list.php?tental_genre_id=1">ガソリンランタン</a></li>
+                            <li id="category_detail"><a href="product_list.php?rental_genre_id=2">LPガスランタン</a></li>
+                            <li id="category_detail"><a href="product_list.php?rental_genre_id=3">LEDライテイング</a></li>
+                        </ul>
+
+                        <ul class="category_sub"id="category_sub2">
+                            <li id="category_detail"><a href="product_list.php?rental_genre_id=4">大人用</a></li>
+                            <li id="category_detail"><a href="product_list.php?rental_genre_id=5">子供用</a></li>
+                        </ul>
+
+                        <ul class="category_sub"id="category_sub3">
+                            <li id="category_detail"><a href="product_list.php?rental_genre_id=6">テント</a></li>
+                            <li id="category_detail"><a href="product_list.php?rental_genre_id=7">タープ</a></li>
+                            <li id="category_detail"><a href="product_list.php?rental_genre_id=8">シェード</a></li>
+                        </ul>
+
+                        <ul class="category_sub"id="category_sub4">
+                            <li id="category_detail"><a href="product_list.php?rental_genre_id=9">マット</a></li>
+                            <li id="category_detail"><a href="product_list.php?rental_genre_id=10">レンタングラー</a></li>
+                            <li id="category_detail"><a href="product_list.php?rental_genre_id=11">エアーベッド</a></li>
+                        </ul>
+
+                        <ul class="category_sub"id="category_sub5">		
+                            <li id="category_detail"><a href="product_list.php?rental_genre_id=12">バーナー</a></li>
+                            <li id="category_detail"><a href="product_list.php?rental_genre_id=13">グリル</a></li>
+                            <li id="category_detail"><a href="product_list.php?rental_genre_id=14">ヒーター</a></li>
+                            <li id="category_detail"><a href="product_list.php?rental_genre_id=15">クックウェア</a></li>
+                        </ul>
+
+                        <ul class="category_sub"id="category_sub6">
+                            <li id="category_detail"><a href="product_list.php?rental_genre_id=16">ハードクーラー</a></li>
+                            <li id="category_detail"><a href="product_list.php?rental_genre_id=17">ソフトクーラー</a></li>
+                            <li id="category_detail"><a href="product_list.php?rental_genre_id=18">ジャグ</a></li>
+                        </ul>   
+
+                        <ul class="category_sub"id="category_sub7">
+                            <li id="category_detail"><a href="product_list.php?rental_genre_id=19">チェア</a></li>
+                            <li id="category_detail"><a href="product_list.php?rental_genre_id=20">テーブル</a></li>
+                            <li id="category_detail"><a href="product_list.php?rental_genre_id=21">キッチンテーブル</a></li>
+                            <li id="category_detail"><a href="product_list.php?rental_genre_id=22">オールインワン</a></li>
+                        </ul>
+                        <span class="panel">
+                            <form action="product_list.php" method="get">
+                                <ul class="sort_command">
+                                    <span style="margin-left:100px;margin-top:100px;">
+                                        <li ><a href="product_list.php?sort_method=aiueo_order">五十音順</a></li>
+                                        <li ><a href="product_list.php?sort_method=sales_order">売れ筋順</a></li>
+                                        <li ><a href="product_list.php?sort_method=price_desk_order">価格高い順</a></li>
+                                        <li ><a href="product_list.php?sort_method=price_ask_order">価格低い順</a></li>
+                                    </span>
+            
+                                </ul>
+                            </form>
+                            {foreach from=$product_rental item=product}
+                                <div class="col_1_of_3 span_1_of_3"style="margin-top:0px;padding-bottom:5px"> 
+                                    <a href="productDetail_smarty.php?product_id={$product['product_id']}">
+                                        <div class="product_image">
+                                            <img src="{$product['product_pass']}" class="product_images"/>
+                                            <div id="add_info">
+                                                <div id="product_name">
+                                                    <p style="display:inline-block;text-align:left;">{$product['product_name']}<p>
+                                                </div>
+                                                <div id="product_price">
+                                                    <div style="display:inline-block;text-align:left;"><p style="margin-top:15px;">￥{$product['price']}</p></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            {/foreach}
+                        </span>
+                       
+	              </span>
+                  <span class="panel-group" style="float:right;min-width:877.8px">
+                        <ul class="category_sub"id="category_sub1">
+                            <li id="category_detail"><a href="product_list.php?frima_genre_id=1">ガソンランタン</a></li>
+                            <li id="category_detail"><a href="product_list.php?frima_genre_id=2">LPガスランタン</a></li>
+                            <li id="category_detail"><a href="product_list.php?frima_genre_id=3">LEDライテイング</a></li>
+                        </ul>
+
+                        <ul class="category_sub"id="category_sub2">
+                            <li id="category_detail"><a href="product_list.php?frima_genre_id=4">大人用</a></li>
+                            <li id="category_detail"><a href="product_list.php?frima_genre_id=5">子供用</a></li>
+                        </ul>
+
+                        <ul class="category_sub"id="category_sub3">
+                            <li id="category_detail"><a href="product_list.php?frima_genre_id=6">テント</a></li>
+                            <li id="category_detail"><a href="product_list.php?frima_genre_id=7">タープ</a></li>
+                            <li id="category_detail"><a href="product_list.php?frima_genre_id=8">シェード</a></li>
+                        </ul>
+
+                        <ul class="category_sub"id="category_sub4">
+                            <li id="category_detail"><a href="product_list.php?frima_genre_id=9">マット</a></li>
+                            <li id="category_detail"><a href="product_list.php?frima_genre_id=10">レンタングラー</a></li>
+                            <li id="category_detail"><a href="product_list.php?frima_genre_id=11">エアーベッド</a></li>
+                        </ul>
+
+                        <ul class="category_sub"id="category_sub5">		
+                            <li id="category_detail"><a href="product_list.php?frima_genre_id=12">バーナー</a></li>
+                            <li id="category_detail"><a href="product_list.php?frima_genre_id=13">グリル</a></li>
+                            <li id="category_detail"><a href="product_list.php?frima_genre_id=14">ヒーター</a></li>
+                            <li id="category_detail"><a href="product_list.php?frima_genre_id=15">クックウェア</a></li>
+                        </ul>
+
+                        <ul class="category_sub"id="category_sub6">
+                            <li id="category_detail"><a href="product_list.php?frima_genre_id=16">ハードクーラー</a></li>
+                            <li id="category_detail"><a href="product_list.php?frima_genre_id=17">ソフトクーラー</a></li>
+                            <li id="category_detail"><a href="product_list.php?frima_genre_id=18">ジャグ</a></li>
+                        </ul>   
+
+                        <ul class="category_sub"id="category_sub7">
+                            <li id="category_detail"><a href="product_list.php?frima_genre_id=19">チェア</a></li>
+                            <li id="category_detail"><a href="product_list.php?frima_genre_id=20">テーブル</a></li>
+                            <li id="category_detail"><a href="product_list.php?frima_genre_id=21">キッチンテーブル</a></li>
+                            <li id="category_detail"><a href="product_list.php?frima_genre_id=22">オールインワン</a></li>
+                        </ul>
+                        <span class="panel">
+                            <form action="product_list.php" method="get">
+                                <ul class="sort_command">
+                                    <span style="margin-left:100px;margin-top:100px;">
+                                        <li ><a href="product_list.php?sort_method=aiueo_order">五十音順</a></li>
+                                        <li ><a href="product_list.php?sort_method=sales_order">売れ筋順</a></li>
+                                        <li ><a href="product_list.php?sort_method=price_desk_order">価格高い順</a></li>
+                                        <li ><a href="product_list.php?sort_method=price_ask_order">価格低い順</a></li>
+                                    </span>
+                                </ul>
+                            </form>
+                            {foreach from=$product_frima item=product}
+                                <div class="col_1_of_3 span_1_of_3"style="margin-top:0px;"> 
+                                    <a href="productDetail_smarty.php?product_id={$product['product_id']}">
+                                        <div class="product_image" >
+                                            <img src="{$product['product_pass']}" class="product_images"/>
+                                            <div id="add_info">
+                                                <div id="product_name">
+                                                    <p style="display:inline-block;text-align:left;">{$product['product_name']}<p>
+                                                </div>
+                                                <div id="product_price">
+                                                    <div style="display:inline-block;text-align:left;"><p style="margin-top:15px;">￥{$product['price']}</p></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            {/foreach}
+                        </span>	
+	              </span>
+               
+            </span>
+                 {literal}
+                     <script>
+                //タブ
+				$(function() {
+					// クッキー保存されている or いない場合
+					if ($.cookie('number')) {
+						num = $.cookie('number');  //←★1
+						
+					} else {
+						num = 0;    // ←★2
+					}
+				
+					// タブ処理
+					tabSwitching(num);
+						
+				
+					// クリックされた場合
+					$('.tab-group li').click(function() {
+						// クリックされた <li> のインデックス番号を取得
+						num = $('.tab-group li').index(this);
+						// タブ処理
+						tabSwitching(num);
+						
+						// クッキーを保存
+						// 有効期限は1日(ブラウザを閉じたら初期化)
+						$.cookie('number', num, {expires: 1});     // ←★3
+					});
+				
+				
+					// タブ切り替え処理
+					function tabSwitching(num){
+						// リストに設定されている class="chose" を削除
+						$('.tab-group li').removeClass('chose');
+				
+						// 前回クリックされていた <li> に class="chose" 追加
+						$('.tab-group li').eq(num).addClass('chose');
+				
+						// tabContents に class="hide" を追加
+						$('.panel-group').addClass('hide');
+				
+						// 取得したインデックス番号の class="hide" を削除
+						$('.panel-group').eq(num).removeClass('hide');
+	
+					}
+				});
+            
+                </script>
+				<!--ジャンルタグ-->
+				<script>
+ 
+ 
+                $(function(){
+            
+                    $('.category_sub').addClass('hide');
+                    $('.category_main').addClass('color_befor');
+
+                    $('.category_main').each(function(index,obj){
+                            if(index==0){
+                                $('.category_main').eq(index).hover(function(){
+                                    $('.category_main').eq(index).removeClass('color_befor');
+                                    $('.category_main').eq(index).addClass('color_after');
+                                    $('.category_main').eq(index).addClass('mouse');
+                                });
+                                $('.category_main').eq(index).mouseleave(function(){
+                                    $('.category_main').eq(index).removeClass('color_after');
+                                });
+
+
+                                return true;
+                            }
+                            $('.category_main').eq(index).hover(function(){
+                           
+                                $('.category_sub').eq(index-1).removeClass('hide');
+                                $('.category_sub').eq(index-1).addClass('visible');
+                                $('.category_main').eq(index).removeClass('color_befor');
+                                $('.category_main').eq(index).addClass('color_after');
+                            });
+                            $('.category_main').eq(index).mouseleave(function(){
+                                $('.category_sub').eq(index-1).removeClass('visible');
+                                $('.category_sub').eq(index-1).addClass('hide');
+                                $('.category_main').eq(index).removeClass('color_after');
+                            });
+
+                            $('.category_main').eq(index).hover(function(){
+                          
+                                $('.category_sub').eq(index+6).removeClass('hide');
+                                $('.category_sub').eq(index+6).addClass('visible');
+                                $('.category_main').eq(index).removeClass('color_befor');
+                                $('.category_main').eq(index).addClass('color_after');
+                            });
+                            $('.category_main').eq(index).mouseleave(function(){
+                                $('.category_sub').eq(index+6).removeClass('visible');
+                                $('.category_sub').eq(index+6).addClass('hide');
+                                $('.category_main').eq(index).removeClass('color_after');
+                            });
+
+                            $('.category_main').eq(index).hover(function(){
+                          
+                                $('.category_sub').eq(index+13).removeClass('hide');
+                                $('.category_sub').eq(index+13).addClass('visible');
+                                $('.category_main').eq(index).removeClass('color_befor');
+                                $('.category_main').eq(index).addClass('color_after');
+                            });
+                            $('.category_main').eq(index).mouseleave(function(){
+                                $('.category_sub').eq(index+13).removeClass('visible');
+                                $('.category_sub').eq(index+13).addClass('hide');
+                                $('.category_main').eq(index).removeClass('color_after');
+                            });
+                    }); 
+                    $('.category_sub').each(function(index,obj){
+                            $('.category_sub').eq(index).hover(function(){
+                                $('.category_sub').eq(index).removeClass('hide');
+                                $('.category_sub').eq(index).addClass('visible');
+                            });
+                            $('.category_sub').eq(index).mouseleave(function(){
+                                $('.category_sub').eq(index).removeClass('visible');
+                                $('.category_sub').eq(index).addClass('hide');
+                            });
+
+                              $('.category_sub').eq(index+8).hover(function(){
+                                $('.category_sub').eq(index+8).removeClass('hide');
+                                $('.category_sub').eq(index+8).addClass('visible');
+                            });
+                            $('.category_sub').eq(index+8).mouseleave(function(){
+                                $('.category_sub').eq(index+8).removeClass('visible');
+                                $('.category_sub').eq(index+8).addClass('hide');
+                            });
+
+                              $('.category_sub').eq(index+16).hover(function(){
+                                $('.category_sub').eq(index+16).removeClass('hide');
+                                $('.category_sub').eq(index+16).addClass('visible');
+                            });
+                            $('.category_sub').eq(index+16).mouseleave(function(){
+                                $('.category_sub').eq(index+16).removeClass('visible');
+                                $('.category_sub').eq(index+16).addClass('hide');
+                            });
+                    });  
+                });
+    
+				</script>
+            
+				 {/literal}
+				
+
+				   <div class="clearfix"></div>
+			    </div>
+			  </div>
+			</div>
+		 </div>
+		</div>
+		<!-- アイコンだしてるだけ -->
+		<div class="container">
+		  <div class="brands">
+			 <ul class="brand_icons">
+				<li><img src='images/icon1.jpg' class="img-responsive" alt=""/></li>
+				<li><img src='images/icon2.jpg' class="img-responsive" alt=""/></li>
+				<li><img src='images/icon3.jpg' class="img-responsive" alt=""/></li>
+				<li><img src='images/icon4.jpg' class="img-responsive" alt=""/></li>
+				<li><img src='images/icon5.jpg' class="img-responsive" alt=""/></li>
+				<li><img src='images/icon6.jpg' class="img-responsive" alt=""/></li>
+				<li class="last"><img src='images/icon7.jpg' class="img-responsive" alt=""/></li>
+			 </ul>
+		   </div>
+		</div>
+		<!-- ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー -->
+		<!-- 注目 -->
+		<!-- ここ嘘に使えます -->
+		<!-- インスタに上がってますよアピール -->
+		<!-- ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー -->
+	    <div class="container">
+	      <div class="instagram_top">
+	      	<div class="instagram text-center">
+				<h3><i class="insta_icon"> </i> Instagram feed:&nbsp;<span class="small">#Surfhouse</span></h3>
+			</div>
+			<!-- クリックしたらその画像表示する -->
+	        <ul class="instagram_grid">
+			  <li><a class="popup-with-zoom-anim" href="#small-dialog1"><img src="images/i1.jpg" class="img-responsive"alt=""/></a></li>
+			  <li><a class="popup-with-zoom-anim" href="#small-dialog1"><img src="images/i2.jpg" class="img-responsive" alt=""/></a></li>
+			  <li><a class="popup-with-zoom-anim" href="#small-dialog1"><img src="images/i3.jpg" class="img-responsive" alt=""/></a></li>
+			  <li><a class="popup-with-zoom-anim" href="#small-dialog1"><img src="images/i4.jpg" class="img-responsive" alt=""/></a></li>
+			  <li><a class="popup-with-zoom-anim" href="#small-dialog1"><img src="images/i5.jpg" class="img-responsive" alt=""/></a></li>
+			  <li class="last_instagram"><a class="popup-with-zoom-anim" href="#small-dialog1"><img src="images/i6.jpg" class="img-responsive" alt=""/></a></li>
+			  <div class="clearfix"></div>
+			  <div id="small-dialog1" class="mfp-hide">
+				<div class="pop_up">
+					<h4>A Sample Photo Stream</h4>
+					<img src="images/i_zoom.jpg" class="img-responsive" alt=""/>
+				</div>
+			  </div>
+			</ul>
+		  </div>
+		  <!-- このhrefにリンクつけて -->
+		  <!-- Facebook(fb)Twitter(tw)しらね(しらね)のページにでも飛ばすか？ -->
+	      <ul class="footer_social">
+			<li><a href="#"> <i class="fb"> </i> </a></li>
+			<li><a href="#"><i class="tw"> </i> </a></li>
+			<li><a href="#"><i class="pin"> </i> </a></li>
+			<div class="clearfix"></div>
+		   </ul>
+	    </div>
+	 </div>
+	 <!-- いろいろ詰め込んどけゾーン -->
+     <div class="footer">
+			<div class="container">
+				<div class="footer-grid">
+					<h3>Category</h3>
+					<ul class="list1">
+					  <li><a href="#">Home</a></li>
+					  <li><a href="#">About us</a></li>
+					  <li><a href="#">Eshop</a></li>
+					  <li><a href="#">Features</a></li>
+					  <li><a href="#">New Collections</a></li>
+					  <li><a href="#">Blog</a></li>
+					  <li><a href="#">Contact</a></li>
+				    </ul>
+				</div>
+				<div class="footer-grid">
+					<h3>Our Account</h3>
+				    <ul class="list1">
+					  <li><a href="#">Your Account</a></li>
+					  <li><a href="#">Personal information</a></li>
+					  <li><a href="#">Addresses</a></li>
+					  <li><a href="#">Discount</a></li>
+					  <li><a href="#">Orders history</a></li>
+					  <li><a href="#">Addresses</a></li>
+					  <li><a href="#">Search Terms</a></li>
+				    </ul>
+				</div>
+				<div class="footer-grid">
+					<h3>Our Support</h3>
+					<ul class="list1">
+					  <li><a href="#">Site Map</a></li>
+					  <li><a href="#">Search Terms</a></li>
+					  <li><a href="#">Advanced Search</a></li>
+					  <li><a href="#">Mobile</a></li>
+					  <li><a href="#">Contact Us</a></li>
+					  <li><a href="#">Mobile</a></li>
+					  <li><a href="#">Addresses</a></li>
+				    </ul>
+				  </div>
+				  <div class="footer-grid">
+					<h3>Newsletter</h3>
+					<p class="footer_desc">Nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat</p>
+					
+			        <img src="images/payment.png" class="img-responsive" alt=""/>
+				 </div>
+				 <div class="footer-grid footer-grid_last">
+					<h3>About Us</h3>
+					<p class="footer_desc">Diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam,.</p>
+                    <p class="f_text">Phone:  &nbsp;&nbsp;&nbsp;00-250-2131</p>
+                    <p class="email">Email: &nbsp;&nbsp;&nbsp;<span>info(at)Surfhouse.com</span></p>	
+                 </div>
+				 <div class="clearfix"> </div>
+			</div>
+		</div>
+        <div class="footer_bottom">
+        	<div class="container">
+        		<div class="copy">
+				   <p>&copy; 2014 Template by <a href="http://w3layouts.com" target="_blank"> w3layouts</a></p>
+			    </div>
+        	</div>
+        </div>
+</body>
+</html>		
