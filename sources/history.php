@@ -25,64 +25,42 @@ if(isset($_SESSION['HTeam_adm']['customer_id']) && $_SESSION['HTeam_adm']['custo
         //tmplに渡す変数に格納
         //--------------------------
         for($i = 0; $i < count($transInfoarr); $i++){
-            //１明細を取得
-            $detailsarr = $transaction_details_obj->transaction_id(false,$transInfoarr[$i]['transaction_id']);
+            $bday = new DateTime($transInfoarr[$i]['purchase_date']);
+            //明細を取得
+            $detailsarr = $transaction_details_obj->get_allH(false,$transInfoarr[$i]['transaction_id']);
             for($j = 0; $j < count($detailsarr); $j++){
-                $productarr = $product_obj->get_tgt(false,$product_id);
+                //商品テーブルから商品の画像とテキストなどを取得したいため持ってくる
+                $productarr = $product_obj->get_tgt(false,$detailsarr[$j]['product_id']);
+                
                 //取得出来たら商品の金額をセッションに格納
                 if($productarr !== false){
                     
                     $path = explode(",",$productarr['product_pass']);
-                    $detailsarr['product_text'] = $productarr['product_text'];
-                    $detailsarr['product_pass'] = $path[0];
-                    $history[$i][$j] = $detailsarr;
+                    $history[$i][$j] = array(
+                                            'product_id'=> (int)$detailsarr[$j]['product_id'],
+                                            'transaction_id'=>(int)$detailsarr[$j]['transaction_id'],
+                                            'product_name' => (String)$productarr['product_name'],
+                                            'product_category'=> (int)$detailsarr[$j]['transaction_category'],
+                                            'product_pass'=> (String)$path[0],
+                                            'purchase_price'=> (int)$detailsarr[$j]['purchase_price'],
+                                            'purchase_value'=> (int)$detailsarr[$j]['purchase_value'],
+                                            'product_text'=>$productarr['product_text'],
+                                            'total_value'=>$transInfoarr[$i]['total_value'],
+                                            'total_money'=>$transInfoarr[$i]['total_money'],
+                                            'purchase_date'=>$bday->format('Y年m月d日')
+                                        );
                 }else{
                     // echo '<script type="text/javascript">alert("64のelse");</script>';
                     //  ステータスコードを出力
                     
                 }
-                
             }
+            
         } 
-        var_dump($history);
-        // $wk = array_unique($wk);
-        // $wk = array_values($wk);
-        // $cart = array();
-        // //--------------------------------------------------
-        // //56行目~73まで無理やり感。リファクタリング必須
-        // //--------------------------------------------------
-        // for($i = 0; $i < count($wk); $i++){
-        //     $cnt = 0;
-        //     for($j = 0; $j < count($cart_product); $j++){
-                
-        //         if($wk[$i] === $cart_product[$j]['product_id']){
-        //             //個数更新
-        //             $cnt += (int)$transInfoarr[$j]['product_value'];
-        //         }else{
-        //             continue;
-        //         }
-        //         $cart[$i] = array('product_id'=> (int)$cart_product[$j]['product_id'],
-        //                         'product_name' => $cart_product[$j]['product_name'],
-        //                         'product_category'=> (int)$cart_product[$j]['product_category'],
-        //                         'product_pass'=> explode(",", $cart_product[$j]['product_pass']),
-        //                         'price'=> (int)$cart_product[$j]['price'] * (int)$cnt,
-        //                         'cart_count'=> $cnt);
-        //     }
-        // }
-
-        // for($i=0;$i<count($cart);$i++){
-        //     if($cart[$i]['product_category'] === 1){
-        //         $hanbai_count += $cart[$i]['cart_count'];
-        //     }else if($cart[$i]['product_category'] === 2){
-        //         $rental_count += $cart[$i]['cart_count'];
-        //     }
-        // }
-        // $_SESSION['HTeam_adm']['hanbai_count']=$hanbai_count;
-        // $_SESSION['HTeam_adm']['rental_count']=$rental_count;
-        // $smarty->assign('cart',$cart);
+        
+        $smarty->assign('history',$history);
 
     }
-    
 }
 $smarty->display('history.tmpl')
 ?>

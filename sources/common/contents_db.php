@@ -856,6 +856,26 @@ class ctransaction_info extends crecord {
 	
 	//--------------------------------------------------------------------------------------
 	/*!
+	@brief	指定されたIDの配列を得る
+	@param[in]	$debug	デバッグ出力をするかどうか
+	@param[in]	$id		ID
+	@return	配列（1次元配列になる）空の場合はfalse
+	*/
+	//--------------------------------------------------------------------------------------
+	//上はlikeこっちは＝
+	public function get_tgtH($debug,$id){
+        //親クラスのselect()メンバ関数を呼ぶ
+        $this->select(
+            $debug,         //デバッグ表示するかどうか
+            "*",          //取得するカラム
+            "transaction_info",    //取得するテーブル
+            "transaction_id = '{$id}'"    //条件
+        );
+        return $this->fetch_assoc();
+	}
+
+	//--------------------------------------------------------------------------------------
+	/*!
 	@brief	デストラクタ
 	*/
 	//--------------------------------------------------------------------------------------
@@ -920,6 +940,25 @@ class creview extends crecord {
 			"1",			//条件
 			"transaction_id asc",	//並び替え
 			"limit " . $from . "," . $limit		//抽出開始行と抽出数
+		);
+		//順次取り出す
+		while($row = $this->fetch_assoc()){
+			$arr[] = $row;
+		}
+		//取得した配列を返す
+		return $arr;
+	}
+	
+	public function get_allH($debug){
+		$arr = array();
+		//親クラスのselect()メンバ関数を呼ぶ
+		$this->select(
+			$debug,			//デバッグ表示するかどうか
+			"*",			//取得するカラム
+			"review",	//取得するテーブル
+			"1",			//条件
+			"transaction_id asc"	//並び替え
+			
 		);
 		//順次取り出す
 		while($row = $this->fetch_assoc()){
