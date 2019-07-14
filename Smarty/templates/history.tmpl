@@ -43,45 +43,36 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			});
 		});
 		</script>
+{/literal}
 </head>
 <body>
     <div class="main">
 	   <div class="container">
           <div class="history">
           	<font size="7" color="#FF5B36">注文履歴</font>
-		  	<div class="box11">
-    			<font color="#FF5B36">注文日</font><span class="gou">合計</span><span class="ko">個数</span><span class="si">お支払方法</span>
-				<br>2019/06/29<span class="kei">¥9,600</span><span class="ten">1点</span><span class="ha">代金引換</span>
-				<div class="shipping"><font color="#ff0000">発送中</font></div>
-                	<div class="mono">
-						<div class="mono1">
-							<a href="#"><img src="images/pic1.jpg"  width="120" height="120">
-						</div>
-						<p><b><font size="5" color="#4169e1">商品名</font></b></a><br><font color="#ff0000">¥9,600</font></p>
-						<button class="re" type="button">再度購入</button>
-						<button class="review" type="button">商品のレビューを書く</button>
-						</div>
-			</div>
-		  	<div class="box11">
-    			<font color="#FF5B36">注文日</font><span class="gou">合計</span><span class="ko">個数</span><span class="si">お支払方法</span>
-				<br>2019/06/20<span class="kei">¥5,000</span><span class="ten">2点</span><span class="ha">コンビニ決済</span>
-                <div class="shipping"><font color="#00ff7f">発送済み</font></div>
-					<div class="mono">
-						<div class="mono1">
-							<a href="#"><img src="images/pic2.jpg"  width="120" height="120">
-						</div>
-							<p><b><font size="5" color="#4169e1">商品名</font></b></a><br><font color="#ff0000">¥2,500</font></p>
+			  	
+		  	
+			{foreach from=$history  item=value1}
+				<div class="box11">
+					{foreach from=$value1 key=k item=value2}
+						{if $k == 0}
+							<font color="#FF5B36">注文日</font><span class="gou">合計</span><span class="ko">個数</span><span class="si">お支払方法</span>
+							<br>{$value2['purchase_date']}<span class="kei">{$value2['total_money']}円</span><span class="ten">{$value2['total_value']}</span><span class="ha">代金引換</span>
+							<div class="shipping"><font color="#ff0000">発送中</font></div>
+							
+						{/if}
+						<div class="mono">
+							<div class="mono1">
+								<a href="http://wiz.developluna.jp/~tmH2019/lampTeamH/sources/productDetail_smarty.php?product_id={$value2['product_id']}"><img src="{$value2['product_pass']}" width="120" height="120">
+							</div>
+							<p><b><font size="5" color="#4169e1">{$value2['product_name']}</font></b></a><br><font color="#ff0000">{$value2['purchase_price']}円</font></p>
+							<p>{$value2['purchase_value']}個</p><p>合計{$value2['purchase_price']*$value2['purchase_value']}円</p>
 							<button class="re" type="button">再度購入</button>
-					</div>
-					<div class="mono">
-						<div class="mono1">
-							<a href="#"><img src="images/pic3.jpg"  width="120" height="120">
+							<button class="review" type="button">商品のレビューを書く</button>
 						</div>
-							<p><b><font size="5" color="#4169e1">商品名</font></b></a><br><font color="#ff0000">¥2,500</font></p>
-							<button class="re" type="button">再度購入</button>
-					</div>
-						<button class="review" type="button">商品のレビューを書く</button>
-			</div>
+					{/foreach}
+				</div>
+			{/foreach}
 					<ul class="paging">
 						<li><a href="#">&laquo; 前</a></li>
 						<li><a href="#">1</a></li>
@@ -178,9 +169,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					<h3>Newsletter</h3>
 					<p class="footer_desc">Nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat</p>
 					<div class="search_footer">
+					{literal}
 			          <input type="text" class="text" value="Insert Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Insert Email';}">
 			          <input type="submit" value="Submit">
-			        </div>
+			        {/literal}
+					</div>
 			        <img src="images/payment.png" class="img-responsive" alt=""/>
 				 </div>
 				 <div class="footer-grid footer-grid_last">
@@ -200,5 +193,5 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         	</div>
         </div>
 </body>
-{/literal}
+
 </html>		

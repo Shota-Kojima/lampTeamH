@@ -53,7 +53,7 @@
   .hyouka{
     position: relative;
     left:0px;
-    top: 10;
+    top: 0;
     right: 0;
       font-size:25px;
   }
@@ -83,7 +83,7 @@
     font-size: 1em;          
     line-height: 1.2;
   }
-  #re_text{
+  .re_text{
     position: relative;
     top:100px;
     left:0px;
@@ -95,13 +95,13 @@
     font-size: 1em;          
     line-height: 1.2;
   }
-.btn{
-    position: relative;
-    top:105px;
-    left:530px;
-    margin:10px;
-    font-size:20px;
-    width:100px;
+.btn {
+  position: relative;
+  top: 120px;
+  left: 330px;
+  margin: 10px;
+  font-size: 20px;
+  width: 100px;
 }
 .kakomi-box {
 	padding: 1em;

@@ -68,35 +68,38 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 </ul>
                 <div class="clearfix"></div>
 			   </div>
-               <div class="kakomi-box">
-			   <div class="product">
-               <img src="images/pic1.jpg">
-               <p>コンパクトチェア</p><!--商品名-->
+            <div class="kakomi-box">
+               <div class="product">
+                  <img src="{$view['product_pass']}">
+                  <p>{$view['product_name']}</p><!--商品名-->
                </div>
-               <div class="title"></div>
-               <p class="hyouka">評価</p>
-               <div class="eval">
-               <div class="evaluation">
-                                      <input id="star1" type="radio" name="star" value="5" />
-                                      <label for="star1"><span class="text"></span>★</label>
-                                      <input id="star2" type="radio" name="star" value="4" />
-                                      <label for="star2"><span class="text"></span>★</label>
-                                      <input id="star3" type="radio" name="star" value="3" />
-                                      <label for="star3"><span class="text"></span>★</label>
-                                      <input id="star4" type="radio" name="star" value="2" />
-                                      <label for="star4"><span class="text"></span>★</label>
-                                      <input id="star5" type="radio" name="star" value="1" />
-                                      <label for="star5"><span class="text"></span>★</label>
-                                    </div>
-                                    </div>
-               <p class="review_title">レビュータイトル</p>
-               <input type="text" name="" class="re_title" maxlength="24" >
-               <p class="review_content">レビュー内容</p>
-               <textarea placeholder="" id="re_text" style="" rows="4" maxlength="134"></textarea>
-               <button type="button"  class="btn btn-info chat-btn">投稿</button>
-
-               </div>
-		   </div>
+               <form action="" method="post" enctype="multipart/form-data" autocomplete="off">           
+                  <div class="title"></div>
+                  <p class="hyouka">評価</p>
+                  <div class="eval">
+                     <div class="evaluation">
+                        <input id="star1" type="radio" name="star" value="5" />
+                        <label for="star1"><span class="text"></span>★</label>
+                        <input id="star2" type="radio" name="star" value="4" />
+                        <label for="star2"><span class="text"></span>★</label>
+                        <input id="star3" type="radio" name="star" value="3" />
+                        <label for="star3"><span class="text"></span>★</label>
+                        <input id="star4" type="radio" name="star" value="2" />
+                        <label for="star4"><span class="text"></span>★</label>
+                        <input id="star5" type="radio" name="star" value="1" />
+                        <label for="star5"><span class="text"></span>★</label>
+                     </div>
+                  </div>
+                  <p class="review_title">レビュータイトル</p>
+                  <input type="text" name="review_tittle" class="re_title" maxlength="24" >
+                  <p class="review_content">レビュー内容</p>
+                  <textarea placeholder="" name="review" class="re_text" style="" rows="4" maxlength="134"></textarea>
+                  <input type="hidden" name="product_id" value="{$data['product_id']}">
+                  <input type="hidden" name="transaction_id" value="{$data['transaction_id']}">
+                  <button type="submit"  class="btn btn-info chat-btn">投稿</button>
+               </form>
+            </div>  
+         </div>
 		  </div>
 	     </div>
 	    </div>

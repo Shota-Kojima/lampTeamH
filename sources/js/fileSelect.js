@@ -1,9 +1,22 @@
-// ▼①ファイル選択フォームの更新イベントに処理を追加
-document.getElementById("filesend1").addEventListener('change', function(e) {
-    window.alert("呼ばれた");
-       var files = e.target.files;
-       previewUserFiles1(files);
+document.addEventListener("DOMContentLoaded", function(){
+    
+    // ▼①ファイル選択フォームの更新イベントに処理を追加
+    document.getElementById("filesend1").addEventListener('change', function(e) {
+        window.alert("呼ばれた");
+           var files = e.target.files;
+           previewUserFiles1(files);
+        });
+    // ▼①ファイル選択フォームの更新イベントに処理を追加
+    document.getElementById("filesend2").addEventListener('change', function(e) {
+           var files = e.target.files;
+           previewUserFiles2(files);
     });
+    // ▼①ファイル選択フォームの更新イベントに処理を追加
+    document.getElementById("filesend3").addEventListener('change', function(e) {
+           var files = e.target.files;
+           previewUserFiles3(files);
+        });
+}, false);
 // ▼②選択画像をプレビュー
 function previewUserFiles1(files) {
     window.alert("previewUserFiles1来た");
@@ -47,11 +60,7 @@ function resetPreview1() {
 //---------------------------
 
 
-// ▼①ファイル選択フォームの更新イベントに処理を追加
-document.getElementById("filesend2").addEventListener('change', function(e) {
-       var files = e.target.files;
-       previewUserFiles2(files);
-    });
+
 // ▼②選択画像をプレビュー
 function previewUserFiles2(files) {
    // 一旦リセットする
@@ -93,11 +102,7 @@ function resetPreview2() {
 
 //---------------------------
 
-// ▼①ファイル選択フォームの更新イベントに処理を追加
-document.getElementById("filesend3").addEventListener('change', function(e) {
-       var files = e.target.files;
-       previewUserFiles3(files);
-    });
+
 // ▼②選択画像をプレビュー
 function previewUserFiles3(files) {
    // 一旦リセットする
