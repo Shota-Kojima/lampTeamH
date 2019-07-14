@@ -1,6 +1,6 @@
 .effect-fade {
     opacity : 0;
-    transform : translate(0, 50px);
+    transform : translate(0, 70px);
     transition : all 1500ms;
 }
     
@@ -8,11 +8,34 @@
     opacity : 1;
     transform : translate(0, 0);
 }
-.effect-fade h1 {
-    text-align: center;
+.beginner {
+    margin-bottom: 150px;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+.beginner h1 {
+    float: left;
+    margin-left: 40px;
     font-size: 45px;
 }
-.be {
+.camp3 {
+    width: 27%;
+    float: left;
+}
+.camp2  {
+    margin-top: 50px;
+    width: 70%;
+}
+.sono1 {
+    clear: both;
     margin-top: 100px;
-    margin-bottom: 200px;
+}
+.sono1 p {
+    text-align: left;
+    margin-left: 220px;
+    font-size: 30px;
+}
+.sono1 img {
+    width: 500px;
+    margin-left: 115px;
+    margin-top: 20px;
 }
