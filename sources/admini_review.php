@@ -14,20 +14,21 @@ if(isset($_SESSION['HTeam_adm']['customer_id']) && $_SESSION['HTeam_adm']['custo
 
     for($i = 0; $i < count($reviewarr); $i++){
 
-        $productarr = $product_obj->get_tgt(false,$product_id);
+        $productarr = $product_obj->get_tgt(false,$reviewarr[$i]['product_id']);
 
             //取得出来たら商品の金額をセッションに格納
             if($productarr !== false){
                 $transarr = $transInfo_obj->get_tgt(false,$reviewarr[$i]['transaction_id']);
                 $transarr['customer_id'];
                 $view[$i] = array(
+                    'product_name'=> (String)$productarr['product_name'],
                     'product_id'=> (int)$productarr['product_id'],
-                    'customer_id'=> (int)$transarr['customer_id'],
-                    'transaction_id'=> (int)$reviewarr['transaction_id'],
-                    'review_tittle'=> (String)$reviewarr['review_tittle'],
-                    'review_value'=> (String)$reviewarr['review_value'],
-                    'review'=> (String)$reviewarr['review'],
-                    'review_date'=> (String)$reviewarr['review_date'],
+                    'customer_id'=> (String)$transarr['customer_id'],
+                    'transaction_id'=> (int)$reviewarr[$i]['transaction_id'],
+                    'review_tittle'=> (String)$reviewarr[$i]['review_tittle'],
+                    'review_value'=> (String)$reviewarr[$i]['review_value'],
+                    'review'=> (String)$reviewarr[$i]['review'],
+                    'review_date'=> (String)$reviewarr[$i]['review_date'],
                 );
             }else{
                 // echo '<script type="text/javascript">alert("64のelse");</script>';
