@@ -1003,6 +1003,36 @@ class creview extends crecord {
         );
         return $this->fetch_assoc();
 	}
+
+	
+	public function get_tgtH($debug,$traid,$proid ){
+        //親クラスのselect()メンバ関数を呼ぶ
+        $this->select(
+            $debug,         //デバッグ表示するかどうか
+            "*",          //取得するカラム
+            "review",    //取得するテーブル
+            "transaction_id = '{$traid}' AND product_id = '{$proid}'",    //条件
+			"transaction_id asc"	//並び替え
+		);
+        return $this->fetch_assoc();
+	}
+	public function get_allH($debug){
+        //親クラスのselect()メンバ関数を呼ぶ
+        $this->select(
+            $debug,         //デバッグ表示するかどうか
+            "*",          //取得するカラム
+            "review",    //取得するテーブル
+            "1",			//条件
+			"transaction_id asc"
+		);
+		//順次取り出す
+		while($row = $this->fetch_assoc()){
+			$arr[] = $row;
+		}
+		//取得した配列を返す
+		return $arr;
+	}
+	
 	
 	//--------------------------------------------------------------------------------------
 	/*!
