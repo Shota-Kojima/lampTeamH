@@ -17,8 +17,10 @@
     width:77%;
     z-index:2;
     font-family: 'Tahoma';
+    position:relative;
 }
 .panel{
+   
 }
 .tab.is-active{
     transition: all 0.2s ease-out;

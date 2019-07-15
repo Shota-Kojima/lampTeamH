@@ -21,10 +21,10 @@ if(isset($_POST['login_id']) && isset($_POST['login_pw'])){
         if(true){
             session_start();
             $_SESSION['HTeam_adm']['customer_id'] = $_POST['login_id'];
-            cutil::redirect_exit("products.php");
+            cutil::redirect_exit("product_list.php");
         }
         else{
-            cutil::redirect_exit("products.php");
+            cutil::redirect_exit("product_list.php");
         }
         
     }

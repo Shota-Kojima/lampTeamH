@@ -9,7 +9,19 @@ require_once($CMS_COMMON_INCLUDE_DIR . "libs.php");
 //smartyクラスの初期化
 require_once("inc_smarty.php");
 require_once($CMS_COMMON_INCLUDE_DIR . "auth_user.php");
-
+$smarty->assign('cart',$_SESSION);
+if(!isset($_GET['sale_genre_id'])&&!isset($_GET['sale_sort_method'])&&!isset($_GET['sale_page'])){
+	unset($_SESSION['HTeam']['sale_genre_id']);
+	unset($_SESSION['HTeam']['sale_sort_method']);
+}
+if(!isset($_GET['rental_genre_id'])&&!isset($_GET['rental_sort_method'])&&!isset($_GET['rental_page'])){
+	unset($_SESSION['HTeam']['rental_genre_id']);
+	unset($_SESSION['HTeam']['rental_sort_method']);
+}
+if(!isset($_GET['frima_genre_id'])&&!isset($_GET['frima_sort_method'])&&!isset($_GET['frima_page'])){
+	unset($_SESSION['HTeam']['frima_genre_id']);
+	unset($_SESSION['HTeam']['frima_sort_method']);
+}
 
 $pass_data = array(1 => array('page','count','category','genre','conditions','sort','from','limit','page_count','page_limit'),
  				   2 => array('page','count','category','genre','conditions','sort','from','limit','page_count','page_limit'),
@@ -70,6 +82,10 @@ else{
 } 
 
 if(isset($_GET['sale_sort_method'])){
+		if(isset($_SESSION['HTeam']['sale_genre_id'])){
+			$pass_data[0]['genre'] = $_SESSION['HTeam']['sale_genre_id'];
+			$pass_data[0]['conditions'] = 'genre_id = '.$pass_data[0]['genre'];
+		}
 		//条件別にsessionに保持
 		//これはページ送りを行って際に並び替え情報がリセットされないようにするため
 		if($_GET['sale_sort_method'] == "aiueo_order"){
@@ -87,6 +103,10 @@ if(isset($_GET['sale_sort_method'])){
 		//var_dump($_SESSION['HTeam_adm']['genre_id']);
 }
 if(isset($_GET['rental_sort_method'])){
+		if(isset($_SESSION['HTeam']['rental_genre_id'])){
+			$pass_data[1]['genre'] = $_SESSION['HTeam']['rental_genre_id'];
+			$pass_data[1]['conditions'] = 'genre_id = '.$pass_data[1]['genre'];
+		}
 		//条件別にsessionに保持
 		//これはページ送りを行って際に並び替え情報がリセットされないようにするため
 		if($_GET['rental_sort_method'] == "aiueo_order"){
@@ -104,6 +124,10 @@ if(isset($_GET['rental_sort_method'])){
 		//var_dump($_SESSION['HTeam_adm']['genre_id']);
 }
 if(isset($_GET['frima_sort_method'])){
+		if(isset($_SESSION['HTeam']['frima_genre_id'])){
+			$pass_data[2]['genre'] = $_SESSION['HTeam']['frima_genre_id'];
+			$pass_data[2]['conditions'] = 'genre_id = '.$pass_data[2]['genre'];
+		}
 		//条件別にsessionに保持
 		//これはページ送りを行って際に並び替え情報がリセットされないようにするため
 		if($_GET['frima_sort_method'] == "aiueo_order"){
@@ -131,17 +155,28 @@ if(isset($_SESSION['HTeam']['frima_sort_method'])){
 }
 
 if(isset($_GET['sale_page'])){
+		if(isset($_SESSION['HTeam']['sale_genre_id'])){
+			$pass_data[0]['genre'] = $_SESSION['HTeam']['sale_genre_id'];
+			$pass_data[0]['conditions'] = 'genre_id = '.$pass_data[0]['genre'];
+		}
 		$pass_data[0]['page'] = $_GET['sale_page'];
 }
 if(isset($_GET['rental_page'])){
-		$pass_data[1]['page'] = $_GET['frima_page'];
+	    if(isset($_SESSION['HTeam']['rental_genre_id'])){
+			$pass_data[1]['genre'] = $_SESSION['HTeam']['rental_genre_id'];
+			$pass_data[1]['conditions'] = 'genre_id = '.$pass_data[1]['genre'];
+		}
+		$pass_data[1]['page'] = $_GET['rental_page'];
 }
 if(isset($_GET['frima_page'])){
-		$pass_data[2]['page'] = $_GET['rental_page'];
+		if(isset($_SESSION['HTeam']['frima_genre_id'])){
+			$pass_data[2]['genre'] = $_SESSION['HTeam']['frima_genre_id'];
+			$pass_data[2]['conditions'] = 'genre_id = '.$pass_data[2]['genre'];
+		}
+		$pass_data[2]['page'] = $_GET['frima_page'];
 }
 
 readdata();
-var_dump($pass_data[0]['conditions']);
 $smarty->assign('product_sale',$sale_array);
 $smarty->assign('product_rental',$rental_array);
 $smarty->assign('product_frima',$frima_array);
