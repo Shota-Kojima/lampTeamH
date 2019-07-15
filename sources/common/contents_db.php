@@ -1025,7 +1025,12 @@ class creview extends crecord {
             "1",			//条件
 			"transaction_id asc"
 		);
-        return $this->fetch_assoc();
+		//順次取り出す
+		while($row = $this->fetch_assoc()){
+			$arr[] = $row;
+		}
+		//取得した配列を返す
+		return $arr;
 	}
 	
 	

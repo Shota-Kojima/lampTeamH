@@ -10,6 +10,7 @@ if(isset($_SESSION['HTeam_adm']['customer_id']) && $_SESSION['HTeam_adm']['custo
     $review_obj = new creview();
     $transInfo_obj = new ctransaction_info();
     $reviewarr = $review_obj->get_allH(false);
+    var_dump($reviewarr);
     $view = array();
 
     for($i = 0; $i < count($reviewarr); $i++){
