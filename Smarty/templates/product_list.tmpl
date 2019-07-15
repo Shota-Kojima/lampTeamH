@@ -168,10 +168,10 @@ cart_bgって名前のclassはオレンジ色にしたりする
                                 <form>
                                     <ul class="sort_command">
                                         <span style="margin-left:100px;margin-top:100px;">
-                                            <li ><a href="product_list.php?sort_method=aiueo_order">五十音順</a></li>
-                                            <li ><a href="product_list.php?sort_method=sales_order">売れ筋順</a></li>
-                                            <li ><a href="product_list.php?sort_method=price_desk_order">価格高い順</a></li>
-                                            <li ><a href="product_list.php?sort_method=price_ask_order">価格低い順</a></li>
+                                            <li ><a href="product_list.php?sale_sort_method=aiueo_order">五十音順</a></li>
+                                            <li ><a href="product_list.php?sale_sort_method=sales_order">売れ筋順</a></li>
+                                            <li ><a href="product_list.php?sale_sort_method=price_desk_order">価格高い順</a></li>
+                                            <li ><a href="product_list.php?sale_sort_method=price_ask_order">価格低い順</a></li>
                                         </span>
                                     </ul>
                                 </form>
@@ -193,26 +193,29 @@ cart_bgって名前のclassはオレンジ色にしたりする
                                     </div>
                                 {/foreach}
                             <div class="pagging">
-								<div class="left">表示中 1-20</div>
+                                {if $sale_limit>$sale_count-$sale_from}
+                                <div class="left">表示中 {$sale_from+1}-{$sale_count}</div>
+                                {else}
+								<div class="left">表示中 {$sale_from+1}-{$sale_from+$sale_limit}</div>
+                                {/if}
 								<div class="right">
-                                	{if $page1-1>0}
-									<a href="contact_list.php?page1={$page1-1}">前へ</a>
+                                	{if $sale_page-1>0}
+									<a href="product_list.php?sale_page={$sale_page-1}">前へ</a>
 									{else}
-									<a href="contact_list.php?page1={$page1}">前へ</a>
+									<a href="product_list.php?sale_page={$sale_page}">前へ</a>
 									{/if}
-									{for $start1=1 to 5}
-									<a href="contact_list.php?page1={$start1}">{$start1}</a>
+									{for $start=1 to $sale_page_limit}
+									<a href="product_list.php?sale_page={$start}">{$start}</a>
 									{/for}
-									{if $page1>4}
+									{if $sale_page_limit>4}
 									<span>...</span>
-									<a href="contact_list.php?page1={$page1}">10</a>
+									<a href="product_list.php?sale_page={$sale_page_count}">{$sale_page_count}</a>
 									{/if}
-									{if $page1+1>$page1}
-									<a href="contact_list.php?page1={$page1}">次へ</a>
+									{if $sale_page+1>$sale_page_count}
+									<a href="product_list.php?sale_page={$sale_page}">次へ</a>
 									{else}
-									<a href="contact_list.php?page1={$page+1}">次へ</a>
+									<a href="product_list.php?sale_page={$sale_page+1}">次へ</a>
 									{/if}
-									
                             	</div>
                             </div>
                         </span>
