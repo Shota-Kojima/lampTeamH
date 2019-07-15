@@ -103,7 +103,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 							<td>{$value['product_name']}</td>
 							<td>&ensp;{$value['review_value']}</td>
 							<td>2019/6/30</td>	
-							<td><input class="edibtn" type="button" id="delBtn1" value="詳細" onclick="location.href='http://wiz.developluna.jp/~tmH2019/lampTeamH/sources/review_details.php?transaction_id={$value['transaction_id']}&product_id={$value['product_id']}&customer_id={$value['customer_id']'"><!--<input class="delbtn" type="button" id="delBtn1" value="削除" onclick="deleteRow(this)">--></td>
+							<td><input class="edibtn" type="button" id="delBtn1" value="詳細" onclick="location.href='http://wiz.developluna.jp/~tmH2019/lampTeamH/sources/review_details.php?transaction_id={$value['transaction_id']}&product_id={$value['product_id']}&customer_id={$value['customer_id']}&product_name={$value['product_name']}	'"><!--<input class="delbtn" type="button" id="delBtn1" value="削除" onclick="deleteRow(this)">--></td>
 						</tr>
 					{/foreach}
 				</table>
