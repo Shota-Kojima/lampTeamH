@@ -43,7 +43,7 @@ if(isset($_GET['product_id'])
 		// ステータスコードを出力
 		http_response_code( 301 ) ;
 		// リダイレクト
-		header( "Location: ./products.php" ) ;
+		header( "Location: ./product_list.php" ) ;
 		exit ;
 	}
 	
@@ -51,7 +51,7 @@ if(isset($_GET['product_id'])
 	// ステータスコードを出力
 	http_response_code( 301 ) ;
 	// リダイレクト
-	header( "Location: ./products.php" ) ;
+	header( "Location: ./product_list.php" ) ;
 	exit ;
 }
 
