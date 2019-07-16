@@ -18,6 +18,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <link href="css/style.css" rel='stylesheet' type='text/css' />
 <link href="css/component.css" rel='stylesheet' type='text/css' />
 <link href="css/manager.css" rel='stylesheet' type='text/css' />
+<link href="css/modal.css" rel='stylesheet' type='text/css' />
+<link href="css/user_check.css" rel="stylesheet" type="text/css">
 <!-- Custom Theme files -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 {literal}
@@ -95,6 +97,33 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	
 </head>
 <body>
+<div class="popup" id="js-popup">
+	<div class="popup-inner">
+		<div class="register-box30">
+			<div class="register-box-title">SUCCESS!!</div>
+				<p>
+					<form> 
+						<div class="register-top-grid">
+							<center>
+								<h3><font size="5">メモ入力</font></h3>
+							</center>
+						</div>
+		　        </form>
+					<div class="clearfix"> </div>
+					<div class="register-but">
+				　        <form action="" method="post" enctype="multipart/form-data" autocomplete="off">
+							
+							<input type="hidden" name="product_id" value="{$productarr['product_id']}">
+							<p>メモ</p>
+							<textarea name="memo" rows="7" cols="50"></textarea><br><br>
+							<input type="submit" name="mylist" value="登録" title="">
+						</form>
+					</div>
+				</p>
+			</div>
+		</div>
+	<div class="black-background" id="js-black-bg"></div>
+</div>
 	<div class="main">
 	  <div class="content_box">
 		<div class="container">
@@ -262,11 +291,35 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 							<input type="submit" value="購入" title="">
 						{else}
 							<input type="submit" name="buy" value="カートに入れる" title="">
-							<input type="submit" name="mylist" value="マイリスト" title="">
+							<input type="button" name="mylist" id="js-show-popup" value="マイリスト" title="">
 						{/if}				 	
 					</form>
 				</div>
 			</div>
+			{literal}
+				<script>
+					function popupImage() {
+						var popup = document.getElementById('js-popup');
+						if(!popup) return;
+						var blackBg = document.getElementById('js-black-bg');
+
+						var blackBg = document.getElementById('js-black-bg');
+						var closeBtn = document.getElementById('js-close-btn');
+						var showBtn = document.getElementById('js-show-popup');
+
+						closePopUp(blackBg);
+						closePopUp(closeBtn);
+						closePopUp(showBtn);
+						function closePopUp(elem) {
+							if(!elem) return;
+							elem.addEventListener('click', function() {
+								popup.classList.toggle('is-show');
+							});
+						}
+					}
+						popupImage();
+				</script>
+			{/literal}
 			<div class="clearfix"></div>
 		   </div>
 		   <div class="sap_tabs">	
