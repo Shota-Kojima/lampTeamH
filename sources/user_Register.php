@@ -113,10 +113,10 @@ if(isset($_POST['first_name_kana'])){
 	}
 }
 //住所
-if(isset($_POST['customer_address'])){
+if(isset($_POST['addr21'])){
 	global $flg;
 	//１０文字超えているかどうかチェックする
-	if(!count($_POST['customer_address']) >= 20){
+	if(!count($_POST['addr21']) >= 100){
 		flgUpd(false);
 		$flg["customer_address"] = true;
 		$smarty->assign('flg',$flg);
@@ -164,62 +164,8 @@ function flgUpd($bool){
 	$registFlg = $bool;
 }
 
-//--------------------------------------------------------------------------------------
-/*!
-@brief	エラー存在のアサイン
-@return	なし
-*/
-//--------------------------------------------------------------------------------------
-function assign_err_flag(){
-	//$smartyをグローバル宣言（必須）
-	global $smarty;
-	global $err_flag;
-	$str = '';
-	switch($err_flag){
-		case 1:
-		$str =<<<END_BLOCK
 
-<p class="red">入力エラーがあります。各項目のエラーを確認してください。</p>
-END_BLOCK;
-		break;
-		case 2:
-		$str =<<<END_BLOCK
 
-<p class="red">更新に失敗しました。サポートを確認下さい。</p>
-END_BLOCK;
-		break;
-	}
-	$smarty->assign('err_flag',$str);
-}
-
-//--------------------------------------------------------------------------------------
-/*!
-@brief	パラメータのチェック
-@return	エラーの場合はfalseを返す
-*/
-//--------------------------------------------------------------------------------------
-function paramchk(){
-	global $err_array;
-	$retflg = true;
-	/// メンバー名の存在と空白チェック
-	if(ccontentsutil::chkset_err_field($err_array,'member_name','メンバー名','isset_nl')){
-		$retflg = false;
-	}
-	/// メンバーの都道府県チェック
-	if(ccontentsutil::chkset_err_field($err_array,'prefecture_id','都道府県','isset_num_range',1,47)){
-		$retflg = false;
-	}
-	/// メンバー住所の存在と空白チェック
-	if(ccontentsutil::chkset_err_field($err_array,'member_address','市区郡町村以下','isset_nl')){
-		$retflg = false;
-	}
-	/// メンバーの性別チェック
-	if(ccontentsutil::chkset_err_field($err_array,'member_gender','性別','isset_num_range',1,2)){
-		$retflg = false;
-	}
-
-	return $retflg;
-}
 
 //--------------------------------------------------------------------------------------
 /*!
@@ -239,49 +185,19 @@ function regist(){
 	$dataarr['last_name_kana'] = (string)$_POST['last_name_kana'];//せい
 	$dataarr['first_name'] = (string)$_POST['first_name'];//名
 	$dataarr['first_name_kana'] = (string)$_POST['first_name_kana'];//めい
-	$dataarr['customer_address'] = (string)$_POST['customer_address'];//住所
+	$dataarr['postal_code'] = (string)$_POST['zip21'] + (string)$_POST['zip22'];//住所
+	$dataarr['customer_address'] = (string)$_POST['addr21'];//住所
 	$dataarr['icon_pass'] = (string)$_POST['icon_pass'];//アイコンの初期画像
 	$dataarr['customer_point'] = (int)$_POST['customer_point'];//ポイント = 0
 	$dataarr['customer_created_date'] = (string)$_POST['customer_created_date'];//作成日
 	$dataarr['customer_password'] = (string)$_POST['customer_password'];//パス
-	$dataarr['customer_sex'] = (int)$_POST['customer_sex'];//性別
+	$dataarr['customer_sex'] = (int)$_POST['sex'];//性別
 	$chenge = new cchange_ex();
 
 	$mid = $chenge->insert('customer',$dataarr);
 	echo '<script type="text/javascript">alert("追加おｋ");</script>';
 }
-//--------------------------------------------------------------------------------------
-/*!
-@brief	ページの出力(一覧に戻るリンク用)
-@return	なし
-*/
-//--------------------------------------------------------------------------------------
-function assign_page(){
-	//$smartyをグローバル宣言（必須）
-	global $smarty;
-	global $page;
-	$pagestr = '';
-	if($page > 0){
-		$pagestr =  '?page=' . $page;
-	}
-	$smarty->assign('page',$pagestr);
-}
 
-//--------------------------------------------------------------------------------------
-/*!
-@brief	フルーツデータの追加／更新
-@return	なし
-*/
-//--------------------------------------------------------------------------------------
-function regist_customer($customer_id){
-	$chenge = new cchange_ex();
-	$chenge->delete("customer","customer_id=" . $customer_id);
-	foreach($_POST['fruits'] as $key => $val){
-		$dataarr = array();
-		$dataarr['customer_id'] = (String)$customer_id;
-		$chenge->insert('customer',$dataarr);
-	}
-}
 
 /////////////////////////////////////////////////////////////////
 /// 関数呼び出しブロック
