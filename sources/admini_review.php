@@ -84,23 +84,23 @@ function readdata(){
     $not_reply = array();
     if(isset($_POST['search_text1'])||isset($_SESSION['HTeam']['search_text1'])){
          $search_text1 = '%'.$search_text1.'%';
-         $flag1 = "productH.product_id = 1 and $flag_command1 like '$search_text1'";
-         $rows1 = $obj->get_tgt_category_keyword(false,$flag1,$from1,$limit1);
+         $flag1 = "productH.product_category = 1 and $flag_command1 like '$search_text1'";
+         $rows1 = $obj->get_tgt_category_keyword(false,$flag,$from1,$limit1);
          $max1 = $obj->get_tgt_category_keyword_count(false,$flag1);
     }
     else{
-         $flag1 = "productH.product_id = 1";
+         $flag1 = "productH.product_category= 1";
          $rows1 = $obj->get_tgt_category_keyword(false,$flag1,$from1,$limit1);
          $max1 = $obj->get_tgt_category_keyword_count(false,$flag1);
     }
     if(isset($_POST['search_text2'])||isset($_SESSION['HTeam']['search_text2'])){
          $search_text2 = '%'.$search_text2.'%';
-         $flag2 = "productH.product_id = 2 and $flag_command2 like '$search_text2'";
+         $flag2 = "productH.product_category = 2 and $flag_command2 like '$search_text2'";
          $rows2 = $obj->get_tgt_category_keyword(false,$flag2,$from2,$limit2);
          $max2 = $obj->get_tgt_category_keyword_count(false,$flag2);
     }
     else{
-         $flag2 = "productH.product_id = 2";
+         $flag2 = "productH.product_category = 2";
          $rows2 = $obj->get_tgt_category_keyword(false,$flag2,$from2,$limit2);
          $max2 = $obj->get_tgt_category_keyword_count(false,$flag2);
     }
