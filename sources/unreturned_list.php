@@ -62,8 +62,7 @@ function readdata(){
     foreach($rows as $value){
         $not_returned[] = $value;
     }
-var_dump($limit_page);
-  
+
 }
 $smarty->display('unreturned_list.tmpl');
 ?>
