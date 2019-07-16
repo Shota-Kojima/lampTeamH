@@ -1032,6 +1032,18 @@ class creview extends crecord {
 		//取得した配列を返す
 		return $arr;
 	}
+	public function get_tgt_category_keyword($debug,$category,$conditions){
+        //親クラスのselect()メンバ関数を呼ぶ
+        $this->select(
+            $debug,         //デバッグ表示するかどうか
+            "*",          //取得するカラム
+			"review inner join productH on
+			 review.product_id = productH.product_id",    //取得するテーブル
+            "productH.product_category = '{$category}' AND  $conditions",    //条件
+			"transaction_id asc"	//並び替え
+		);
+        return $this->fetch_assoc();
+	}
 	
 	
 	//--------------------------------------------------------------------------------------
@@ -1822,7 +1834,7 @@ class crental extends crecord {
 		//親クラスのselect()メンバ関数を呼ぶ
 		$this->select(
 			$debug,					//デバッグ文字を出力するかどうか
-			"distinct count(*)",				//取得するカラム
+			"count(distinct info.customer_id)",				//取得するカラム
 			"(transaction_info as info
 			 inner join customer
 			 on info.customer_id = customer.customer_id)
@@ -1832,7 +1844,7 @@ class crental extends crecord {
 		);
 		if($row = $this->fetch_assoc()){
 			//取得した個数を返す
-			return $row['count(*)'];
+			return $row['count(distinct info.customer_id)'];
 		}
 		else{
 			return 0;

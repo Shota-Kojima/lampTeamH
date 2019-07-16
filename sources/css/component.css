@@ -283,3 +283,10 @@ background: url(../images/grid_view.png)no-repeat;
 .hide{
     display: none;
 }
+.user_info{
+	border-style:solid !important;
+	border-width:1px !important;
+	border-color:rgb(209, 206, 206) !important;
+	height:30px;
+	width: 250px !important;
+}
