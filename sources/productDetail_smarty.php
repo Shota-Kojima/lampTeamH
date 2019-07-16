@@ -21,14 +21,38 @@ $err_flag = 0;
 $page = 0;
 $buy_chk = false;
 
-if(isset($_POST['buy_count'])
+//--------------
+//マイリスト登録時
+//--------------
+if(isset($_POST['mylist'])){
+	//商品Hクラスを構築
+	$product_obj = new cproductH();
+	$product_id = $_POST['product_id'];
+	
+	$productarr = $product_obj->get_tgt(false,$product_id);
+	if($productarr !== false){
+		// echo '<script type="text/javascript">alert("ここか？");</script>';
+		// product_passを取得
+		$data = $productarr["product_pass"];
+		$productarr["product_pass"] = explode(',',$data);
+		$smarty->assign('productarr',$productarr);
+	}
+
+
+//--------------
+//購入時
+//--------------
+}else if(isset($_POST['buy_count'])
 	//cutilクラスのメンバ関数をスタティック呼出
 	&& cutil::is_number($_POST['buy_count'])
 	&& $_POST['buy_count'] > 0 && isset($_POST['product_id'])){
+	var_dump("buy");
 	//購入
 	$buy_chk = true;
 	regist();
-	
+//--------------
+//最初のアクセス	
+//--------------
 }else if(isset($_GET['product_id']) 
 //cutilクラスのメンバ関数をスタティック呼出
 	&& cutil::is_number($_GET['product_id'])
