@@ -201,6 +201,7 @@ $(function(){
 					 <div id="event-change"></div>
 					 </div>
 					 <div class="customer2">
+<<<<<<< HEAD
 					 	{if $flg['last_name'] eq true}<font color="red">入力内容に問題があります</font>{/if}
 						<span><p class="de111">姓</p></span>
 						<input type="text" name="last_name" class="name1" value="{if isset($POST['last_name'])}{$POST['last_name']}{/if}"> 
@@ -218,6 +219,21 @@ $(function(){
 					 <div class="customer2">
 					 	{if $flg['first_name_kana'] eq true}<font color="red">入力内容に問題があります</font>{/if}
 						<span><p class="de111">めい</p></span>
+=======
+						<span><p>氏</p></span>
+						<input type="text" name="last_name" class="name1" value="{if isset($POST['last_name'])}{$POST['last_name']}{/if}"> 
+					 </div>
+					 <div class="customer2">
+						<span><p>せい</p></span>
+						<input type="text" name="last_name_kana" class="name1" value="{if isset($POST['last_name_kana'])}{$POST['last_name_kana']}{/if}"> 
+					 </div>
+					 <div class="customer2">
+						<span><p>名</p></span>
+						<input type="text" name="first_name" class="name1" value="{if isset($POST['first_name'])}{$POST['first_name']}{/if}"> 
+					 </div>
+					 <div class="customer2">
+						<span><p>めい</p></span>
+>>>>>>> c0738efbab0b1761ddccd56181e8be0c4caa3b7a
 						<input type="text" name="first_name_kana" class="name1" value="{if isset($POST['first_name_kana'])}{$POST['first_name_kana']}{/if}"> 
 					 </div>
 					 <div class="yuubi">
@@ -225,6 +241,7 @@ $(function(){
 					 <input type="text" class="form_text-small"name="zip31" size="4" maxlength="3"> － <input type="text" class="form_text-small" name="zip32" size="5" maxlength="4" onKeyUp="AjaxZip3.zip2addr('zip31','zip32','pref31','addr31','addr31');">
 					 </div>
 					 <div class="customer3">
+<<<<<<< HEAD
 					 	{if $flg['customer_address'] eq true}<font color="red">入力内容に問題があります</font>{/if}
 						<span><p class="de111">住所</p></span>
 						<input type="text" name="customer_address" value="{if isset($POST['customer_address'])}{$POST['customer_address']}{/if}"> 
@@ -232,6 +249,13 @@ $(function(){
 					 <div class="customer2">
 						 {if $flg['customer_email'] eq true}<font color="red">入力内容に問題があります</font>{/if}
 						 <span><p class="de111">メールアドレス</p></span>
+=======
+						<span><p>住所</p></span>
+						<input type="text" name="customer_address" value="{if isset($POST['customer_address'])}{$POST['customer_address']}{/if}"> 
+					 </div>
+					 <div class="customer2">
+						 <span><p>メールアドレス</p></span>
+>>>>>>> c0738efbab0b1761ddccd56181e8be0c4caa3b7a
 						 <input type="text" name="customer_email" class="name1" autocomplete="off" value="{if isset($POST['customer_email'])}{$POST['customer_email']}{/if}">
 					 </div>
 					 <div class="clearfix"> </div>
@@ -248,12 +272,21 @@ $(function(){
 							 </div>
 							 <div>
 							 	{if $flg['customer_password'] eq true}<font color="red">パスワードに問題があります</font>{/if}
+<<<<<<< HEAD
 								<span><p class="de111">パスワード(6文字以上15文字以下　半角英数)</p></span>
 								<input type="password" name="customer_password" size="30" minlength="8" pattern="[a-zA-Z0-9]+" title="パスワードは8文字以上の半角英数字で入力してください。" required autocomplete="off">
 							 </div>
 							 <div class="customer4">
 								<span><p class="de111">パスワード確認</p></span>
 								<input type="password" name="customer_password_check" size="30" minlength="8" pattern="[a-zA-Z0-9]+" title="パスワードは8文字以上の半角英数字で入力してください。" required autocomplete="off">
+=======
+								<span><p>パスワード(6文字以上15文字以下　半角英数)</p></span>
+								<input type="password" name="customer_password" size="30" minlength="6" pattern="[a-zA-Z0-9]+" title="パスワードは6文字以上の半角英数字で入力してください。" required autocomplete="off">
+							 </div>
+							 <div class="customer4">
+								<span><p>パスワード確認</p></span>
+								<input type="password" name="customer_password_check" size="30" minlength="6" pattern="[a-zA-Z0-9]+" title="パスワードは6文字以上の半角英数字で入力してください。" required autocomplete="off">
+>>>>>>> c0738efbab0b1761ddccd56181e8be0c4caa3b7a
 							 </div>
 					 </div>
 					 <div class="register-but">

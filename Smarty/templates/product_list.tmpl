@@ -168,10 +168,10 @@ cart_bgって名前のclassはオレンジ色にしたりする
                                 <form>
                                     <ul class="sort_command">
                                         <span style="margin-left:100px;margin-top:100px;">
-                                            <li ><a href="product_list.php?sort_method=aiueo_order">五十音順</a></li>
-                                            <li ><a href="product_list.php?sort_method=sales_order">売れ筋順</a></li>
-                                            <li ><a href="product_list.php?sort_method=price_desk_order">価格高い順</a></li>
-                                            <li ><a href="product_list.php?sort_method=price_ask_order">価格低い順</a></li>
+                                            <li ><a href="product_list.php?sale_sort_method=aiueo_order">五十音順</a></li>
+                                            <li ><a href="product_list.php?sale_sort_method=sales_order">売れ筋順</a></li>
+                                            <li ><a href="product_list.php?sale_sort_method=price_desk_order">価格高い順</a></li>
+                                            <li ><a href="product_list.php?sale_sort_method=price_ask_order">価格低い順</a></li>
                                         </span>
                                     </ul>
                                 </form>
@@ -192,31 +192,10 @@ cart_bgって名前のclassはオレンジ色にしたりする
                                         </a>
                                     </div>
                                 {/foreach}
-                            <div class="pagging">
-								<div class="left">表示中 1-20</div>
-								<div class="right">
-                                	{if $page1-1>0}
-									<a href="contact_list.php?page1={$page1-1}">前へ</a>
-									{else}
-									<a href="contact_list.php?page1={$page1}">前へ</a>
-									{/if}
-									{for $start1=1 to 5}
-									<a href="contact_list.php?page1={$start1}">{$start1}</a>
-									{/for}
-									{if $page1>4}
-									<span>...</span>
-									<a href="contact_list.php?page1={$page1}">10</a>
-									{/if}
-									{if $page1+1>$page1}
-									<a href="contact_list.php?page1={$page1}">次へ</a>
-									{else}
-									<a href="contact_list.php?page1={$page+1}">次へ</a>
-									{/if}
-									
-                            	</div>
-                            </div>
+                           
                         </span>
 	              </span>
+                 
                   <span class="panel-group" style="float:right;min-width:877.8px">
                         <ul class="category_sub"id="category_sub1">
                             <li id="category_detail"><a href="product_list.php?tental_genre_id=1">ガソリンランタン</a></li>
@@ -348,7 +327,7 @@ cart_bgって名前のclassはオレンジ色にしたりする
                             </form>
                             {foreach from=$product_frima item=product}
                                 <div class="col_1_of_3 span_1_of_3"style="margin-top:0px;"> 
-                                    <a href="productDetail_smarty.php?product_id={$product['product_id']}">
+                                    <a href="frimatrans.php?product_id={$product['product_id']}">
                                         <div class="product_image" >
                                             <img src="{$product['product_pass']}" class="product_images"/>
                                             <div id="add_info">
@@ -363,9 +342,9 @@ cart_bgって名前のclassはオレンジ色にしたりする
                                     </a>
                                 </div>
                             {/foreach}
+                            
                         </span>	
 	              </span>
-               
             </span>
                  {literal}
                      <script>
@@ -409,7 +388,11 @@ cart_bgって名前のclassはオレンジ色にしたりする
 				
 						// 取得したインデックス番号の class="hide" を削除
 						$('.panel-group').eq(num).removeClass('hide');
-	
+
+                        $('.pagging').addClass('hide');
+				
+						// 取得したインデックス番号の class="hide" を削除
+						$('.pagging').eq(num).removeClass('hide');
 					}
 				});
             
@@ -507,12 +490,90 @@ cart_bgって名前のclassはオレンジ色にしたりする
                 });
     
 				</script>
-            
 				 {/literal}
-				
-
 				   <div class="clearfix"></div>
 			    </div>
+                 <div class="pagging">
+                    {if $sale_limit>$sale_count-$sale_from}
+                        <div class="left">表示中 {$sale_from+1}-{$sale_count}</div>
+                    {else}
+                        <div class="left">表示中 {$sale_from+1}-{$sale_from+$sale_limit}</div>
+                    {/if}
+                    <div class="right">
+                        {if $sale_page-1>0}
+                        <a href="product_list.php?sale_page={$sale_page-1}">前へ</a>
+                        {else}
+                        <a href="product_list.php?sale_page={$sale_page}">前へ</a>
+                        {/if}
+                        {for $start=1 to $sale_page_limit}
+                        <a href="product_list.php?sale_page={$start}">{$start}</a>
+                        {/for}
+                        {if $sale_page_limit>4}
+                        <span>...</span>
+                        <a href="product_list.php?sale_page={$sale_page_count}">{$sale_page_count}</a>
+                        {/if}
+                        {if $sale_page+1>$sale_page_count}
+                        <a href="product_list.php?sale_page={$sale_page}">次へ</a>
+                        {else}
+                        <a href="product_list.php?sale_page={$sale_page+1}">次へ</a>
+                        {/if}
+                    </div>
+                </div>
+
+                <div class="pagging">
+                    {if $rental_limit>$rental_count-$rental_from}
+                        <div class="left">表示中 {$rental_from+1}-{$rental_count}</div>
+                    {else}
+                        <div class="left">表示中 {$rental_from+1}-{$rental_from+$rental_limit}</div>
+                    {/if}
+                    <div class="right">
+                        {if $rental_page-1>0}
+                        <a href="product_list.php?rental_page={$rental_page-1}">前へ</a>
+                        {else}
+                        <a href="product_list.php?rental_page={$rental_page}">前へ</a>
+                        {/if}
+                        {for $start=1 to $rental_page_limit}
+                        <a href="product_list.php?rental_page={$start}">{$start}</a>
+                        {/for}
+                        {if $rental_page_limit>4}
+                        <span>...</span>
+                        <a href="product_list.php?rental_page={$rental_page_count}">{$rental_page_count}</a>
+                        {/if}
+                        {if $rental_page+1>$rental_page_count}
+                        <a href="product_list.php?rental_page={$rental_page}">次へ</a>
+                        {else}
+                        <a href="product_list.php?rental_page={$rental_page+1}">次へ</a>
+                        {/if}
+                    </div>
+                </div>
+
+                <div class="pagging">
+                    {if $frima_limit>$frima_count-$frima_from}
+                        <div class="left">表示中 {$frima_from+1}-{$frima_count}</div>
+                    {else}
+                        <div class="left">表示中 {$frima_from+1}-{$frima_from+$frima_limit}</div>
+                    {/if}
+                    <div class="right">
+                        {if $frima_page-1>0}
+                        <a href="product_list.php?frima_page={$frima_page-1}">前へ</a>
+                        {else}
+                        <a href="product_list.php?frima_page={$frima_page}">前へ</a>
+                        {/if}
+                        {for $start=1 to $frima_page_limit}
+                        <a href="product_list.php?frima_page={$start}">{$start}</a>
+                        {/for}
+                        {if $frima_page_limit>4}
+                        <span>...</span>
+                        <a href="product_list.php?frima_page={$frima_page_count}">{$frima_page_count}</a>
+                        {/if}
+                        {if $frima_page+1>$frima_page_count}
+                        <a href="product_list.php?frima_page={$frima_page}">次へ</a>
+                        {else}
+                        <a href="product_list.php?frima_page={$frima_page+1}">次へ</a>
+                        {/if}
+                    </div>
+                </div>
+                            
 			  </div>
 			</div>
 		 </div>
