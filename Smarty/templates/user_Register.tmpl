@@ -168,7 +168,6 @@ $(function(){
       var value = $(this).val();
       var text = $(this).children('option:selected').html();
       console.log(value+' : '+text);
-      event_change.html(value+' : '+text);
     }
   });
   $( ".test" ).selectCF({
@@ -184,9 +183,15 @@ $(function(){
 	<!--会員登録のクラス-->
     <div class="main">
 	   <div class="container">
+<<<<<<< HEAD
+		  <div class="register" >
+		  	  <form id="register"action="" method="post" enctype="multipart/form-data"> 
+				 <div class="regi1" style="max-height:374px">
+=======
 		  <div class="register">
 		  	  <form action="" method="post" enctype="multipart/form-data"> 
 				 <div class="regi1">
+>>>>>>> a8b26d8ab58390dde25f14c78093e998003a5195
 					<h3>会員登録</h3>
 					<div id="wapper">
 					<span><p>性別</p></span>
@@ -201,6 +206,9 @@ $(function(){
 					 <div id="event-change"></div>
 					 </div>
 					 <div class="customer2">
+<<<<<<< HEAD
+						<span><p>氏 <U id="last_name_error"></U></p></span>
+=======
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
@@ -233,24 +241,37 @@ $(function(){
 =======
 =======
 						<span><p>氏</p><U id="last_name_error"></U></span>
+>>>>>>> a8b26d8ab58390dde25f14c78093e998003a5195
 						<input type="text" name="last_name" class="name1" value="{if isset($POST['last_name'])}{$POST['last_name']}{/if}"> 
 					 </div>
 					 <div class="customer2">
-						<span><p>せい</p><U id="last_name_kana_error"></U></span>
+						<span><p>せい <U id="last_name_kana_error"></U></p></span>
 						<input type="text" name="last_name_kana" class="name1" value="{if isset($POST['last_name_kana'])}{$POST['last_name_kana']}{/if}"> 
 					 </div>
 					 <div class="customer2">
-						<span><p>名</p><U id="first_name_error"></U></span>
+						<span><p>名 <U id="first_name_error"></U></p></span>
 						<input type="text" name="first_name" class="name1" value="{if isset($POST['first_name'])}{$POST['first_name']}{/if}"> 
 					 </div>
 					 <div class="customer2">
+<<<<<<< HEAD
+						<span><p>めい <U id="first_name_kana_error"></U></p></span>
+=======
 						<span><p>めい</p><U id="first_name_kana_error"></U></span>
 >>>>>>> 6924b1a1a88055aec4a7b490003acac904df4645
+>>>>>>> a8b26d8ab58390dde25f14c78093e998003a5195
 						<input type="text" name="first_name_kana" class="name1" value="{if isset($POST['first_name_kana'])}{$POST['first_name_kana']}{/if}"> 
 					 </div>
-					 <div class="yuubi">
-					 <span><p>郵便番号</p></span>
+					<span>
+					
+					</span>
+					 <span class="yuubi"style="margin-top:125px">
+					 <p style="position:absolute;">郵便番号 <U id="zip21_error"></U></p>
 					 <input type="text" class="form_text-small" name="zip21" size="4" maxlength="3"> － <input type="text" class="form_text-small" name="zip22" size="5" maxlength="4" onKeyUp="AjaxZip3.zip2addr('zip21','zip22','addr21','addr21');">
+<<<<<<< HEAD
+					 </span>
+					 <div class="customer2">
+						 <span><p>メールアドレス <U id="customer_email_register_error"></U></p></span>
+=======
 					 </div>
 					 <div class="customer3">
 <<<<<<< HEAD
@@ -272,17 +293,22 @@ $(function(){
 						 <span><p>メールアドレス</p></span><U id="customer_email_register_error"></U>
 >>>>>>> 6924b1a1a88055aec4a7b490003acac904df4645
 >>>>>>> ccd3b38eb657a1cb85316ce2af5679add8e7d2ae
+>>>>>>> a8b26d8ab58390dde25f14c78093e998003a5195
 						 <input type="text" name="customer_email" class="name1" autocomplete="off" value="{if isset($POST['customer_email'])}{$POST['customer_email']}{/if}">
 					 </div>
-					 <div class="clearfix"> </div>
-					   <a class="news-letter" href="#">
-						 <label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i> </i>メールでお知らせを受け取る</label>
-					   </a>
+					 <div class="customer2">
+						<span><p>住所 <U id="addr21_error"></U></p></span>
+						<input type="text" name="addr21" value="{if isset($POST['customer_address'])}{$POST['customer_address']}{/if}"> 
+					 </div>
+					 <div class="clearfix"></div>
 					 </div>
 				     <div class="register-bottom-grid">
 							<h3>ID・パスワード登録</h3>
 							<div>
 								{if $flg['customer_id'] eq true}<font color="red">このIDは使用されています</font>{/if}
+<<<<<<< HEAD
+								<span><p style="max-height:18.5px">ID <U id="customer_id_error"></U></p></span>
+=======
 <<<<<<< HEAD
 								<span><p class="de111">ID</p></span>
 								<input type="text" name="customer_id" autocomplete="off" value="{if isset($POST['customer_id'])}{$POST['customer_id']}{/if}">
@@ -290,6 +316,7 @@ $(function(){
 							 <div>
 =======
 								<span><p>ID</p><U id="customer_id_error"></U></span>
+>>>>>>> a8b26d8ab58390dde25f14c78093e998003a5195
 								<input type="text" name="customer_id" autocomplete="off" value="{if isset($POST['customer_id'])}{$POST['customer_id']}{/if}">
 							 </div>
 							 <div>

@@ -28,17 +28,23 @@ $smarty->assign('now_page1',$now_page1);
 $smarty->assign('count1',$now_page1);
 $smarty->assign('now_page2',$now_page2);
 $smarty->assign('count2',$now_page2);
+$smarty->assign('limit1',$limit1);
+$smarty->assign('limit2',$limit2);
+$smarty->assign('max1',$max1);
+$smarty->assign('max2',$max2);
+$smarty->assign('from1',$from1);
+$smarty->assign('from2',$from2);
 //データ抽出
 function readdata(){
     $obj = new ccontact();
     $rows1;
     $rows2;
-    $from1;
-    $limit1;
-    $max1;
-    $from2;
-    $limit2;
-    $max2;
+    global $from1;
+    global $limit1;
+    global $max1;
+    global $from2;
+    global $limit2;
+    global $max2;
     $count1;
     $count2;
     $search_text1;
@@ -87,12 +93,12 @@ function readdata(){
     if(isset($_GET['limit1'])){
         //現在の抽出条件の何番目からを表示するか指定
         $from1 = 0;
-        $limit1 = 10000;
+        $limit1 = 1000000;
     }
      if(isset($_GET['limit2'])){
         //現在の抽出条件の何番目からを表示するか指定
         $from2 = 0;
-        $limit2 = 10000;
+        $limit2 = 1000000;
     }
     $replyed = array();
     $not_reply = array();

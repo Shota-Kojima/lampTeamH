@@ -90,7 +90,7 @@ $('#register').validate({
         },
         zip21: {
             required: true,
-            maxlength: 3
+            maxlength: 4
         },
         zip22: {
             required: true,
@@ -200,6 +200,7 @@ $('#register').validate({
         case "customer_password":
           error.insertAfter($('#customer_password_error'));
           break;
+          
 
         default:
           error.insertAfter(element);
