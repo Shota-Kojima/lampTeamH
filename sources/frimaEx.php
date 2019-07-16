@@ -65,7 +65,6 @@ function regist(){
 	global $member_id;
 	$dataarr = array();
 	$dataarr['product_name'] = (string)$_POST['product_name'];
-	$dataarr['product_category'] = (int)$_POST['product_category'];
 	$dataarr['genre_id'] = (int)$_POST['genre_id'];
 	$dataarr['product_pass'] = (string)$_POST['product_pass'];
     $dataarr['product_text'] = (string)$_POST['product_text'];
@@ -74,7 +73,7 @@ function regist(){
     $dataarr['stock_value'] = (int)$_POST['stock'];
     
 	$chenge = new cchange_ex();
-    $mid = $chenge->insert('productH',$dataarr);
+    $mid = $chenge->insert('frima_productH',$dataarr);
     echo '<script type="text/javascript">alert('.$mid.');</script>';
 }
 
@@ -82,5 +81,5 @@ function regist(){
 $genre_obj = new cgenre();
 $rows = $genre_obj->get_allH(false);
 $smarty->assign('rows',$rows);
-$smarty->display('productEx.tmpl');
+$smarty->display('frimaEx.tmpl');
 ?>
