@@ -1039,11 +1039,29 @@ class creview extends crecord {
             "*",          //取得するカラム
 			"review inner join productH on
 			 review.product_id = productH.product_id",    //取得するテーブル
-            "productH.product_category = '{$category}' AND  $conditions",    //条件
+            "productH.product_category = '$category' AND  $conditions",    //条件
 			"transaction_id asc"	//並び替え
 		);
         return $this->fetch_assoc();
 	}
+	public function get_tgt_category_keyword_count($debug,$category,$conditions){
+		//親クラスのselect()メンバ関数を呼ぶ
+		$this->select(
+			$debug,					//デバッグ文字を出力するかどうか
+			"count(*)",				//取得するカラム
+			"review inner join productH on
+			 review.product_id = productH.product_id",    //取得するテーブル
+            "productH.product_category = '{$category}' AND  $conditions"			//条件
+		);
+		if($row = $this->fetch_assoc()){
+			//取得した個数を返す
+			return $row['count(*)'];
+		}
+		else{
+			return 0;
+		}
+	}
+	
 	
 	
 	//--------------------------------------------------------------------------------------
