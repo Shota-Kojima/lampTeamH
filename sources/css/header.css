@@ -278,6 +278,7 @@
     background: #fff url(../images/loader.gif) no-repeat center center;
     width: 100%;
     float: left; }
+    
     #colorlib-hero .btn {
       font-size: 24px; }
       #colorlib-hero .btn.btn-primary {
@@ -503,7 +504,9 @@
     .services-desc ul li {
       list-style: none;
       margin-bottom: 10px; }
-  
+      i.icon-cart:before {
+        content: "\e96a";
+    }
   .services {
     margin-bottom: 30px;
     position: relative;
