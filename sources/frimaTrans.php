@@ -42,7 +42,7 @@ if(isset($_POST['buy_count'])&& cutil::is_number($_POST['buy_count'])&& $_POST['
 	&& $_GET['product_id'] > 0){
 
 	//商品Hクラスを構築
-	$product_obj = new cproductH();
+	$product_obj = new c();
 	$product_id = $_GET['product_id'];
 	$productarr = $product_obj->get_tgt(false,$product_id);
 	if($productarr !== false){
