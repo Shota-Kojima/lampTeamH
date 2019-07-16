@@ -27,6 +27,14 @@ BAAS.cocoa = {
 					self.addText(data.value.user);
 					self.addText(data.value.message);
 			});
+			this.chatDataStore.stream().sort("desc").next(function(err, datas) {
+				datas.forEach(function(data) {
+					console.log(self);
+					console.log(data);
+					self.addText(data.value.user);
+					self.addText(data.value.message);
+				});
+			});
 		},
 
 		//ユーザー、メッセージ送信

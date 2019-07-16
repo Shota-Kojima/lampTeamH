@@ -206,8 +206,3 @@ $('#register').validate({
         }
     }
 });
-$(document).ready(function () {
-    $("#form-name").validationEngine('attach', {
-      promptPosition: "bottomLeft" //アラートの吹き出しを左下に設定: 
-    });
-});
