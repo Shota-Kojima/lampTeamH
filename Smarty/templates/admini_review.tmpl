@@ -75,16 +75,18 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			<p class="re">レビュー一覧</p>
 				<div class="searchform">
 					<form id="form_s" action="自分のサイトURL">
-						<input id="serbox"  id="s" name="s" type="text" placeholder="キーワードを入力" />
-						<input id="serbtn" type="submit" value="検索" />
-					</form>
+						<div class="right">
+                            <label>検索</label>
+                            <input type="text"name="search_text1"class="field small-field" />
+                            <input type="submit" class="button" value="search" id="search" />
+                        </div>
+					
                     
-					<form id="radiobtn">
 						<label class="radio-in">
-							<input type="radio" name="search-radio" value="商品名で検索" checked>商品名で検索
+							<input type="radio" name="search-radio1" value="product_id">商品名で検索
 						</label>
 						<label class="radio-in">
-							<input type="radio" name="search-radio" value="ユーザーIDで検索">ユーザーIDで検索
+							<input type="radio" name="search-radio1" value="customer_id">ユーザーIDで検索
 						</label>
 					</form>
 				</div>
@@ -100,20 +102,37 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					{foreach from=$view key=k item=value}
 						<tr>
 							<td><h3><a href="#">{$value['customer_id']}</a></h3></td>
-							<td>{$value['product_name']}</td>
 							<td>&ensp;{$value['review_value']}</td>
+							<td>{$value['product_name']}</td>
 							<td>2019/6/30</td>	
 							<td><input class="edibtn" type="button" id="delBtn1" value="詳細" onclick="location.href='http://wiz.developluna.jp/~tmH2019/lampTeamH/sources/review_details.php?transaction_id={$value['transaction_id']}&product_id={$value['product_id']}&customer_id={$value['customer_id']}&product_name={$value['product_name']}	'"><!--<input class="delbtn" type="button" id="delBtn1" value="削除" onclick="deleteRow(this)">--></td>
 						</tr>
 					{/foreach}
 				</table>
 				<div class="pagging">
-					<div class="left">表示中 1</div>
-					<div class="right">
-						<a href="#">前へ</a>
-						<a href="#">1</a>
-						<a href="#">次へ</a>
-						<a href="#">すべて表示</a>
+						{if $limit1>$max1-$from1}
+							<div class="left">表示中 {$from1+1}-{$max1}</div>
+						{else}
+							<div class="left">表示中 {$from1+1}-{$from1+$limit1}</div>
+						{/if}
+						{if $now_page1-1>0}
+						<a href="contact_list.php?page1={$now_page1-1}">前へ</a>
+						<a href="contact_list.php?page1={$now_page1}">前へ</a>
+						{else}
+						{/if}
+						{for $start1=1 to $limit_page1}
+						<a href="contact_list.php?page1={$start1}">{$start1}</a>
+						{/for}
+						{if $limit_page1>4}
+						<span>...</span>
+						<a href="contact_list.php?page1={$page_max1}">{$page_max1}</a>
+						{/if}
+						{if $now_page1+1>$page_max1}
+						<a href="contact_list.php?page1={$now_page1}">次へ</a>
+						{else}
+						<a href="contact_list.php?page1={$now_page1+1}">次へ</a>
+						{/if}
+						<a href="contact_list.php?limit1=over">全て表示</a>
 					</div>
 				</div>
 			</div>
@@ -125,14 +144,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					<form id="form_s" action="自分のサイトURL">
 						<input id="serbox"  id="s" name="s" type="text" placeholder="キーワードを入力" />
 						<input id="serbtn" type="submit" value="検索" />
-					</form>
-                    
-					<form id="radiobtn">
+					
 						<label class="radio-in">
-							<input type="radio" name="search-radio" value="商品名で検索" checked>商品名で検索
+							<input type="radio" name="search-radio1" value="product_id" checked>商品名で検索
 						</label>
 						<label class="radio-in">
-							<input type="radio" name="search-radio" value="ユーザーIDで検索">ユーザーIDで検索
+							<input type="radio" name="search-radio1" value="customer_id">ユーザーIDで検索
 						</label>
 					</form>
 				</div>
