@@ -27,8 +27,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <script src="js/ajaxzip3.js" charset="UTF-8"></script>
 <!-- Add fancyBox main JS and CSS files -->
 <script src="js/jquery.magnific-popup.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
 {include file='shere_noncart.tmpl'}
 <link href="css/magnific-popup.css" rel="stylesheet" type="text/css">
+{literal}
 		<script>
 			$(document).ready(function() {
 				$('.popup-with-zoom-anim').magnificPopup({
@@ -168,7 +170,6 @@ $(function(){
       var value = $(this).val();
       var text = $(this).children('option:selected').html();
       console.log(value+' : '+text);
-      event_change.html(value+' : '+text);
     }
   });
   $( ".test" ).selectCF({
@@ -177,21 +178,21 @@ $(function(){
   });
 })
 </script>
-
+{/literal}
 </head>
 <body>
 
 	<!--会員登録のクラス-->
     <div class="main">
 	   <div class="container">
-		  <div class="register" style="max-height:750px">
-		  	  <form action="" method="post" enctype="multipart/form-data"> 
-				 <div class="regi1">
+		  <div class="register" >
+		  	  <form id="register"action="" method="post" enctype="multipart/form-data"> 
+				 <div class="regi1" style="max-height:374px">
 					<h3>会員登録</h3>
 					<div id="wapper">
-					<span><p>性別</p></span>
+					<span><p>性別</p><U id="last_name"></U></span>
 					<div class="style1">
-					<select class="select">
+					<select class="select" name="sex_error">
 					<option value="1">性別を選択してください</option>
 					 <option value="2">男</option>
 					 <option value="3">女</option>
@@ -201,59 +202,52 @@ $(function(){
 					 <div id="event-change"></div>
 					 </div>
 					 <div class="customer2">
-					 	{if $flg['last_name'] eq true}<font color="red">入力内容に問題があります</font>{/if}
-						<span><p>氏</p></span>
+						<span><p>氏 <U id="last_name_error"></U></p></span>
 						<input type="text" name="last_name" class="name1" value="{if isset($POST['last_name'])}{$POST['last_name']}{/if}"> 
 					 </div>
 					 <div class="customer2">
-					 	{if $flg['last_name_kana'] eq true}<font color="red">入力内容に問題があります</font>{/if}
-						<span><p>せい</p></span>
+						<span><p>せい <U id="last_name_kana_error"></U></p></span>
 						<input type="text" name="last_name_kana" class="name1" value="{if isset($POST['last_name_kana'])}{$POST['last_name_kana']}{/if}"> 
 					 </div>
 					 <div class="customer2">
-					 	{if $flg['first_name'] eq true}<font color="red">入力内容に問題があります</font>{/if}
-						<span><p>名</p></span>
+						<span><p>名 <U id="first_name_error"></U></p></span>
 						<input type="text" name="first_name" class="name1" value="{if isset($POST['first_name'])}{$POST['first_name']}{/if}"> 
 					 </div>
 					 <div class="customer2">
-					 	{if $flg['first_name_kana'] eq true}<font color="red">入力内容に問題があります</font>{/if}
-						<span><p>めい</p></span>
+						<span><p>めい <U id="first_name_kana_error"></U></p></span>
 						<input type="text" name="first_name_kana" class="name1" value="{if isset($POST['first_name_kana'])}{$POST['first_name_kana']}{/if}"> 
 					 </div>
-					 <div class="yuubi">
-					 <span><p>郵便番号</p></span>
-					 <input type="text" class="form_text-small"name="zip31" size="4" maxlength="3"> － <input type="text" class="form_text-small" name="zip32" size="5" maxlength="4" onKeyUp="AjaxZip3.zip2addr('zip31','zip32','pref31','addr31','addr31');">
-					 </div>
-					 <div class="customer3">
-					 	{if $flg['customer_address'] eq true}<font color="red">入力内容に問題があります</font>{/if}
-						<span><p>住所</p></span>
-						<input type="text" name="customer_address" value="{if isset($POST['customer_address'])}{$POST['customer_address']}{/if}"> 
-					 </div>
+					<span>
+					
+					</span>
+					 <span class="yuubi"style="margin-top:125px">
+					 <p style="position:absolute;">郵便番号 <U id="zip21_error"></U></p>
+					 <input type="text" class="form_text-small" name="zip21" size="4" maxlength="3"> － <input type="text" class="form_text-small" name="zip22" size="5" maxlength="4" onKeyUp="AjaxZip3.zip2addr('zip21','zip22','addr21','addr21');">
+					 </span>
 					 <div class="customer2">
-						 {if $flg['customer_email'] eq true}<font color="red">入力内容に問題があります</font>{/if}
-						 <span><p>メールアドレス</p></span>
+						 <span><p>メールアドレス <U id="customer_email_register_error"></U></p></span>
 						 <input type="text" name="customer_email" class="name1" autocomplete="off" value="{if isset($POST['customer_email'])}{$POST['customer_email']}{/if}">
 					 </div>
-					 <div class="clearfix"> </div>
-					   <a class="news-letter" href="#">
-						 <label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i> </i>メールでお知らせを受け取る</label>
-					   </a>
+					 <div class="customer2">
+						<span><p>住所 <U id="addr21_error"></U></p></span>
+						<input type="text" name="addr21" value="{if isset($POST['customer_address'])}{$POST['customer_address']}{/if}"> 
+					 </div>
+					 <div class="clearfix"></div>
 					 </div>
 				     <div class="register-bottom-grid">
 							<h3>ID・パスワード登録</h3>
 							<div>
 								{if $flg['customer_id'] eq true}<font color="red">このIDは使用されています</font>{/if}
-								<span><p>ID</p></span>
+								<span><p style="max-height:18.5px">ID <U id="customer_id_error"></U></p></span>
 								<input type="text" name="customer_id" autocomplete="off" value="{if isset($POST['customer_id'])}{$POST['customer_id']}{/if}">
 							 </div>
 							 <div>
-							 	{if $flg['customer_password'] eq true}<font color="red">パスワードに問題があります</font>{/if}
 								<span><p>パスワード(6文字以上15文字以下　半角英数)</p></span>
-								<input type="password" name="customer_password" size="30" minlength="8" pattern="[a-zA-Z0-9]+" title="パスワードは8文字以上の半角英数字で入力してください。" required autocomplete="off">
+								<input type="password" name="customer_password" size="30" minlength="6" autocomplete="off">
 							 </div>
 							 <div class="customer4">
 								<span><p>パスワード確認</p></span>
-								<input type="password" name="customer_password_check" size="30" minlength="8" pattern="[a-zA-Z0-9]+" title="パスワードは8文字以上の半角英数字で入力してください。" required autocomplete="off">
+								<input type="password" name="customer_password_check" size="30" minlength="6" autocomplete="off">
 							 </div>
 					 </div>
 					 <div class="register-but">
@@ -264,6 +258,7 @@ $(function(){
 				
 					</div>
 				</form>
+				<script src="js/validate.js" type="text/javascript"></script>
 		   </div>
 	    </div>
 	</div>

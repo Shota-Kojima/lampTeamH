@@ -1822,7 +1822,7 @@ class crental extends crecord {
 		//親クラスのselect()メンバ関数を呼ぶ
 		$this->select(
 			$debug,					//デバッグ文字を出力するかどうか
-			"distinct count(*)",				//取得するカラム
+			"count(distinct *)",				//取得するカラム
 			"(transaction_info as info
 			 inner join customer
 			 on info.customer_id = customer.customer_id)

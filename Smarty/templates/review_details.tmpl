@@ -7,7 +7,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE HTML>
 <html>
 <head>
-{literal}
 <title>RE:SURVIVAR : レビュー詳細</title>
 <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -32,6 +31,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 });
 </script>
 <link href="css/magnific-popup.css" rel="stylesheet" type="text/css">
+{literal}
 		<script>
 			$(document).ready(function() {
 				$('.popup-with-zoom-anim').magnificPopup({
@@ -47,7 +47,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			});
 		});
 		</script>
-		
+{/literal}	
 </head>
 <body>
 <div id="header"></div>
@@ -81,19 +81,19 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     <div class="table">
                         <table width="100%" border="0" cellspacing="0" cellpadding="0">
                             <tr>
-                            <th>ユーザーID:{$view[]}</th>
+                            <th>ユーザーID:{$view['customer_id']}</th>
                             </tr>
                             <tr>
-                            <th>商品名:</th>
+                            <th>商品名:{$view['product_name']}</th>
                             </tr>
                             <tr>
-                            <th>投稿日時:</th>
+                            <th>投稿日時:{$view['review_date']}</th>
                             </tr>
 							<tr>
-                            <th>レート:<span class="rate" style="letter-spacing:1px;">☆☆☆☆☆</span></th>
+                            <th>レート:<span class="rate" style="letter-spacing:1px;">{for $foo=1 to $view['review_value']}☆{/for}</span></th>
                             </tr>
                         </table>
-                        <textarea readonly id="co" rows="10" cols="110"></textarea><br>
+                        <textarea readonly id="co" rows="10" cols="110">{$view['review']}</textarea><br>
 						<input id="saku" type="submit" value="削除">
                         <a href="http://wiz.developluna.jp/~tmH2019/lampTeamH/sources/admini_review.php">
                         <input id="sou" type="submit" value="確認">
@@ -191,8 +191,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					<h3>Newsletter</h3>
 					<p class="footer_desc">Nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat</p>
 					<div class="search_footer">
+					{literal}
 			          <input type="text" class="text" value="Insert Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Insert Email';}">
 			          <input type="submit" value="Submit">
+					{/literal}
 			        </div>
 			        <img src="images/payment.png" class="img-responsive" alt=""/>
 				 </div>
@@ -213,5 +215,4 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         	</div>
         </div>
 </body>
-{/literal}
 </html>		
