@@ -1,0 +1,50 @@
+/*CHECKの枠*/
+.register-box30 {
+    margin: 2em 0;
+    background: #f1f1f1;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.22);
+}
+.register-box30 .register-box-title {
+    font-size: 1.2em;
+    background: #FF5B36;
+    padding: 4px;
+    text-align: center;
+    color: #FFF;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+}
+.register-box30 p {
+    padding: 15px 20px;
+    margin: 0;
+}
+.register-but-user{
+	margin-top:1em;
+}
+.register-but-user input[type="submit"] {
+	background:#fb4d01;
+	color: #FFF;
+	font-size: 0.8em;
+	padding: 0.8em 2em;
+	transition: 0.5s all;
+	-webkit-transition: 0.5s all;
+	-moz-transition: 0.5s all;
+	-o-transition: 0.5s all;
+	display: inline-block;
+	text-transform: uppercase;
+	border:none;
+	outline:none;
+}
+.register-but-user input[type="submit"]:hover {
+	background:#26d2fc;
+}
+.user_check h3{
+	text-align: center;
+	color: #fb4d01;
+	font-size: 25px;
+}
+.user_check h4{
+	position: relative; top: 0; left:450px;
+	padding: 10px;
+	display: inline-block;
+	border-bottom: medium solid #a9a9a9;
+} 

@@ -7,7 +7,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE HTML>
 <html>
 <head>
-{literal}
 <title>RE:SURVIVAL : マイリスト</title>
 <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -29,7 +28,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <link href="css/mylist.css" rel='stylesheet' type='text/css' />
 <!--アイコン-->
 <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
-
+{literal}
 		<script>
 			$(document).ready(function() {
 				$('.popup-with-zoom-anim').magnificPopup({
@@ -45,6 +44,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			});
 		});
 		</script>
+{/literal}
 </head>
 <body>
 	<div class="gray top"> 
@@ -81,30 +81,25 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <div class="main">
 	   <div class="container">
 		<font size="7" color="#FF5B36">マイリスト</font>
-			<div class="box11">
+		{if count($view) == 0}
+			<p>マイリストに登録した商品がありません。</p>
+		{else}
+			{foreach from=$view key=k item=value}
+				<div class="box11">
     				<font color="#FF5B36">登録日</font>
 					<br>2019/06/29
-                		<div class="mono">
-							<div class="mono1">
-								<a href="#"><img src="images/pic1.jpg"  width="120" height="120">
-							</div>
-							<p><b><font size="5" color="#4169e1">商品名</font></b></a><br><font color="#ff0000">¥9,600</font></p>
-							残り8点　ご注文はお早めに
-								<textarea class="memo" cols="40" rows="4"  placeholder="メモ欄"></textarea>
+					<div class="mono">
+						<div class="mono1">
+							<a href="#"><img src="{$value['product_pass']}" width="120" height="120">
 						</div>
-			</div>
-			<div class="box11">
-    				<font color="#FF5B36">登録日</font>
-					<br>2019/06/20
-                		<div class="mono">
-							<div class="mono1">
-								<a href="#"><img src="images/pic2.jpg"  width="120" height="120">
-							</div>
-							<p><b><font size="5" color="#4169e1">商品名</font></b></a><br><font color="#ff0000">¥400</font></p>
-							残り2点　ご注文はお早めに
-								<textarea class="memo" cols="40" rows="4"  placeholder="メモ欄"></textarea>
-						</div>
-			</div>
+						<p><b><font size="5" color="#4169e1">{$value['product_name']}</font></b></a><br><font color="#ff0000">{$value['price']}</font></p>
+						残り{$value['stock_value']}点
+							<textarea class="memo" cols="40" rows="4"  placeholder="メモ欄">{$value['memo']}</textarea>
+					</div>
+				</div>
+			{/foreach}				
+		{/if}
+			
 		<div class="container">
 		  <div class="brands">
 			 <ul class="brand_icons">
@@ -188,8 +183,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					<h3>Newsletter</h3>
 					<p class="footer_desc">Nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat</p>
 					<div class="search_footer">
+					{literal}
 			          <input type="text" class="text" value="Insert Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Insert Email';}">
 			          <input type="submit" value="Submit">
+					{/literal}
 			        </div>
 			        <img src="images/payment.png" class="img-responsive" alt=""/>
 				 </div>
@@ -210,5 +207,4 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         	</div>
         </div>
 </body>
-{/literal}
 </html>		

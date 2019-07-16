@@ -69,16 +69,15 @@
 
 /*商品の横スクロール*/
 .horizontal_scroll_wrap{
-    height: 270px;
-    overflow-y: hidden;
-	margin: 0 -10px;
-	display: inline-block;
+    height: 350px;
+	margin: 0 0px;
+	display: auto;
 }
 .scroll_lst {
     overflow-x: auto;
     overflow-y: hidden;
     white-space: nowrap;
-    padding-bottom: 50px;
+    padding-bottom: 12px;
     margin: 25px 0 0;
     -webkit-overflow-scrolling: touch;
 }
@@ -108,7 +107,7 @@
 .tabs {
 	background-color: #fff;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-	width: 700px;
+	width: 818px;
 	height: 350px;
 	margin: 0 40px;
 	position: absolute; top:880px; right:200px;
@@ -141,7 +140,7 @@
   /*タブ切り替えの中身のスタイル*/
   .tab_content {
 	display: none;
-	width: 700px;
+	width: 818px;
 	overflow: auto;
   }
   .tab_content::-webkit-scrollbar {
