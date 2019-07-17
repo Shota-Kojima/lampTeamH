@@ -3,6 +3,12 @@ require_once("inc_base.php");
 require_once($CMS_COMMON_INCLUDE_DIR . "libs.php");
 require_once("inc_smarty.php");
 require_once($CMS_COMMON_INCLUDE_DIR . "auth_user.php"); 
+if(!isset($_POST['search_text1'])&&!isset($_POST['page1'])){
+	unset($_SESSION['HTeam']['search_text3']);
+}
+if(!isset($_POST['search_text2'])&&!isset($_POST['page2'])){
+	unset($_SESSION['HTeam']['search_text4']);
+}
 // $smarty->assign('session',$_SESSION); 
 // $smarty->assign('cart',$_SESSION);
 //管理者IDに変更予定
@@ -49,17 +55,17 @@ function readdata(){
     $limit2 = 3;
     if(isset($_POST['search_text1'])){
          $search_text1 = $_POST['search_text1'];
-         $_SESSION['HTeam']['search_text1'] = $search_text1;
+         $_SESSION['HTeam']['search_text3'] = $search_text1;
     }
-    else if(isset($_SESSION['HTeam']['search_text1'])){
-         $search_text1 = $_SESSION['HTeam']['search_text1'];
+    else if(isset($_SESSION['HTeam']['search_text3'])){
+         $search_text1 = $_SESSION['HTeam']['search_text3'];
     }
     if(isset($_POST['search_text2'])){
          $search_text2 = $_POST['search_text2'];
-         $_SESSION['HTeam']['search_text2'] = $search_text2;
+         $_SESSION['HTeam']['search_text4'] = $search_text2;
     }
-    else if(isset($_SESSION['HTeam']['search_text2'])){
-         $search_text2 = $_SESSION['HTeam']['search_text2'];
+    else if(isset($_SESSION['HTeam']['search_text4'])){
+         $search_text2 = $_SESSION['HTeam']['search_text4'];
     }
     //ページ送りがクリックされた場合
 	if(isset($_GET['page1'])){
@@ -82,10 +88,10 @@ function readdata(){
     }
     $replyed = array();
     $not_reply = array();
-    if(isset($_POST['search_text1'])||isset($_SESSION['HTeam']['search_text1'])){
+    if(isset($_POST['search_text1'])||isset($_SESSION['HTeam']['search_text3'])){
          $search_text1 = '%'.$search_text1.'%';
-         $flag1 = "productH.product_category = 1 and $flag_command1 like '$search_text1'";
-         $rows1 = $obj->get_tgt_category_keyword(false,$flag,$from1,$limit1);
+         $flag1 = "productH.product_category = 1 and '$flag_command1' like '$search_text1'";
+         $rows1 = $obj->get_tgt_category_keyword(false,$flag1,$from1,$limit1);
          $max1 = $obj->get_tgt_category_keyword_count(false,$flag1);
     }
     else{
@@ -93,9 +99,9 @@ function readdata(){
          $rows1 = $obj->get_tgt_category_keyword(false,$flag1,$from1,$limit1);
          $max1 = $obj->get_tgt_category_keyword_count(false,$flag1);
     }
-    if(isset($_POST['search_text2'])||isset($_SESSION['HTeam']['search_text2'])){
+    if(isset($_POST['search_text2'])||isset($_SESSION['HTeam']['search_text4'])){
          $search_text2 = '%'.$search_text2.'%';
-         $flag2 = "productH.product_category = 2 and $flag_command2 like '$search_text2'";
+         $flag2 = "productH.product_category = 2 and '$flag_command2' like '$search_text2'";
          $rows2 = $obj->get_tgt_category_keyword(false,$flag2,$from2,$limit2);
          $max2 = $obj->get_tgt_category_keyword_count(false,$flag2);
     }
@@ -104,6 +110,8 @@ function readdata(){
          $rows2 = $obj->get_tgt_category_keyword(false,$flag2,$from2,$limit2);
          $max2 = $obj->get_tgt_category_keyword_count(false,$flag2);
     }
+    
+    
     $page_max1 = ceil($max1/$limit1);
     $page_max2 = ceil($max2/$limit2);
     $page1 = 1;
@@ -133,11 +141,14 @@ function readdata(){
              $not_reply[] = $value;
              
     }
-
+    
 }
 if(isset($_SESSION['HTeam_adm']['customer_id']) && $_SESSION['HTeam_adm']['customer_id'] !== ""){
 readdata();
-$smarty->assign('contact_replyed',$replyed);
+
+
+$smarty->assign('view1',$replyed);
+$smarty->assign('view2',$not_reply);
 $smarty->assign('contact_not_reply',$not_reply);
 $smarty->assign('page1',$page1);
 $smarty->assign('page_max1',$page_max1);

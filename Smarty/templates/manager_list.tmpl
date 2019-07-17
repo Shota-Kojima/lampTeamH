@@ -23,9 +23,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <script src="js/jquery.easydropdown.js"></script>
 <!-- Add fancyBox main JS and CSS files -->
 <script src="js/jquery.magnific-popup.js" type="text/javascript"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
 {include file='shere_admin.tmpl'}
-{literal}
 <link href="css/magnific-popup.css" rel="stylesheet" type="text/css">
+{literal}
 		<script>
 			$(document).ready(function() {
 				$('.popup-with-zoom-anim').magnificPopup({
@@ -41,90 +43,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			});
 		});
 		</script>
-        <script>
-        function appendRow()
-{
-
-    // 各列にスタイルを設定
-    c1.style.cssText = "text-align:right; width:40px;";
-    c2.style.cssText = "";
-    c3.style.cssText = "background-color: green; width:40px;";
-    c4.style.cssText = "background-color: red; width:40px;";
-    
-    // 各列に表示内容を設定
-    c1.innerHTML = '<span class="seqno">' + count + '</span>';
-    c2.innerHTML = '<input class="inpval" type="text"   id="txt' + count + '" name="txt' + count + '" value="" size="30" style="border:1px solid #888;">';
-    c3.innerHTML = '<input class="edtbtn" type="button" id="edtBtn' + count + '" value="確定" onclick="editRow(this)">';
-    c4.innerHTML = '<input class="delbtn" type="button" id="delBtn' + count + '" value="削除" onclick="deleteRow(this)">';
-    
-    // 追加した行の入力フィールドへフォーカスを設定
-    var objInp = document.getElementById("txt" + count);
-    if (objInp)
-        objInp.focus();
-}
-
-/*
- * deleteRow: 削除ボタン該当行を削除
- */
-function deleteRow(obj)
-{
-    // 確認
-    if (!confirm("この行を削除しますか？"))
-        return;
-
-    if (!obj)
-        return;
-
-    var objTR = obj.parentNode.parentNode;
-    var objTBL = objTR.parentNode;
-    
-    if (objTBL)
-        objTBL.deleteRow(objTR.sectionRowIndex);
-    
-    // <span> 行番号ふり直し
-    var tagElements = document.getElementsByTagName("span");
-    if (!tagElements)
-        return false;
-
-    var seq = 1;
-    for (var i = 0; i < tagElements.length; i++)
-    {
-        if (tagElements[i].className.match("seqno"))
-            tagElements[i].innerHTML = seq++;
-    }
-
-    // id/name ふり直し
-    var tagElements = document.getElementsByTagName("input");
-    if (!tagElements)
-        return false;
-
-    // <input type="text" id="txtN">
-    var seq = 1;
-    for (var i = 0; i < tagElements.length; i++)
-    {
-        if (tagElements[i].className.match("inpval"))
-        {
-            tagElements[i].setAttribute("id", "txt" + seq);
-            tagElements[i].setAttribute("name", "txt" + seq);
-            ++seq;
-        }
-    }
-
-    
-
-    // <input type="button" id="delBtnN">
-    seq = 1;
-    for (var i = 0; i < tagElements.length; i++)
-    {
-        if (tagElements[i].className.match("delbtn"))
-        {
-            tagElements[i].setAttribute("id", "delBtn" + seq);
-            ++seq;
-        }
-    }
-}
-
-</script>
+{/literal}
 </head>
 <body>
    <div class="main">
@@ -140,7 +59,7 @@ function deleteRow(obj)
                        <span>&gt;</span>
                     </li>
                     <li class="women">
-                       管理者一覧
+                       お問い合わせ一覧
                     </li>
                 </ul>
                 <ul class="previous">
@@ -148,170 +67,108 @@ function deleteRow(obj)
                 </ul>
                 <div class="clearfix"></div>
 			   </div>
-               <div class="box">
-                
+				  <form name="form"action="manager_list.php" method="post">
+				   <div id="box1"class="box"style="width:1100px;">
                     <div class="box-head">
-                        <h2 class="left">管理者一覧</h2>
+                        <h2 class="left"style="margin-top:8px;">お問い合わせ一覧</h2>
+						<div class="right">
+							 <input type="submit" class="button" value="reset" id="search" />
+                        </div>
                         <div class="right">
                             <label>検索</label>
-                            <input type="text" class="field small-field" />
-                            <input type="submit" class="button" value="search" />
+                            <input type="text"name="search_text"class="field small-field" />
+                            <input type="submit" class="button" value="search" id="search" />
                         </div>
                     </div>
+
                     <div class="table">
                             <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <tr id="odd">
+                                    <th width="13"></th>
+									<th width="5%"style="min-width:96px">管理者ID</th>
+                                    <th width="25%"style="min-width:10%">管理者名</th>
+									<th width="25%"style="min-width:10%">作成日</th>
+                                    <th width="30%">権限</th>
+                                    <th width="10%" class="ac">編集・削除</th>
+                                </tr>
+								{foreach from=$admin_list item=admin}
                                 <tr>
-                                    <th width="13"><input type="checkbox" class="checkbox" /></th>
-                                    <th>管理者ID</th>
-                                    <th>作成日</th>
-                                    <th>権限</th>
-                                    <th width="110" class="ac">編集・削除</th>
-                                </tr>
-                                <tr>
-                                    <td><input type="checkbox" class="checkbox" /></td>
-                                    <td><h3><a href="#">camp12</a></h3></td>
-                                    <td>12.05.09</td>
-                                    <td><a href="#">すべて</a></td>
-                                    <td><input class="edibtn" type="button" id="delBtn1" value="編集" onclick=""><input class="delbtn" type="button" id="delBtn1" value="削除" onclick="deleteRow(this)"></td>
-                                </tr>
-                                <tr class="odd">
-                                    <td><input type="checkbox" class="checkbox" /></td>
-                                    <td><h3><a href="#">camp12</a></h3></td>
-                                    <td>12.05.09</td>
-                                    <td><a href="#">参照のみ</a></td>
-                                    <td><input class="edibtn" type="button" id="delBtn1" value="編集" onclick=""><input class="delbtn" type="button" id="delBtn1" value="削除" onclick="deleteRow(this)"></td>
-                                </tr>
-                                <tr>
-                                    <td><input type="checkbox" class="checkbox" /></td>
-                                    <td><h3><a href="#">camp12</a></h3></td>
-                                    <td>12.05.09</td>
-                                    <td><a href="#">参照のみ</a></td>
-                                    <td><input class="edibtn" type="button" id="delBtn1" value="編集" onclick=""><input class="delbtn" type="button" id="delBtn1" value="削除" onclick="deleteRow(this)"></td>
-                                </tr>
+								<form name="form"action="manager_list.php" method="post">
+                                    <td><input type="checkbox"name="admin[]"value="{$admin['admin_id']}"class="checkbox" style="margin-bottom:7px;"onClick="DisChecked1();" /></td>
+									<td>{$admin['admin_id']}</td>
+                                    <td>{$admin['admin_name']}</td>
+									<td>{$admin['created_date']}</td>
+                                    <td>{$admin['authority']}</td>
+                                    <td><input class="delbtn" type="submit" id="delBtn1" value="編集"style="width:50px;height:30px"><input class="delbtn" type="submit" id="delBtn1" value="削除"style="width:50px;height:30px"></td>
+								</tr>
+								{/foreach}
                             </table>
-                            <div class="pagging">
-                                <div class="left">表示中 1-3</div>
-                                <div class="right">
-                                    <a href="#">前へ</a>
-                                    <a href="#">1</a>
-                                    <a href="#">次へ</a>
-                                    <a href="#">すべて表示</a>
-                                </div>
+                             <div class="pagging">
+							 		{if $limit>$max-$from}
+										<div class="left">表示中 {$from+1}-{$max}</div>
+									{else}
+										<div class="left">表示中 {$from+1}-{$from+$limit}</div>
+									{/if}
+									{if $now_page-1>0}
+									<a href="manager_list.php?page={$now_page-1}">前へ</a>
+									{else}
+									<a href="manager_list.php?page={$now_page}">前へ</a>
+									{/if}
+									{for $start=1 to $limit_page}
+									<a href="manager_list.php?page={$start}">{$start}</a>
+									{/for}
+									{if $limit_page>4}
+									<span>...</span>
+									<a href="manager_list.php?page={$page_max}">{$page_max}</a>
+									{/if}
+									{if $now_page+1>$page_max}
+									<a href="manager_list.php?page={$now_page}">次へ</a>
+									{else}
+									<a href="manager_list.php?page={$now_page+1}">次へ</a>
+									{/if}
+									<a href="manager_list.php?limit=over">全て表示</a>
+								</div>
                             </div>
-			    
-					
+                        </div>
 		        </div>
-		        <div class="clearfix"></div>
-		    </div>
+			 {literal}
+			<script>		
+				//チェックボタン
+				// 「全て選択」チェックで全てにチェック付く
+				function AllChecked(){
+					var check =  document.form.all.checked;
+					for (var i=0; i<document.form.elements['admin[]'].length; i++){
+						document.form.elements['admin[]'][i].checked = check;
+					}
+				}
+				// 一つでもチェックを外すと「全て選択」のチェック外れる
+				function　DisChecked(){
+					var checks = document.form.elements['admin[]'];
+					var checksCount = 0;
+					for (var i=0; i<checks.length; i++){
+						if(document.form.elements['admin[]'][i].checked == false){
+							document.form.all.checked = false;
+						}else{
+							checksCount += 1;
+							if(checksCount == document.form.elements['admin[]'][i].length){
+							document.form.all.checked = true;
+							}
+						}
+					}
+				}
+			</script>
+			 {/literal}
+			<noscript>スクリプトが使えないときに表示されます</noscript>
 		   </div>
 		  </div>
 	     </div>
 	    </div>
 	    </div>
-		<div class="container">
-		  <div class="brands">
-			 <ul class="brand_icons">
-				<li><img src='images/icon1.jpg' class="img-responsive" alt=""/></li>
-				<li><img src='images/icon2.jpg' class="img-responsive" alt=""/></li>
-				<li><img src='images/icon3.jpg' class="img-responsive" alt=""/></li>
-				<li><img src='images/icon4.jpg' class="img-responsive" alt=""/></li>
-				<li><img src='images/icon5.jpg' class="img-responsive" alt=""/></li>
-				<li><img src='images/icon6.jpg' class="img-responsive" alt=""/></li>
-				<li class="last"><img src='images/icon7.jpg' class="img-responsive" alt=""/></li>
-			 </ul>
-		   </div>
-	    </div>
-	    <div class="container">
-	      <div class="instagram_top">
-	      	<div class="instagram text-center">
-				<h3><i class="insta_icon"> </i> Instagram feed:&nbsp;<span class="small">#Surfhouse</span></h3>
-			</div>
-	        <ul class="instagram_grid">
-			  <li><a class="popup-with-zoom-anim" href="#small-dialog1"><img src="images/i1.jpg" class="img-responsive"alt=""/></a></li>
-			  <li><a class="popup-with-zoom-anim" href="#small-dialog1"><img src="images/i2.jpg" class="img-responsive" alt=""/></a></li>
-			  <li><a class="popup-with-zoom-anim" href="#small-dialog1"><img src="images/i3.jpg" class="img-responsive" alt=""/></a></li>
-			  <li><a class="popup-with-zoom-anim" href="#small-dialog1"><img src="images/i4.jpg" class="img-responsive" alt=""/></a></li>
-			  <li><a class="popup-with-zoom-anim" href="#small-dialog1"><img src="images/i5.jpg" class="img-responsive" alt=""/></a></li>
-			  <li class="last_instagram"><a class="popup-with-zoom-anim" href="#small-dialog1"><img src="images/i6.jpg" class="img-responsive" alt=""/></a></li>
-			  <div class="clearfix"></div>
-			  <div id="small-dialog1" class="mfp-hide">
-				<div class="pop_up">
-					<h4>A Sample Photo Stream</h4>
-					<img src="images/i_zoom.jpg" class="img-responsive" alt=""/>
-				</div>
-			  </div>
-			</ul>
-		  </div>
-	      <ul class="footer_social">
-			<li><a href="#"> <i class="fb"> </i> </a></li>
-			<li><a href="#"><i class="tw"> </i> </a></li>
-			<li><a href="#"><i class="pin"> </i> </a></li>
-			<div class="clearfix"></div>
-		   </ul>
-	    </div>
-        <div class="footer">
-			<div class="container">
-				<div class="footer-grid">
-					<h3>Category</h3>
-					<ul class="list1">
-					  <li><a href="#">Home</a></li>
-					  <li><a href="#">About us</a></li>
-					  <li><a href="#">Eshop</a></li>
-					  <li><a href="#">Features</a></li>
-					  <li><a href="#">New Collections</a></li>
-					  <li><a href="#">Blog</a></li>
-					  <li><a href="#">Contact</a></li>
-				    </ul>
-				</div>
-				<div class="footer-grid">
-					<h3>Our Account</h3>
-				    <ul class="list1">
-					  <li><a href="#">Your Account</a></li>
-					  <li><a href="#">Personal information</a></li>
-					  <li><a href="#">Addresses</a></li>
-					  <li><a href="#">Discount</a></li>
-					  <li><a href="#">Orders history</a></li>
-					  <li><a href="#">Addresses</a></li>
-					  <li><a href="#">Search Terms</a></li>
-				    </ul>
-				</div>
-				<div class="footer-grid">
-					<h3>Our Support</h3>
-					<ul class="list1">
-					  <li><a href="#">Site Map</a></li>
-					  <li><a href="#">Search Terms</a></li>
-					  <li><a href="#">Advanced Search</a></li>
-					  <li><a href="#">Mobile</a></li>
-					  <li><a href="#">Contact Us</a></li>
-					  <li><a href="#">Mobile</a></li>
-					  <li><a href="#">Addresses</a></li>
-				    </ul>
-				  </div>
-				  <div class="footer-grid">
-					<h3>Newsletter</h3>
-					<p class="footer_desc">Nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat</p>
-					<div class="search_footer">
-			          <input type="text" class="text" value="Insert Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Insert Email';}">
-			          <input type="submit" value="Submit">
-			        </div>
-			        <img src="images/payment.png" class="img-responsive" alt=""/>
-				 </div>
-				 <div class="footer-grid footer-grid_last">
-					<h3>About Us</h3>
-					<p class="footer_desc">Diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam,.</p>
-                    <p class="f_text">Phone:  &nbsp;&nbsp;&nbsp;00-250-2131</p>
-                    <p class="email">Email: &nbsp;&nbsp;&nbsp;<span>info(at)Surfhouse.com</span></p>	
-                 </div>
-				 <div class="clearfix"> </div>
-			</div>
-		</div>
-        <div class="footer_bottom">
-        	<div class="container">
-        		<div class="copy">
-				   <p>&copy; 2014 Template by <a href="http://w3layouts.com" target="_blank"> w3layouts</a></p>
-			    </div>
-        	</div>
-        </div>
+			<span id="all_check"style="position:absolute;top:240px;left:67%"><input name="all" type="checkbox"style="transform:scale(1.2);margin-right:5px;margin-top:4px;"onClick="AllChecked();"/>全てチェック</span>
+			<input id="all_delete"type="submit"style="position:absolute;height:30px;top:235px;left:78.5%;font-size:15px;"value="チェックを全て削除"/>
+		 </form>
+		 {literal}
+		
 </body>
 {/literal}
-</html>		
+</html>	

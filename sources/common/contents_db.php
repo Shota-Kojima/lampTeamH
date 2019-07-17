@@ -322,7 +322,8 @@ class cadmin_master extends crecord {
         else{
             return 0;
         }
-    }
+	}
+	
     //--------------------------------------------------------------------------------------
     /*!
     @brief  指定された範囲の配列を得る
@@ -1032,20 +1033,28 @@ class creview extends crecord {
 		//取得した配列を返す
 		return $arr;
 	}
-	public function get_tgt_category_keyword($debug,$category,$conditions,$from,$limit){
-        //親クラスのselect()メンバ関数を呼ぶ
+	public function get_tgt_category_keyword($debug,$conditions,$from,$limit){
+		//親クラスのselect()メンバ関数を呼ぶ
+			$arr = array();
         $this->select(
             $debug,         //デバッグ表示するかどうか
             "*",          //取得するカラム
-			"review inner join productH on
-			 review.product_id = productH.product_id",    //取得するテーブル
+			"(review inner join productH on
+			 review.product_id = productH.product_id)
+			 inner join transaction_info on
+			 review.transaction_id = transaction_info.transaction_id",    //取得するテーブル
             "$conditions",    //条件
-			"transaction_id asc",
+			"review.transaction_id asc",
 			"limit " . $from . "," . $limit	//並び替え
 		);
-        return $this->fetch_assoc();
+        //順次取り出す
+		while($row = $this->fetch_assoc()){
+			$arr[] = $row;
+		}
+		//取得した配列を返す
+		return $arr;
 	}
-	public function get_tgt_category_keyword_count($debug,$category,$conditions){
+	public function get_tgt_category_keyword_count($debug,$conditions){
 		//親クラスのselect()メンバ関数を呼ぶ
 		$this->select(
 			$debug,					//デバッグ文字を出力するかどうか
@@ -1478,6 +1487,40 @@ class cadmin extends crecord {
             "admin_id like '{$id}'"    //条件
         );
         return $this->fetch_assoc();
+	}
+	public function get_tgt_count($debug,$flag){
+		//親クラスのselect()メンバ関数を呼ぶ
+		$this->select(
+			$debug,					//デバッグ文字を出力するかどうか
+			"count(*)",				//取得するカラム
+			"admin",			//取得するテーブル
+			"$flag"			//条件
+		);
+		if($row = $this->fetch_assoc()){
+			//取得した個数を返す
+			return $row['count(*)'];
+		}
+		else{
+			return 0;
+		}
+	}
+	public function get_all_admin($debug,$flag,$from,$limit){
+		$arr = array();
+		//親クラスのselect()メンバ関数を呼ぶ
+		$this->select(
+			$debug,			//デバッグ表示するかどうか
+			"*",			//取得するカラム
+			"admin",	//取得するテーブル
+		    "$flag",			//条件
+			"admin_id asc",	//並び替え
+			"limit " . $from . "," . $limit		//抽出開始行と抽出数
+		);
+		//順次取り出す
+		while($row = $this->fetch_assoc()){
+			$arr[] = $row;
+		}
+		//取得した配列を返す
+		return $arr;
 	}
 	
 	//--------------------------------------------------------------------------------------

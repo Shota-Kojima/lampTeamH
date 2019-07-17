@@ -3,6 +3,12 @@ session_start();
 require_once("inc_base.php");
 require_once($CMS_COMMON_INCLUDE_DIR . "libs.php");
 require_once("inc_smarty.php");
+if(!isset($_POST['search_text1'])&&!isset($_POST['page1'])){
+	unset($_SESSION['HTeam']['search_text1']);
+}
+if(!isset($_POST['search_text2'])&&!isset($_POST['page2'])){
+	unset($_SESSION['HTeam']['search_text2']);
+}
 if(isset($_POST['con1'])){
     deletedata1();
 }
