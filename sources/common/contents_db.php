@@ -767,8 +767,27 @@ class cassessment extends crecord {
 			"*",			//取得するカラム
 			"assessment",	//取得するテーブル
 			"1",			//条件
-			"assessment_id asc",	//並び替え
+			"customer_id asc",	//並び替え
 			"limit " . $from . "," . $limit		//抽出開始行と抽出数
+		);
+		//順次取り出す
+		while($row = $this->fetch_assoc()){
+			$arr[] = $row;
+		}
+		//取得した配列を返す
+		return $arr;
+	}
+	
+	//--------------------------------------------------------------------------------------
+	public function get_allH($debug,$id){
+		$arr = array();
+		//親クラスのselect()メンバ関数を呼ぶ
+		$this->select(
+			$debug,			//デバッグ表示するかどうか
+			"*",			//取得するカラム
+			"assessment",	//取得するテーブル
+			"customer_id like '{$id}'",	//条件
+			"customer_id asc"	//並び替え
 		);
 		//順次取り出す
 		while($row = $this->fetch_assoc()){
@@ -793,7 +812,7 @@ class cassessment extends crecord {
             $debug,         //デバッグ表示するかどうか
             "*",          //取得するカラム
             "assessment",    //取得するテーブル
-            "assessment_id like '{$id}'"    //条件
+            "customer_id like '{$id}'"    //条件
         );
         return $this->fetch_assoc();
 	}

@@ -72,7 +72,7 @@ function regist(){
     $dataarr['ex_user'] = (string)$_SESSION['HTeam_adm']['customer_id'];
     $dataarr['buy_user'] = "";
     $dataarr['buy_flg'] = (int)0;
-    $dataarr['end_hlg'] = (int)0;
+    $dataarr['end_flg'] = (int)0;
     
 	$chenge = new cchange_ex();
     $mid = $chenge->insert('frima_productH',$dataarr);

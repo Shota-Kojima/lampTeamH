@@ -23,12 +23,43 @@ $ERR_STR = '';
 //デフォルトは1
 $page = 1;
 //もしページが指定されていたら
+$buy_chk = false;
+
+//--------------
+//購入終了後[評価時]
+//--------------
+if(isset($_POST['product_id']) && isset($_POST['hyoka'])){
+	// $assess_obj = new cassessment();
+	
+	$dataarr = array();
+	$frima_obj = new cfrima_productH();
+	
+	$frimaarr = $frima_obj->get_tgt(false,$_POST['product_id']);
+	
+	$dataarr['customer_id'] = $frimaarr['ex_user'];
+	$dataarr['evaluation_index'] = (int)$_POST['evaluation_index'];
+	$dataarr['evaluation_state'] = (String)$_POST['evaluation_state'];
+	
+	$chenge = new cchange_ex();
+	$mid = $chenge->insert('assessment',$dataarr);
+	
+	$dataarr2 = array();
+	$dataarr2['end_hlg'] = (int)1;
+	$result = $chenge->update('frima_productH',$dataarr2,'frima_product_id="' . (int)$_POST['product_id'].'"');
+	if(count($result)!== 0){
+		$data = $frimaarr["product_pass"];
+		$frimaarr["product_pass"] = explode(',',$data);
+		$smarty->assign('frimaarr',$frimaarr);
+		echo '<script type="text/javascript">alert("評価しました");</script>';
+		// cutil::redirect_exit("productDetail_smarty.php");
+	}else{
+		var_dump("むり");
+	}
 
 //--------------
 //購入時
 //--------------
-if(isset($_POST['buy_count'])&& cutil::is_number($_POST['buy_count'])&& $_POST['buy_count'] > 0 && isset($_POST['product_id'])){
-
+}else if(isset($_POST['product_id'])&&isset($_POST['buy'])){
 	//購入
 	$buy_chk = true;
 	regist();
@@ -42,14 +73,28 @@ if(isset($_POST['buy_count'])&& cutil::is_number($_POST['buy_count'])&& $_POST['
 	&& $_GET['product_id'] > 0){
 
 	//商品Hクラスを構築
-	$product_obj = new c();
+	$frima_obj = new cfrima_productH();
 	$product_id = $_GET['product_id'];
-	$productarr = $product_obj->get_tgt(false,$product_id);
-	if($productarr !== false){
+	$frimaarr = $frima_obj->get_tgt(false,$product_id);
+	if($frimaarr !== false){
+		//自分が購入者の場合
+		if($frimaarr['buy_user'] === $_SESSION['HTeam_adm']['customer_id']){
+			$data = $frimaarr["product_pass"];
+			$frimaarr["product_pass"] = explode(',',$data);
+			$smarty->assign('frimaarr',$frimaarr);
+		//自分が出品者の場合
+		}else if($frimaarr['ex_user'] === $_SESSION['HTeam_adm']['customer_id']){
+			$data = $frimaarr["product_pass"];
+			$frimaarr["product_pass"] = explode(',',$data);
+			$smarty->assign('frimaarr',$frimaarr);
+		}else{
+			// ステータスコードを出力
+			http_response_code( 301 ) ;
+			// リダイレクト
+			header( "Location: ./product_list.php" ) ;
+			exit ;
+		}
 		
-		$data = $productarr["product_pass"];
-		$productarr["product_pass"] = explode(',',$data);
-		$smarty->assign('productarr',$productarr);
 	}else{
 		// ステータスコードを出力
 		http_response_code( 301 ) ;
@@ -69,14 +114,14 @@ if(isset($_POST['buy_count'])&& cutil::is_number($_POST['buy_count'])&& $_POST['
 //購入後は、
 if($buy_chk){
 	//商品Hクラスを構築
-	$product_obj = new cproductH();
+	$frima_obj = new cfrima_productH();
 	$product_id = $_GET['product_id'];
-	$productarr = $product_obj->get_tgt(false,$product_id);
-	if($productarr !== false){
+	$frimaarr = $frima_obj->get_tgt(false,$product_id);
+	if($frimaarr !== false){
 		
-		$data = $productarr["product_pass"];
-		$productarr["product_pass"] = explode(',',$data);
-		$smarty->assign('productarr',$productarr);
+		$data = $frimaarr["product_pass"];
+		$frimaarr["product_pass"] = explode(',',$data);
+		$smarty->assign('frimaarr',$frimaarr);
 	}
 }
 
@@ -90,19 +135,23 @@ if($buy_chk){
 function regist(){
 	global $member_id;
 	//ここは$session[customer_id]から取得,
-	//無ければログインページにリダイレクト
-	// $_POST['customer_id'] = "kojikoji";
+	
 	
 	$_POST['customer_id'] = $_SESSION['HTeam_adm']['customer_id'];
 	$dataarr = array();
-	$dataarr['customer_id'] = (string)$_POST['customer_id'];
-	$dataarr['product_id'] = (int)$_POST['product_id'];
-	$dataarr['product_value'] = (int)$_POST['buy_count'];
+	$dataarr['buy_user'] = (string)$_POST['customer_id'];
+	$dataarr['buy_flg'] = (int)1;
     
 	$chenge = new cchange_ex();
-    $mid = $chenge->insert('cart',$dataarr);
-	echo '<script type="text/javascript">alert("カートに入れました(カートIN確認画面に遷移予定)");</script>';
-	cutil::redirect_exit("productDetail_smarty.php");
+    $result = $chenge->update('frima_productH',$dataarr,'frima_product_id="' . (int)$_POST['product_id'].'"');
+	if(count($result)!== 0){
+		echo '<script type="text/javascript">alert("購入しました(削除予定)");</script>';
+		// cutil::redirect_exit("productDetail_smarty.php");
+	}else{
+		var_dump("むり");
+	}
+	
+	
 }
 
 /////////////////////////////////////////////////////////////////
