@@ -2227,6 +2227,45 @@ class cfrima_productH extends crecord {
         );
         return $this->fetch_assoc();
 	}
+
+	public function get_tgt_category_genre_count($debug,$conditions,$tgt_category){
+		$arr = array();
+		//親クラスのselect()メンバ関数を呼ぶ
+		$this->select(
+			$debug,			//デバッグ表示するかどうか
+			"count(*)",			//取得するカラム
+			"frima_productH",	//取得するテーブル
+			"product_category=" .$tgt_category." and "
+			 .$conditions		//条件
+		);
+		if($row = $this->fetch_assoc()){
+			//取得した個数を返す
+			return $row['count(*)'];
+		}
+		else{
+			return 0;
+		}
+	}
+
+	public function get_tgt_order($debug,$from,$limit,$conditions,$sort,$tgt_category){
+		$arr = array();
+		//親クラスのselect()メンバ関数を呼ぶ
+		$this->select(
+			$debug,			//デバッグ表示するかどうか
+			"*",			//取得するカラム
+			"frima_productH",	//取得するテーブル
+			"product_category=" .$tgt_category." and "
+			 .$conditions,	//条件
+			$sort,	//並び替え
+			"limit " . $from . "," . $limit		//抽出開始行と抽出数
+		);
+		//順次取り出す
+		while($row = $this->fetch_assoc()){
+			$arr[] = $row;
+		}
+		//取得した配列を返す
+		return $arr;
+	}
 	
 	//--------------------------------------------------------------------------------------
 	/*!

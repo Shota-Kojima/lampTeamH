@@ -71,6 +71,7 @@ if(isset($_SESSION['HTeam_adm']['customer_id']) && $_SESSION['HTeam_adm']['custo
                                 'product_pass'=> explode(",", $cart_product[$j]['product_pass']),
                                 'price'=> (int)$cart_product[$j]['price'] * (int)$cnt,
                                 'cart_count'=> $cnt);
+                $cart[$i]['price'] = number_format($cart[$i]['price']);
             }
         }
 
