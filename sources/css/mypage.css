@@ -1,25 +1,32 @@
-.main{
-	margin: 70px 0 150px 0;
-}
 .icon{
 	width: 160px;
   	height: 160px;
 	border-radius: 50%;/*アイコンを丸くする*/
+	position: relative;
+    top: -84px;
+	left: 11px;
+	border: 5px #f8f8f8 solid;
   }
 .username{
-	margin: 0 0 0 0 ;
+	position: relative;
+    top: -97px;
+    left: 0;
 	font-size: 25px;
 }
 .userevaluation{
-	margin: 0 0 0 25px; 
+	position: relative;
+    top: -207px;
+    left: 333px;
 }
 /* ユーザー総合評価★レート */
 .star-rating {
 	position: relative;
-	width: 5em;
-	height: 1em;
-	font-size: 25px;
-	margin-left: 20px;
+    top: -199px;
+    left: 289px;
+    width: 5em;
+    height: 1em;
+    font-size: 33px;
+    margin-left: 20px;
   }
   .star-rating-front {
 	position: absolute;
@@ -32,7 +39,9 @@
 	color:#808080;
   }
 .pt{
-	margin: 20px 0 0 10px;
+	position: relative;
+    top: -265px;
+    left: 700px;
 }
 .btn-real-dent {
 	display: inline-block;
@@ -110,7 +119,7 @@
 	width: 818px;
 	height: 350px;
 	margin: 0 40px;
-	position: absolute; top:880px; right:200px;
+	position: absolute; top:880px; right:193px;
   }
   
   /*タブのスタイル*/
