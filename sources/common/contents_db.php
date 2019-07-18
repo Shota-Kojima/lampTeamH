@@ -322,7 +322,8 @@ class cadmin_master extends crecord {
         else{
             return 0;
         }
-    }
+	}
+	
     //--------------------------------------------------------------------------------------
     /*!
     @brief  指定された範囲の配列を得る
@@ -766,8 +767,27 @@ class cassessment extends crecord {
 			"*",			//取得するカラム
 			"assessment",	//取得するテーブル
 			"1",			//条件
-			"assessment_id asc",	//並び替え
+			"customer_id asc",	//並び替え
 			"limit " . $from . "," . $limit		//抽出開始行と抽出数
+		);
+		//順次取り出す
+		while($row = $this->fetch_assoc()){
+			$arr[] = $row;
+		}
+		//取得した配列を返す
+		return $arr;
+	}
+	
+	//--------------------------------------------------------------------------------------
+	public function get_allH($debug,$id){
+		$arr = array();
+		//親クラスのselect()メンバ関数を呼ぶ
+		$this->select(
+			$debug,			//デバッグ表示するかどうか
+			"*",			//取得するカラム
+			"assessment",	//取得するテーブル
+			"customer_id like '{$id}'",	//条件
+			"customer_id asc"	//並び替え
 		);
 		//順次取り出す
 		while($row = $this->fetch_assoc()){
@@ -792,7 +812,7 @@ class cassessment extends crecord {
             $debug,         //デバッグ表示するかどうか
             "*",          //取得するカラム
             "assessment",    //取得するテーブル
-            "assessment_id like '{$id}'"    //条件
+            "customer_id like '{$id}'"    //条件
         );
         return $this->fetch_assoc();
 	}
@@ -1032,6 +1052,45 @@ class creview extends crecord {
 		//取得した配列を返す
 		return $arr;
 	}
+	public function get_tgt_category_keyword($debug,$conditions,$from,$limit){
+		//親クラスのselect()メンバ関数を呼ぶ
+			$arr = array();
+        $this->select(
+            $debug,         //デバッグ表示するかどうか
+            "*",          //取得するカラム
+			"(review inner join productH on
+			 review.product_id = productH.product_id)
+			 inner join transaction_info on
+			 review.transaction_id = transaction_info.transaction_id",    //取得するテーブル
+            "$conditions",    //条件
+			"review.transaction_id asc",
+			"limit " . $from . "," . $limit	//並び替え
+		);
+        //順次取り出す
+		while($row = $this->fetch_assoc()){
+			$arr[] = $row;
+		}
+		//取得した配列を返す
+		return $arr;
+	}
+	public function get_tgt_category_keyword_count($debug,$conditions){
+		//親クラスのselect()メンバ関数を呼ぶ
+		$this->select(
+			$debug,					//デバッグ文字を出力するかどうか
+			"count(*)",				//取得するカラム
+			"review inner join productH on
+			 review.product_id = productH.product_id",    //取得するテーブル
+            "$conditions"			//条件
+		);
+		if($row = $this->fetch_assoc()){
+			//取得した個数を返す
+			return $row['count(*)'];
+		}
+		else{
+			return 0;
+		}
+	}
+	
 	
 	
 	//--------------------------------------------------------------------------------------
@@ -1418,7 +1477,7 @@ class cadmin extends crecord {
 			"*",			//取得するカラム
 			"admin",	//取得するテーブル
 			"1",			//条件
-			"admin_id asc",	//並び替え
+			"auth_adm_id asc",	//並び替え
 			"limit " . $from . "," . $limit		//抽出開始行と抽出数
 		);
 		//順次取り出す
@@ -1444,9 +1503,43 @@ class cadmin extends crecord {
             $debug,         //デバッグ表示するかどうか
             "*",          //取得するカラム
             "admin",    //取得するテーブル
-            "admin_id like '{$id}'"    //条件
+            "auth_adm_id like '{$id}'"    //条件
         );
         return $this->fetch_assoc();
+	}
+	public function get_tgt_count($debug,$flag){
+		//親クラスのselect()メンバ関数を呼ぶ
+		$this->select(
+			$debug,					//デバッグ文字を出力するかどうか
+			"count(*)",				//取得するカラム
+			"admin",			//取得するテーブル
+			"$flag"			//条件
+		);
+		if($row = $this->fetch_assoc()){
+			//取得した個数を返す
+			return $row['count(*)'];
+		}
+		else{
+			return 0;
+		}
+	}
+	public function get_all_admin($debug,$flag,$from,$limit){
+		$arr = array();
+		//親クラスのselect()メンバ関数を呼ぶ
+		$this->select(
+			$debug,			//デバッグ表示するかどうか
+			"*",			//取得するカラム
+			"admin",	//取得するテーブル
+		    "$flag",			//条件
+			"admin_id asc",	//並び替え
+			"limit " . $from . "," . $limit		//抽出開始行と抽出数
+		);
+		//順次取り出す
+		while($row = $this->fetch_assoc()){
+			$arr[] = $row;
+		}
+		//取得した配列を返す
+		return $arr;
 	}
 	
 	//--------------------------------------------------------------------------------------
@@ -1822,7 +1915,7 @@ class crental extends crecord {
 		//親クラスのselect()メンバ関数を呼ぶ
 		$this->select(
 			$debug,					//デバッグ文字を出力するかどうか
-			"distinct count(*)",				//取得するカラム
+			"count(distinct info.customer_id)",				//取得するカラム
 			"(transaction_info as info
 			 inner join customer
 			 on info.customer_id = customer.customer_id)
@@ -1832,7 +1925,7 @@ class crental extends crecord {
 		);
 		if($row = $this->fetch_assoc()){
 			//取得した個数を返す
-			return $row['count(*)'];
+			return $row['count(distinct info.customer_id)'];
 		}
 		else{
 			return 0;
@@ -2019,6 +2112,176 @@ class cfavorite extends crecord {
             "favorite = '{$id}'"    //条件
         );
         return $this->fetch_assoc();
+	}
+	
+	//--------------------------------------------------------------------------------------
+	/*!
+	@brief	デストラクタ
+	*/
+	//--------------------------------------------------------------------------------------
+	public function __destruct(){
+		//親クラスのデストラクタを呼ぶ
+		parent::__destruct();
+	}
+}
+
+//--------------------------------------------------------------------------------------
+// フリマ商品クラス(開発用)
+//--------------------------------------------------------------------------------------
+class cfrima_productH extends crecord {
+	//--------------------------------------------------------------------------------------
+	/*!
+	@brief	コンストラクタ
+	*/
+	//--------------------------------------------------------------------------------------
+	public function __construct() {
+		//親クラスのコンストラクタを呼ぶ
+		parent::__construct();
+	}
+	//--------------------------------------------------------------------------------------
+	/*!
+	@brief	すべての個数を得る
+	@param[in]	$debug	デバッグ出力をするかどうか
+	@return	個数
+	*/
+	//--------------------------------------------------------------------------------------
+	public function get_all_count($debug){
+		//親クラスのselect()メンバ関数を呼ぶ
+		$this->select(
+			$debug,					//デバッグ文字を出力するかどうか
+			"count(*)",				//取得するカラム
+			"frima_productH",			//取得するテーブル
+			"1"					//条件
+		);
+		if($row = $this->fetch_assoc()){
+			//取得した個数を返す
+			return $row['count(*)'];
+		}
+		else{
+			return 0;
+		}
+	}
+	//--------------------------------------------------------------------------------------
+	/*!
+	@brief	指定された範囲の配列を得る
+	@param[in]	$debug	デバッグ出力をするかどうか
+	@param[in]	$from	抽出開始行
+	@param[in]	$limit	抽出数
+	@return	配列（2次元配列になる）
+	*/
+	//--------------------------------------------------------------------------------------
+	public function get_all($debug,$from,$limit){
+		$arr = array();
+		//親クラスのselect()メンバ関数を呼ぶ
+		$this->select(
+			$debug,			//デバッグ表示するかどうか
+			"*",			//取得するカラム
+			"frima_productH",	//取得するテーブル
+			"1",			//条件
+			"frima_product_id asc",	//並び替え
+			"limit " . $from . "," . $limit		//抽出開始行と抽出数
+		);
+		//順次取り出す
+		while($row = $this->fetch_assoc()){
+			$arr[] = $row;
+		}
+		//取得した配列を返す
+		return $arr;
+    }
+   
+	//出品者が自分の者のみ全件出力
+	public function get_allex($debug,$id){
+		$arr = array();
+		//親クラスのselect()メンバ関数を呼ぶ
+		$this->select(
+			$debug,			//デバッグ表示するかどうか
+			"*",			//取得するカラム
+			"frima_productH",	//取得するテーブル
+			"ex_user = '{$id}'", //条件
+			"favorite_id asc"	//並び替え
+		);
+		//順次取り出す
+		while($row = $this->fetch_assoc()){
+			$arr[] = $row;
+		}
+		//取得した配列を返す
+		return $arr;
+	}
+
+	//購入者が自分の者のみ全件出力
+	public function get_allbuy($debug,$id){
+		$arr = array();
+		//親クラスのselect()メンバ関数を呼ぶ
+		$this->select(
+			$debug,			//デバッグ表示するかどうか
+			"*",			//取得するカラム
+			"frima_productH",	//取得するテーブル
+			"buy_user = '{$id}'", //条件
+			"favorite_id asc"	//並び替え
+		);
+		//順次取り出す
+		while($row = $this->fetch_assoc()){
+			$arr[] = $row;
+		}
+		//取得した配列を返す
+		return $arr;
+	}
+	
+	//--------------------------------------------------------------------------------------
+	/*!
+	@brief	指定されたIDの配列を得る
+	@param[in]	$debug	デバッグ出力をするかどうか
+	@param[in]	$id		ID
+	@return	配列（1次元配列になる）空の場合はfalse
+	*/
+	//--------------------------------------------------------------------------------------
+	
+	public function get_tgt($debug,$id){
+        //親クラスのselect()メンバ関数を呼ぶ
+        $this->select(
+            $debug,         //デバッグ表示するかどうか
+            "*",          //取得するカラム
+            "frima_productH",    //取得するテーブル
+            "frima_product_id = '{$id}'"    //条件
+        );
+        return $this->fetch_assoc();
+	}
+
+	public function get_tgt_category_genre_count($debug,$conditions,$tgt_category){
+		$arr = array();
+		//親クラスのselect()メンバ関数を呼ぶ
+		$this->select(
+			$debug,			//デバッグ表示するかどうか
+			"count(*)",			//取得するカラム
+			"frima_productH",	//取得するテーブル
+			$conditions		//条件
+		);
+		if($row = $this->fetch_assoc()){
+			//取得した個数を返す
+			return $row['count(*)'];
+		}
+		else{
+			return 0;
+		}
+	}
+
+	public function get_tgt_order($debug,$from,$limit,$conditions,$sort,$tgt_category){
+		$arr = array();
+		//親クラスのselect()メンバ関数を呼ぶ
+		$this->select(
+			$debug,			//デバッグ表示するかどうか
+			"*",			//取得するカラム
+			"frima_productH",	//取得するテーブル
+			 $conditions,	//条件
+			$sort,	//並び替え
+			"limit " . $from . "," . $limit		//抽出開始行と抽出数
+		);
+		//順次取り出す
+		while($row = $this->fetch_assoc()){
+			$arr[] = $row;
+		}
+		//取得した配列を返す
+		return $arr;
 	}
 	
 	//--------------------------------------------------------------------------------------

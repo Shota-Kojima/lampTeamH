@@ -73,11 +73,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<form action="loginH.php" method="post">
 				  <div>
 					<span>ユーザーID<label>*</label></span>
-					<input type="text" name="login_id" value="{if isset($id)}{$id}{/if}"> 
+					<input class="user_info" type="text" name="login_id" value="{if isset($id)}{$id}{/if}">
 				  </div>
 				  <div>
 					<span>パスワード<label>*</label></span>
-					<input type="password" name="login_pw" value="{if isset($pw)}{$pw}{/if}"> 
+					<input class="user_info" type="password" name="login_pw" value="" autocomplete="off"> 
 				  </div>
 				  <div style="margin-top:10px;margin-bottom:10px;color:red;" >
 				   {if isset($err_message)}

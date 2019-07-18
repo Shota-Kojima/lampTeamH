@@ -40,6 +40,10 @@ cart_bgって名前のclassはオレンジ色にしたりする
 <link href="css/products_header.css" rel='stylesheet' type='text/css' />
 <link href="./css/style.css" rel='stylesheet' type='text/css' />
 <link href="./css/tab.css" rel='stylesheet' type='text/css' />
+<link href="./css/header.css" rel='stylesheet' type='text/css' />
+<link href="./css/flaticon.css" rel='stylesheet' type='text/css' />
+<link href="./css/icomoon.css" rel='stylesheet' type='text/css' />
+
 <!-- Custom Theme files -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
@@ -55,7 +59,6 @@ cart_bgって名前のclassはオレンジ色にしたりする
 <script src="js/jquery.magnific-popup.js" type="text/javascript"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
-{include file='shere.tmpl'}
 <link href="css/magnific-popup.css" rel="stylesheet" type="text/css">
 		<script>
 			$(document).ready(function() {
@@ -74,6 +77,58 @@ cart_bgって名前のclassはオレンジ色にしたりする
 		</script>
 </head>
 <body>
+<nav class="colorlib-nav" role="navigation">
+			<div class="top-menu">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-2">
+							<div id="colorlib-logo"><a href="index.html">Robust</a></div>
+						</div>
+						<div class="col-md-10 text-right menu-1">
+							<ul>
+								<li><a href="top.php">Home</a></li>
+								<li class="has-dropdown active">
+									<a href="product_list.php">Products</a>
+									<ul class="dropdown">
+										<li><a href="classes-single.html">Classes Single</a></li>
+										<li><a href="#">Cardio Classes</a></li>
+										<li><a href="#">Muscle Classes</a></li>
+										<li><a href="#">Fitness Classes</a></li>
+										<li><a href="#">Body Building</a></li>
+									</ul>
+								</li>
+								<li><a href="beginner.php">Beginner</a></li>
+								<li><a href="mypage.php">Mypage</a></li>
+								<li><a href="event.html">Events</a></li>
+								<li><a href="blog.html">Blog</a></li>
+								<li><a href="contact.php">Contact</a></li>
+								<li class="btn-cta"><a href="cart.php"><span><i class="icon-cart"></i></span></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</nav>
+        <aside id="colorlib-hero">
+			<div class="flexslider">
+				<ul class="slides">
+			   	<li style="background-image: url(images/img_bg_2.jpg);">
+			   		<div class="overlay"></div>
+			   		<div class="container-fluid">
+			   			<div class="row">
+				   			<div class="col-md-6 col-sm-12 col-md-offset-3 slider-text">
+				   				<div class="slider-text-inner text-center">
+				   					<h1 class="name000">Products</h1>
+				   					<h2><span><a href="index.html">Home</a> | Products</span></h2>
+				   				</div>
+				   			</div>
+				   		</div>
+			   		</div>
+			   	</li>
+			  	</ul>
+		  	</div>
+		</aside>
+        
 	<!-- ここから商品一覧らへん -->
 	<div class="main">
 	  <div class="content_box" style="min-height:700px">
@@ -81,13 +136,25 @@ cart_bgって名前のclassはオレンジ色にしたりする
 			<div class="row">
 				<!-- あと商品出してるだけ -->
 			     <div class="col-md-12">
-				<h4 class="title">Products</h4>
+				
 				<!--タブ-->
 				<ul class="tab-group">
 					<li class="tab is-active">販売商品</li>
 					<li class="tab">レンタル商品</li>
-					<li class="tab">フリマ商品</li>
-				</ul>
+					<li class="tab">フリマ商品</li> 
+                </ul>
+                <form action="product_list.php" method="post">
+                    <input class="sbox" name="search_sale" type="text" placeholder="キーワードを入力"style="margin-left:826px;margin-top:15px;"/>
+                    <input class="sbtn" type="submit" value="検索" style="margin-left:826px;margin-top:15px;"/>
+                </form>
+                <form action="product_list.php" method="post">
+                    <input class="sbox" name="search_rental" type="text" placeholder="キーワードを入力"style="margin-left:826px;margin-top:15px;"/>
+                    <input class="sbtn" type="submit" value="検索" style="margin-left:826px;margin-top:15px;"/>
+                </form>
+                <form action="product_list.php" method="post">
+                    <input class="sbox" name="search_frima" type="text" placeholder="キーワードを入力"style="margin-left:826px;margin-top:15px;"/>
+                    <input class="sbtn" type="submit" value="検索" style="margin-left:826px;margin-top:15px;"/>
+                </form>
 				<span style="display:flex">
                     <h4 id="category">カテゴリ</h4>
                     <ul style="margin-top:80px;">
@@ -327,12 +394,12 @@ cart_bgって名前のclassはオレンジ色にしたりする
                             </form>
                             {foreach from=$product_frima item=product}
                                 <div class="col_1_of_3 span_1_of_3"style="margin-top:0px;"> 
-                                    <a href="frimatrans.php?product_id={$product['product_id']}">
+                                    <a href="frimaTrans.php?product_id={$product['product_id']}">
                                         <div class="product_image" >
                                             <img src="{$product['product_pass']}" class="product_images"/>
                                             <div id="add_info">
                                                 <div id="product_name">
-                                                    <p style="display:inline-block;text-align:left;">{$product['product_name']}<p>
+                                                    <p style="display:inline-block;text-align:left;">{$product['frima_product_name']}<p>
                                                 </div>
                                                 <div id="product_price">
                                                     <div style="display:inline-block;text-align:left;"><p style="margin-top:15px;">￥{$product['price']}</p></div>
@@ -393,6 +460,16 @@ cart_bgって名前のclassはオレンジ色にしたりする
 				
 						// 取得したインデックス番号の class="hide" を削除
 						$('.pagging').eq(num).removeClass('hide');
+
+                        $('.sbtn').addClass('hide');
+				
+						// 取得したインデックス番号の class="hide" を削除
+						$('.sbtn').eq(num).removeClass('hide');
+
+                        $('.sbox').addClass('hide');
+				
+						// 取得したインデックス番号の class="hide" を削除
+						$('.sbox').eq(num).removeClass('hide');
 					}
 				});
             
@@ -548,8 +625,10 @@ cart_bgって名前のclassはオレンジ色にしたりする
                 </div>
 
                 <div class="pagging">
-                    {if $frima_limit>$frima_count-$frima_from}
-                        <div class="left">表示中 {$frima_from+1}-{$frima_count}</div>
+                    {if $frima_count == 0}
+                    <div class="left">表示中 0</div>
+                    {elseif $frima_limit>$frima_count-$frima_from}
+                    <div class="left">表示中 {$frima_from+1}-{$frima_count}</div>
                     {else}
                         <div class="left">表示中 {$frima_from+1}-{$frima_from+$frima_limit}</div>
                     {/if}

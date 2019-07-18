@@ -24,6 +24,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <script src="js/jquery.easydropdown.js"></script>
 <!-- Add fancyBox main JS and CSS files -->
 <script src="js/jquery.magnific-popup.js" type="text/javascript"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
 {include file='shere_admin.tmpl'}
 <link href="css/magnific-popup.css" rel="stylesheet" type="text/css">
 {literal}
@@ -64,31 +66,31 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             <div class="clearfix"></div>
 		</div>
 		<!-- ここから一覧　-->
+		<ul class="tab-group" style="width:40%;height:6%;">
+					<li id="not_reply"class="tab is-active">販売商品</li>
+					<li id="replyed"class="tab">レンタル商品</li>
+		</ul>
         <div class="box">        
-			<div class="searcharea">
-			<p class="re">レビュー一覧</p>
-				<div class="searchform">
-					<form id="form_s" action="自分のサイトURL">
-						<input id="serbox"  id="s" name="s" type="text" placeholder="キーワードを入力" />
-						<input id="serbtn" type="submit" value="検索" />
-					</form>
-                    <div class="kind">
-						<select name="kind">
-							<option value="全ての商品">全ての商品</option>
-							<option value="通常商品">販売中の商品のみ</option>
-							<option value="レンタル商品">レンタル商品のみ</option>
-						</select>
-					</div>
-					<form id="radiobtn">
-						<label class="radio-in">
-							<input type="radio" name="search-radio" value="商品名で検索" checked>商品名で検索
-						</label>
-						<label class="radio-in">
-							<input type="radio" name="search-radio" value="ユーザーIDで検索">ユーザーIDで検索
-						</label>
-					</form>
+			<div class="box-head">
+			<p class="left">レビュー一覧</p>
+			<form name="form"action="admini_review.php" method="post">
+			<span class="left"style="margin-left:200px">
+				<input type="radio" name="search_radio1" value="product_id">商品名で検索
+				</label>
+				<label class="radio-in">
+				<input type="radio" name="search_radio1" value="customer_id">ユーザーIDで検索
+				</label>
+			</span>
+			<div class="right">
+				<input type="submit" class="button" value="reset" id="search" />
+            </div>
+            <div class="right">
+                 <label>検索</label>
+                 <input type="text"name="search_text1"class="field small-field" />
+            	 <input type="submit" class="button" value="search" id="search" />
+            </div>
+			</from>
 				</div>
-			</div>
 			<div class="table">
 				<table width="100%" border="0" cellspacing="0" cellpadding="0">
 					<tr id="con">
@@ -96,8 +98,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						<th width="50%">商品名</th>
 						<th width="10%">評価</th>
 						<th width="20%" class="ac">投稿日時</th>
+						<th width="5%">詳細</th>
 					</tr>
-					{foreach from=$view key=k item=value}
+					{foreach from=$view1 key=k item=value}
 						<tr>
 							<td><h3><a href="#">{$value['customer_id']}</a></h3></td>
 							<td>{$value['product_name']}</td>
@@ -107,19 +110,143 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						</tr>
 					{/foreach}
 				</table>
-				<div class="pagging">
-					<div class="left">表示中 1</div>
-					<div class="right">
-						<a href="#">前へ</a>
-						<a href="#">1</a>
-						<a href="#">次へ</a>
-						<a href="#">すべて表示</a>
-					</div>
-				</div>
+				 <div class="pagging">
+									{if $max1 == 0}
+									<div class="left">表示中 0</div>
+									{elseif $limit1>$max1-$from1}
+									<div class="left">表示中 {$from1+1}-{$max1}</div>
+									{else}
+									<div class="left">表示中 {$from1+1}-{$from1+$limit1}</div>
+									{/if}
+									{for $start1=1 to $limit_page1}
+									<a href="admini_review.php?page1={$start1}">{$start1}</a>
+									{/for}
+									{if $limit_page1>4}
+									<span>...</span>
+									<a href="admini_review.php?page1={$page_max1}">{$page_max1}</a>
+									{/if}
+									{if $now_page1+1>$page_max1}
+									<a href="admini_review.php?page1={$now_page1}">次へ</a>
+									{else}
+									<a href="admini_review.php?page1={$now_page1+1}">次へ</a>
+									{/if}
+									<a href="admini_reviewt.php?limit1=over">全て表示</a>
+								</div>
 			</div>
 		</div>
+		 <div class="box">        
+			<div class="box-head">
+			<p class="left">レビュー一覧</p>
+			<form action="admini_review.php" method="post">
+			<span class="left"style="margin-left:200px">
+				<input type="radio" name="search_radio2" value="product_id">商品名で検索
+				</label>
+				<label class="radio-in">
+				<input type="radio" name="search_radio2" value="customer_id">ユーザーIDで検索
+				</label>
+			</span>
+			<div class="right">
+				<input type="submit" class="button" value="reset" id="search" />
+            </div>
+            <div class="right">
+                 <label>検索</label>
+                 <input type="text"name="search_text2"class="field small-field" />
+            	 <input type="submit" class="button" value="search" id="search" />
+            </div>
+			</from>
+				</div>
+			<div class="table">
+				<table width="100%" border="0" cellspacing="0" cellpadding="0">
+					<tr id="con">
+						<th width="20%">ユーザーID</th>
+						<th width="45%">商品名</th>
+						<th width="10%">評価</th>
+						<th width="20%">投稿日時</th>
+						<th width="5%">詳細</th>
+					</tr>
+					{foreach from=$view2 key=k item=value}
+						<tr>
+							<td><h3><a href="#">{$value['customer_id']}</a></h3></td>
+							<td>{$value['product_name']}</td>
+							<td>&ensp;{$value['review_value']}</td>
+							<td>2019/6/30</td>	
+							<td><input class="edibtn" type="button" id="delBtn1" value="詳細" onclick="location.href='http://wiz.developluna.jp/~tmH2019/lampTeamH/sources/review_details.php?transaction_id={$value['transaction_id']}&product_id={$value['product_id']}&customer_id={$value['customer_id']}&product_name={$value['product_name']}	'"><!--<input class="delbtn" type="button" id="delBtn1" value="削除" onclick="deleteRow(this)">--></td>
+						</tr>
+					{/foreach}
+				</table>
+				 <div class="pagging">
+									{if $max2 == 0}
+									<div class="left">表示中 0</div>
+									{elseif $limit2>$max2-$from2}
+									<div class="left">表示中 {$from2+1}-{$max2}</div>
+									{else}
+									<div class="left">表示中 {$from2+1}-{$from2+$limit2}</div>
+									{/if}
+									{for $start2=1 to $limit_page2}
+									<a href="admini_review.php?page2={$start2}">{$start2}</a>
+									{/for}
+									{if $limit_page2>4}
+									<span>...</span>
+									<a href="admini_review.php?page2={$page_max2}">{$page_max2}</a>
+									{/if}
+									{if $now_page2+1>$page_max2}
+									<a href="admini_review.php?page2={$now_page2}">次へ</a>
+									{else}
+									<a href="admini_review.php?page2={$now_page2+1}">次へ</a>
+									{/if}
+									<a href="admini_review.php?limit2=over">全て表示</a>
+								</div>
+			</div>
 		</div>
-		</div>
+	 {literal}
+			<script>
+			$(function() {
+					// クッキー保存されている or いない場合
+					if ($.cookie('num')) {
+						num = $.cookie('num');  //←★1
+					} else {
+						num = 0;    // ←★2
+					}
+				
+					// タブ処理
+					tabSwitching(num);
+						
+				
+					// クリックされた場合
+					$('.tab-group li').click(function() {
+						// クリックされた <li> のインデックス番号を取得
+						num = $('.tab-group li').index(this);
+						// タブ処理
+						tabSwitching(num);
+						
+						// クッキーを保存
+						// 有効期限は1日(ブラウザを閉じたら初期化)
+						$.cookie('num', num, {expires: 1});     // ←★3
+					});
+				
+				
+					// タブ切り替え処理
+					function tabSwitching(num){
+						// リストに設定されている class="chose" を削除
+						$('.tab-group li').removeClass('chose');
+				
+						// 前回クリックされていた <li> に class="chose" 追加
+						$('.tab-group li').eq(num).addClass('chose');
+				
+						// tabContents に class="hide" を追加
+						$('.box').addClass('hide');
+				
+						// 取得したインデックス番号の class="hide" を削除
+						$('.box').eq(num).removeClass('hide');
+						
+					
+					}
+				});
+							
+			
+			</script>
+			 {/literal}
+			<noscript>スクリプトが使えないときに表示されます</noscript>
 	<div class="clearfix"></div>
 <!-- アイコンだしてるだけ -->
 		<div class="container">

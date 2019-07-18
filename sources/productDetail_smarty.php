@@ -26,9 +26,19 @@ $buy_chk = false;
 //--------------
 if(isset($_POST['mylist'])){
 	//商品Hクラスを構築
-	$product_obj = new cproductH();
 	$product_id = $_POST['product_id'];
-	
+	//マイリスト追加
+	$dataarr = array();
+	$dataarr['customer_id'] = $_SESSION['HTeam_adm']['customer_id'];
+	$dataarr['product_id'] = (int)$_POST['product_id'];
+	$dataarr['memo'] = $_POST['memo'];
+    
+	$chenge = new cchange_ex();
+    $mid = $chenge->insert('favorite',$dataarr);
+
+	//商品Hクラスを構築
+	$product_obj = new cproductH();
+	$product_id = $_GET['product_id'];
 	$productarr = $product_obj->get_tgt(false,$product_id);
 	if($productarr !== false){
 		// echo '<script type="text/javascript">alert("ここか？");</script>';
@@ -36,9 +46,9 @@ if(isset($_POST['mylist'])){
 		$data = $productarr["product_pass"];
 		$productarr["product_pass"] = explode(',',$data);
 		$smarty->assign('productarr',$productarr);
+	}else{
+
 	}
-
-
 //--------------
 //購入時
 //--------------

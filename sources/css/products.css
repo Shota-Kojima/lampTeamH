@@ -125,6 +125,7 @@
 .product_images{
   display: block;
   max-width: 100%;
+  min-height:263.34px;
   height: auto;
   margin-top:4px;
 }

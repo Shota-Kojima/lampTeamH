@@ -83,3 +83,48 @@ input[type="radio"] {
 #con th {
     width: 20%;
 }
+.tab-group{
+    display: flex;
+    justify-content: center;
+    width:60%;
+	margin-top:25px;
+}
+.tab{
+    flex-grow: 1;
+    padding:5px;
+    list-style:none;
+    border:solid 1px #CCC;
+    text-align:center;
+    cursor:pointer;
+    -webkit-border-top-left-radius:5px
+}
+#panel-group{
+    width:77%;
+    z-index:2;
+}
+.panel{
+    display:none;
+
+}
+.tab.is-active{
+    transition: all 0.2s ease-out;
+}
+.panel.is-show{
+    display:block;
+ 
+}
+.chose{
+	background:rgb(163, 145, 121);
+	 color:#FFF;
+}
+ 
+.hide{
+    display: none;
+}
+.user_info{
+	border-style:solid !important;
+	border-width:1px !important;
+	border-color:rgb(209, 206, 206) !important;
+	height:30px;
+	width: 250px !important;
+}
