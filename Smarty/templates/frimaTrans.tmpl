@@ -16,6 +16,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <link href="css/style_frima.css" rel='stylesheet' type='text/css' />
 <link href="css/mana_frima.css" rel='stylesheet' type='text/css' />
 <link href="css/comp_frima.css" rel='stylesheet' type='text/css' />
+<link href="css/modal.css" rel='stylesheet' type='text/css' />
+<link href="css/user_check.css" rel="stylesheet" type="text/css">
+<link href="css/frimaTrans.css" rel='stylesheet' type='text/css' />
 <!-- Custom Theme files -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
@@ -74,6 +77,73 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 {/literal}
 </head>
 <body>
+<!-- 購入確認 -->
+<div class="popup" id="js-popupKakunin">
+	<div class="popup-inner">
+		<div class="register-box30">
+			<div class="register-box-title">購入確認</div>
+				<p>
+					<form> 
+						<div class="register-top-grid">
+							<center>
+								<h3>代引</h3>
+							</center>
+						</div>
+		　        </form>
+					<div class="clearfix"> </div>
+					<div class="register-but">
+				　        <form action="" method="post" enctype="multipart/form-data" autocomplete="off">
+							
+							<input type="hidden" name="product_id" value="{$frimaarr['frima_product_id']}">
+							<input type="submit" name="buy" value="購入" title="">
+						</form>
+					</div>
+				</p>
+			</div>
+		</div>
+	<div class="black-background" id="js-black-bg"></div>
+</div>
+<!-- 取引終了時の評価 -->
+<div class="popup" id="js-popupUketori">
+	<div class="popup-inner">
+		<div class="register-box30">
+			<div class="register-box-title">受け取り</div>
+				<p>
+					<form> 
+						<div class="register-top-grid">
+							<center>
+								<h3>取引相手の評価</h3>
+							</center>
+						</div>
+		　        </form>
+					<div class="clearfix"> </div>
+					<div class="register-but">
+				　        <form action="" method="post" enctype="multipart/form-data" autocomplete="off">
+							<div class="eval">
+								<div class="evaluation">
+									<input id="star1" type="radio" name="evaluation_index" value="5" />
+									<label for="star1"><span class="text"></span>★</label>
+									<input id="star2" type="radio" name="evaluation_index" value="4" />
+									<label for="star2"><span class="text"></span>★</label>
+									<input id="star3" type="radio" name="evaluation_index" value="3" />
+									<label for="star3"><span class="text"></span>★</label>
+									<input id="star4" type="radio" name="evaluation_index" value="2" />
+									<label for="star4"><span class="text"></span>★</label>
+									<input id="star5" type="radio" name="evaluation_index" value="1" />
+									<label for="star5"><span class="text"></span>★</label>
+								</div>
+							</div>
+							<textarea placeholder="" name="evaluation_state" class="re_text" style="" rows="4" maxlength="134"></textarea>
+							<input type="hidden" name="product_id" value="{$frimaarr['frima_product_id']}">
+							<input type="submit" name="hyoka" value="購入" title="">
+						</form>
+					</div>
+				</p>
+			</div>
+		</div>
+	<div class="black-background" id="js-black-bg"></div>
+</div>
+<!-- 本ページ -->
 	<div class="main">
 	  <div class="content_box">
 		<div class="container">
@@ -176,7 +246,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			     <div class="labout span_1_of_a1">
 				<!-- start product_slider -->
 				     <ul id="etalage">
-						{foreach from=$productarr.product_pass item=valueString}
+						{foreach from=$frimaarr.product_pass item=valueString}
 							{if $valueString != ""}
 								<li>
 									<img class="etalage_thumb_image" src="{$valueString}" class="img-responsive" />
@@ -184,7 +254,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 								</li>
 							{/if}
 						{/foreach}
-						{foreach from=$productarr.product_pass item=valueString}
+						{foreach from=$frimaarr.product_pass item=valueString}
 							{if $valueString != ""}
 								<li>
 									<img class="etalage_thumb_image" src="{$valueString}" class="img-responsive" />
@@ -196,35 +266,78 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					<!-- end product_slider -->
 			  </div>
 			  <div class="cont1 span_2_of_a1">
-				<h1>{$productarr.product_name}</h1>
+				<h1>{$frimaarr.frima_product_name}</h1>
 				<ul class="rating">
 				   <li><a class="product-rate" href="#"> <label> </label></a> <span> </span></li>
 				   <li><a href="#">1 Review(s) Add Review</a></li>
 				   <div class="clearfix"></div>
 			    </ul>
 			    <div class="price_single">
-				  <span class="actual">{$productarr.price}</span>円
+				  <span class="actual">{$frimaarr.price}</span>円
 				</div>
 				<h2 class="quick">商品説明:</h2>
-				<p class="quick_desc">{$productarr.product_text}</p>
-			    <ul class="size">
-					<h3>サイズ</h3>
-					<li><a href="#">25</a></li>
-					<li><a href="#">26</a></li>
-					<li><a href="#">27</a></li>
-					<li><a href="#">28</a></li>
-					<li><a href="#">29</a></li>
-					<li><a href="#">30</a></li>
-					<li><a href="#">31</a></li>
-					<li><a href="#">32</a></li>
-					<li><a href="#">33</a></li>
-				</ul>
+				<p class="quick_desc">{$frimaarr.product_text}</p>
 			    <div class="btn_form">
-				   <form>
-					 <input type="submit" value="Add to Cart" title="">
+				   <form action="" method="post" enctype="multipart/form-data" autocomplete="off">
+				   	<input type="hidden" name="product_id" value="{$frimaarr['frima_product_id']}">
+					{if (int)$frimaarr['buy_flg']===0}
+						<input type="button" value="購入する" id="js-show-popupKakunin" title="">
+					{elseif (int)$frimaarr['end_flg']===1}
+					<!--何も出したくない-->
+					{elseif $frimaarr['buy_user'] === $session['HTeam_adm']['customer_id']}
+						<input type="button" value="受け取り" id="js-show-popupUketori" title="">
+					{/if}
 				  </form>
 				</div>
 			</div>
+			{literal}
+				<script>
+					function popupImage() {
+						var popup = document.getElementById('js-popupKakunin');
+						if(!popup) return;
+						var blackBg = document.getElementById('js-black-bg');
+
+						var blackBg = document.getElementById('js-black-bg');
+						var closeBtn = document.getElementById('js-close-btn');
+						var showBtn = document.getElementById('js-show-popupKakunin');
+
+						closePopUp(blackBg);
+						closePopUp(closeBtn);
+						closePopUp(showBtn);
+						function closePopUp(elem) {
+							if(!elem) return;
+							elem.addEventListener('click', function() {
+								popup.classList.toggle('is-show');
+							});
+						}
+					}
+						popupImage();
+				</script>
+			{/literal}
+			{literal}
+				<script>
+					function popupImage() {
+						var popup = document.getElementById('js-popupUketori');
+						if(!popup) return;
+						var blackBg = document.getElementById('js-black-bg');
+
+						var blackBg = document.getElementById('js-black-bg');
+						var closeBtn = document.getElementById('js-close-btn');
+						var showBtn = document.getElementById('js-show-popupUketori');
+
+						closePopUp(blackBg);
+						closePopUp(closeBtn);
+						closePopUp(showBtn);
+						function closePopUp(elem) {
+							if(!elem) return;
+							elem.addEventListener('click', function() {
+								popup.classList.toggle('is-show');
+							});
+						}
+					}
+						popupImage();
+				</script>
+			{/literal}
 			<div class="clearfix"></div>
 		   </div>
 		   <div class="back2">
