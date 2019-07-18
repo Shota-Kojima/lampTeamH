@@ -23,9 +23,9 @@ if(!isset($_GET['frima_genre_id'])&&!isset($_GET['frima_sort_method'])&&!isset($
 	unset($_SESSION['HTeam']['frima_sort_method']);
 }
 
-$pass_data = array(1 => array('page','count','category','genre','conditions','sort','from','limit','page_count','page_limit'),
- 				   2 => array('page','count','category','genre','conditions','sort','from','limit','page_count','page_limit'),
-				   3 => array('page','count','category','genre','conditions','sort','from','limit','page_count','page_limit'));
+$pass_data = array(1 => array('page','count','category','genre','conditions','sort','from','limit','page_count','page_limit','search'),
+ 				   2 => array('page','count','category','genre','conditions','sort','from','limit','page_count','page_limit','search'),
+				   3 => array('page','count','category','genre','conditions','sort','from','limit','page_count','page_limit','search'));
 
 for($i = 0; $i<3; $i++){
 	$pass_data[$i]['page'] = 1;
@@ -244,8 +244,19 @@ function readdata(){
        $pass_data[2]['page_limit'] = 5;
 	}
 	
-    
-
+	if(isset($_POST['search_sale'])){
+		$pass_data[0]['search'] = '%'.$_POST['search_sale'].'%';
+		$pass_data[0]['conditions'] = $pass_data[0]['conditions']." and ".$pass_data[0]['search'];
+	}
+	if(isset($_POST['search_rental'])){
+		$pass_data[1]['search'] = '%'.$_POST['search_rental'].'%';
+		$pass_data[1]['conditions'] = $pass_data[1]['conditions']." and ".$pass_data[1]['search'];
+	}
+	if(isset($_POST['search_frima'])){
+		$pass_data[2]['search'] = '%'.$_POST['search_frima'].'%';
+		$pass_data[2]['conditions'] = $pass_data[2]['conditions']." and ".$pass_data[2]['search'];
+	}
+	var_dump($pass_data[0]['conditions']);
 
 	$sale_array = $obj->get_tgt_order(false,$pass_data[0]['from'],$pass_data[0]['limit'],$pass_data[0]['conditions'],
 									  $pass_data[0]['sort'],$pass_data[0]['category']);
@@ -256,9 +267,6 @@ function readdata(){
 	$frima_array = $obj->get_tgt_order(false,$pass_data[2]['from'],$pass_data[2]['limit'],$pass_data[2]['conditions'],
 									   $pass_data[2]['sort'],$pass_data[2]['category']);
 
-	
-	
-	
 		foreach($sale_array as &$value) {
 			if(strpos($value['product_pass'],',') !== false){
 				$work = explode(",",$value['product_pass']);

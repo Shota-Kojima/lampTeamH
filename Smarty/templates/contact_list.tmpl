@@ -109,10 +109,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 								{/foreach}
                             </table>
                              <div class="pagging">
-							 		{if $limit1>$max1-$from1}
-										<div class="left">表示中 {$from1+1}-{$max1}</div>
+							 		{if $max1 == 0}
+									<div class="left">表示中 0</div>
+									{elseif $limit1>$max1-$from1}
+									<div class="left">表示中 {$from1+1}-{$max1}</div>
 									{else}
-										<div class="left">表示中 {$from1+1}-{$from1+$limit1}</div>
+									<div class="left">表示中 {$from1+1}-{$from1+$limit1}</div>
 									{/if}
 									{if $now_page1-1>0}
 									<a href="contact_list.php?page1={$now_page1-1}">前へ</a>
@@ -170,10 +172,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 								{/foreach}
                             </table>
                             <div class="pagging">
-									{if $limit2>$max2-$from2}
-										<div class="left">表示中 {$from2+1}-{$max2}</div>
+									{if $max2 == 0}
+									<div class="left">表示中 0</div>
+									{elseif $limit2>$max2-$from2}
+									<div class="left">表示中 {$from2+1}-{$max2}</div>
 									{else}
-										<div class="left">表示中 {$from2+1}-{$from2+$limit2}</div>
+									<div class="left">表示中 {$from2+1}-{$from2+$limit2}</div>
 									{/if}
 									{for $start2=1 to $limit_page2}
 									<a href="contact_list.php?page2={$start2}">{$start2}</a>

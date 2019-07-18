@@ -31,7 +31,7 @@ function readdata(){
     global $from;
     global $limit;
     global $max;
-    $count1;
+    $count;
     $search_text;
     $flag;
     global $page;
@@ -52,64 +52,46 @@ function readdata(){
     //ページ送りがクリックされた場合
 	if(isset($_GET['page'])){
         //現在の抽出条件の何番目からを表示するか指定
-        $from1 = ($_GET['page']-1)*$limit1;
+        $from1 = ($_GET['page']-1)*$limit;
     }
     if(isset($_GET['limit'])){
         //現在の抽出条件の何番目からを表示するか指定
         $from1 = 0;
         $limit1 = 1000000;
     }
-    $replyed = array();
-    $not_reply = array();
+    $admin_list = array();
     if(isset($_POST['search_text'])||isset($_SESSION['HTeam']['search_text5'])){
          $search_text = '%'.$search_text.'%';
          $flag = "admin_name like '$search_text'";
-         $rows = $obj->get_all_admin(false,$flag,$from,$limit);
+         $admin_list = $obj->get_all_admin(false,$flag,$from,$limit);
          $max = $obj->get_tgt_count(false,$flag);
     }
     else{
          $flag = "1";
-         $rows = $obj->get_all_reply(false,$flag1,$from1,$limit1);
-         $max = $obj->get_tgt_count(false,$flag1);
+         $admin_list = $obj->get_all_admin(false,$flag,$from,$limit);
+         $max = $obj->get_tgt_count(false,$flag);
     }
-   
-    $page_max1 = ceil($max1/$limit1);
-    $page_max2 = ceil($max2/$limit2);
-    $page1 = 1;
-    $page2 = 1;
-    $now_page1 = 1;
-    $now_page2 = 1;
-    if($page_max1<5){
-        $limit_page1 = $page_max1;
+  
+    $page_max = ceil($max/$limit);
+    $page = 1;
+    $now_page = 1;
+    if($page_max<5){
+        $limit_page = $page_max;
     }
     else{
-        $limit_page1 = 5;
+        $limit_page = 5;
     }
-     if($page_max2<5){
-        $limit_page2 = $page_max2;
-    }
-    else{
-        $limit_page2 = 5;
-    }
-      
+     
 }
 //データ削除
 function deletedata1(){
     $chenge = new cchange_ex();
-    $con1;
-    $con1 = $_POST['con1'];
-    foreach($con1 as $value){
-        $chenge->delete("contact","contact_id=" . $value);
+    $admin;
+    $admin = $_POST['admin'];
+    foreach($admin as $value){
+        $chenge->delete("admin","admin_id=" . "'$value'");
     }
 }
-function deletedata2(){
-    $chenge = new cchange_ex();
-    $con2;
-    $con2 = $_POST['con2'];
-    foreach($con2 as $value){
-        $chenge->delete("contact","contact_id=" . $value);
-    }
-	
-}
-$smarty->display('contact_list.tmpl');
+
+$smarty->display('manager_list.tmpl');
 ?>

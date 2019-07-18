@@ -53,22 +53,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				
 			  <div class="col-md-9">
 			    <div class="dreamcrub">
-			   	 <ul class="breadcrumbs">
-                    <li class="home">
-                       <a href="product_list.php" title="Go to Home Page">Home</a>&nbsp;
-                       <span>&gt;</span>
-                    </li>
-                    <li class="women">
-                       お問い合わせ一覧
-                    </li>
-                </ul>
-                <ul class="previous">
-                	<li><a href="product_list.php">前のページへ戻る</a></li>
-                </ul>
+			   	
+            
+                
                 <div class="clearfix"></div>
 			   </div>
-				  <form name="form"action="manager_list.php" method="post">
-				   <div id="box1"class="box"style="width:1100px;">
+				  <form name="form"action="manager_list.php" method="post"style="margin-left:220px">
+				   <div id="box1"class="box"style="width:700px;">
                     <div class="box-head">
                         <h2 class="left"style="margin-top:8px;">お問い合わせ一覧</h2>
 						<div class="right">
@@ -84,12 +75,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     <div class="table">
                             <table width="100%" border="0" cellspacing="0" cellpadding="0">
                                 <tr id="odd">
-                                    <th width="13"></th>
-									<th width="5%"style="min-width:96px">管理者ID</th>
-                                    <th width="25%"style="min-width:10%">管理者名</th>
+                                    <th width="5%"></th>
+									<th width="15%"style="min-width:96px">管理者ID</th>
+                                    <th width="15%"style="min-width:10%">管理者名</th>
 									<th width="25%"style="min-width:10%">作成日</th>
-                                    <th width="30%">権限</th>
-                                    <th width="10%" class="ac">編集・削除</th>
+                                    <th width="15%">権限</th>
+                                    <th width="20%" class="ac">編集・削除</th>
                                 </tr>
 								{foreach from=$admin_list item=admin}
                                 <tr>
@@ -97,17 +88,19 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                     <td><input type="checkbox"name="admin[]"value="{$admin['admin_id']}"class="checkbox" style="margin-bottom:7px;"onClick="DisChecked1();" /></td>
 									<td>{$admin['admin_id']}</td>
                                     <td>{$admin['admin_name']}</td>
-									<td>{$admin['created_date']}</td>
+									<td>{$admin['admin_created_date']}</td>
                                     <td>{$admin['authority']}</td>
                                     <td><input class="delbtn" type="submit" id="delBtn1" value="編集"style="width:50px;height:30px"><input class="delbtn" type="submit" id="delBtn1" value="削除"style="width:50px;height:30px"></td>
 								</tr>
 								{/foreach}
                             </table>
                              <div class="pagging">
-							 		{if $limit>$max-$from}
-										<div class="left">表示中 {$from+1}-{$max}</div>
+							 		{if $max == 0}
+									<div class="left">表示中 0</div>
+									{elseif $limit>$max-$from}
+									<div class="left">表示中 {$from+1}-{$max}</div>
 									{else}
-										<div class="left">表示中 {$from+1}-{$from+$limit}</div>
+									<div class="left">表示中 {$from+1}-{$from+$limit}</div>
 									{/if}
 									{if $now_page-1>0}
 									<a href="manager_list.php?page={$now_page-1}">前へ</a>
@@ -164,8 +157,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	     </div>
 	    </div>
 	    </div>
-			<span id="all_check"style="position:absolute;top:240px;left:67%"><input name="all" type="checkbox"style="transform:scale(1.2);margin-right:5px;margin-top:4px;"onClick="AllChecked();"/>全てチェック</span>
-			<input id="all_delete"type="submit"style="position:absolute;height:30px;top:235px;left:78.5%;font-size:15px;"value="チェックを全て削除"/>
+			<span id="all_check"style="position:absolute;top:185px;left:56%"><input name="all" type="checkbox"style="transform:scale(1.2);margin-right:5px;margin-top:4px;"onClick="AllChecked();"/>全てチェック</span>
+			<input id="all_delete"type="submit"style="position:absolute;height:30px;top:180px;left:65.3%;font-size:15px;"value="チェックを全て削除"/>
 		 </form>
 		 {literal}
 		
