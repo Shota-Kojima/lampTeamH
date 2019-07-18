@@ -81,16 +81,22 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 									<th width="25%"style="min-width:10%">作成日</th>
                                     <th width="15%">権限</th>
                                     <th width="20%" class="ac">編集・削除</th>
+									<th width="20%" class="ac">編集・削除</th>
+									<th width="20%" class="ac">編集・削除</th>
+									<th width="20%" class="ac">編集・削除</th>
                                 </tr>
 								{foreach from=$admin_list item=admin}
                                 <tr>
 								<form name="form"action="manager_list.php" method="post">
                                     <td><input type="checkbox"name="admin[]"value="{$admin['admin_id']}"class="checkbox" style="margin-bottom:7px;"onClick="DisChecked1();" /></td>
-									<td>{$admin['admin_id']}</td>
-                                    <td>{$admin['admin_name']}</td>
-									<td>{$admin['admin_created_date']}</td>
-                                    <td>{$admin['authority']}</td>
-                                    <td><input class="delbtn" type="submit" id="delBtn1" value="編集"style="width:50px;height:30px"><input class="delbtn" type="submit" id="delBtn1" value="削除"style="width:50px;height:30px"></td>
+									<td>{$admin['auth_adm_id']}</td>
+                                    <td>{$admin['adm_name']}</td>
+									<td>{$admin['adm_created_date']}</td>
+                                    <td>{$admin['adm_write']}</td>
+									<td>{$admin['adm_read']}</td>
+									<td>{$admin['adm_create']}</td>
+									<td>{$admin['adm_delete']}</td>
+                                    <td><input class="delbtn" type="submit" id="delBtn1" value="編集"style="width:50px;height:30px"></td>
 								</tr>
 								{/foreach}
                             </table>
