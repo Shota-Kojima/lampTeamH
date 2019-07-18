@@ -207,3 +207,59 @@ $('#register').validate({
         }
     }
 });
+
+$('#frimaEx').validate({
+    rules: {
+        product_name: {
+            required: true
+        },
+        price: {
+            required: true 
+        },
+        genre_id: {
+            required: true
+        },
+        product_text: {
+            required: true 
+        }
+    },
+    messages: {
+        product_name: {
+            required: "入力されていません。"
+        },
+        price: {
+            required: "入力されていません。"
+        },
+        genre_id: {
+            required: "入力されていません。"
+        },
+        product_text: {
+            required: "入力されていません。"
+        }
+    },
+    //エラーメッセージの表示場所を設定
+    //表示位置指定
+    errorPlacement: function(error, element) {
+        switch(element.attr('name')) {
+
+        case "product_name":
+          error.insertAfter($('#product_name_error'));
+          break;
+
+        case "price":
+          error.insertAfter($('#price_error'));
+          break;
+
+        case "genre_id":
+          error.insertAfter($('#genre_id_error'));
+          break;
+
+        case "product_text":
+          error.insertAfter($('#product_text_error'));
+          break;          
+
+        default:
+          error.insertAfter(element);
+        }
+    }
+});
