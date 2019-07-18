@@ -27,6 +27,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <script src="js/jquery.easydropdown.js"></script>
 <!-- Add fancyBox main JS and CSS files -->
 <script src="js/jquery.magnific-popup.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
 {include file='shere_admin.tmpl'}
 {literal}
 <link href="css/magnific-popup.css" rel="stylesheet" type="text/css">
@@ -190,20 +191,23 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					<!-- end product_slider -->
 			  		</div>
 				<div class="cont1 span_2_of_a1">
-					<form action="" method="post" enctype="multipart/form-data" autocomplete="off">	
+					<form action="" id="productEx" method="post" enctype="multipart/form-data" autocomplete="off">	
 						<p class="syouhin">
 						商品名
 						</p>
+						<U id="product_name_error"></U><!-- error -->
 						<input type="text" class="proname" name="product_name" size="30">
 						<br>
 						<p class="nedan">
 						値段
 						</p>
+						<U id="price_error"></U><!-- error -->
 						<input type="text" class="pri"name="price" size="20">
 						<br>
 						<p class="category1">
 						カテゴリ
 						</p>
+						<U id="product_category_error"></U><!-- error -->
 						<select name="product_category" class="category2">
 							<option value="1">販売商品</option>
 							<option value="2">レンタル商品</option>
@@ -213,6 +217,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 							<!-- ジャンル<input type="text" name="genre_id" size="200"> -->
 							ジャンル
 						</p>
+						<U id="genre_id_error"></U><!-- error -->
 						<select name="genre_id" class="genre2">
 								{foreach from=$rows item=valueString}
 									<option value="{$valueString['genre_id']}">{$valueString['genre_name']}</option>
@@ -222,11 +227,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						<p class="zaiko">
 						在庫数
 						</p>
+						<U id="stock_error"></U><!-- error -->
 						<input type="number" class="zaiko1" name="stock" size="20" min="1"value="1">
 						<br>
 						<p class="syouhin1">
 						商品説明<br>					
 						</p>
+						<U id="product_text_error"></U><!-- error -->
 						<textarea name="product_text" class="syouhin2" rows="4" cols="40"></textarea>
 						<br>
 						<!--画像選択フォーム-->
@@ -268,6 +275,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					</form>
 				</div>
 			</div>
+			<script src="js/validate.js" type="text/javascript"></script>
 			<div class="clearfix"></div>
 		   </div>
 		   <div class="sap_tabs">	
