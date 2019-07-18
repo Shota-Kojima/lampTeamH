@@ -62,7 +62,7 @@ function readdata(){
     $admin_list = array();
     if(isset($_POST['search_text'])||isset($_SESSION['HTeam']['search_text5'])){
          $search_text = '%'.$search_text.'%';
-         $flag = "admin_name like '$search_text'";
+         $flag = "adm_name like '$search_text'";
          $admin_list = $obj->get_all_admin(false,$flag,$from,$limit);
          $max = $obj->get_tgt_count(false,$flag);
     }
@@ -89,7 +89,7 @@ function deletedata1(){
     $admin;
     $admin = $_POST['admin'];
     foreach($admin as $value){
-        $chenge->delete("admin","admin_id=" . "'$value'");
+        $chenge->delete("admin","auth_adm_id=" . "'$value'");
     }
 }
 

@@ -189,7 +189,6 @@ if(isset($_GET['frima_page'])){
 
 	if(isset($_POST['search_sale'])){
 		$_SESSION['HTeam']['search_sale'] = $_POST['search_sale'];
-		var_dump($_SESSION['HTeam']['search_sale']);
 	}
 	if(isset($_POST['search_rental'])){
 		$_SESSION['HTeam']['search_rental'] = $_POST['search_rental'];

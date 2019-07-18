@@ -1477,7 +1477,7 @@ class cadmin extends crecord {
 			"*",			//取得するカラム
 			"admin",	//取得するテーブル
 			"1",			//条件
-			"admin_id asc",	//並び替え
+			"auth_adm_id asc",	//並び替え
 			"limit " . $from . "," . $limit		//抽出開始行と抽出数
 		);
 		//順次取り出す
@@ -1503,7 +1503,7 @@ class cadmin extends crecord {
             $debug,         //デバッグ表示するかどうか
             "*",          //取得するカラム
             "admin",    //取得するテーブル
-            "admin_id like '{$id}'"    //条件
+            "auth_adm_id like '{$id}'"    //条件
         );
         return $this->fetch_assoc();
 	}

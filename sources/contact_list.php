@@ -131,8 +131,6 @@ function readdata(){
          $max2 = $obj->get_tgt_count(false,$flag2);
     }
 
-	var_dump($flag1);
-
     $page_max1 = ceil($max1/$limit1);
     $page_max2 = ceil($max2/$limit2);
     $page1 = 1;
