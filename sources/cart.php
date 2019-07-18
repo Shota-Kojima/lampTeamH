@@ -71,7 +71,7 @@ if(isset($_SESSION['HTeam_adm']['customer_id']) && $_SESSION['HTeam_adm']['custo
                                 'product_pass'=> explode(",", $cart_product[$j]['product_pass']),
                                 'price'=> (int)$cart_product[$j]['price'] * (int)$cnt,
                                 'cart_count'=> $cnt);
-                $cart[$i]['price'] = number_format($cart[$i]['price']);
+                
             }
         }
 
@@ -84,6 +84,9 @@ if(isset($_SESSION['HTeam_adm']['customer_id']) && $_SESSION['HTeam_adm']['custo
         }
         $_SESSION['HTeam_adm']['hanbai_count']=$hanbai_count;
         $_SESSION['HTeam_adm']['rental_count']=$rental_count;
+        foreach($cart as &$value){
+            $value['price'] = number_format($value['price']);
+        }
         $smarty->assign('cart',$cart);
 
     }

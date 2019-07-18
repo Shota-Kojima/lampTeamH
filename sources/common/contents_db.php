@@ -2254,8 +2254,7 @@ class cfrima_productH extends crecord {
 			$debug,			//デバッグ表示するかどうか
 			"count(*)",			//取得するカラム
 			"frima_productH",	//取得するテーブル
-			"product_category=" .$tgt_category." and "
-			 .$conditions		//条件
+			$conditions		//条件
 		);
 		if($row = $this->fetch_assoc()){
 			//取得した個数を返す
@@ -2273,8 +2272,7 @@ class cfrima_productH extends crecord {
 			$debug,			//デバッグ表示するかどうか
 			"*",			//取得するカラム
 			"frima_productH",	//取得するテーブル
-			"product_category=" .$tgt_category." and "
-			 .$conditions,	//条件
+			 $conditions,	//条件
 			$sort,	//並び替え
 			"limit " . $from . "," . $limit		//抽出開始行と抽出数
 		);

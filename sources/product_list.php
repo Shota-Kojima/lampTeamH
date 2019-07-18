@@ -30,7 +30,7 @@ $pass_data = array(1 => array('page','count','category','genre','conditions','so
  				   2 => array('page','count','category','genre','conditions','sort','from','limit','page_count','page_limit','search'),
 				   3 => array('page','count','category','genre','conditions','sort','from','limit','page_count','page_limit','search'));
 
-for($i = 0; $i<3; $i++){
+for($i = 0; $i<2; $i++){
 	$pass_data[$i]['page'] = 1;
 	$pass_data[$i]['category'] = $i+1;
 	$pass_data[$i]['genre'] = '0';
@@ -39,6 +39,14 @@ for($i = 0; $i<3; $i++){
 	$pass_data[$i]['from'] = 0;
 	$pass_data[$i]['limit'] = 15;
 }
+
+	$pass_data[2]['page'] = 1;
+	$pass_data[2]['category'] = 3;
+	$pass_data[2]['genre'] = '0';
+	$pass_data[2]['conditions'] = 'frima_genre_id > '.$pass_data[$i]['genre'];
+	$pass_data[2]['sort'] = 'frima_product_id';
+	$pass_data[2]['from'] = 0;
+	$pass_data[2]['limit'] = 15;
 
 if(isset($_GET['sale_genre_id'])){
 	$_SESSION['HTeam']['sale_genre_id'] = $_GET['sale_genre_id'];
@@ -72,13 +80,13 @@ else{
 if(isset($_GET['frima_genre_id'])){
 	$_SESSION['HTeam']['frima_genre_id'] = $_GET['frima_genre_id'];
 	$pass_data[2]['genre'] = $_SESSION['HTeam']['frima_genre_id'];
-	$pass_data[2]['conditions'] = 'genre_id = '.$pass_data[2]['genre'];
-	$_SESSION['HTeam']['frima_sort_method'] = 'product_id';
+	$pass_data[2]['conditions'] = 'frima_genre_id = '.$pass_data[2]['genre'];
+	$_SESSION['HTeam']['frima_sort_method'] = 'frima_product_id';
 }
 else{
 	if(isset($_SESSION['HTeam']['frima_genre_id'])&&isset($_GET['HTeam']['sale_page'])){
 		$pass_data[2]['genre'] = $_SESSION['HTeam']['frima_genre_id'];
-		$pass_data[2]['conditions'] = 'genre_id = '.$pass_data[2]['genre'];
+		$pass_data[2]['conditions'] = 'frima_genre_id = '.$pass_data[2]['genre'];
 		$pass_data[2]['page'] = $_GET['HTeam']['frima_page'];
 		$pass_data[2]['from'] = $pass_data[2]['page']*$pass_data[2]['limit'] = 15;
 	}
@@ -129,15 +137,15 @@ if(isset($_GET['rental_sort_method'])){
 if(isset($_GET['frima_sort_method'])){
 		if(isset($_SESSION['HTeam']['frima_genre_id'])){
 			$pass_data[2]['genre'] = $_SESSION['HTeam']['frima_genre_id'];
-			$pass_data[2]['conditions'] = 'genre_id = '.$pass_data[2]['genre'];
+			$pass_data[2]['conditions'] = 'frima_genre_id = '.$pass_data[2]['genre'];
 		}
 		//条件別にsessionに保持
 		//これはページ送りを行って際に並び替え情報がリセットされないようにするため
 		if($_GET['frima_sort_method'] == "aiueo_order"){
-			$_SESSION['HTeam']['frima_sort_method'] = "product_name";
+			$_SESSION['HTeam']['frima_sort_method'] = "frima_product_name";
 		}
 		else if($_GET['frima_sort_method'] == "sales_order"){
-			$_SESSION['HTeam']['frima_sort_method'] = "product_name";
+			$_SESSION['HTeam']['frima_sort_method'] = "frima_product_name";
 		}
 		else if($_GET['frima_sort_method'] == "price_desk_order"){
 			$_SESSION['HTeam']['frima_sort_method'] = "price desc";
@@ -174,7 +182,7 @@ if(isset($_GET['rental_page'])){
 if(isset($_GET['frima_page'])){
 		if(isset($_SESSION['HTeam']['frima_genre_id'])){
 			$pass_data[2]['genre'] = $_SESSION['HTeam']['frima_genre_id'];
-			$pass_data[2]['conditions'] = 'genre_id = '.$pass_data[2]['genre'];
+			$pass_data[2]['conditions'] = 'frima_genre_id = '.$pass_data[2]['genre'];
 		}
 		$pass_data[2]['page'] = $_GET['frima_page'];
 }
@@ -200,7 +208,7 @@ if(isset($_GET['frima_page'])){
 		$pass_data[1]['conditions'] = $pass_data[1]['conditions']." and ".$pass_data[1]['search'];
 	}
 	if(isset($_SESSION['HTeam']['search_frima'])){
-		$pass_data[2]['search'] = 'product_name like'."'".'%'.$_SESSION['HTeam']['search_frima'].'%'."'";
+		$pass_data[2]['search'] = 'frima_product_name like'."'".'%'.$_SESSION['HTeam']['search_frima'].'%'."'";
 		$pass_data[2]['conditions'] = $pass_data[2]['conditions']." and ".$pass_data[2]['search'];
 	}
 

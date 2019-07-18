@@ -71,6 +71,9 @@ if(isset($_SESSION['HTeam_adm']['customer_id']) && $_SESSION['HTeam_adm']['custo
                                 'cart_count'=> $cnt);
             }
         }
+         foreach($cart as &$value){
+            $value['price'] = number_format($value['price']);
+        }
         $smarty->assign('cart',$cart);
 
     }
