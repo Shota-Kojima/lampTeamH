@@ -57,65 +57,37 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                <div style="margin-bottom:50px;"><a href="manager_list.php"><U>管理者リストに戻る</U></a></div>
                <div class="user_check">
 						<p>
-                        <form action="manager_edit.php" method="post">
-				 			<h4>管理者情報変更</h4>
-                             名前　：　<input type="text"value="{$admin['adm_name']}"name="name"class="field small-field" /><br>
-                             管理者ID ：　<input type="text"value="{$admin['auth_adm_id']}"name="id"class="field small-field" /><br>
-                             管理者PW  ：　<input type="text"value="{$admin['adm_password']}"name="pw"class="field small-field" /><br>
+                        <form action="manager_create.php" method="post">
+				 			<h4>管理者アカウント作成</h4>
+                             名前　：　<input type="text"value=""name="name"class="field small-field" /><br>
+                             管理者ID ：　<input type="text"value=""name="id"class="field small-field" /><br>
+                             管理者PW  ：　<input type="text"value=""name="pw"class="field small-field" /><br>
                              書込　：　
                              <select name="write">
-                            {if $admin['adm_write'] == 1}
-							    <option value="1">権限あり</option>
-                                <option value="0">権限なし</option>
-                            {elseif $admin['adm_write'] == 0}
                                 <option value="0">権限なし</option>
                                 <option value="1">権限あり</option>
-                            {/if}
 						    </select>　　
                              閲覧　：　
                              <select name="read">
-							 {if $admin['adm_read'] == 1}
-							    <option value="1">権限あり</option>
-                                <option value="0">権限なし</option>
-                            {elseif $admin['adm_read'] == 0}
                                 <option value="0">権限なし</option>
                                 <option value="1">権限あり</option>
-                            {/if}
 						    </select>
                             <br>
                              作成　：　
                              <select name="create">
-							 {if $admin['adm_create'] == 1}
-							    <option value="1">権限あり</option>
-                                <option value="0">権限なし</option>
-                            {elseif $admin['adm_create'] == 0}
                                 <option value="0">権限なし</option>
                                 <option value="1">権限あり</option>
-                            {/if}
 						    </select>
                             　　　
                              削除　：　
                              <select name="delete">
-							 {if $admin['adm_delete'] == 1}
-							    <option value="1">権限あり</option>
-                                <option value="0">権限なし</option>
-                            {else $admin['adm_delete'] == 0}
                                 <option value="0">権限なし</option>
                                 <option value="1">権限あり</option>
-                            {/if}
 						    </select>
 						</div>
-                        <input style="margin-left:186px"class="edibtn" type="submit" value="管理者情報を変更">
+                        <input style="margin-left:286.5px"class="edibtn" type="submit" id="delBtn1" value="この内容で作成">
                         </form>
-                        <form action="manager_edit.php"method="post">
-                        <input type="hidden" name="del" value="del"> 
-                        <input class="edibtn" type="submit" id="delBtn1" value="管理者を削除">
-                        </form>
-                        <script>
-                        function rewite(){
-                            document.getElementById('ref').textContent =  document.getElementById('sei').textContent;
-                        }
-                        </script>
+                        
 			 {literal}
 			<script>		
 			</script>
