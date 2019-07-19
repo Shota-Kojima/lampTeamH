@@ -1531,7 +1531,7 @@ class cadmin extends crecord {
 			"*",			//取得するカラム
 			"admin",	//取得するテーブル
 		    "$flag",			//条件
-			"admin_id asc",	//並び替え
+			"adm_created_date asc",	//並び替え
 			"limit " . $from . "," . $limit		//抽出開始行と抽出数
 		);
 		//順次取り出す

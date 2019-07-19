@@ -58,8 +58,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 
                 <div class="clearfix"></div>
 			   </div>
-				  <form name="form"action="manager_list.php" method="post"style="margin-left:220px">
-				   <div id="box1"class="box"style="width:700px;">
+				  <form name="form"action="manager_list.php" method="post"style="margin-left:120px">
+				   <div id="box1"class="box"style="width:800px;">
                     <div class="box-head">
                         <h2 class="left"style="margin-top:8px;">お問い合わせ一覧</h2>
 						<div class="right">
@@ -71,24 +71,22 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             <input type="submit" class="button" value="search" id="search" />
                         </div>
                     </div>
-
+					</form>
                     <div class="table">
                             <table width="100%" border="0" cellspacing="0" cellpadding="0">
                                 <tr id="odd">
-                                    <th width="5%"></th>
+                                    
 									<th width="15%"style="min-width:96px">管理者ID</th>
                                     <th width="15%"style="min-width:10%">管理者名</th>
-									<th width="25%"style="min-width:10%">作成日</th>
-                                    <th width="15%">権限</th>
-                                    <th width="20%" class="ac">編集・削除</th>
-									<th width="20%" class="ac">編集・削除</th>
-									<th width="20%" class="ac">編集・削除</th>
-									<th width="20%" class="ac">編集・削除</th>
+									<th width="15%"style="min-width:10%">作成日</th>
+                                    <th width="10%">権限</th>
+                                    <th width="10%"></th>
+									<th width="10%"></th>
+									<th width="10%"></th>
+									<th width="10%" class="ac">編集・削除</th>
                                 </tr>
 								{foreach from=$admin_list item=admin}
                                 <tr>
-								<form name="form"action="manager_list.php" method="post">
-                                    <td><input type="checkbox"name="admin[]"value="{$admin['admin_id']}"class="checkbox" style="margin-bottom:7px;"onClick="DisChecked1();" /></td>
 									<td>{$admin['auth_adm_id']}</td>
                                     <td>{$admin['adm_name']}</td>
 									<td>{$admin['adm_created_date']}</td>
@@ -96,9 +94,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 									<td>{$admin['adm_read']}</td>
 									<td>{$admin['adm_create']}</td>
 									<td>{$admin['adm_delete']}</td>
-                                    <td><input class="delbtn" type="submit" id="delBtn1" value="編集"style="width:50px;height:30px"></td>
+                                    <td><a href="manager_edit.php?adm_id={$admin['auth_adm_id']}"><input class="delbtn" type="button" id="delBtn1" value="編集"style="width:50px;height:30px"></a></td>
 								</tr>
 								{/foreach}
+								<form name="form"action="manager_list.php" method="post">
                             </table>
                              <div class="pagging">
 							 		{if $max == 0}
@@ -128,44 +127,17 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 									<a href="manager_list.php?limit=over">全て表示</a>
 								</div>
                             </div>
+							 </form>
                         </div>
 		        </div>
-			 {literal}
-			<script>		
-				//チェックボタン
-				// 「全て選択」チェックで全てにチェック付く
-				function AllChecked(){
-					var check =  document.form.all.checked;
-					for (var i=0; i<document.form.elements['admin[]'].length; i++){
-						document.form.elements['admin[]'][i].checked = check;
-					}
-				}
-				// 一つでもチェックを外すと「全て選択」のチェック外れる
-				function　DisChecked(){
-					var checks = document.form.elements['admin[]'];
-					var checksCount = 0;
-					for (var i=0; i<checks.length; i++){
-						if(document.form.elements['admin[]'][i].checked == false){
-							document.form.all.checked = false;
-						}else{
-							checksCount += 1;
-							if(checksCount == document.form.elements['admin[]'][i].length){
-							document.form.all.checked = true;
-							}
-						}
-					}
-				}
-			</script>
-			 {/literal}
+				
 			<noscript>スクリプトが使えないときに表示されます</noscript>
 		   </div>
 		  </div>
 	     </div>
 	    </div>
 	    </div>
-			<span id="all_check"style="position:absolute;top:185px;left:56%"><input name="all" type="checkbox"style="transform:scale(1.2);margin-right:5px;margin-top:4px;"onClick="AllChecked();"/>全てチェック</span>
-			<input id="all_delete"type="submit"style="position:absolute;height:30px;top:180px;left:65.3%;font-size:15px;"value="チェックを全て削除"/>
-		 </form>
+		<a style="color:black" href="manager_create.php"><input id="all_delete"type="button"style="position:absolute;height:30px;top:175px;left:64.4%;font-size:15px;"value="管理者アカウント作成"/></a>
 		 {literal}
 		
 </body>

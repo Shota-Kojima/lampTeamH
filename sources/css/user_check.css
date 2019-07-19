@@ -43,8 +43,51 @@
 	font-size: 25px;
 }
 .user_check h4{
-	position: relative; top: 0; left:450px;
+	position: relative; top: 0; left:420px;
 	padding: 10px;
 	display: inline-block;
 	border-bottom: medium solid #a9a9a9;
-} 
+}
+.register-but-detail{
+	margin-top:1em;
+	position: relative;
+    left: 53px;
+}
+.register-but-detail form input[type="submit"] {
+	background:#fb4d01;
+	color: #FFF;
+	font-size: 0.8em;
+	padding: 0.8em 2em;
+	transition: 0.5s all;
+	-webkit-transition: 0.5s all;
+	-moz-transition: 0.5s all;
+	-o-transition: 0.5s all;
+	display: inline-block;
+	text-transform: uppercase;
+	border:none;
+	outline:none;
+	margin: 0 0 0 160px;
+}
+.register-butdetail input[type="submit"]:hover {
+	background:#26d2fc;
+}
+.btn_form input[type="button"] {
+	background:#fb4d01;
+	color: #FFF;
+	font-size: 16px;
+	padding: 0.8em 2em;
+	transition: 0.5s all;
+	-webkit-transition: 0.5s all;
+	-moz-transition: 0.5s all;
+	-o-transition: 0.5s all;
+	display: inline-block;
+	text-transform: uppercase;
+	border:none;
+	outline:none;
+	width: 145px;
+    height: 50px;
+    margin: 0px 0 0 30px;
+}
+.btn_form input[type="button"]:hover {
+	background:#26d2fc;
+}
