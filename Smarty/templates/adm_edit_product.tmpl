@@ -138,7 +138,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				　        <form action="" method="post" enctype="multipart/form-data" autocomplete="off">
 							{foreach from=$productarr['product_pass'] item=value}
 								{if $value != ""}
-									<img src="{$value}" alt="商品画像" width="100px">
+								<div class="images111">
+									<img src="{$value}" alt="商品画像" >
+								</div>
 								{/if}
 							{/foreach}
 							<input type="text" name="product_name" id="product_name_kakunin" value="{$productarr['product_name']}" disabled="disabled" >
@@ -233,7 +235,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					   </div>
 				     </div>
 			  </div>
-			  					<h2 class="mida1">商品情報の入力</h2>
+			  					<h2 class="mida1">商品情報の編集</h2>
 				<div class="col-md-9">
 					<div class="dreamcrub">
 						<ul class="previous">
@@ -297,38 +299,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						<textarea name="product_text" id="product_text_id" class="syouhin2" rows="4" cols="40" >{$productarr['product_text']}</textarea>
 						<br>
 						<!--画像選択フォーム-->
-						<p class="gazou">
-							画像
-						</p>	
-						<div class="gazou1">	
-						<label>
-								<span class="filelabel1" title="ファイルを選択">
-									<img src="./images/fileSelect.png" width="32" height="26">
-									<span id="selectednum1">選択</span>
-								</span>
-								<input type="file" name="image_file1" accept="image/*" id="filesend1" accept=".jpg,.gif,.png,image/gif,image/jpeg,image/png">
-							</label>
-							<!--画像プレビューボックス-->
-							<span id="previewbox1"></span>
-						<p></p>	
-							<label>
-								<span class="filelabel2" title="ファイルを選択">
-									<img src="./images/fileSelect.png" width="32" height="26" >
-									<span id="selectednum2">選択</span>
-								</span>
-								<input type="file" name="image_file2" accept="image/*" id="filesend2" accept=".jpg,.gif,.png,image/gif,image/jpeg,image/png">
-							</label>
-							<span id="previewbox2"></span>
-						<p></p>
-							<label>
-								<span class="filelabel3" title="ファイルを選択">
-									<img src="./images/fileSelect.png" width="32" height="26">
-									<span id="selectednum3">選択</span>
-								</span>
-								<input type="file" name="image_file3" accept="image/*" id="filesend3" accept=".jpg,.gif,.png,image/gif,image/jpeg,image/png">
-							</label>
-							<span id="previewbox3"></span>
-						</div>		
+								
 						<br>
 						<div class="btn_form-adm">
 						<input type="hidden" name="product_id" value="{$productarr['product_id']}">

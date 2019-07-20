@@ -1,6 +1,6 @@
 .btn_form-adm input[type="button"]{
     position: relative;
-    top: 72px;
+    top: 0px;
     left: 134px;
     background:#fb4d01;
 	color: #FFF;
@@ -64,7 +64,7 @@
 	margin: 0 0 0 160px;
 	position: absolute;
     left: 0px;
-	top: 413px;
+	top: 475px;
 	border-radius: 5px;
 }
 .register-but-adm input[type="submit"]:hover {
@@ -179,4 +179,10 @@
     background-size: 16px 10px;
     background-position: right 10px center;
 	border: solid 1px #93959a;
+}
+.images111{
+	width:100px;
+	float: left;
+    margin: 0 12px 0px 0px;
+    border: solid 0.5px;
 }
