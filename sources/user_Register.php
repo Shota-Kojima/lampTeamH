@@ -25,7 +25,8 @@ $pageCount = 0;
 $flg = array("customer_id"=>false,"customer_email"=>false,
 			"last_name"=>false,"last_name_kana"=>false,
 			"first_name"=>false,"first_name_kana"=>false,
-			"customer_address"=>false,"customer_password"=>false
+			"customer_address"=>false,"customer_password"=>false,
+			"zip21"=>false,"zip22"=>false,"addr21"=>false
 		);
 
 //useIDチェック
@@ -112,16 +113,44 @@ if(isset($_POST['first_name_kana'])){
 		$smarty->assign('flg',$flg);
 	}
 }
+//郵便番号１
+if(isset($_POST['zip21'])){
+	global $flg;
+	//１０文字超えているかどうかチェックする
+	if(!count($_POST['zip21']) >= 100){
+		flgUpd(false);
+		$flg["zip21"] = true;
+		$smarty->assign('flg',$flg);
+	}else{
+		$flg["zip21"] = false;
+		$smarty->assign('flg',$flg);
+	}
+}
+
+//住所
+if(isset($_POST['zip22'])){
+	global $flg;
+	//１０文字超えているかどうかチェックする
+	if(!count($_POST['zip22']) >= 100){
+		flgUpd(false);
+		$flg["zip22"] = true;
+		$smarty->assign('flg',$flg);
+	}else{
+		$flg["zip22"] = false;
+		$smarty->assign('flg',$flg);
+	}
+}
+
 //住所
 if(isset($_POST['addr21'])){
 	global $flg;
 	//１０文字超えているかどうかチェックする
 	if(!count($_POST['addr21']) >= 100){
 		flgUpd(false);
-		$flg["customer_address"] = true;
+		$flg["addr21"] = true;
 		$smarty->assign('flg',$flg);
 	}else{
-		$flg["customer_address"] = false;
+		$flg["addr21"] = false;
 		$smarty->assign('flg',$flg);
 	}
 }

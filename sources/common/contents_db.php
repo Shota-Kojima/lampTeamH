@@ -798,6 +798,24 @@ class cassessment extends crecord {
     }
    
 	//--------------------------------------------------------------------------------------
+	public function get_alldetail($debug,$id){
+		$arr = array();
+		//親クラスのselect()メンバ関数を呼ぶ
+		$this->select(
+			$debug,			//デバッグ表示するかどうか
+			"*",			//取得するカラム
+			"assessment",	//取得するテーブル
+			"customer_id = '{$id}'",	//条件
+			"customer_id asc"	//並び替え
+		);
+		//順次取り出す
+		while($row = $this->fetch_assoc()){
+			$arr[] = $row;
+		}
+		//取得した配列を返す
+		return $arr;
+    }
+	//--------------------------------------------------------------------------------------
 	/*!
 	@brief	指定されたIDの配列を得る
 	@param[in]	$debug	デバッグ出力をするかどうか
@@ -2198,7 +2216,7 @@ class cfrima_productH extends crecord {
 			"*",			//取得するカラム
 			"frima_productH",	//取得するテーブル
 			"ex_user = '{$id}'", //条件
-			"favorite_id asc"	//並び替え
+			"frima_product_id asc"	//並び替え
 		);
 		//順次取り出す
 		while($row = $this->fetch_assoc()){
