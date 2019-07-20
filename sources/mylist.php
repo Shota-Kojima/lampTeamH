@@ -44,8 +44,11 @@ if(isset($_SESSION['HTeam_adm']['customer_id']) && $_SESSION['HTeam_adm']['custo
                 }
             } 
         }
-        
-        
+
+         foreach($view as &$value){
+                  $value['price'] = number_format($value['price']);
+        }
+
         $smarty->assign('view',$view);
 
     }

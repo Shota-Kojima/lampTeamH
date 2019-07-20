@@ -8,16 +8,13 @@
   background: #fff;
   z-index: 9999;
 }
-.spinner-running .wrap {
-  display: none;
-}
 /* スピナーアニメーション */
 .spinner {
   width: 200px;
   height: 200px;
   position: absolute;
   top: 35%;
-  left: 40%;
+  left: 42%;
 }
 .double-bounce1, .double-bounce2 {
   width: 100%;
@@ -53,11 +50,11 @@
 .animation {
   position: absolute;
   top: 65%;
-  left: 48%;
+  left: 50%;
   -webkit-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-  color: rgb(116, 192, 88);
+  color: rgb(39, 92, 20);
   -webkit-animation: loadinganimation 1500ms ease-out forwards infinite;
   animation: loadinganimation 1500ms ease-out forwards infinite;
   font-size: 30px;
@@ -70,3 +67,14 @@
 		opacity: .5;
   }
 }
+
+/* 
+<!-- ローディングアニメーション実装用コード -->
+<div class="loading">
+    <div class="spinner">
+        <div class="double-bounce1"></div>
+        <div class="double-bounce2"></div>
+    </div>
+    <div class="animation">Now Loading...</div>
+</div> 
+*/

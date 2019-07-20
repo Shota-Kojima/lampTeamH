@@ -4,7 +4,7 @@
 require_once("inc_base.php");
 require_once($CMS_COMMON_INCLUDE_DIR . "libs.php");
 require_once("inc_smarty.php");
-
+require_once($CMS_COMMON_INCLUDE_DIR . "auth_user.php");
 global $date;
 $date = date('YmdHis');
 //初期値
@@ -17,8 +17,7 @@ $imageUrl3 = "";
 $fulldir = "http://wiz.developluna.jp/~tmH2019/lampTeamH/sources/images/product_img/";
 
 if(isset($_POST['product_name'])&&isset($_POST['price'])&&
-    isset($_POST['product_category'])&&isset($_POST['genre_id'])&&
-    isset($_POST['product_text'])&&isset($_POST['stock'])){
+    isset($_POST['genre_id'])&&isset($_POST['product_text'])){
     
     //画像のチェック
     if(isset($_FILES["image_file1"]["tmp_name"])){
@@ -64,17 +63,19 @@ if(isset($_POST['product_name'])&&isset($_POST['price'])&&
 function regist(){
 	global $member_id;
 	$dataarr = array();
-	$dataarr['product_name'] = (string)$_POST['product_name'];
-	$dataarr['product_category'] = (int)$_POST['product_category'];
-	$dataarr['genre_id'] = (int)$_POST['genre_id'];
+	$dataarr['frima_product_name'] = (string)$_POST['product_name'];
+	$dataarr['frima_genre_id'] = (int)$_POST['genre_id'];
 	$dataarr['product_pass'] = (string)$_POST['product_pass'];
     $dataarr['product_text'] = (string)$_POST['product_text'];
     $dataarr['price'] = (int)$_POST['price'];
     $dataarr['exhibistion_date'] = (string)$_POST['exhibistion_date'];
-    $dataarr['stock_value'] = (int)$_POST['stock'];
+    $dataarr['ex_user'] = (string)$_SESSION['HTeam_adm']['customer_id'];
+    $dataarr['buy_user'] = "";
+    $dataarr['buy_flg'] = (int)0;
+    $dataarr['end_flg'] = (int)0;
     
 	$chenge = new cchange_ex();
-    $mid = $chenge->insert('productH',$dataarr);
+    $mid = $chenge->insert('frima_productH',$dataarr);
     echo '<script type="text/javascript">alert('.$mid.');</script>';
 }
 
@@ -82,5 +83,5 @@ function regist(){
 $genre_obj = new cgenre();
 $rows = $genre_obj->get_allH(false);
 $smarty->assign('rows',$rows);
-$smarty->display('productEx.tmpl');
+$smarty->display('frimaEx.tmpl');
 ?>

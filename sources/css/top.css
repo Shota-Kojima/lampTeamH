@@ -1,0 +1,10 @@
+.ca1 {
+    width: 379.961px;
+    height: 229px;
+}
+.star {
+    transition: all 0.3s;
+    }
+.star:hover {
+    transform: scale(1.1,1.1);
+}

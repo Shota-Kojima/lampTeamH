@@ -1,41 +1,52 @@
+/* fade付けるやつ */
 .effect-fade {
-    opacity : 0;
-    transform : translate(0, 70px);
-    transition : all 1500ms;
+    opacity : 0;   /* 透明化 */
+    transform : translate(0, 70px);   /* translate(X軸,Y軸)で動きの幅を決める */
+    animation : all 1.5s;   /* こ↑こ↓で変化の全てをアニメーションの対象に(all)してfadeする時間(現在1.5秒)の調整 */
 }
-    
+/* スクロールでfade */
 .effect-fade.effect-scroll {
-    opacity : 1;
+    opacity : 1;   /* 不透明化 */
     transform : translate(0, 0);
 }
+/* メインコンテンツの箱 */
 .beginner {
-    margin-bottom: 150px;
+    height: 1000px;
     font-family: 'Noto Sans JP', sans-serif;
 }
-.beginner h1 {
-    float: left;
-    margin-left: 40px;
+/* 初めてのキャンプの前に */
+.hazi {
+    position: relative;
+    display: inline;
+    left: 30%;
+    top: 150px; 
     font-size: 45px;
+    font-weight: 500;
+    line-height: 52px;
 }
-.camp3 {
-    width: 27%;
-    float: left;
+.hazi a {
+    text-decoration: none;
+    color: #333;
 }
-.camp2  {
-    margin-top: 50px;
-    width: 70%;
+/* ズーム */
+.hazi a:hover {
+    color: #333;
+    font-size: 50px;
 }
-.sono1 {
-    clear: both;
-    margin-top: 100px;
-}
-.sono1 p {
-    text-align: left;
-    margin-left: 220px;
-    font-size: 30px;
-}
-.sono1 img {
-    width: 500px;
-    margin-left: 115px;
-    margin-top: 20px;
-}
+/* 下線びょーん */
+.hazi a::after {
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: rgb(147, 214, 127);
+    transform: scale(0, 1);
+    transform-origin: center top;
+    transition: transform .3s;
+  }
+ .hazi a:hover::after {
+    transform: scale(1, 1);
+  }
+  

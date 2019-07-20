@@ -141,8 +141,20 @@ cart_bgって名前のclassはオレンジ色にしたりする
 				<ul class="tab-group">
 					<li class="tab is-active">販売商品</li>
 					<li class="tab">レンタル商品</li>
-					<li class="tab">フリマ商品</li>
-				</ul>
+					<li class="tab">フリマ商品</li> 
+                </ul>
+                <form action="product_list.php" method="post">
+                    <input class="sbox" name="search_sale" type="text" placeholder="キーワードを入力"style="margin-left:826px;margin-top:15px;"/>
+                    <input class="sbtn" type="submit" value="検索" style="margin-left:826px;margin-top:15px;"/>
+                </form>
+                <form action="product_list.php" method="post">
+                    <input class="sbox" name="search_rental" type="text" placeholder="キーワードを入力"style="margin-left:826px;margin-top:15px;"/>
+                    <input class="sbtn" type="submit" value="検索" style="margin-left:826px;margin-top:15px;"/>
+                </form>
+                <form action="product_list.php" method="post">
+                    <input class="sbox" name="search_frima" type="text" placeholder="キーワードを入力"style="margin-left:826px;margin-top:15px;"/>
+                    <input class="sbtn" type="submit" value="検索" style="margin-left:826px;margin-top:15px;"/>
+                </form>
 				<span style="display:flex">
                     <h4 id="category">カテゴリ</h4>
                     <ul style="margin-top:80px;">
@@ -382,12 +394,12 @@ cart_bgって名前のclassはオレンジ色にしたりする
                             </form>
                             {foreach from=$product_frima item=product}
                                 <div class="col_1_of_3 span_1_of_3"style="margin-top:0px;"> 
-                                    <a href="frimaTrans.php?product_id={$product['product_id']}">
+                                    <a href="frimaTrans.php?product_id={$product['frima_product_id']}">
                                         <div class="product_image" >
                                             <img src="{$product['product_pass']}" class="product_images"/>
                                             <div id="add_info">
                                                 <div id="product_name">
-                                                    <p style="display:inline-block;text-align:left;">{$product['product_name']}<p>
+                                                    <p style="display:inline-block;text-align:left;">{$product['frima_product_name']}<p>
                                                 </div>
                                                 <div id="product_price">
                                                     <div style="display:inline-block;text-align:left;"><p style="margin-top:15px;">￥{$product['price']}</p></div>
@@ -448,6 +460,16 @@ cart_bgって名前のclassはオレンジ色にしたりする
 				
 						// 取得したインデックス番号の class="hide" を削除
 						$('.pagging').eq(num).removeClass('hide');
+
+                        $('.sbtn').addClass('hide');
+				
+						// 取得したインデックス番号の class="hide" を削除
+						$('.sbtn').eq(num).removeClass('hide');
+
+                        $('.sbox').addClass('hide');
+				
+						// 取得したインデックス番号の class="hide" を削除
+						$('.sbox').eq(num).removeClass('hide');
 					}
 				});
             
@@ -603,8 +625,10 @@ cart_bgって名前のclassはオレンジ色にしたりする
                 </div>
 
                 <div class="pagging">
-                    {if $frima_limit>$frima_count-$frima_from}
-                        <div class="left">表示中 {$frima_from+1}-{$frima_count}</div>
+                    {if $frima_count == 0}
+                    <div class="left">表示中 0</div>
+                    {elseif $frima_limit>$frima_count-$frima_from}
+                    <div class="left">表示中 {$frima_from+1}-{$frima_count}</div>
                     {else}
                         <div class="left">表示中 {$frima_from+1}-{$frima_from+$frima_limit}</div>
                     {/if}

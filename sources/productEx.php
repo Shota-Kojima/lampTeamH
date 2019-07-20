@@ -52,6 +52,7 @@ if(isset($_POST['product_name'])&&isset($_POST['price'])&&
     }
     $_POST['exhibistion_date'] = $date;
     $_POST['product_pass'] = $imageUrl1.",".$imageUrl2.",".$imageUrl3;
+    $_POST['postImage'] = $imageUrl1;
     regist();
 }
 
@@ -75,6 +76,46 @@ function regist(){
     
 	$chenge = new cchange_ex();
     $mid = $chenge->insert('productH',$dataarr);
+    
+    //====================================
+    //LINE送信
+    //====================================
+    $LINE_obj = new cLINE();
+    $LINEarr = $LINE_obj->get_all(false);
+    $url = "https://d897e9d4.ngrok.io/push";
+    $data = [];
+
+    // $dataに送るデータを詰めます。
+    $data['product_name'] = (string)$_POST['product_name'];
+    $data['product_pass'] = $_POST['postImage'];
+    $data['product_text'] = (string)$_POST['product_text'];
+    $data['price'] = number_format((int)$_POST['price']);
+    $data['price_rental'] = number_format((int)$_POST['price']*0.1);
+    $target=array();
+    for($i = 0; $i < count($LINEarr); $i++){
+        $target[$i] = $LINEarr[$i]['LINE_id'];
+    }
+    $data['target'] =  $target;
+    
+
+    // 送信データをURLエンコード
+    $data = http_build_query($data, "", "&");
+
+    // curlを初期化
+    $ch = curl_init();
+
+    // 設定!
+    curl_setopt($ch, CURLOPT_URL, $url); // 送り先
+    curl_setopt($ch, CURLOPT_POST, true); // POSTです
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $data); // 送信データ
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true); // 実行結果取得の設定
+
+    // 実行！
+    $output = curl_exec($ch);
+
+    // リソースを閉じる
+    curl_close($ch);
+
     echo '<script type="text/javascript">alert('.$mid.');</script>';
 }
 

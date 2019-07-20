@@ -326,7 +326,7 @@ left:100px;
 	margin-bottom:15px; 	
 	}
 	
-	#sbox{
+	.sbox{
 	position:absolute;
 	left:0;
 	top:0; 	
@@ -338,7 +338,7 @@ left:100px;
 	background:#eee;		
 	}
 	
-	#sbtn{
+	.sbtn{
 	width:70px;
 	height:50px; 
 	position:absolute; 

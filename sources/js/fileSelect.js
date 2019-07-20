@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function(){
     
     // ▼①ファイル選択フォームの更新イベントに処理を追加
     document.getElementById("filesend1").addEventListener('change', function(e) {
-        window.alert("呼ばれた");
+      
            var files = e.target.files;
            previewUserFiles1(files);
         });
@@ -19,7 +19,6 @@ document.addEventListener("DOMContentLoaded", function(){
 }, false);
 // ▼②選択画像をプレビュー
 function previewUserFiles1(files) {
-    window.alert("previewUserFiles1来た");
    // 一旦リセットする
     resetPreview1();
    // 選択中のファイル1つ1つを対象に処理する

@@ -1,0 +1,70 @@
+
+#login_form div{
+    position:absolute;
+}#login_form {
+    position:relative;
+    height:450px;
+    width:650px; 
+    margin:auto;
+    border-style:solid;
+    border-color:rgb(207, 192, 192);
+    box-shadow:0 0 1px;
+    background:rgb(236, 232, 232);
+}
+#id{
+    margin-top:70px;
+    margin-left:70px;
+    background:rgb(133, 133, 133);
+    color:rgb(240, 239, 239);
+    height:60px;
+    width:180px;
+}
+#id_txt{
+    margin-top:75px;
+    margin-left:280px;
+    height:50px !important;
+    width:290px !important;
+    font-size:20px;
+}
+#id_txt input{
+   height:100%;
+   width:100%;
+}
+#pw{
+    margin-top:190px;
+    margin-left:70px;
+    background:rgb(133, 133, 133);
+    color:rgb(240, 239, 239);
+    height:60px;
+    width:180px;
+}
+#pw_txt{
+    margin-top:195px;
+    margin-left:280px;
+    height:50px !important;
+    width:290px !important;
+    font-size:20px;
+}
+#pw_txt input{
+   height:100%;
+   width:100%;
+}
+
+p{
+    position:absolute;
+    margin-top:18px !important;
+    margin-left:45px !important;
+    font-size:21px;
+}
+#login_button{
+    height:60px!important;
+    width:180px!important;
+    font-size:20px!important;
+}
+#login_btn{
+    margin-top:320px!important;
+    margin-left:235px!important;
+    height:55px!important;
+    width:165px!important;
+    font-size:20px!important;
+}

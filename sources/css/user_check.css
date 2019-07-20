@@ -68,7 +68,10 @@
 	border:none;
 	outline:none;
 	margin: 0 0 0 160px;
+<<<<<<< HEAD
 	border-radius: 5px;
+=======
+>>>>>>> cba14ffa248fe209a6a9f9a6922dfdb360292b98
 }
 .register-butdetail input[type="submit"]:hover {
 	background:#26d2fc;
@@ -88,8 +91,12 @@
 	outline:none;
 	width: 145px;
     height: 50px;
+<<<<<<< HEAD
 	margin: 15px 0 0 30px;
 	border-radius: 5px;
+=======
+    margin: 0px 0 0 30px;
+>>>>>>> cba14ffa248fe209a6a9f9a6922dfdb360292b98
 }
 .btn_form input[type="button"]:hover {
 	background:#26d2fc;
