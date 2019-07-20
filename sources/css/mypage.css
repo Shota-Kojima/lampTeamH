@@ -1,25 +1,36 @@
-.main{
-	margin: 70px 0 150px 0;
-}
+<<<<<<< HEAD
+=======
+
+>>>>>>> 34c66b168607b95ecabac46b2cca3c65226e2346
 .icon{
 	width: 160px;
   	height: 160px;
 	border-radius: 50%;/*アイコンを丸くする*/
+	position: relative;
+    top: -84px;
+	left: 11px;
+	border: 5px #f8f8f8 solid;
   }
 .username{
-	margin: 0 0 0 0 ;
+	position: relative;
+    top: -97px;
+    left: 0;
 	font-size: 25px;
 }
 .userevaluation{
-	margin: 0 0 0 25px; 
+	position: relative;
+    top: -207px;
+    left: 333px;
 }
 /* ユーザー総合評価★レート */
 .star-rating {
 	position: relative;
-	width: 5em;
-	height: 1em;
-	font-size: 25px;
-	margin-left: 20px;
+    top: -199px;
+    left: 289px;
+    width: 5em;
+    height: 1em;
+    font-size: 33px;
+    margin-left: 20px;
   }
   .star-rating-front {
 	position: absolute;
@@ -32,7 +43,9 @@
 	color:#808080;
   }
 .pt{
-	margin: 20px 0 0 10px;
+	position: relative;
+    top: -265px;
+    left: 700px;
 }
 .btn-real-dent {
 	display: inline-block;
@@ -69,16 +82,15 @@
 
 /*商品の横スクロール*/
 .horizontal_scroll_wrap{
-    height: 270px;
-    overflow-y: hidden;
-	margin: 0 -10px;
-	display: inline-block;
+    height: 350px;
+	margin: 0 0px;
+	display: auto;
 }
 .scroll_lst {
     overflow-x: auto;
     overflow-y: hidden;
     white-space: nowrap;
-    padding-bottom: 50px;
+    padding-bottom: 12px;
     margin: 25px 0 0;
     -webkit-overflow-scrolling: touch;
 }
@@ -108,10 +120,10 @@
 .tabs {
 	background-color: #fff;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-	width: 700px;
+	width: 818px;
 	height: 350px;
 	margin: 0 40px;
-	position: absolute; top:880px; right:200px;
+	position: absolute; top:880px; right:193px;
   }
   
   /*タブのスタイル*/
@@ -141,7 +153,7 @@
   /*タブ切り替えの中身のスタイル*/
   .tab_content {
 	display: none;
-	width: 700px;
+	width: 818px;
 	overflow: auto;
   }
   .tab_content::-webkit-scrollbar {

@@ -108,7 +108,9 @@ if(isset($_POST["commit"])){
           
         // for($i=0; $i < count($cart); $i++){
         // }
-
+        foreach($cart as &$value){
+            $value['price'] = number_format($value['price']);
+        }
         $smarty->assign('cart',$_SESSION);
 
     }

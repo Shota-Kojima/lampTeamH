@@ -47,8 +47,9 @@ if(isset($_SESSION['HTeam_adm']['customer_id']) && $_SESSION['HTeam_adm']['custo
                                             'product_text'=>$productarr['product_text'],
                                             'total_value'=>$transInfoarr[$i]['total_value'],
                                             'total_money'=>$transInfoarr[$i]['total_money'],
-                                            'purchase_date'=>$bday->format('Y年m月d日')
-                                        );
+                                            'purchase_date'=>$bday->format('Y年m月d日'),
+                                            'purchase_sum'=>(int)$detailsarr[$j]['purchase_price']*(int)$detailsarr[$j]['purchase_value']
+                                        );             
                 }else{
                     // echo '<script type="text/javascript">alert("64のelse");</script>';
                     //  ステータスコードを出力
@@ -57,9 +58,15 @@ if(isset($_SESSION['HTeam_adm']['customer_id']) && $_SESSION['HTeam_adm']['custo
             }
             
         } 
-        
-        $smarty->assign('history',$history);
-
+        foreach($history as &$value){
+              foreach($value as &$value2){
+                  $value2['purchase_sum'] = number_format($value2['purchase_sum']);
+                  $value2['purchase_price'] = number_format($value2['purchase_price']);
+                  $value2['total_money'] = number_format($value2['total_money']);
+              }
+        }
+      
+     $smarty->assign('history',$history);
     }
 }
 $smarty->display('history.tmpl')

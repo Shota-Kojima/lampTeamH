@@ -1,0 +1,155 @@
+<!--A Design by W3layous
+Author: W3layout
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Surfhouse Bootstarp Website Template | Contact :: w3layouts</title>
+<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="js/jquery.min.js"></script>
+<!-- Custom Theme files -->
+<link href="css/style.css" rel='stylesheet' type='text/css' />
+<link href="css/manager.css" rel='stylesheet' type='text/css' />
+<link href="css/component.css" rel='stylesheet' type='text/css' />
+<!-- Custom Theme files -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!--webfont-->
+<link href='http://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700,800,900' rel='stylesheet' type='text/css'>
+<script src="js/jquery.easydropdown.js"></script>
+<!-- Add fancyBox main JS and CSS files -->
+<script src="js/jquery.magnific-popup.js" type="text/javascript"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+{include file='shere_admin.tmpl'}
+<link href="css/magnific-popup.css" rel="stylesheet" type="text/css">
+{literal}
+		<script>
+			$(document).ready(function() {
+				$('.popup-with-zoom-anim').magnificPopup({
+					type: 'inline',
+					fixedContentPos: false,
+					fixedBgPos: true,
+					overflowY: 'auto',
+					closeBtnInside: true,
+					preloader: false,
+					midClick: true,
+					removalDelay: 300,
+					mainClass: 'my-mfp-zoom-in'
+			});
+		});
+		</script>
+{/literal}
+<!--A Design by W3layous
+Author: W3layout
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Surfhouse Bootstarp Website Template | Contact :: w3layouts</title>
+<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="js/jquery.min.js"></script>
+<!-- Custom Theme files -->
+<link href="css/style.css" rel='stylesheet' type='text/css' />
+<link href="css/manager.css" rel='stylesheet' type='text/css' />
+<link href="css/manager_edit.css" rel='stylesheet' type='text/css' />
+<link href="css/component.css" rel='stylesheet' type='text/css' />
+<!-- Custom Theme files -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!--webfont-->
+<link href='http://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700,800,900' rel='stylesheet' type='text/css'>
+<script src="js/jquery.easydropdown.js"></script>
+<!-- Add fancyBox main JS and CSS files -->
+<script src="js/jquery.magnific-popup.js" type="text/javascript"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+{include file='shere_admin.tmpl'}
+<link href="css/magnific-popup.css" rel="stylesheet" type="text/css">
+		<script>
+			$(document).ready(function() {
+				$('.popup-with-zoom-anim').magnificPopup({
+					type: 'inline',
+					fixedContentPos: false,
+					fixedBgPos: true,
+					overflowY: 'auto',
+					closeBtnInside: true,
+					preloader: false,
+					midClick: true,
+					removalDelay: 300,
+					mainClass: 'my-mfp-zoom-in'
+			});
+		});
+		</script>
+
+</head>
+<body>
+ 
+            <div style="margin-bottom:20px;margin-left:180px;"><a href="manager_list.php"><U>管理者リストに戻る</U></a></div>
+            <form action="manager_create.php" method="post"style="position:relative">
+               <table>
+                    <tbody>
+                        <tr>   
+                            <th><p>管理者氏名</p></th>
+                            <td><input type="text"value=""name="name"class="field small-field" /></td>
+                        </tr>
+                        <tr>   
+                            <th><p>管理者ID</p></th>
+                            <td><input type="text"value=""name="id"class="field small-field" /></td>
+                        </tr>
+                        <tr>   
+                            <th><p>管理者PW</p></th>
+                            <td><input type="text"value=""name="pw"class="field small-field" /></td>
+                        </tr>
+                        <tr>   
+                            <th><p>商品追加</p></th>
+                            <td>
+                                <select name="write">
+                                    <option value="0">権限なし</option>
+                                    <option value="1">権限あり</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>   
+                            <th><p>管理者アカウント閲覧</p></th>
+                            <td>
+                                <select name="read">
+                                    <option value="0">権限なし</option>
+                                    <option value="1">権限あり</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>   
+                            <th><p>アカウント・商品削除</p></th>
+                            <td>
+                                <select name="create">
+                                    <option value="0">権限なし</option>
+                                    <option value="1">権限あり</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>   
+                            <th><p>アカウント作成・編集</p></th>
+                            <td>
+                                <select name="delete">
+                                    <option value="0">権限なし</option>
+                                    <option value="1">権限あり</option>
+                                </select>
+                            </td>
+                        </tr>
+                    </tbody>
+               </table>
+              <input type="submit" id="edibtn" value="この内容で作成" style="position:absolute;margin-bottom:100px;margin-left:870px;">
+            </form>
+    {literal}
+    {/literal}               
+</body>
+</html>

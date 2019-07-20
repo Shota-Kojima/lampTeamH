@@ -90,7 +90,7 @@ $('#register').validate({
         },
         zip21: {
             required: true,
-            maxlength: 3
+            maxlength: 4
         },
         zip22: {
             required: true,
@@ -200,14 +200,160 @@ $('#register').validate({
         case "customer_password":
           error.insertAfter($('#customer_password_error'));
           break;
+          
 
         default:
           error.insertAfter(element);
         }
     }
 });
-$(document).ready(function () {
-    $("#form-name").validationEngine('attach', {
-      promptPosition: "bottomLeft" //アラートの吹き出しを左下に設定: 
-    });
+
+$('#frimaEx').validate({
+    rules: {
+        product_name: {
+            required: true
+        },
+        price: {
+            required: true,
+            number: true,
+            min:1,
+            max:9999999
+        },
+        genre_id: {
+            required: true
+        },
+        product_text: {
+            required: true 
+        }
+    },
+    messages: {
+        product_name: {
+            required: "入力されていません。"
+        },
+        price: {
+            required: "入力されていません。",
+            number:"数字で入力してください。",
+            min:"1以上で入力してください。",
+            max:"数字が大きすぎます"
+        },
+        genre_id: {
+            required: "入力されていません。"
+        },
+        product_text: {
+            required: "入力されていません。"
+        }
+    },
+    //エラーメッセージの表示場所を設定
+    //表示位置指定
+    errorPlacement: function(error, element) {
+        switch(element.attr('name')) {
+
+        case "product_name":
+          error.insertAfter($('#product_name_error'));
+          break;
+
+        case "price":
+          error.insertAfter($('#price_error'));
+          break;
+
+        case "genre_id":
+          error.insertAfter($('#genre_id_error'));
+          break;
+
+        case "product_text":
+          error.insertAfter($('#product_text_error'));
+          break;          
+
+        default:
+          error.insertAfter(element);
+        }
+    }
+});
+
+$('#productEx').validate({
+    rules: {
+        product_name: {
+            required: true
+        },
+        price: {
+            required: true,
+            number: true,
+            min:1,
+            max:9999999
+        },
+        product_category:{
+            required: true
+        },
+        genre_id: {
+            required: true
+        },
+        stock:{
+            required: true,
+            number: true,
+            min:1,
+            max:9999999
+        },
+        product_text: {
+            required: true 
+        }
+    },
+    messages: {
+        product_name: {
+            required: "入力されていません。"
+        },
+        price: {
+            required: "入力されていません。",
+            number:"数字で入力してください。",
+            min:"1以上で入力してください。",
+            max:"数字が大きすぎます"
+        },
+        product_category:{
+            required: "選択されていません。"
+        },
+        genre_id: {
+            required: "入力されていません。"
+        },
+        stock:{
+            required: "入力されていません。",
+            number:"数字で入力してください。",
+            min:"1以上で入力してください。",
+            max:"数字が大きすぎます"
+        },
+        product_text: {
+            required: "入力されていません。"
+        }
+    },
+    //エラーメッセージの表示場所を設定
+    //表示位置指定
+    errorPlacement: function(error, element) {
+        switch(element.attr('name')) {
+
+        case "product_name":
+          error.insertAfter($('#product_name_error'));
+          break;
+
+        case "price":
+          error.insertAfter($('#price_error'));
+          break;
+        
+        case "product_category":
+          error.insertAfter($('#product_category_error'));
+          break;
+
+        case "genre_id":
+          error.insertAfter($('#genre_id_error'));
+          break;
+
+        case "stock":
+          error.insertAfter($('#stock_error'));
+          break;
+
+        case "product_text":
+          error.insertAfter($('#product_text_error'));
+          break;          
+
+        default:
+          error.insertAfter(element);
+        }
+    }
 });

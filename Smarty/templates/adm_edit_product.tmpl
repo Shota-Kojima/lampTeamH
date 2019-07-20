@@ -1,0 +1,603 @@
+<!--A Design by W3layouts
+Author: W3layout
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>RE:SURVIVAL : 出品</title>
+<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="js/jquery.min.js"></script>
+
+
+<!-- Custom Theme files -->
+<link href="css/style.css" rel='stylesheet' type='text/css' />
+<link href="css/component.css" rel='stylesheet' type='text/css' />
+<link href="css/manager.css" rel='stylesheet' type='text/css' />
+<link href="css/modal.css" rel='stylesheet' type='text/css' />
+<link href="css/productEx.css" rel='stylesheet' type='text/css' />
+<link href="css/user_check.css" rel="stylesheet" type="text/css">
+<!-- Custom Theme files -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!--webfont-->
+<link href='http://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700,800,900' rel='stylesheet' type='text/css'>
+<script src="js/jquery.easydropdown.js"></script>
+<!-- Add fancyBox main JS and CSS files -->
+<script src="js/jquery.magnific-popup.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
+{include file='shere_admin.tmpl'}
+{literal}
+<link href="css/magnific-popup.css" rel="stylesheet" type="text/css">
+		<script>
+			$(document).ready(function() {
+				$('.popup-with-zoom-anim').magnificPopup({
+					type: 'inline',
+					fixedContentPos: false,
+					fixedBgPos: true,
+					overflowY: 'auto',
+					closeBtnInside: true,
+					preloader: false,
+					midClick: true,
+					removalDelay: 300,
+					mainClass: 'my-mfp-zoom-in'
+			});
+		});
+		</script>
+<!----details-product-slider--->
+<!-- Include the Etalage files -->
+<link rel="stylesheet" href="css/etalage.css">
+<script src="js/jquery.etalage.min.js"></script>
+				<!-- Include the Etalage files -->
+				<script>
+						jQuery(document).ready(function($){
+			
+							$('#etalage').etalage({
+								thumb_image_width: 300,
+								thumb_image_height: 400,
+								
+								show_hint: true,
+								click_callback: function(image_anchor, instance_id){
+									alert('Callback example:\nYou clicked on an image with the anchor: "'+image_anchor+'"\n(in Etalage instance: "'+instance_id+'")');
+								}
+							});
+							// This is for the dropdown list example:
+							$('.dropdownlist').change(function(){
+								etalage_show( $(this).find('option:selected').attr('class') );
+							});
+
+					});
+				</script>
+				 <!--//details-product-slider-->	
+<script src="js/easyResponsiveTabs.js" type="text/javascript"></script>
+		    <script type="text/javascript">
+			    $(document).ready(function () {
+			        $('#horizontalTab').easyResponsiveTabs({
+			            type: 'default', //Types: default, vertical, accordion           
+			            width: 'auto', //auto or any width like 600px
+			            fit: true   // 100% fit in a container
+			        });
+			    });
+			   </script>	
+</head>
+{/literal}
+<body>
+<!--======================================================-->
+<!--削除確認ポップアップ-->
+<!--======================================================-->
+<div class="popup" id="js-popup">
+	<div class="popup-inner">
+		<div class="register-box30">
+			<div class="register-box-title">商品を削除しますか？</div>
+				<p>
+					<form> 
+						<div class="register-top-grid">
+							<center>
+								<h3><font size="5">商品が削除されます。</font></h3>
+							</center>
+						</div>
+		　        	</form>
+					<div class="clearfix"> </div>
+					<div class="register-but">
+				　        <form action="" method="post" enctype="multipart/form-data" autocomplete="off">
+							
+							<input type="hidden" name="product_id" value="{$productarr['product_id']}">
+							<input type="submit" name="delete" value="削除" title="">
+						</form>
+					</div>
+				</p>
+			</div>
+		</div>
+	<div class="black-background" id="js-black-bg"></div>
+</div>
+<!--======================================================-->
+<!--編集内容確認-->
+<!--======================================================-->
+<div class="popup" id="js-popupHensyu">
+	<div class="popup-inner">
+		<div class="register-box30">
+			<div class="register-box-title">編集内容確認</div>
+				<p>
+					<form> 
+						<div class="register-top-grid">
+							<center>
+								<h3><font size="5">編集内容</font></h3>
+							</center>
+						</div>
+		　        	</form>
+					<div class="clearfix"> </div>
+					<div class="register-but">
+				　        <form action="" method="post" enctype="multipart/form-data" autocomplete="off">
+							<input type="text" name="product_name" id="product_name_kakunin">
+							<input type="text" name="price" id="product_price_kakunin">
+							<input type="text" name="stock" id="product_stock_kakunin">
+							<input type="text" name="product_text" id="product_text_kakunin">
+							<input type="hidden" name="product_id" value="{$productarr['product_id']}">
+							<input type="submit" name="update" value="更新" title="">
+						</form>
+					</div>
+				</p>
+			</div>
+		</div>
+	<div class="black-background" id="js-black-bg"></div>
+</div>
+<!--======================================================-->
+<!--本文-->
+<!--======================================================-->
+	<div class="main">
+	  <div class="content_box">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-3">
+					<div class="menu_box">
+				   	  	<h3 class="menu_head">Menu</h3>
+				   	     <ul class="nav">
+					   	  	<li><a href="apparel.html">About</a></li>
+					   	  	<li><a href="apparel.html">Apparel</a></li>
+					   	  	<li><a href="apparel.html">Surf Apparel</a></li>
+					   	  	<li><a href="apparel.html">Windsurf</a></li>
+					   	  	<li><a href="apparel.html">Kitesurf</a></li>
+					   	  	<li><a href="apparel.html">Accessories</a></li>
+					   	  	<li><a href="apparel.html">Sale</a></li>
+					   	  	<li><a href="apparel.html">Brands</a></li>
+					   	  	<li><a href="apparel.html">Blog</a></li>
+					   	  	<li><a href="apparel.html">Gadgets</a></li>
+					   	  	<li><a href="contact.php">Contact</a></li>
+					   	 </ul>
+			   	    </div>
+			   	    <div class="category">
+			   	    	<h3 class="menu_head">Category Options</h3>
+			   	    	<ul class="category_nav">
+					   	  	<li><a href="#">Men</a></li>
+					   	  	<li><a href="#">Women</a></li>
+					   	  	<li><a href="#">Kids</a></li>
+					   	  	<li><a href="#">Wetsuits</a></li>
+					   	  	<li><a href="#">Outerwear</a></li>
+					   	</ul>
+			   	    </div>
+			   	    <div class="category">
+			   	    	<h3 class="menu_head">Brand Options</h3>
+			   	    	<ul class="category_nav">
+					   	  	<li><a href="#">Billabong</a></li>
+					   	  	<li><a href="#">Element</a></li>
+					   	  	<li><a href="#">o'neill</a></li>
+					   	  	<li><a href="#">Oakley</a></li>
+					   	  	<li><a href="#">Reef</a></li>
+					   	  	<li><a href="#">Quiksilver</a></li>
+					   	  	<li><a href="#">Ripcurl</a></li>
+					   	  	<li><a href="#">Jackss</a></li>
+					   	</ul>
+			   	    </div>
+			   	    <div class="tags">
+				    	<h4 class="tag_head">Tags Widget</h4>
+				         <ul class="tags_links">
+							<li><a href="#">Kitesurf</a></li>
+							<li><a href="#">Super</a></li>
+							<li><a href="#">Duper</a></li>
+							<li><a href="#">Theme</a></li>
+							<li><a href="#">Men</a></li>
+							<li><a href="#">Women</a></li>
+							<li><a href="#">Equipment</a></li>
+							<li><a href="#">Best</a></li>
+							<li><a href="#">Accessories</a></li>
+							<li><a href="#">Men</a></li>
+							<li><a href="#">Apparel</a></li>
+							<li><a href="#">Super</a></li>
+							<li><a href="#">Duper</a></li>
+							<li><a href="#">Theme</a></li>
+							<li><a href="#">Responsiv</a></li>
+					        <li><a href="#">Women</a></li>
+							<li><a href="#">Equipment</a></li>
+						</ul>
+						<a href="#" class="link1">View all tags</a>
+				     </div>
+				     <div class="side_banner">
+					   <div class="banner_img"><img src="images/pic9.jpg" class="img-responsive" alt=""/></div>
+					   <div class="banner_holder">
+						  <h3>Now <br> is <br> Open!</h3>
+					   </div>
+				     </div>
+			  </div>
+			  					<h2 class="mida">商品情報の入力</h2>
+				<div class="col-md-9">
+					<div class="dreamcrub">
+						<ul class="previous">
+							<li><a href="product_list.php">商品一覧へ</a></li>
+						</ul>
+						
+						<div class="clearfix"></div>
+					</div>
+			   <div class="singel_right">
+					<div class="labout span_1_of_a1">
+					<!-- start product_slider -->
+                    
+					<!-- end product_slider -->
+			  		</div>
+				<div class="cont1 span_2_of_a1">
+					<form action="" id="productEx" method="post" enctype="multipart/form-data" autocomplete="off">	
+						<p class="syouhin">
+						商品名
+						</p>
+						<U id="product_name_error"></U><!-- error -->
+						<input type="text" class="proname" id="product_name_id" name="product_name" value="{$productarr['product_name']}" size="30">
+						<br>
+						<p class="nedan">
+						値段
+						</p>
+						<U id="price_error"></U><!-- error -->
+						<input type="text" class="pri" id="product_price_id" name="price" value="{$productarr['price']}" size="20">
+						<br>
+						<p class="category1">
+						カテゴリ
+						</p>
+						<U id="product_category_error"></U><!-- error -->
+						<select name="product_category" class="category2" >
+							<option value="1" {if (int)$productarr['product_category'] === 1}selected{/if}>販売商品</option>
+							<option value="2" {if (int)$productarr['product_category'] === 2}selected{/if}>レンタル商品</option>
+						</select>
+						<br>
+						<p class="genre1">
+							<!-- ジャンル<input type="text" name="genre_id" size="200"> -->
+							ジャンル
+						</p>
+						<U id="genre_id_error"></U><!-- error -->
+						<select name="genre_id" class="genre2" >
+								{foreach from=$rows item=valueString}
+								
+									<option value="{$valueString['genre_id']}" {if (int)$productarr['genre_id'] === (int)$valueString['genre_id'] }selected{/if}>{$valueString['genre_name']}</option>
+								{/foreach}
+							</select>
+						<br>	
+						
+						<p class="zaiko">
+						在庫数
+						</p>
+						<U id="stock_error"></U><!-- error -->
+						<input type="number" class="zaiko1" id="product_stock_id" name="stock" size="20" min="1" value="{$productarr['stock_value']}">
+						<br>
+						<p class="syouhin1">
+						商品説明<br>					
+						</p>
+						<U id="product_text_error"></U><!-- error -->
+						<textarea name="product_text" id="product_text_id" class="syouhin2" rows="4" cols="40" >{$productarr['product_text']}</textarea>
+						<br>
+						<!--画像選択フォーム-->
+						<p class="gazou">
+							画像
+						</p>	
+						<div class="gazou1">	
+						<label>
+								<span class="filelabel1" title="ファイルを選択">
+									<img src="./images/fileSelect.png" width="32" height="26">
+									<span id="selectednum1">選択</span>
+								</span>
+								<input type="file" name="image_file1" accept="image/*" id="filesend1" accept=".jpg,.gif,.png,image/gif,image/jpeg,image/png">
+							</label>
+							<!--画像プレビューボックス-->
+							<span id="previewbox1"></span>
+						<p></p>	
+							<label>
+								<span class="filelabel2" title="ファイルを選択">
+									<img src="./images/fileSelect.png" width="32" height="26" >
+									<span id="selectednum2">選択</span>
+								</span>
+								<input type="file" name="image_file2" accept="image/*" id="filesend2" accept=".jpg,.gif,.png,image/gif,image/jpeg,image/png">
+							</label>
+							<span id="previewbox2"></span>
+						<p></p>
+							<label>
+								<span class="filelabel3" title="ファイルを選択">
+									<img src="./images/fileSelect.png" width="32" height="26">
+									<span id="selectednum3">選択</span>
+								</span>
+								<input type="file" name="image_file3" accept="image/*" id="filesend3" accept=".jpg,.gif,.png,image/gif,image/jpeg,image/png">
+							</label>
+							<span id="previewbox3"></span>
+						</div>		
+						<br>
+						<div class="btn_form">
+						<input type="hidden" name="product_id" value="{$productarr['product_id']}">
+						<input type="button" class="Exhibition" name="update" value="変更" id='js-show-popupHensyu' title="">
+						<input type="button" class="Delete" value="削除" id="js-show-popup" title="">
+					</form>
+				</div>
+			</div>
+			<!--======================================================-->
+			<!--ポップアップ表示-->
+			<!--======================================================-->
+			{literal}
+				<script>
+					function popupImage() {
+						var popup = document.getElementById('js-popup');
+						if(!popup) return;
+						var blackBg = document.getElementById('js-black-bg');
+						var closeBtn = document.getElementById('js-close-btn');
+						var showBtn = document.getElementById('js-show-popup');
+
+
+
+						closePopUp(blackBg);
+						closePopUp(closeBtn);
+						closePopUp(showBtn);
+						function closePopUp(elem) {
+							if(!elem) return;
+							elem.addEventListener('click', function() {
+								popup.classList.toggle('is-show');
+							});
+						}
+					}
+						popupImage();
+				</script>
+			{/literal}
+			{literal}
+				<script>
+					function popupImage2() {
+						var popup2 = document.getElementById('js-popupHensyu');
+						if(!popup2) return;
+						
+						var blackBg2 = document.getElementById('js-black-bg');
+						var closeBtn2 = document.getElementById('js-close-btn');
+						var showBtn2 = document.getElementById('js-show-popupHensyu');
+
+						closePopUp2(blackBg2);
+						closePopUp2(closeBtn2);
+						closePopUp2(showBtn2);
+						function closePopUp2(elem) {
+							if(!elem) return;
+							elem.addEventListener('click', function() {
+								popup.classList.toggle('is-show');
+							});
+						}
+					}
+						popupImage2();
+				</script>
+			{/literal}
+			<script src="js/validate.js" type="text/javascript"></script>
+			<div class="clearfix"></div>
+		   </div>
+		   <div class="sap_tabs">	
+				     <div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">
+						  <ul class="resp-tabs-list">
+						  	  <li class="resp-tab-item" aria-controls="tab_item-0" role="tab"><span>Product Description</span></li>
+							  <li class="resp-tab-item" aria-controls="tab_item-1" role="tab"><span>Additional Information</span></li>
+							  <li class="resp-tab-item" aria-controls="tab_item-2" role="tab"><span>Reviews</span></li>
+							  <div class="clear"></div>
+						  </ul>				  	 
+							<div class="resp-tabs-container">
+							    <div class="tab-1 resp-tab-content" aria-labelledby="tab_item-0">
+									<div class="facts">
+									  <ul class="tab_list">
+									  	<li><a href="#">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat</a></li>
+									  	<li><a href="#">augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigatione</a></li>
+									  	<li><a href="#">claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica</a></li>
+									  	<li><a href="#">Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.</a></li>
+									  </ul>           
+							        </div>
+							     </div>	
+							      <div class="tab-1 resp-tab-content" aria-labelledby="tab_item-1">
+									<div class="facts">
+									  <ul class="tab_list">
+									    <li><a href="#">augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigatione</a></li>
+									  	<li><a href="#">claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica</a></li>
+									  	<li><a href="#">Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.</a></li>
+									  </ul>           
+							        </div>
+							     </div>	
+							      <div class="tab-1 resp-tab-content" aria-labelledby="tab_item-2">
+									<ul class="tab_list">
+									  	<li><a href="#">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat</a></li>
+									  	<li><a href="#">augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigatione</a></li>
+									  	<li><a href="#">claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores leg</a></li>
+									  	<li><a href="#">Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.</a></li>
+									  </ul>      
+							     </div>	
+							 </div>
+					      </div>
+					 </div>	
+					 <h3 class="like">You Might Also Like</h3>        			
+				     <ul id="flexiselDemo3">
+						<li><img src="images/pic11.jpg" /><div class="grid-flex"><a href="#">Syenergy 2mm</a><p>Rs 850</p></div></li>
+						<li><img src="images/pic10.jpg" /><div class="grid-flex"><a href="#">Surf Yoke</a><p>Rs 1050</p></div></li>
+						<li><img src="images/pic9.jpg" /><div class="grid-flex"><a href="#">Salty Daiz</a><p>Rs 990</p></div></li>
+						<li><img src="images/pic8.jpg" /><div class="grid-flex"><a href="#">Cheeky Zane</a><p>Rs 850</p></div></li>
+						<li><img src="images/pic7.jpg" /><div class="grid-flex"><a href="#">Synergy</a><p>Rs 870</p></div></li>
+				     </ul>
+				    <script type="text/javascript">
+					 $(window).load(function() {
+						$("#flexiselDemo3").flexisel({
+							visibleItems: 3,
+							animationSpeed: 1000,
+							autoPlay: true,
+							autoPlaySpeed: 3000,    		
+							pauseOnHover: true,
+							enableResponsiveBreakpoints: true,
+					    	responsiveBreakpoints: { 
+					    		portrait: { 
+					    			changePoint:480,
+					    			visibleItems: 1
+					    		}, 
+					    		landscape: { 
+					    			changePoint:640,
+					    			visibleItems: 2
+					    		},
+					    		tablet: { 
+					    			changePoint:768,
+					    			visibleItems: 3
+					    		}
+					    	}
+					    });
+					    
+					});
+				   </script>
+				   <script type="text/javascript" src="js/jquery.flexisel.js"></script>
+				   <h3 class="recent">Recently Viewed</h3>
+				   <ul id="flexiselDemo1">
+						<li><img src="images/pic1.jpg" /><div class="grid-flex"><a href="#">Syenergy 2mm</a><p>Rs 850</p></div></li>
+						<li><img src="images/pic2.jpg" /><div class="grid-flex"><a href="#">Surf Yoke</a><p>Rs 1050</p></div></li>
+						<li><img src="images/pic3.jpg" /><div class="grid-flex"><a href="#">Salty Daiz</a><p>Rs 990</p></div></li>
+						<li><img src="images/pic4.jpg" /><div class="grid-flex"><a href="#">Cheeky Zane</a><p>Rs 850</p></div></li>
+						<li><img src="images/pic5.jpg" /><div class="grid-flex"><a href="#">Synergy</a><p>Rs 870</p></div></li>
+				     </ul>
+				    <script type="text/javascript">
+					 $(window).load(function() {
+						$("#flexiselDemo1").flexisel({
+							visibleItems: 3,
+							animationSpeed: 1000,
+							autoPlay: true,
+							autoPlaySpeed: 3000,    		
+							pauseOnHover: true,
+							enableResponsiveBreakpoints: true,
+					    	responsiveBreakpoints: { 
+					    		portrait: { 
+					    			changePoint:480,
+					    			visibleItems: 1
+					    		}, 
+					    		landscape: { 
+					    			changePoint:640,
+					    			visibleItems: 2
+					    		},
+					    		tablet: { 
+					    			changePoint:768,
+					    			visibleItems: 3
+					    		}
+					    	}
+					    });					    
+					});
+				   </script>
+			</div>
+		 </div>
+		</div>
+	    </div>
+		<div class="container">
+		  <div class="brands">
+			 <ul class="brand_icons">
+				<li><img src='images/icon1.jpg' class="img-responsive" alt=""/></li>
+				<li><img src='images/icon2.jpg' class="img-responsive" alt=""/></li>
+				<li><img src='images/icon3.jpg' class="img-responsive" alt=""/></li>
+				<li><img src='images/icon4.jpg' class="img-responsive" alt=""/></li>
+				<li><img src='images/icon5.jpg' class="img-responsive" alt=""/></li>
+				<li><img src='images/icon6.jpg' class="img-responsive" alt=""/></li>
+				<li class="last"><img src='images/icon7.jpg' class="img-responsive" alt=""/></li>
+			 </ul>
+		   </div>
+	    </div>
+	    <div class="container">
+	      <div class="instagram_top">
+	      	<div class="instagram text-center">
+				<h3><i class="insta_icon"> </i> Instagram feed:&nbsp;<span class="small">#Surfhouse</span></h3>
+			</div>
+	        <ul class="instagram_grid">
+			  <li><a class="popup-with-zoom-anim" href="#small-dialog1"><img src="images/i1.jpg" class="img-responsive"alt=""/></a></li>
+			  <li><a class="popup-with-zoom-anim" href="#small-dialog1"><img src="images/i2.jpg" class="img-responsive" alt=""/></a></li>
+			  <li><a class="popup-with-zoom-anim" href="#small-dialog1"><img src="images/i3.jpg" class="img-responsive" alt=""/></a></li>
+			  <li><a class="popup-with-zoom-anim" href="#small-dialog1"><img src="images/i4.jpg" class="img-responsive" alt=""/></a></li>
+			  <li><a class="popup-with-zoom-anim" href="#small-dialog1"><img src="images/i5.jpg" class="img-responsive" alt=""/></a></li>
+			  <li class="last_instagram"><a class="popup-with-zoom-anim" href="#small-dialog1"><img src="images/i6.jpg" class="img-responsive" alt=""/></a></li>
+			  <div class="clearfix"></div>
+			  <div id="small-dialog1" class="mfp-hide">
+				<div class="pop_up">
+					<h4>A Sample Photo Stream</h4>
+					<img src="images/i_zoom.jpg" class="img-responsive" alt=""/>
+				</div>
+			  </div>
+			</ul>
+		  </div>
+	      <ul class="footer_social">
+			<li><a href="#"> <i class="fb"> </i> </a></li>
+			<li><a href="#"><i class="tw"> </i> </a></li>
+			<li><a href="#"><i class="pin"> </i> </a></li>
+			<div class="clearfix"></div>
+		   </ul>
+	    </div>
+        <div class="footer">
+			<div class="container">
+				<div class="footer-grid">
+					<h3>Category</h3>
+					<ul class="list1">
+					  <li><a href="#">Home</a></li>
+					  <li><a href="#">About us</a></li>
+					  <li><a href="#">Eshop</a></li>
+					  <li><a href="#">Features</a></li>
+					  <li><a href="#">New Collections</a></li>
+					  <li><a href="#">Blog</a></li>
+					  <li><a href="#">Contact</a></li>
+				    </ul>
+				</div>
+				<div class="footer-grid">
+					<h3>Our Account</h3>
+				    <ul class="list1">
+					  <li><a href="#">Your Account</a></li>
+					  <li><a href="#">Personal information</a></li>
+					  <li><a href="#">Addresses</a></li>
+					  <li><a href="#">Discount</a></li>
+					  <li><a href="#">Orders history</a></li>
+					  <li><a href="#">Addresses</a></li>
+					  <li><a href="#">Search Terms</a></li>
+				    </ul>
+				</div>
+				<div class="footer-grid">
+					<h3>Our Support</h3>
+					<ul class="list1">
+					  <li><a href="#">Site Map</a></li>
+					  <li><a href="#">Search Terms</a></li>
+					  <li><a href="#">Advanced Search</a></li>
+					  <li><a href="#">Mobile</a></li>
+					  <li><a href="#">Contact Us</a></li>
+					  <li><a href="#">Mobile</a></li>
+					  <li><a href="#">Addresses</a></li>
+				    </ul>
+				  </div>
+				  <div class="footer-grid">
+					<h3>Newsletter</h3>
+					<p class="footer_desc">Nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat</p>
+					<div class="search_footer">
+					{literal}
+			          <input type="text" class="text" value="Insert Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Insert Email';}">
+			          <input type="submit" value="Submit">
+					 {/literal} 
+			        </div>
+			        <img src="images/payment.png" class="img-responsive" alt=""/>
+				 </div>
+				 <div class="footer-grid footer-grid_last">
+					<h3>About Us</h3>
+					<p class="footer_desc">Diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam,.</p>
+                    <p class="f_text">Phone:  &nbsp;&nbsp;&nbsp;00-250-2131</p>
+                    <p class="email">Email: &nbsp;&nbsp;&nbsp;<span>info(at)Surfhouse.com</span></p>	
+                 </div>
+				 <div class="clearfix"> </div>
+			</div>
+		</div>
+        <div class="footer_bottom">
+        	<div class="container">
+        		<div class="copy">
+				   <p>&copy; 2014 Template by <a href="http://w3layouts.com" target="_blank"> w3layouts</a></p>
+			    </div>
+        	</div>
+        </div>
+		<script language="JavaScript" src="js/fileSelect.js" type="text/javascript"></script>
+</body>
+</html>		

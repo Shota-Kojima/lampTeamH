@@ -15,6 +15,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <link href="css/style.css" rel='stylesheet' type='text/css' />
 <link href="css/component.css" rel='stylesheet' type='text/css' />
 <link href="css/manager.css" rel='stylesheet' type='text/css' />
+<link href="css/modal.css" rel='stylesheet' type='text/css' />
+<!--会員登録のcss-->
+<link href="css/user_check.css" rel="stylesheet" type="text/css">
 <!-- Custom Theme files -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
@@ -26,8 +29,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 {include file='shere_noncart.tmpl'}
 {literal}
 <link href="css/magnific-popup.css" rel="stylesheet" type="text/css">
-<!--会員登録のcss-->
-<link href="css/register.css" rel="stylesheet" type="text/css">
 		<script>
 			$(document).ready(function() {
 				$('.popup-with-zoom-anim').magnificPopup({
@@ -48,35 +49,78 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <div class="main">
 	   <div class="container">
 		  <div class="register">
-		    <div class="register-box30">
-			<div class="register-box-title">CHECK</div>
-			<p>
-		  	  <form> 
-				<div class="register-top-grid">
-				 <center>
-				 	<h3><font size="5">会員情報確認</font></h3>
-					 <h4>氏：</h4>
-					 <h4>名：</h4>
-					 <h4>メールアドレス：</h4>
-					 <h4>ID:</h4>
-					 <h4>パスワード:</h4>
-				 </center>
+			<div class="popup" id="js-popup">
+	    		<div class="popup-inner">
+            		<div class="register-box30">
+						<div class="register-box-title">SUCCESS!!</div>
+							<p>
+		  	  		 		<form> 
+								<div class="register-top-grid">
+									<center>
+				 					<h3><font size="5">登録が完了しました！</font></h3>
+				 					</center>
+								</div>
+					　		</form>
+							<div class="clearfix"> </div>
+							<div class="register-but">
+				   		　		<form>
+				   					<center>
+					   				<input type="submit" formaction="products.php" value="ホーム"> <input type="submit" value="ログイン">
+									</center>
+				   		　		</form>
+							</div>
+                			</p>
+            		</div>
 				</div>
-				</form>
-				<div class="clearfix"> </div>
-				<div class="register-but">
-				<center>
-				   <form>
-					   <input type="submit" value="登録" formaction="kanryou.php">
-					   <div class="clearfix"> </div>
-				   </form>
-				</center>
-				</div>
-			</p>
+        		<div class="black-background" id="js-black-bg"></div>
 			</div>
-		   </div>
-	     </div>
-	    </div>
+    			<div class="register-box30">
+					<div class="register-box-title">CHECK</div>
+                		<div class="user_check">
+						<p>
+				 			<h3>会員情報確認</h3>
+					 		<h4>姓：</h4> 
+							<h4 style="position: absolute; left: 745px; top: 800px">せい：</h4><br>
+					 		<h4>名：</h4>
+							<h4 style="position: absolute; left: 745px; top: 851px">めい：</h4><br>
+							<h4>性別：</h4><br>
+							<h4>郵便番号：</h4>
+							<h4 style="position: absolute; left: 745px; top: 952px">住所：</h4><br>
+					 		<h4>メールアドレス：</h4><br>
+					 		<h4>ID:</h4><br>
+					 		<h4>パスワード:</h4>
+						</div>
+						<div class="register-but-user">
+							<center>
+					   		<input type="submit"  id="js-show-popup" value="登録">
+							</center>
+						</p>
+						</div>
+		  		</div>
+		</div>
+	</div>
+	<script>
+		function popupImage() {
+			var popup = document.getElementById('js-popup');
+			if(!popup) return;
+			var blackBg = document.getElementById('js-black-bg');
+
+			var blackBg = document.getElementById('js-black-bg');
+			var closeBtn = document.getElementById('js-close-btn');
+			var showBtn = document.getElementById('js-show-popup');
+
+			closePopUp(blackBg);
+			closePopUp(closeBtn);
+			closePopUp(showBtn);
+			function closePopUp(elem) {
+				if(!elem) return;
+				elem.addEventListener('click', function() {
+					popup.classList.toggle('is-show');
+				});
+			}
+		}
+			popupImage();
+		</script>
 		<div class="container">
 		  <div class="brands">
 			 <ul class="brand_icons">

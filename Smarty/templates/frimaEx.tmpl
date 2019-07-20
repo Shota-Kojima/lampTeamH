@@ -6,16 +6,19 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 -->
 <!DOCTYPE HTML>
 <html>
-{literal}
 <head>
-<title>Surfhouse Bootstarp Website Template | Single :: w3layouts</title>
+<title>RE:SURVIVAL : 出品</title>
 <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
-<link type="text/css" rel="stylesheet" href="./css/bmesse.css" />
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="js/jquery.min.js"></script>
+
+
 <!-- Custom Theme files -->
 <link href="css/style.css" rel='stylesheet' type='text/css' />
 <link href="css/component.css" rel='stylesheet' type='text/css' />
+<link href="css/manager.css" rel='stylesheet' type='text/css' />
+<link href="css/frimaEx.css" rel='stylesheet' type='text/css' />
+
 <!-- Custom Theme files -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
@@ -25,6 +28,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <script src="js/jquery.easydropdown.js"></script>
 <!-- Add fancyBox main JS and CSS files -->
 <script src="js/jquery.magnific-popup.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
+{include file='shere_admin.tmpl'}
+{literal}
 <link href="css/magnific-popup.css" rel="stylesheet" type="text/css">
 		<script>
 			$(document).ready(function() {
@@ -65,7 +71,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 					});
 				</script>
-				{# <!----//details-product-slider--->	 #}
+				 <!--//details-product-slider-->	
 <script src="js/easyResponsiveTabs.js" type="text/javascript"></script>
 		    <script type="text/javascript">
 			    $(document).ready(function () {
@@ -77,62 +83,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			    });
 			   </script>	
 </head>
+{/literal}
 <body>
-  <div class="single">
-	<div class="container">
-		<div class="header-top">
-      		 <div class="logo">
-				<a href="index.html"><img src="images/logo.png" alt=""/></a>
-			 </div>
-		   <div class="header_right">
-			 <ul class="social">
-				<li><a href=""> <i class="fb"> </i> </a></li>
-				<li><a href=""><i class="tw"> </i> </a></li>
-				<li><a href=""><i class="utube"> </i> </a></li>
-				<li><a href=""><i class="pin"> </i> </a></li>
-				<li><a href=""><i class="instagram"> </i> </a></li>
-			 </ul>
-		    <div class="lang_list">
-			  <select tabindex="4" class="dropdown">
-				<option value="" class="label" value="">En</option>
-				<option value="1">English</option>
-				<option value="2">French</option>
-				<option value="3">German</option>
-			  </select>
-   			</div>
-			<div class="clearfix"></div>
-          </div>
-          <div class="clearfix"></div>
-		 </div>  
-		 <div class="apparel_box">
-			<ul class="login">
-				<li class="login_text"><a href="login.html">Login</a></li>
-				<li class="wish"><a href="checkout.html">Wish List</a></li>
-				<div class='clearfix'></div>
-		    </ul>
-		    <div class="cart_bg">
-			  <ul class="cart">
-				<i class="cart_icon"></i><p class="cart_desc">$1459.50<br><span class="yellow">2 items</span></p>
-			    <div class='clearfix'></div>
-			  </ul>
-			  <ul class="product_control_buttons">
-				 <li><a href="#"><img src="images/close.png" alt=""/></a></li>
-				 <li><a href="#">Edit</a></li>
-			  </ul>
-		      <div class='clearfix'></div>
-			 </div>
-			 <ul class="quick_access">
-				<li class="view_cart"><a href="checkout.html">View Cart</a></li>
-				<li class="check"><a href="checkout.html">Checkout</a></li>
-				<div class='clearfix'></div>
-		     </ul>
-			<div class="search">
-			   <input type="text" value="Search" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search';}">
-			   <input type="submit" value="">
-			</div>
-		  </div>
-		</div>
-    </div>
 	<div class="main">
 	  <div class="content_box">
 		<div class="container">
@@ -151,7 +103,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					   	  	<li><a href="apparel.html">Brands</a></li>
 					   	  	<li><a href="apparel.html">Blog</a></li>
 					   	  	<li><a href="apparel.html">Gadgets</a></li>
-					   	  	<li><a href="contact.html">Contact</a></li>
+					   	  	<li><a href="contact.php">Contact</a></li>
 					   	 </ul>
 			   	    </div>
 			   	    <div class="category">
@@ -207,213 +159,114 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					   </div>
 				     </div>
 			  </div>
-			  <div class="col-md-9">
-			    <div class="dreamcrub">
-			   	 <ul class="breadcrumbs">
-                    <li class="home">
-                       <a href="index.html" title="Go to Home Page">Home</a>&nbsp;
-                       <span>&gt;</span>
-                    </li>
-                    <li class="home">&nbsp;
-                        Apparel&nbsp;
-                        <span>&gt;</span>&nbsp;
-                    </li>
-                    <li class="home">&nbsp;
-                        &nbsp;Women
-                        <span>&gt;</span>&nbsp;
-                    </li>
-                    <li class="women">
-                       Peekey Cropped
-                    </li>
-                </ul>
-                <ul class="previous">
-                	<li><a href="index.html">商品一覧へ</a></li>
-                </ul>
-                <div class="clearfix"></div>
-			   </div>
-			   <div class="singel_right">
-			     <div class="labout span_1_of_a1">
-				<!-- start product_slider -->
-				     <ul id="etalage">
-							<li>
-								<a href="optionallink.html">
-									<img class="etalage_thumb_image" src="images/s1.jpg" class="img-responsive" />
-									<img class="etalage_source_image" src="images/smal.jpg" class="img-responsive" />
-								</a>
+			  					<h2 class="mida">商品情報の入力</h2>
+				<div class="col-md-9">
+					<div class="dreamcrub">
+						<ul class="breadcrumbs">
+							<li class="home">
+							<a href="product_list.php" title="Go to Home Page">Home</a>&nbsp;
+							<span>&gt;</span>
 							</li>
-							<li>
-								<img class="etalage_thumb_image" src="images/s2.jpg" class="img-responsive" />
-								<img class="etalage_source_image" src="images/smal1.jpg" class="img-responsive" />
+							<li class="home">&nbsp;
+								Apparel&nbsp;
+								<span>&gt;</span>&nbsp;
 							</li>
-							<li>
-								<img class="etalage_thumb_image" src="images/s3.jpg" class="img-responsive" />
-								<img class="etalage_source_image" src="images/smal2.jpg" class="img-responsive" />
+							<li class="home">&nbsp;
+								&nbsp;Women
+								<span>&gt;</span>&nbsp;
 							</li>
-							<li>
-								<img class="etalage_thumb_image" src="images/s3.jpg" class="img-responsive" />
-								<img class="etalage_source_image" src="images/smal3.jpg" class="img-responsive" />
-							</li>
-							<li>
-								<img class="etalage_thumb_image" src="images/s1.jpg" class="img-responsive" />
-								<img class="etalage_source_image" src="images/smal.jpg" class="img-responsive" />
-							</li>
-							<li>
-								<img class="etalage_thumb_image" src="images/s2.jpg" class="img-responsive" />
-								<img class="etalage_source_image" src="images/smal1.jpg" class="img-responsive" />
-							</li>
-							<li>
-								<img class="etalage_thumb_image" src="images/s3.jpg" class="img-responsive" />
-								<img class="etalage_source_image" src="images/smal2.jpg" class="img-responsive" />
+							<li class="women">
+							Peekey Cropped
 							</li>
 						</ul>
+						<ul class="previous">
+							<li><a href="product_list.php">商品一覧へ</a></li>
+						</ul>
+						
+						<div class="clearfix"></div>
+					</div>
+			   <div class="singel_right">
+					<div class="labout span_1_of_a1">
+					<!-- start product_slider -->
+                    
 					<!-- end product_slider -->
-			  </div>
-			  <div class="cont1 span_2_of_a1">
-				<h1>Peeky Cropped</h1>
-				<ul class="rating">
-				   <li><a class="product-rate" href="#"> <label> </label></a> <span> </span></li>
-				   <li><a href="#">1 Review(s) Add Review</a></li>
-				   <div class="clearfix"></div>
-			    </ul>
-			    <div class="price_single">
-				  <span class="reducedfrom">$140.00</span>
-				  <span class="actual">$120.00</span><a href="#">click for offer</a>
-				</div>
-				<h2 class="quick">Quick Overview:</h2>
-				<p class="quick_desc"> Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; es</p>
-			    <ul class="size">
-					<h3>Size</h3>
-					<li><a href="#">25</a></li>
-					<li><a href="#">26</a></li>
-					<li><a href="#">27</a></li>
-					<li><a href="#">28</a></li>
-					<li><a href="#">29</a></li>
-					<li><a href="#">30</a></li>
-					<li><a href="#">31</a></li>
-					<li><a href="#">32</a></li>
-					<li><a href="#">33</a></li>
-				</ul>
-				<ul class="size">
-					<h3>Length</h3>
-					<li><a href="#">32</a></li>
-					<li><a href="#">34</a></li>
-				</ul>
-				<ul class="product-qty">
-				   <span>Quantity:</span>
-				   <select>
-					 <option>1</option>
-					 <option>2</option>
-					 <option>3</option>
-					 <option>4</option>
-					 <option>5</option>
-					 <option>6</option>
-				   </select>
-			    </ul>
-			    <div class="btn_form">
-				   <form>
-					 <input type="submit" value="Add to Cart" title="">
-				  </form>
+			  		</div>
+				<div class="cont1 span_2_of_a1">
+					<form action="" id="frimaEx" method="post" enctype="multipart/form-data" autocomplete="off">	
+						<p class="syouhin">
+						商品名
+						</p>
+						<U id="product_name_error"></U><!-- error -->
+						<input type="text" class="proname" name="product_name" size="30">
+						<br>
+						<p class="nedan">
+						値段
+						</p>
+						<U id="price_error"></U><!-- error -->
+						<input type="text" class="pri"name="price" size="20">
+						<br>
+						<p class="genre1">
+							<!-- ジャンル<input type="text" name="genre_id" size="200"> -->
+							ジャンル
+						</p>
+						<U id="genre_id_error"></U><!-- error -->
+						<select name="genre_id" class="genre2">
+								{foreach from=$rows item=valueString}
+									<option value="{$valueString['genre_id']}">{$valueString['genre_name']}</option>
+								{/foreach}
+						</select>
+						<br>	
+						<p class="syouhin1">
+						商品説明<br>					
+						</p>
+						<U id="product_text_error"></U><!-- error -->
+						<textarea name="product_text" class="syouhin2" rows="4" cols="40"></textarea>
+						<br>
+						<!--画像選択フォーム-->
+						<p class="gazou">
+							画像
+						</p>	
+						<div class="gazou1">	
+						<label>
+								<span class="filelabel1" title="ファイルを選択">
+									<img src="./images/fileSelect.png" width="32" height="26">
+									<span id="selectednum1">選択</span>
+								</span>
+								<input type="file" name="image_file1" accept="image/*" id="filesend1" accept=".jpg,.gif,.png,image/gif,image/jpeg,image/png">
+							</label>
+							<!--画像プレビューボックス-->
+							<span id="previewbox1"></span>
+						<p></p>	
+							<label>
+								<span class="filelabel2" title="ファイルを選択">
+									<img src="./images/fileSelect.png" width="32" height="26" >
+									<span id="selectednum2">選択</span>
+								</span>
+								<input type="file" name="image_file2" accept="image/*" id="filesend2" accept=".jpg,.gif,.png,image/gif,image/jpeg,image/png">
+							</label>
+							<span id="previewbox2"></span>
+						<p></p>
+							<label>
+								<span class="filelabel3" title="ファイルを選択">
+									<img src="./images/fileSelect.png" width="32" height="26">
+									<span id="selectednum3">選択</span>
+								</span>
+								<input type="file" name="image_file3" accept="image/*" id="filesend3" accept=".jpg,.gif,.png,image/gif,image/jpeg,image/png">
+							</label>
+							<span id="previewbox3"></span>
+						</div>		
+						<br>
+						<div class="btn_form">
+						<input type="submit" class="Exhibition" value="出品" title="">
+					</form>
 				</div>
 			</div>
+			<script src="js/validate.js" type="text/javascript"></script>
+			
 			<div class="clearfix"></div>
 		   </div>
-
-			<div class="text-center" id="horizontalTab" style="display: block; width: 100%; margin: 0px;">
-					<!-- 自分やユーザーの情報 -->
-				<h3 id="me" user_id="1"></h3>
-				<h3 id="partner" thread_id="1"></h3>
-				<div id="users">
-					<!-- <button class="user" user_id="2"></button> -->
-				</div>
-				<br>
-				<div id="your_container">
-
-					<!-- チャットの外側部分① -->
-					<div id="bms_messages_container">
-						<!-- ヘッダー部分② -->
-						<div id="bms_chat_header">
-							<!--ステータス-->
-							<div id="bms_chat_user_status">
-								<!--ステータスアイコン-->
-								<div id="bms_status_icon">●</div>
-								<!--ユーザー名-->
-								<div id="bms_chat_user_name">ユーザー</div>
-							</div>
-						</div>
-
-						<!-- タイムライン部分③ -->
-						<div id="bms_messages">
-
-							<!--メッセージ１（左側）-->
-							<div class="bms_message bms_left">
-								<div class="bms_message_box">
-									<div class="bms_message_content">
-										<div class="bms_message_text">ほうほうこりゃー便利じゃないか</div>
-									</div>
-								</div>
-							</div>
-							<div class="bms_clear"></div><!-- 回り込みを解除（スタイルはcssで充てる） -->
-
-							<!--メッセージ２（右側）-->
-							<div class="bms_message bms_right">
-								<div class="bms_message_box">
-									<div class="bms_message_content">
-										<div class="bms_message_text">うん、まあまあいけとるな</div>
-									</div>
-								</div>
-							</div>
-							<div class="bms_clear"></div><!-- 回り込みを解除（スタイルはcssで充てる） -->
-						</div>
-
-						<!-- テキストボックス、送信ボタン④ -->
-						<div id="bms_send">
-							<textarea id="bms_send_message"></textarea>
-							<div id="bms_send_btn">送信</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			
-
 		   <div class="sap_tabs">	
-				     <div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">
-						  <ul class="resp-tabs-list">
-						  	  <li class="resp-tab-item" aria-controls="tab_item-0" role="tab"><span>Product Description</span></li>
-							  <li class="resp-tab-item" aria-controls="tab_item-1" role="tab"><span>Additional Information</span></li>
-							  <li class="resp-tab-item" aria-controls="tab_item-2" role="tab"><span>Reviews</span></li>
-							  <div class="clear"></div>
-						  </ul>				  	 
-							<div class="resp-tabs-container">
-							    <div class="tab-1 resp-tab-content" aria-labelledby="tab_item-0">
-									<div class="facts">
-									  <ul class="tab_list">
-									  	<li><a href="#">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat</a></li>
-									  	<li><a href="#">augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigatione</a></li>
-									  	<li><a href="#">claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica</a></li>
-									  	<li><a href="#">Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.</a></li>
-									  </ul>           
-							        </div>
-							     </div>	
-							      <div class="tab-1 resp-tab-content" aria-labelledby="tab_item-1">
-									<div class="facts">
-									  <ul class="tab_list">
-									    <li><a href="#">augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigatione</a></li>
-									  	<li><a href="#">claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica</a></li>
-									  	<li><a href="#">Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.</a></li>
-									  </ul>           
-							        </div>
-							     </div>	
-							      <div class="tab-1 resp-tab-content" aria-labelledby="tab_item-2">
-									<ul class="tab_list">
-									  	<li><a href="#">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat</a></li>
-									  	<li><a href="#">augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigatione</a></li>
-									  	<li><a href="#">claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores leg</a></li>
-									  	<li><a href="#">Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.</a></li>
-									  </ul>      
-							     </div>	
-							 </div>
-					      </div>
-					 </div>	
+				    
 					 <h3 class="like">You Might Also Like</h3>        			
 				     <ul id="flexiselDemo3">
 						<li><img src="images/pic11.jpg" /><div class="grid-flex"><a href="#">Syenergy 2mm</a><p>Rs 850</p></div></li>
@@ -571,8 +424,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					<h3>Newsletter</h3>
 					<p class="footer_desc">Nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat</p>
 					<div class="search_footer">
+					{literal}
 			          <input type="text" class="text" value="Insert Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Insert Email';}">
 			          <input type="submit" value="Submit">
+					 {/literal} 
 			        </div>
 			        <img src="images/payment.png" class="img-responsive" alt=""/>
 				 </div>
@@ -592,6 +447,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			    </div>
         	</div>
         </div>
+		<script language="JavaScript" src="js/fileSelect.js" type="text/javascript"></script>
 </body>
-{/literal}
 </html>		
