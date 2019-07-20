@@ -3,6 +3,7 @@ session_start();
 require_once("inc_base.php");
 require_once($CMS_COMMON_INCLUDE_DIR . "libs.php");
 require_once("inc_smarty.php");
+
 if(isset($_POST['id'])){
     insertdata();  
 }
@@ -10,14 +11,14 @@ readdata();
 
 $smarty->assign('admin',$admin);
 
-function readdata(){
-    global $admin;
-    $obj = new cadmin();
-    if(isset($_GET['adm_id'])){
-    $_SESSION['HTeam']['admin'] = $_GET['adm_id'];
-    }
-    $admin = $obj->get_tgt(false,$_SESSION['HTeam']['admin']);
-}
+// function readdata(){
+//     global $admin;
+//     $obj = new cadmin();
+//     if(isset($_GET['adm_id'])){
+//     $_SESSION['HTeam']['admin'] = $_GET['adm_id'];
+//     }
+//     $admin = $obj->get_tgt(false,$_SESSION['HTeam']['admin']);
+// }
 //データ変更
 function insertdata(){
     $admin_arr = array();

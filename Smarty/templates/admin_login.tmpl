@@ -15,6 +15,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <link href="css/style.css" rel='stylesheet' type='text/css' />
 <link href="css/manager.css" rel='stylesheet' type='text/css' />
 <link href="css/component.css" rel='stylesheet' type='text/css' />
+<link href="css/admin_login.css" rel='stylesheet' type='text/css' />
 <!-- Custom Theme files -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
@@ -92,64 +93,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 </head>
 <body>
- 
-            <div style="margin-bottom:20px;margin-left:180px;"><a href="manager_list.php"><U>管理者リストに戻る</U></a></div>
-            <form action="manager_create.php" method="post"style="position:relative">
-               <table>
-                    <tbody>
-                        <tr>   
-                            <th><p>管理者氏名</p></th>
-                            <td><input type="text"value=""name="name"class="field small-field" /></td>
-                        </tr>
-                        <tr>   
-                            <th><p>管理者ID</p></th>
-                            <td><input type="text"value=""name="id"class="field small-field" /></td>
-                        </tr>
-                        <tr>   
-                            <th><p>管理者PW</p></th>
-                            <td><input type="text"value=""name="pw"class="field small-field" /></td>
-                        </tr>
-                        <tr>   
-                            <th><p>商品追加</p></th>
-                            <td>
-                                <select name="write">
-                                    <option value="0">権限なし</option>
-                                    <option value="1">権限あり</option>
-                                </select>
-                            </td>
-                        </tr>
-                        <tr>   
-                            <th><p>管理者アカウント閲覧</p></th>
-                            <td>
-                                <select name="read">
-                                    <option value="0">権限なし</option>
-                                    <option value="1">権限あり</option>
-                                </select>
-                            </td>
-                        </tr>
-                        <tr>   
-                            <th><p>アカウント・商品削除</p></th>
-                            <td>
-                                <select name="create">
-                                    <option value="0">権限なし</option>
-                                    <option value="1">権限あり</option>
-                                </select>
-                            </td>
-                        </tr>
-                        <tr>   
-                            <th><p>アカウント作成・編集</p></th>
-                            <td>
-                                <select name="delete">
-                                    <option value="0">権限なし</option>
-                                    <option value="1">権限あり</option>
-                                </select>
-                            </td>
-                        </tr>
-                    </tbody>
-               </table>
-              <input type="submit" id="edibtn" value="この内容で作成" style="position:absolute;margin-bottom:100px;margin-left:870px;">
-            </form>
-    {literal}
-    {/literal}               
+<form action="admin_login.php" method="post">
+<div id="login_form">
+    <div id="id"><p>管理者ID</p></div>
+    <div id="id_txt"><input type="text" name="login_id" value=""></div>
+    <div id="pw"><p>パスワード</p></div>
+    <div id="pw_txt"><input type="password" name="login_pw" value="" autocomplete="off"> </div>
+    <div id="login_btn"><input type="submit" id="login_button" value="ログイン"></div>
+</div>    
+</from>
 </body>
 </html>

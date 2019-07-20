@@ -14,6 +14,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!-- Custom Theme files -->
 <link href="css/style.css" rel='stylesheet' type='text/css' />
 <link href="css/manager.css" rel='stylesheet' type='text/css' />
+<link href="css/manager_edit.css" rel='stylesheet' type='text/css' />
 <link href="css/component.css" rel='stylesheet' type='text/css' />
 <!-- Custom Theme files -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -27,7 +28,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
 {include file='shere_admin.tmpl'}
 <link href="css/magnific-popup.css" rel="stylesheet" type="text/css">
-{literal}
 		<script>
 			$(document).ready(function() {
 				$('.popup-with-zoom-anim').magnificPopup({
@@ -43,91 +43,91 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			});
 		});
 		</script>
-{/literal}
+
 </head>
 <body>
  
-	  <div class="content_box">
-		<div class="container">
-			<div class="row">
-			  <div class="col-md-9">
-			    <div class="dreamcrub">
-                <div class="clearfix"></div>
-			   </div>
-               <div style="margin-bottom:50px;"><a href="manager_list.php"><U>管理者リストに戻る</U></a></div>
-               <div class="user_check">
-						<p>
-                        <form action="manager_edit.php" method="post">
-				 			<h4>管理者情報変更</h4>
-                             名前　：　<input type="text"value="{$admin['adm_name']}"name="name"class="field small-field" /><br>
-                             管理者ID ：　<input type="text"value="{$admin['auth_adm_id']}"name="id"class="field small-field" /><br>
-                             管理者PW  ：　<input type="text"value="{$admin['adm_password']}"name="pw"class="field small-field" /><br>
-                             書込　：　
-                             <select name="write">
-                            {if $admin['adm_write'] == 1}
-							    <option value="1">権限あり</option>
-                                <option value="0">権限なし</option>
-                            {elseif $admin['adm_write'] == 0}
-                                <option value="0">権限なし</option>
-                                <option value="1">権限あり</option>
-                            {/if}
-						    </select>　　
-                             閲覧　：　
-                             <select name="read">
-							 {if $admin['adm_read'] == 1}
-							    <option value="1">権限あり</option>
-                                <option value="0">権限なし</option>
-                            {elseif $admin['adm_read'] == 0}
-                                <option value="0">権限なし</option>
-                                <option value="1">権限あり</option>
-                            {/if}
-						    </select>
-                            <br>
-                             作成　：　
-                             <select name="create">
-							 {if $admin['adm_create'] == 1}
-							    <option value="1">権限あり</option>
-                                <option value="0">権限なし</option>
-                            {elseif $admin['adm_create'] == 0}
-                                <option value="0">権限なし</option>
-                                <option value="1">権限あり</option>
-                            {/if}
-						    </select>
-                            　　　
-                             削除　：　
-                             <select name="delete">
-							 {if $admin['adm_delete'] == 1}
-							    <option value="1">権限あり</option>
-                                <option value="0">権限なし</option>
-                            {else $admin['adm_delete'] == 0}
-                                <option value="0">権限なし</option>
-                                <option value="1">権限あり</option>
-                            {/if}
-						    </select>
-						</div>
-                        <input style="margin-left:186px"class="edibtn" type="submit" value="管理者情報を変更">
-                        </form>
-                        <form action="manager_edit.php"method="post">
-                        <input type="hidden" name="del" value="del"> 
-                        <input class="edibtn" type="submit" id="delBtn1" value="管理者を削除">
-                        </form>
-                        <script>
-                        function rewite(){
-                            document.getElementById('ref').textContent =  document.getElementById('sei').textContent;
-                        }
-                        </script>
-			 {literal}
-			<script>		
-			</script>
-			 {/literal}
-			<noscript>スクリプトが使えないときに表示されます</noscript>
-		   </div>
-		  </div>
-	     </div>
-	    </div>
-	    </div>
-		 {literal}
-		
+            <div style="margin-bottom:20px;margin-left:180px;"><a href="manager_list.php"><U>管理者リストに戻る</U></a></div>
+            <form action="manager_edit.php" method="post"style="position:relative">
+               <table>
+                    <tbody>
+                        <tr>   
+                            <th><p>管理者氏名</p></th>
+                            <td><input type="text"value="{$admin['adm_name']}"name="name"class="field small-field" /></td>
+                        </tr>
+                        <tr>   
+                            <th><p>管理者ID</p></th>
+                            <td><input type="text"value="{$admin['auth_adm_id']}"name="id"class="field small-field" /></td>
+                        </tr>
+                        <tr>   
+                            <th><p>管理者PW</p></th>
+                            <td><input type="text"value="{$admin['adm_password']}"name="pw"class="field small-field" /></td>
+                        </tr>
+                        <tr>   
+                            <th><p>商品追加</p></th>
+                            <td>
+                                <select name="write">
+                                {if $admin['adm_write'] == 1}
+                                    <option value="1">権限あり</option>
+                                    <option value="0">権限なし</option>
+                                {elseif $admin['adm_write'] == 0}
+                                    <option value="0">権限なし</option>
+                                    <option value="1">権限あり</option>
+                                {/if}
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>   
+                            <th><p>管理者アカウント閲覧</p></th>
+                            <td>
+                                <select name="read">
+                                {if $admin['adm_read'] == 1}
+                                    <option value="1">権限あり</option>
+                                    <option value="0">権限なし</option>
+                                {elseif $admin['adm_read'] == 0}
+                                    <option value="0">権限なし</option>
+                                    <option value="1">権限あり</option>
+                                {/if}
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>   
+                            <th><p>アカウント・商品削除</p></th>
+                            <td>
+                                <select name="create">
+                                {if $admin['adm_create'] == 1}
+                                    <option value="1">権限あり</option>
+                                    <option value="0">権限なし</option>
+                                {elseif $admin['adm_create'] == 0}
+                                    <option value="0">権限なし</option>
+                                    <option value="1">権限あり</option>
+                                {/if}
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>   
+                            <th><p>アカウント作成・編集</p></th>
+                            <td>
+                                <select name="delete">
+                                {if $admin['adm_delete'] == 1}
+                                    <option value="1">権限あり</option>
+                                    <option value="0">権限なし</option>
+                                {else $admin['adm_delete'] == 0}
+                                    <option value="0">権限なし</option>
+                                    <option value="1">権限あり</option>
+                                {/if}
+                                </select>
+                            </td>
+                        </tr>
+                    </tbody>
+               </table>
+               <input id="edibtn" type="submit" value="管理者情報を変更"style="position:absolute;margin-bottom:100px;">
+            </form>
+                <form action="manager_edit.php"method="post"style="position:absolute;margin-bottom:100px;">
+                    <input type="hidden" name="del"value="del"> 
+                    <input id="delbtn"type="submit"value="管理者を削除">
+                 </form>
+    {literal}
+    {/literal}               
 </body>
-{/literal}
 </html>	
