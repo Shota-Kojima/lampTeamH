@@ -2,7 +2,8 @@
 .register-box30 {
     margin: 2em 0;
     background: #f1f1f1;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.22);
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.22);
+	border-radius: 0.75em;
 }
 .register-box30 .register-box-title {
     font-size: 1.2em;
@@ -11,9 +12,31 @@
     text-align: center;
     color: #FFF;
     font-weight: bold;
-    letter-spacing: 0.05em;
+	letter-spacing: 0.05em;
+	border-radius: 0.5em 0.5em 0px 0px;
 }
 .register-box30 p {
+    padding: 15px 20px;
+    margin: 0;
+}
+.register-box31 {
+	margin: 2em 0;
+	padding:0em 0em 3.5em 0em;
+    background: #f1f1f1;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.22);
+	border-radius: 0.75em;
+}
+.register-box31 .register-box-title {
+    font-size: 1.2em;
+    background: #FF5B36;
+    padding: 4px;
+    text-align: center;
+    color: #FFF;
+    font-weight: bold;
+	letter-spacing: 0.05em;
+	border-radius: 0.5em 0.5em 0px 0px;
+}
+.register-box31 p {
     padding: 15px 20px;
     margin: 0;
 }
@@ -68,10 +91,7 @@
 	border:none;
 	outline:none;
 	margin: 0 0 0 160px;
-<<<<<<< HEAD
 	border-radius: 5px;
-=======
->>>>>>> cba14ffa248fe209a6a9f9a6922dfdb360292b98
 }
 .register-butdetail input[type="submit"]:hover {
 	background:#26d2fc;
@@ -91,12 +111,8 @@
 	outline:none;
 	width: 145px;
     height: 50px;
-<<<<<<< HEAD
 	margin: 15px 0 0 30px;
 	border-radius: 5px;
-=======
-    margin: 0px 0 0 30px;
->>>>>>> cba14ffa248fe209a6a9f9a6922dfdb360292b98
 }
 .btn_form input[type="button"]:hover {
 	background:#26d2fc;
