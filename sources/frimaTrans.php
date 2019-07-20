@@ -77,23 +77,30 @@ if(isset($_POST['product_id']) && isset($_POST['hyoka'])){
 	$product_id = $_GET['product_id'];
 	$frimaarr = $frima_obj->get_tgt(false,$product_id);
 	if($frimaarr !== false){
-		//自分が購入者の場合
-		if($frimaarr['buy_user'] === $_SESSION['HTeam_adm']['customer_id']){
-			$data = $frimaarr["product_pass"];
-			$frimaarr["product_pass"] = explode(',',$data);
-			$smarty->assign('frimaarr',$frimaarr);
-		//自分が出品者の場合
-		}else if($frimaarr['ex_user'] === $_SESSION['HTeam_adm']['customer_id']){
-			$data = $frimaarr["product_pass"];
-			$frimaarr["product_pass"] = explode(',',$data);
-			$smarty->assign('frimaarr',$frimaarr);
+		if((int)$frimaarr['buy_flg'] === 1){
+			//自分が購入者の場合
+			if($frimaarr['buy_user'] === $_SESSION['HTeam_adm']['customer_id']){
+				$data = $frimaarr["product_pass"];
+				$frimaarr["product_pass"] = explode(',',$data);
+				$smarty->assign('frimaarr',$frimaarr);
+			//自分が出品者の場合
+			}else if($frimaarr['ex_user'] === $_SESSION['HTeam_adm']['customer_id']){
+				$data = $frimaarr["product_pass"];
+				$frimaarr["product_pass"] = explode(',',$data);
+				$smarty->assign('frimaarr',$frimaarr);
+			}else{
+				// ステータスコードを出力
+				http_response_code( 301 ) ;
+				// リダイレクト
+				header( "Location: ./product_list.php" ) ;
+				exit ;
+			}
 		}else{
-			// ステータスコードを出力
-			http_response_code( 301 ) ;
-			// リダイレクト
-			header( "Location: ./product_list.php" ) ;
-			exit ;
+			$data = $frimaarr["product_pass"];
+			$frimaarr["product_pass"] = explode(',',$data);
+			$smarty->assign('frimaarr',$frimaarr);
 		}
+		
 		
 	}else{
 		// ステータスコードを出力
