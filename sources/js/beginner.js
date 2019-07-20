@@ -1,3 +1,4 @@
+// スクロールfade
 $(function(){
     $(window).scroll(function (){
         $('.effect-fade').each(function(){
@@ -10,3 +11,10 @@ $(function(){
         });
     });
 });
+
+// グルグル
+$(document).ready(function() {
+    $(".trigger").click(function() {
+      $(".menu").toggleClass("active"); 
+    });
+  });
