@@ -368,26 +368,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						closePopUp2(showBtn2);
 						function closePopUp2(elem) {
 							if(!elem) return;
-								//============================================
-								//ポップアップ内のinputタグの要素を取得し、
-								//入力された値を渡す。
-								//============================================
-								//product_name商品名
-								product_name_kakunin = document.getElementById("product_name_kakunin");
-								product_name_kakunin.innerText = document.forms.productEx.product_name_id.value;
-
-								//product_price値段
-								product_price_kakunin = document.getElementById("product_price_kakunin");
-								product_price_kakunin.innerText = document.forms.productEx.product_price_id.value;
-
-								//product_stock在庫
-								product_stock_kakunin = document.getElementById("product_stock_kakunin");
-								product_stock_kakunin.innerText = document.forms.productEx.product_stock_id.value; 
-								
-								//product_text商品説明
-								product_text_kakunin = document.getElementById("product_text_kakunin");
-								product_name_kakunin.innerText = document.forms.productEx.product_text_id.value;
-						
 							elem.addEventListener('click', function() {
 								popup.classList.toggle('is-show');
 							});

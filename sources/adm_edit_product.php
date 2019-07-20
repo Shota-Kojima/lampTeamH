@@ -43,7 +43,6 @@ if(isset($_POST['delete'])&&isset($_POST['product_id'])){
 //更新　処理	
 //--------------
 }else if(isset($_POST['update'])&&isset($_POST['product_id'])){
-    var_dump("46");
     //画像のチェック
     if(isset($_FILES["image_file1"]["tmp_name"])){
         //画像の保存処理
