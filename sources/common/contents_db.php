@@ -1042,7 +1042,26 @@ class creview extends crecord {
         return $this->fetch_assoc();
 	}
 
+	//--------------------------------------------------------------------------------------
+	/*!
+	@brief	指定されたIDの配列を得る
+	@param[in]	$debug	デバッグ出力をするかどうか
+	@param[in]	$id		ID
+	@return	配列（1次元配列になる）空の場合はfalse
+	*/
+	//--------------------------------------------------------------------------------------
 	
+	public function get_tgt_product_id($debug,$id){
+        //親クラスのselect()メンバ関数を呼ぶ
+        $this->select(
+            $debug,         //デバッグ表示するかどうか
+            "*",          //取得するカラム
+            "review",    //取得するテーブル
+            "product_id = '{$id}'"    //条件
+        );
+        return $this->fetch_assoc();
+	}
+
 	public function get_tgtH($debug,$traid,$proid ){
         //親クラスのselect()メンバ関数を呼ぶ
         $this->select(

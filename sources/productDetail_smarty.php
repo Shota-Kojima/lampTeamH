@@ -46,6 +46,7 @@ if(isset($_POST['mylist'])){
 		$data = $productarr["product_pass"];
 		$productarr["product_pass"] = explode(',',$data);
 		$smarty->assign('productarr',$productarr);
+		productReviewAssign($_GET['product_id']);
 	}else{
 
 	}
@@ -78,6 +79,7 @@ if(isset($_POST['mylist'])){
 		$data = $productarr["product_pass"];
 		$productarr["product_pass"] = explode(',',$data);
 		$smarty->assign('productarr',$productarr);
+		productReviewAssign($_GET['product_id']);
 	}else{
 
 	}
@@ -105,6 +107,43 @@ if($buy_chk){
 	}else{
 
 	}
+}
+
+//商品のレビューとそのレビューを書いたユーザのアイコン、ユーザIDを取得し
+//Assignする関数
+function productReviewAssign($product_id){
+	$review_obj = new creview();
+	$trans_obj = new ctransaction_info();
+	$customer_obj = new ccustomer();
+	$view_review = arrau();
+
+	$reviewarr = $review_obj ->get_tgt_product_id(false,$product_id);
+	
+	if($reviewarr > 0){
+
+		for($i = 0; $i<count($reviewarr); $i++){
+			$bday = new DateTime($transInfoarr[$i]['purchase_date']);
+			$trans = $trans_obj->get_tgt(false,$reviewarr[$i]['transaction_id']);
+			//あるばあいのみ
+			if($trans !== false){
+				$cust = $customer_obj -> get_tgt(false,$trans['customer_id']);
+				//ある場合のみ
+				if($cust　!== false){
+					$view_review[$i] = array(
+						'customer_id'=> (String)$cust['customer_id'],//ユーザID
+						'icon_pass'=>(String)$cust['icon_pass'],//アイコンURL
+						'review_tittle' => (String)$reviewarr[$i]['review_tittle'],//レビューの件名
+						'review'=> (String)$reviewarr[$i]['review'],//レビューの本文
+						'review_value'=>(int)$reviewarr[$i]['review_value'],//レビューの本文
+						'review_date'=>$bday->format('Y年m月d日')//レビュー日時
+					);
+				}
+			}		
+		}
+		
+		$smarty->assign('view_review',$view_review);
+	}
+
 }
 
 
