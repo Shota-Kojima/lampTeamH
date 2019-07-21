@@ -2059,7 +2059,7 @@ class crental extends crecord {
 		$arr = array();
 		//親クラスのselect()メンバ関数を呼ぶ
 		$this->select(
-			"distinct info.customer_id,customer_email",			//取得するカラム
+			"*",			//取得するカラム
 			"transaction_info as info
 			 inner join transaction_details as details
 			 on info.transaction_id = details.transaction_id",	//取得するテーブル
