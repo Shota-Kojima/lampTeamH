@@ -20,6 +20,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <link href="css/modal.css" rel='stylesheet' type='text/css' />
 <link href="css/productEx.css" rel='stylesheet' type='text/css' />
 <link href="css/user_check.css" rel="stylesheet" type="text/css">
+<link href="css/adm_edit_product.css" rel="stylesheet" type="text/css">
 <!-- Custom Theme files -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
@@ -82,6 +83,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			            fit: true   // 100% fit in a container
 			        });
 			    });
+			   </script>
+			   <script>
+			   var selectedValue = $("#select1").val();
 			   </script>	
 </head>
 {/literal}
@@ -92,17 +96,17 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <div class="popup" id="js-popup">
 	<div class="popup-inner">
 		<div class="register-box30">
-			<div class="register-box-title">商品を削除しますか？</div>
+			<div class="register-box-title">CAUTION!!</div>
 				<p>
 					<form> 
 						<div class="register-top-grid">
 							<center>
-								<h3><font size="5">商品が削除されます。</font></h3>
+								<h3><font size="5">商品を削除してもよろしいですか？</font></h3>
 							</center>
 						</div>
 		　        	</form>
 					<div class="clearfix"> </div>
-					<div class="register-but">
+					<div class="register-but-caution">
 				　        <form action="" method="post" enctype="multipart/form-data" autocomplete="off">
 							
 							<input type="hidden" name="product_id" value="{$productarr['product_id']}">
@@ -119,8 +123,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!--======================================================-->
 <div class="popup" id="js-popupHensyu">
 	<div class="popup-inner">
-		<div class="register-box30">
-			<div class="register-box-title">編集内容確認</div>
+		<div class="register-box31">
+			<div class="register-box-title">CHECK</div>
 				<p>
 					<form> 
 						<div class="register-top-grid">
@@ -130,12 +134,21 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						</div>
 		　        	</form>
 					<div class="clearfix"> </div>
-					<div class="register-but">
+					<div class="register-but-adm">
 				　        <form action="" method="post" enctype="multipart/form-data" autocomplete="off">
-							<input type="text" name="product_name" id="product_name_kakunin">
-							<input type="text" name="price" id="product_price_kakunin">
-							<input type="text" name="stock" id="product_stock_kakunin">
-							<input type="text" name="product_text" id="product_text_kakunin">
+							{foreach from=$productarr['product_pass'] item=value}
+								{if $value != ""}
+								<div class="images111">
+									<img src="{$value}" alt="商品画像" >
+								</div>
+								{/if}
+							{/foreach}
+							<input type="text" name="product_name" id="product_name_kakunin" value="{$productarr['product_name']}" disabled="disabled" >
+							<input type="text" name="price" id="product_price_kakunin" value="{$productarr['price']}"disabled="disabled">円
+							<input type="text" name="product_category" id="product_category_kakunin" value="{$productarr['product_category']}"disabled="disabled">
+							<input type="text" name="genre_id" id="genre_id_kakunin" value="{$productarr['genre_id']}"disabled="disabled">
+							<input type="text" name="stock" id="product_stock_kakunin" value="{$productarr['stock_value']}" disabled="disabled">個
+							<textarea name="product_text" id="product_text_kakunin"  rows="4" cols="40" disabled="disabled">{$productarr['product_text']}</textarea>
 							<input type="hidden" name="product_id" value="{$productarr['product_id']}">
 							<input type="submit" name="update" value="更新" title="">
 						</form>
@@ -143,7 +156,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				</p>
 			</div>
 		</div>
-	<div class="black-background" id="js-black-bg"></div>
+	<div class="black-background" id="js-black-bgHensyu"></div>
 </div>
 <!--======================================================-->
 <!--本文-->
@@ -222,7 +235,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					   </div>
 				     </div>
 			  </div>
-			  					<h2 class="mida">商品情報の入力</h2>
+			  					<h2 class="mida1">商品情報の編集</h2>
 				<div class="col-md-9">
 					<div class="dreamcrub">
 						<ul class="previous">
@@ -255,7 +268,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						カテゴリ
 						</p>
 						<U id="product_category_error"></U><!-- error -->
-						<select name="product_category" class="category2" >
+						<select name="product_category" class="category2" id="select1">
 							<option value="1" {if (int)$productarr['product_category'] === 1}selected{/if}>販売商品</option>
 							<option value="2" {if (int)$productarr['product_category'] === 2}selected{/if}>レンタル商品</option>
 						</select>
@@ -286,43 +299,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						<textarea name="product_text" id="product_text_id" class="syouhin2" rows="4" cols="40" >{$productarr['product_text']}</textarea>
 						<br>
 						<!--画像選択フォーム-->
-						<p class="gazou">
-							画像
-						</p>	
-						<div class="gazou1">	
-						<label>
-								<span class="filelabel1" title="ファイルを選択">
-									<img src="./images/fileSelect.png" width="32" height="26">
-									<span id="selectednum1">選択</span>
-								</span>
-								<input type="file" name="image_file1" accept="image/*" id="filesend1" accept=".jpg,.gif,.png,image/gif,image/jpeg,image/png">
-							</label>
-							<!--画像プレビューボックス-->
-							<span id="previewbox1"></span>
-						<p></p>	
-							<label>
-								<span class="filelabel2" title="ファイルを選択">
-									<img src="./images/fileSelect.png" width="32" height="26" >
-									<span id="selectednum2">選択</span>
-								</span>
-								<input type="file" name="image_file2" accept="image/*" id="filesend2" accept=".jpg,.gif,.png,image/gif,image/jpeg,image/png">
-							</label>
-							<span id="previewbox2"></span>
-						<p></p>
-							<label>
-								<span class="filelabel3" title="ファイルを選択">
-									<img src="./images/fileSelect.png" width="32" height="26">
-									<span id="selectednum3">選択</span>
-								</span>
-								<input type="file" name="image_file3" accept="image/*" id="filesend3" accept=".jpg,.gif,.png,image/gif,image/jpeg,image/png">
-							</label>
-							<span id="previewbox3"></span>
-						</div>		
+								
 						<br>
-						<div class="btn_form">
+						<div class="btn_form-adm">
 						<input type="hidden" name="product_id" value="{$productarr['product_id']}">
-						<input type="button" class="Exhibition" name="update" value="変更" id='js-show-popupHensyu' title="">
 						<input type="button" class="Delete" value="削除" id="js-show-popup" title="">
+						<input type="button" class="Exhibition" name="update" value="編集" id='js-show-popupHensyu' title="">
 					</form>
 				</div>
 			</div>
@@ -355,25 +337,46 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			{/literal}
 			{literal}
 				<script>
-					function popupImage2() {
-						var popup2 = document.getElementById('js-popupHensyu');
-						if(!popup2) return;
+					function popupImage() {
+						var popup = document.getElementById('js-popupHensyu');
+						if(!popup) return;
 						
-						var blackBg2 = document.getElementById('js-black-bg');
-						var closeBtn2 = document.getElementById('js-close-btn');
-						var showBtn2 = document.getElementById('js-show-popupHensyu');
+						var blackBg = document.getElementById('js-black-bgHensyu');
+						var closeBtn = document.getElementById('js-close-btn');
+						var showBtn = document.getElementById('js-show-popupHensyu');
 
-						closePopUp2(blackBg2);
-						closePopUp2(closeBtn2);
-						closePopUp2(showBtn2);
-						function closePopUp2(elem) {
+						closePopUp(blackBg);
+						closePopUp(closeBtn);
+						closePopUp(showBtn);
+						function closePopUp(elem) {
 							if(!elem) return;
+								
+						
 							elem.addEventListener('click', function() {
+								//============================================
+								//ポップアップ内のinputタグの要素を取得し、
+								//入力された値を渡す。
+								//============================================
+								//product_name商品名
+								product_name_kakunin = document.getElementById("product_name_kakunin");
+								product_name_kakunin.value = document.forms.productEx.product_name_id.value;
+
+								//product_price値段
+								product_price_kakunin = document.getElementById("product_price_kakunin");
+								product_price_kakunin.value = document.forms.productEx.product_price_id.value;
+
+								//product_stock在庫
+								product_stock_kakunin = document.getElementById("product_stock_kakunin");
+								product_stock_kakunin.value = document.forms.productEx.product_stock_id.value; 
+								
+								//product_text商品説明
+								product_text_kakunin = document.getElementById("product_text_kakunin");
+								product_text_kakunin.textContent  = document.forms.productEx.product_text_id.value;
 								popup.classList.toggle('is-show');
 							});
 						}
 					}
-						popupImage2();
+						popupImage();
 				</script>
 			{/literal}
 			<script src="js/validate.js" type="text/javascript"></script>

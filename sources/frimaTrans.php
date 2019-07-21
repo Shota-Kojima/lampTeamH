@@ -39,12 +39,14 @@ if(isset($_POST['product_id']) && isset($_POST['hyoka'])){
 	$dataarr['customer_id'] = $frimaarr['ex_user'];
 	$dataarr['evaluation_index'] = (int)$_POST['evaluation_index'];
 	$dataarr['evaluation_state'] = (String)$_POST['evaluation_state'];
-	
+	$dataarr['reviewer_id'] = (String)$_SESSION['HTeam_adm']['customer_id'];
+	$dataarr['review_date'] = (String) date('YmdHis');
+	 
 	$chenge = new cchange_ex();
 	$mid = $chenge->insert('assessment',$dataarr);
 	
 	$dataarr2 = array();
-	$dataarr2['end_hlg'] = (int)1;
+	$dataarr2['end_flg'] = (int)1;
 	$result = $chenge->update('frima_productH',$dataarr2,'frima_product_id="' . (int)$_POST['product_id'].'"');
 	if(count($result)!== 0){
 		$data = $frimaarr["product_pass"];

@@ -20,16 +20,18 @@
 	-o-transition: all 0.3s ease-in-out;
 	transition: all 0.3s ease-in-out;
 	margin-bottom: 2em;
-	border-radius: 0.75em;
+	border-radius: 5px;
    }
    .btn111 input[type="submit"] {
 	font-size: 0.85em;
 	padding: 10px 50px;
 	position: relative;
 	left:20px;
+	
 }
 .btn111 input[type="submit"]:hover{
 	background: #ee4a02;
+	
 }
 
 .kakomi-box1 {
@@ -154,7 +156,7 @@
 	-o-transition: all 0.3s ease-in-out;
 	transition: all 0.3s ease-in-out;
 	margin-bottom: 1em;
-	border-radius: 0.75em;
+	border-radius: 5px;
 
    }
    .btn222 form input[type="submit"] {
@@ -276,7 +278,7 @@ ul.mae2 li a{
 	-o-transition: all 0.3s ease-in-out;
 	transition: all 0.3s ease-in-out;
 	margin-bottom: 1em;
-	border-radius: 0.75em;
+	border-radius: 5px;
    }
    .btn333 form input[type="submit"] {
 	font-size: 0.85em;

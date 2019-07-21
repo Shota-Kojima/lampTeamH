@@ -657,6 +657,29 @@ class ccustomer extends crecord {
 	}
 	//--------------------------------------------------------------------------------------
 	/*!
+	@brief	すべての個数を得る
+	@param[in]	$debug	デバッグ出力をするかどうか
+	@return	個数
+	*/
+	//--------------------------------------------------------------------------------------
+	public function get_count_mailaddress($debug,$id){
+		//親クラスのselect()メンバ関数を呼ぶ
+		$this->select(
+			$debug,					//デバッグ文字を出力するかどうか
+			"count(*)",				//取得するカラム
+			"customer",			//取得するテーブル
+			"customer_email = '{$id}'"    //条件
+		);
+		if($row = $this->fetch_assoc()){
+			//取得した個数を返す
+			return $row['count(*)'];
+		}
+		else{
+			return 0;
+		}
+	}
+	//--------------------------------------------------------------------------------------
+	/*!
 	@brief	指定された範囲の配列を得る
 	@param[in]	$debug	デバッグ出力をするかどうか
 	@param[in]	$from	抽出開始行
@@ -797,6 +820,24 @@ class cassessment extends crecord {
 		return $arr;
     }
    
+	//--------------------------------------------------------------------------------------
+	public function get_alldetail($debug,$id){
+		$arr = array();
+		//親クラスのselect()メンバ関数を呼ぶ
+		$this->select(
+			$debug,			//デバッグ表示するかどうか
+			"*",			//取得するカラム
+			"assessment",	//取得するテーブル
+			"customer_id = '{$id}'",	//条件
+			"customer_id asc"	//並び替え
+		);
+		//順次取り出す
+		while($row = $this->fetch_assoc()){
+			$arr[] = $row;
+		}
+		//取得した配列を返す
+		return $arr;
+    }
 	//--------------------------------------------------------------------------------------
 	/*!
 	@brief	指定されたIDの配列を得る
@@ -1024,7 +1065,26 @@ class creview extends crecord {
         return $this->fetch_assoc();
 	}
 
+	//--------------------------------------------------------------------------------------
+	/*!
+	@brief	指定されたIDの配列を得る
+	@param[in]	$debug	デバッグ出力をするかどうか
+	@param[in]	$id		ID
+	@return	配列（1次元配列になる）空の場合はfalse
+	*/
+	//--------------------------------------------------------------------------------------
 	
+	public function get_tgt_product_id($debug,$id){
+        //親クラスのselect()メンバ関数を呼ぶ
+        $this->select(
+            $debug,         //デバッグ表示するかどうか
+            "*",          //取得するカラム
+            "review",    //取得するテーブル
+            "product_id = '{$id}'"    //条件
+        );
+        return $this->fetch_assoc();
+	}
+
 	public function get_tgtH($debug,$traid,$proid ){
         //親クラスのselect()メンバ関数を呼ぶ
         $this->select(
@@ -2198,7 +2258,7 @@ class cfrima_productH extends crecord {
 			"*",			//取得するカラム
 			"frima_productH",	//取得するテーブル
 			"ex_user = '{$id}'", //条件
-			"favorite_id asc"	//並び替え
+			"frima_product_id asc"	//並び替え
 		);
 		//順次取り出す
 		while($row = $this->fetch_assoc()){

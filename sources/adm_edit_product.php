@@ -43,47 +43,14 @@ if(isset($_POST['delete'])&&isset($_POST['product_id'])){
 //更新　処理	
 //--------------
 }else if(isset($_POST['update'])&&isset($_POST['product_id'])){
-    //画像のチェック
-    if(isset($_FILES["image_file1"]["tmp_name"])){
-        //画像の保存処理
-        //画像１枚目
-        if (is_uploaded_file($_FILES["image_file1"]["tmp_name"])) {
-            //ある時のみ値変更(無しの時の処理)
-            $filedir1 = "./images/product_img/".$date."1".".jpg";
-            //DBの画像パス
-            $imageUrl1 = $fulldir.$date."1".".jpg";
-            move_uploaded_file($_FILES["image_file1"]["tmp_name"], $filedir1);
-        }    
-    }
-    if(isset($_FILES["image_file2"]["tmp_name"])){
-        //画像２枚目
-        if (is_uploaded_file($_FILES["image_file2"]["tmp_name"])) {
-            //ある時のみ値変更(無しの時の処理)
-            $filedir2 = "./images/product_img/".$date."2".".jpg";
-            $imageUrl2 = $fulldir.$date."2".".jpg";
-            move_uploaded_file($_FILES["image_file2"]["tmp_name"], $filedir2);
-        }
-    }
-    if(isset($_FILES["image_file3"]["tmp_name"])){
-        //画像３枚目
-        if (is_uploaded_file($_FILES["image_file3"]["tmp_name"])) {
-            //ある時のみ値変更(無しの時の処理)
-            $filedir3 = "./images/product_img/".$date."3".".jpg";
-            $imageUrl2 = $fulldir.$date."3".".jpg";
-            move_uploaded_file($_FILES["image_file3"]["tmp_name"], $filedir3);
-        }
-    }
-    $_POST['product_pass'] = $imageUrl1.",".$imageUrl2.",".$imageUrl3;
-
+    
     $dataarr = array();
 	$dataarr['product_name'] = (string)$_POST['product_name'];
 	$dataarr['product_category'] = (int)$_POST['product_category'];
 	$dataarr['genre_id'] = (int)$_POST['genre_id'];
-	$dataarr['product_pass'] = (string)$_POST['product_pass'];
     $dataarr['product_text'] = (string)$_POST['product_text'];
     $dataarr['price'] = (int)$_POST['price'];
     $dataarr['stock_value'] = (int)$_POST['stock'];
-	
 	
 	
 	$chenge = new cchange_ex();

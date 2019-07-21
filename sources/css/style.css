@@ -1316,6 +1316,7 @@ ul.product-qty{
 	-o-transition: all 0.3s ease-in-out;
 	transition: all 0.3s ease-in-out;
 	margin-top: 2em;
+	border-radius: 5px;
 }
 .btn_form form input[type="submit"]:hover{
 	background: #ee4a02;
@@ -1571,6 +1572,7 @@ p.comment-form-author {
 	-webkit-transition: 0.2s;
 	-moz-transition: 0.2s;
 	-o-transition: 0.2s;
+	border-radius: 5px;
 }
 .contact-form input[type="submit"]:hover{
 	background:#26d2fc;	
@@ -1672,6 +1674,7 @@ i.mail{
 	-o-transition: 0.5s all;
 	display: inline-block;
 	text-transform: uppercase;
+	border-radius: 5px;
 }
 .acount-btn:hover, .login-right input[type="submit"]:hover{
 	background:#26d2fc;
@@ -1711,6 +1714,7 @@ i.mail{
 	text-transform: uppercase;
 	border:none;
 	outline:none;
+	border-radius: 5px;
 }
 a.forgot {
 	font-size: 0.8125em;

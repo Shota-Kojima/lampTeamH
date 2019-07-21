@@ -43,6 +43,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		});
 		</script>
 </head>
+{/literal}
 <body>
     <div class="main">
 	   <div class="container">
@@ -56,19 +57,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             <h5>パスワード再設定用のフォームを送るのでメールアドレスの入力をお願いします</h5>
 								<div class="email">
 									<span>メールアドレス</span><br>
-									<input type="text" class="id2" name="customer_email" autocomplete="off">
+									{if $flg===true }このメールアドレスは登録されていません。{/if}
+									<input type="text" class="id2" name="customer_email" autocomplete="off"><br>
+									<input type="submit" value="送信">
 								</div>
 					</div>
 				</form>
-				<div class="clearfix"> </div>
-				<div class="register-but">
-				<center>
-				   <form>
-					   <input type="submit" value="送信" formaction="kanryou.php">
-					   <div class="clearfix"> </div>
-				   </form>
-				</center>
-				</div>
 			</div>
 		   </div>
 
@@ -157,8 +151,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					<h3>Newsletter</h3>
 					<p class="footer_desc">Nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat</p>
 					<div class="search_footer">
+					{literal}
 			          <input type="text" class="text" value="Insert Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Insert Email';}">
 			          <input type="submit" value="Submit">
+					  {/literal}
 			        </div>
 			        <img src="images/payment.png" class="img-responsive" alt=""/>
 				 </div>
@@ -179,5 +175,5 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         	</div>
         </div>
 </body>
-{/literal}
+
 </html>		

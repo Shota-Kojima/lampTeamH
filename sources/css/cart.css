@@ -69,7 +69,7 @@
 	-o-transition: all 0.3s ease-in-out;
 	transition: all 0.3s ease-in-out;
     margin-bottom: 1em;
-    border-radius: 0.75em;
+    border-radius: 5px;
    }
    .btn222 form input[type="submit"] {
 	font-size: 0.85em;

@@ -1,0 +1,188 @@
+.btn_form-adm input[type="button"]{
+    position: relative;
+    top: 0px;
+    left: 134px;
+    background:#fb4d01;
+	color: #FFF;
+	font-size: 16px;
+	padding: 0.8em 2em;
+	transition: 0.5s all;
+	-webkit-transition: 0.5s all;
+	-moz-transition: 0.5s all;
+	-o-transition: 0.5s all;
+	display: inline-block;
+	text-transform: uppercase;
+	border:none;
+    outline:none;
+    margin: 0 0 100px 9px;
+    border-radius: 5px;
+}
+.btn_form-adm input[type="button"]:hover {
+	background:#26d2fc;
+}
+.register-but-caution{
+    margin-top:1em;
+	position: relative;
+    left: 53px;
+}
+.register-but-caution form input[type="submit"] {
+	background:#fb4d01;
+	color: #FFF;
+	font-size: 0.8em;
+	padding: 0.8em 2em;
+	transition: 0.5s all;
+	-webkit-transition: 0.5s all;
+	-moz-transition: 0.5s all;
+	-o-transition: 0.5s all;
+	display: inline-block;
+	text-transform: uppercase;
+	border:none;
+	outline:none;
+	margin: 0 0 0 160px;
+}
+.register-but-caution input[type="submit"]:hover {
+	background:#26d2fc;
+}
+.register-but-adm{
+    margin-top: -1em;
+	position: relative;
+    left: 53px;
+}
+.register-but-adm form input[type="submit"] {
+	background:#fb4d01;
+	color: #FFF;
+	font-size: 0.8em;
+	padding: 0.8em 2em;
+	transition: 0.5s all;
+	-webkit-transition: 0.5s all;
+	-moz-transition: 0.5s all;
+	-o-transition: 0.5s all;
+	display: inline-block;
+	text-transform: uppercase;
+	border:none;
+	outline:none;
+	margin: 0 0 0 160px;
+	position: absolute;
+    left: 0px;
+	top: 475px;
+	border-radius: 5px;
+}
+.register-but-adm input[type="submit"]:hover {
+	background:#26d2fc;
+}
+.btn_form-adm {
+    position: relative;
+    left: 360px;
+}
+#product_name_kakunin{
+	font: 15px/24px sans-serif;
+    box-sizing: border-box;
+    width: 390px;
+    padding: 0.3em;
+    transition: 0.3s;
+    letter-spacing: 1px;
+    color: #1b2538;
+    border: 1px solid #93959a;
+	border-radius: 4px;
+	margin: 10px 0px 0px 0px;
+	background-color: #fff;
+}
+#product_price_kakunin{
+	font: 15px/24px sans-serif;
+    box-sizing: border-box;
+    width: 200px;
+    padding: 0.3em;
+    transition: 0.3s;
+    letter-spacing: 1px;
+    color: #1b2538;
+    border: 1px solid #93959a;
+	border-radius: 4px;
+	margin: 10px 0px 0px 0px;
+	background-color: #fff;
+}
+#product_stock_kakunin{
+	font: 15px/24px sans-serif;
+    box-sizing: border-box;
+    width: 200px;
+    padding: 0.3em;
+    transition: 0.3s;
+    letter-spacing: 1px;
+    color: #1b2538;
+    border: 1px solid #93959a;
+	border-radius: 4px;
+	margin: 10px 0px 0px 0px;
+	background-color: #fff;
+}
+#product_text_kakunin{
+	font: 15px/24px sans-serif;
+    box-sizing: border-box;
+    width: 390px;
+    padding: 0.3em;
+    transition: 0.3s;
+    letter-spacing: 1px;
+    color: #1b2538;
+    border: 1px solid #93959a;
+	border-radius: 4px;
+	margin: 10px 0px 0px 0px;
+	resize: none;
+	background-color: #fff;
+}
+#product_category_kakunin{
+	font: 15px/24px sans-serif;
+    box-sizing: border-box;
+    width: 390px;
+    padding: 0.3em;
+    transition: 0.3s;
+    letter-spacing: 1px;
+    color: #1b2538;
+    border: 1px solid #93959a;
+	border-radius: 4px;
+	margin: 10px 0px 0px 0px;
+	background-color: #fff;
+}
+#genre_id_kakunin{
+	font: 15px/24px sans-serif;
+    box-sizing: border-box;
+    width: 390px;
+    padding: 0.3em;
+    transition: 0.3s;
+    letter-spacing: 1px;
+    color: #1b2538;
+    border: 1px solid #93959a;
+	border-radius: 4px;
+	margin: 10px 0px 0px 0px;
+	background-color: #fff;
+}
+.mida1 {
+    line-height: 38px;
+    margin-bottom: 24px;
+    padding-left: 10px;
+    border-left: 5px solid #29c278;
+    font-size: 24px;
+    position: absolute;
+    left: 398px;
+    top: 206px;
+}
+.category3{
+	margin: 10px 0px 0px 0px;
+
+    font-size: 20px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding: 7px 30px 7px 10px;
+    line-height: 1.1em;
+    border-radius: 5px;
+    border: none;
+    background-image: url(../images/icon_arrow1.png);
+    background-repeat: no-repeat;
+    background-size: 16px 10px;
+    background-position: right 10px center;
+	border: solid 1px #93959a;
+}
+.images111{
+	width:100px;
+	float: left;
+    margin: 0 12px 0px 0px;
+    border: solid 0.5px;
+}
