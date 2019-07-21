@@ -1,20 +1,10 @@
-<<<<<<< HEAD
-=======
-
->>>>>>> 34c66b168607b95ecabac46b2cca3c65226e2346
-.icon{
-	width: 160px;
-  	height: 160px;
-	border-radius: 50%;/*アイコンを丸くする*/
-	position: relative;
-    top: -84px;
-	left: 11px;
-	border: 5px #f8f8f8 solid;
-  }
+.main{
+	margin: 0 0 400px;
+}
 .username{
 	position: relative;
-    top: -97px;
-    left: 0;
+	top: 110px;
+    left: 20px;
 	font-size: 25px;
 }
 .userevaluation{
@@ -25,8 +15,8 @@
 /* ユーザー総合評価★レート */
 .star-rating {
 	position: relative;
-    top: -199px;
-    left: 289px;
+    top: -20px;
+    left: 220px;
     width: 5em;
     height: 1em;
     font-size: 33px;
@@ -44,8 +34,15 @@
   }
 .pt{
 	position: relative;
-    top: -265px;
-    left: 700px;
+    top: -57px;
+    left: 445px;
+    width: 150px;
+}
+.syup{
+	position: relative;
+	top: -124px;
+    left: 625px;
+    width: 150px;
 }
 .btn-real-dent {
 	display: inline-block;
@@ -120,15 +117,15 @@
 .tabs {
 	background-color: #fff;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-	width: 818px;
+	width: 1351px;
 	height: 350px;
 	margin: 0 40px;
-	position: absolute; top:880px; right:193px;
+	position: absolute; top:890px; right:-40px;
   }
   
   /*タブのスタイル*/
   .tab_item {
-	width: calc(100%/2);
+	width: calc(900.5px/2);
 	height: 50px;
 	border-bottom: 3px solid #5ab4bd;
 	background-color: #d9d9d9;
@@ -153,7 +150,7 @@
   /*タブ切り替えの中身のスタイル*/
   .tab_content {
 	display: none;
-	width: 818px;
+	width: 1351px;
 	overflow: auto;
   }
   .tab_content::-webkit-scrollbar {
@@ -161,7 +158,9 @@
   }
   /*選択されているタブのコンテンツのみを表示*/
   #all:checked ~ #all_content,
-  #evaluation:checked ~ #evaluation_content {
+  #evaluation:checked ~ #evaluation_content,
+  #ex10:checked ~ #ex10_content {
+	
 	display: block;
   }
   
@@ -177,19 +176,24 @@
   #evaluation_content li {
 	padding: 5px;
   }
-
+  #ex10_content li {
+	padding: 5px;
+  }
 .sap_tabs_mypage{
-	margin: 0 0 0 340px;
+	margin: 415px 0 0 340px;
 	width: 70%;
 	clear:both;
 	padding: 1em 0 4em;
 	font-family: 'Roboto', sans-serif;
+	
 }
 .sap_tabs_mypage{
 	padding-top:0;
 }
 .sap_tabs_mypage{
-	padding: 1em 0 2em;
+	padding: 0em 0 2em;
+	position: relative;
+    bottom: 30px;
 }
 h3.like_mypage, h3.recent_mypage{
 	color: #333;
@@ -209,4 +213,296 @@ h3.recent_mypage{
 .grid-flex_mypage{
 	margin:10px 0 20px 0;
 	font-family: 'Roboto', sans-serif;
+}
+/*アイコンのメニュー*/
+.icon{
+	width: 160px;
+  	height: 160px;
+	border-radius: 50%;/*アイコンを丸くする*/
+	position: relative;
+	top: -36px;
+    left: -47px;
+	border: 5px #fff solid;
+  }
+  a {
+	color: inherit;
+  }
+  
+  .menu-item,
+  .menu-open-button {
+	background: #EEEEEE;
+	color: #EEEEEE;
+	border-radius: 100%;
+	width: 80px;
+	height: 80px;
+	margin-left: -40px;
+	position: absolute;
+	text-align: center;
+	line-height: 80px;
+	-webkit-transform: translate3d(0, 0, 0);
+	transform: translate3d(0, 0, 0);
+	-webkit-transition: -webkit-transform ease-out 200ms;
+	transition: -webkit-transform ease-out 200ms;
+	transition: transform ease-out 200ms;
+	transition: transform ease-out 200ms, -webkit-transform ease-out 200ms;
+  }
+  
+  .menu-open {
+	display: none;
+  }
+  
+  .menu {
+	margin: auto;
+	position: relative;
+    top: 641px;
+    bottom: 0;
+    left: -1133px;
+	right: 0;
+	width: 80px;
+	height: 80px;
+	text-align: center;
+	box-sizing: border-box;
+	font-size: 26px;
+  }
+  
+  
+  /* .menu-item {
+	transition: all 0.1s ease 0s;
+  } */
+  
+  .menu-item:hover {
+	background: #EEEEEE;
+	color: #3290B1;
+  }
+  
+  .menu-item:nth-child(3) {
+	-webkit-transition-duration: 180ms;
+	transition-duration: 180ms;
+  }
+  
+  .menu-item:nth-child(4) {
+	-webkit-transition-duration: 180ms;
+	transition-duration: 180ms;
+  }
+  
+  .menu-item:nth-child(5) {
+	-webkit-transition-duration: 180ms;
+	transition-duration: 180ms;
+  }
+  
+  .menu-item:nth-child(6) {
+	-webkit-transition-duration: 180ms;
+	transition-duration: 180ms;
+  }
+  
+  .menu-item:nth-child(7) {
+	-webkit-transition-duration: 180ms;
+	transition-duration: 180ms;
+  }
+  
+  .menu-item:nth-child(8) {
+	-webkit-transition-duration: 180ms;
+	transition-duration: 180ms;
+  }
+  
+  .menu-item:nth-child(9) {
+	-webkit-transition-duration: 180ms;
+	transition-duration: 180ms;
+  }
+  
+  .menu-open-button {
+	z-index: 2;
+	-webkit-transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+	transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+	-webkit-transition-duration: 400ms;
+	transition-duration: 400ms;
+	-webkit-transform: scale(1.1, 1.1) translate3d(0, 0, 0);
+	transform: scale(1.1, 1.1) translate3d(0, 0, 0);
+	cursor: pointer;
+	box-shadow: 3px 3px 0 0 rgba(0, 0, 0, 0.14);
+  }
+  
+  .menu-open-button:hover {
+	-webkit-transform: scale(1.2, 1.2) translate3d(0, 0, 0);
+	transform: scale(1.2, 1.2) translate3d(0, 0, 0);
+  }
+  
+  .menu-open:checked + .menu-open-button {
+	-webkit-transition-timing-function: linear;
+	transition-timing-function: linear;
+	-webkit-transition-duration: 200ms;
+	transition-duration: 200ms;
+	-webkit-transform: scale(0.8, 0.8) translate3d(0, 0, 0);
+	transform: scale(0.8, 0.8) translate3d(0, 0, 0);
+  }
+  
+  .menu-open:checked ~ .menu-item {
+	-webkit-transition-timing-function: cubic-bezier(0.935, 0, 0.34, 1.33);
+	transition-timing-function: cubic-bezier(0.935, 0, 0.34, 1.33);
+  }
+  
+  .menu-open:checked ~ .menu-item:nth-child(3) {
+	transition-duration: 180ms;
+	-webkit-transition-duration: 180ms;
+	-webkit-transform: translate3d(0.08361px, -104.99997px, 0);
+	transform: translate3d(0.08361px, -104.99997px, 0);
+	z-index: 1;
+  }
+  
+  .menu-open:checked ~ .menu-item:nth-child(4) {
+	transition-duration: 280ms;
+	-webkit-transition-duration: 280ms;
+	-webkit-transform: translate3d(90.9466px, -52.47586px, 0);
+	transform: translate3d(90.9466px, -52.47586px, 0);
+	z-index: 1;
+  }
+  
+  .menu-open:checked ~ .menu-item:nth-child(5) {
+	transition-duration: 380ms;
+	-webkit-transition-duration: 380ms;
+	-webkit-transform: translate3d(90.9466px, 52.47586px, 0);
+	transform: translate3d(90.9466px, 52.47586px, 0);
+	z-index: 1;
+  }
+  
+  .menu-open:checked ~ .menu-item:nth-child(6) {
+	transition-duration: 480ms;
+	-webkit-transition-duration: 480ms;
+	-webkit-transform: translate3d(0.08361px, 104.99997px, 0);
+	transform: translate3d(0.08361px, 104.99997px, 0);
+  }
+  
+  .menu-open:checked ~ .menu-item:nth-child(7) {
+	transition-duration: 580ms;
+	-webkit-transition-duration: 580ms;
+	-webkit-transform: translate3d(-90.86291px, 52.62064px, 0);
+	transform: translate3d(-90.86291px, 52.62064px, 0);
+  }
+  
+  .menu-open:checked ~ .menu-item:nth-child(8) {
+	transition-duration: 680ms;
+	-webkit-transition-duration: 680ms;
+	-webkit-transform: translate3d(-91.03006px, -52.33095px, 0);
+	transform: translate3d(-91.03006px, -52.33095px, 0);
+  }
+  
+  .menu-open:checked ~ .menu-item:nth-child(9) {
+	transition-duration: 780ms;
+	-webkit-transition-duration: 780ms;
+	-webkit-transform: translate3d(-0.25084px, -104.9997px, 0);
+	transform: translate3d(-0.25084px, -104.9997px, 0);
+  }
+  
+  .blue {
+	background-color: #669AE1;
+	box-shadow: 3px 3px 0 0 rgba(0, 0, 0, 0.14);
+	text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.12);
+  }
+  
+  .blue:hover {
+	color: #669AE1;
+	text-shadow: none;
+  }
+  
+  .green {
+	background-color: #70CC72;
+	box-shadow: 3px 3px 0 0 rgba(141, 100, 100, 0.14);
+	text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.12);
+  }
+  
+  .green:hover {
+	color: #70CC72;
+	text-shadow: none;
+  }
+  
+  .lightblue {
+	background-color: #62C2E4;
+	box-shadow: 3px 3px 0 0 rgba(0, 0, 0, 0.14);
+	text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.12);
+  }
+  
+  .lightblue:hover {
+	color: #62C2E4;
+	text-shadow: none;
+  }
+  
+  .credit {
+	margin: 24px 20px 120px 0;
+	text-align: right;
+	color: #EEEEEE;
+  }
+  
+  .credit a {
+	padding: 8px 0;
+	color: #C49CDE;
+	text-decoration: none;
+	transition: all 0.3s ease 0s;
+  }
+  
+  .credit a:hover {
+	text-decoration: underline;
+  }
+  .kako10 {
+    position: relative;
+    top: 600px;
+    right: 104px;
+    background: #fff;
+    height: 81px;
+    width: 1349px;
+}
+.cp_box *, .cp_box *:before, .cp_box *:after {
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.cp_box {
+	position: relative;
+}
+.cp_box label {
+	position: absolute;
+	z-index: 1;
+	bottom: 0;
+	width: 100%;
+	height: 140px; /* グラデーションの高さ */
+	cursor: pointer;
+	text-align: center;
+	/* 以下グラデーションは背景を自身のサイトに合わせて設定してください */
+	background: linear-gradient(to bottom, rgba(250, 252, 252, 0) 0%, rgba(250, 252, 252, 0.95) 90%);
+}
+.cp_box input:checked + label {
+	background: inherit; /* 開いた時にグラデーションを消す */
+}
+.cp_box label:after {
+	line-height: 2.5rem;
+	position: absolute;
+	z-index: 2;
+	bottom: 20px;
+	left: 50%;
+	width: 16rem;
+	font-family: FontAwesome;
+	content: '\f13a'' 続きをよむ';
+	transform: translate(-50%, 0);
+	letter-spacing: 0.05em;
+	color: #ffffff;
+	border-radius: 20px;
+	background-color: rgba(27, 37, 56, 1);
+}
+.cp_box input {
+	display: none;
+}
+.cp_box .cp_container {
+	overflow: hidden;
+	height: 250px; /* 開く前に見えている部分の高さ */
+	transition: all 0.5s;
+}
+.cp_box input:checked + label {
+	/* display: none ; 閉じるボタンを消す場合解放 */
+}
+.cp_box input:checked + label:after {
+	font-family: FontAwesome;
+	content: '\f139'' 閉じる';
+}
+.cp_box input:checked ~ .cp_container {
+	height: auto;
+	padding-bottom: 80px; /* 閉じるボタンのbottomからの位置 */
+	transition: all 0.5s;
 }

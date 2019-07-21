@@ -56,10 +56,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 							<h4>パスワードを忘れた方へ</h4><br>
                             <h5>パスワード再設定用のフォームを送るのでメールアドレスの入力をお願いします</h5>
 								<div class="email">
-									<span>メールアドレス</span><br>
-									{if $flg===true }このメールアドレスは登録されていません。{/if}
+									<span class="mail1">メールアドレス</span><br>
+									<p class="error1">{if $flg===true }このメールアドレスは登録されていません。{/if}</p>
 									<input type="text" class="id2" name="customer_email" autocomplete="off"><br>
-									<input type="submit" value="送信">
+									<input type="submit" class="sosi" value="送信">
 								</div>
 					</div>
 				</form>

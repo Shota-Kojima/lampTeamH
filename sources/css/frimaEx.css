@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 .filelabel1 {
     background: linear-gradient(0deg, rgba(46,182,209,1) 0%, rgba(47,214,55,1) 100%);
     color: white;              /* 文字色 */
@@ -23,7 +22,7 @@
      vertical-align: middle;    /* プレビュー画像の垂直方向の配置 */
      position: absolute;
      left: 380px;
-     top: 513px;
+     top: 401px;
      border: solid 0.5px;
   }
  
@@ -53,7 +52,7 @@
     vertical-align: middle;    /* プレビュー画像の垂直方向の配置 */
     position: absolute;
     left: 380px;
-    top: 620px;
+    top: 508px;
     border: solid 0.5px;
  }
  
@@ -83,7 +82,7 @@
      vertical-align: middle;    /* プレビュー画像の垂直方向の配置 */
      position: absolute;
      left: 380px;
-     top: 727px;
+     top: 614px;
      border: solid 0.5px;
   }
  .cont1 p{
@@ -247,257 +246,6 @@
      font-size: 24px;
      position: absolute;
      left: 400px;
-     top: 206px;
+     top: 162px;
  }
-=======
-.filelabel1 {
-    background: linear-gradient(0deg, rgba(46,182,209,1) 0%, rgba(47,214,55,1) 100%);
-    color: white;              /* 文字色 */
-    border: 2px solid linear-gradient(0deg, rgba(46,182,209,1) 0%, rgba(47,214,55,1) 100%);  /* 枠線 */
-     border-radius: 3em;        /* 角丸 */
-     padding: 12px 9px;         /* 内側の余白 */
-     display: inline-block;     /* インラインブロック化 */
-  }
-  .filelabel1 img {
-     vertical-align: bottom;    /* 画像の垂直方向の配置 */
-  }
-  .filelabel1:hover {
-     opacity: 0.5;              /* 半透明 */
-     border: 2px solid red;     /* 枠線(赤色) */
-     cursor: pointer;           /* マウス形状(ポインタ) */
-  }
-  #filesend1 {
-     display: none;  /* 本来のファイル選択フォームは非表示に */
-  }
-  #previewbox1 {
-     display: inline-block;     /* プレビュー領域をボタンと横並びに配置する */
-     vertical-align: middle;    /* プレビュー画像の垂直方向の配置 */
-     position: absolute;
-     left: 380px;
-     top: 513px;
-     border: solid 0.5px;
-  }
- 
-  /*  */
- 
-  .filelabel2 {
-    background: linear-gradient(0deg, rgba(46,182,209,1) 0%, rgba(47,214,55,1) 100%);
-    color: white;              /* 文字色 */
-    border: 2px solid linear-gradient(0deg, rgba(46,182,209,1) 0%, rgba(47,214,55,1) 100%);  /* 枠線 */
-    border-radius: 3em;        /* 角丸 */
-    padding: 12px 9px;         /* 内側の余白 */
-    display: inline-block;     /* インラインブロック化 */
- }
- .filelabel2 img {
-    vertical-align: bottom;    /* 画像の垂直方向の配置 */
- }
- .filelabel2:hover {
-    opacity: 0.5;              /* 半透明 */
-    border: 2px solid red;     /* 枠線(赤色) */
-    cursor: pointer;           /* マウス形状(ポインタ) */
- }
- #filesend2 {
-    display: none;  /* 本来のファイル選択フォームは非表示に */
- }
- #previewbox2 {
-    display: inline-block;     /* プレビュー領域をボタンと横並びに配置する */
-    vertical-align: middle;    /* プレビュー画像の垂直方向の配置 */
-    position: absolute;
-    left: 380px;
-    top: 620px;
-    border: solid 0.5px;
- }
- 
- /*  */
- 
- .filelabel3 {
-    background: linear-gradient(0deg, rgba(46,182,209,1) 0%, rgba(47,214,55,1) 100%);
-    color: white;              /* 文字色 */
-    border: 2px solid linear-gradient(0deg, rgba(46,182,209,1) 0%, rgba(47,214,55,1) 100%);  /* 枠線 */
-     border-radius: 3em;        /* 角丸 */
-     padding: 12px 9px;         /* 内側の余白 */
-     display: inline-block;     /* インラインブロック化 */
-  }
-  .filelabel3 img {
-     vertical-align: bottom;    /* 画像の垂直方向の配置 */
-  }
-  .filelabel3:hover {
-     opacity: 0.5;              /* 半透明 */
-     border: 2px solid red;     /* 枠線(赤色) */
-     cursor: pointer;           /* マウス形状(ポインタ) */
-  }
-  #filesend3 {
-     display: none;  /* 本来のファイル選択フォームは非表示に */
-  }
-  #previewbox3 {
-     display: inline-block;     /* プレビュー領域をボタンと横並びに配置する */
-     vertical-align: middle;    /* プレビュー画像の垂直方向の配置 */
-     position: absolute;
-     left: 380px;
-     top: 727px;
-     border: solid 0.5px;
-  }
- .cont1 p{
- width: 223px;
- margin:0;
-     padding: 0 16px;
-     background: #d1d2d3;
-     font-size: 16px;
- }
- .syouhin{
-    line-height: 35px;
- }
- .proname{
-    position: absolute;
-    left:255px;
-    top:105px;
-    outline-color: #fb4d01;
-     width: 50%;
-     font-size: 0.8125em;
-     padding: 0.5em;
-     background: #f3f3f3;
- }
- .nedan{
-    line-height: 35px;
- }
- .pri{
-    position: absolute;
-    left:255px;
-    top:162px;
-    outline-color: #fb4d01;
-    width: 50%;
-    font-size: 0.8125em;
-    padding: 0.5em;
-    background: #f3f3f3;
- 
- }
- .category1{
-    line-height: 35px;
- }
- .category2{
-    position: absolute;
-    left:255px;
-    top:220px;
-    font-size: 20px;
-    background: #f3f3f3;
-    -webkit-appearance: none;
-     -moz-appearance: none;
-     appearance: none;
-     margin-bottom: 20px;
-     padding: 7px 30px 7px 10px;
-     line-height: 1.1em;
-     border-radius: 5px;
-     border: none;
-     background-image: url(../images/icon_arrow.png);
-     background-repeat: no-repeat;
-     background-size: 16px 10px;
-     background-position: right 10px center;
-     background-color: #60ca77;
- }
- .genre1{
-    line-height: 35px;
- }
- .genre2 {
-    position: absolute;
-    left: 255px;
-    top: 219px;
-    font-size: 20px;
-    background: #f3f3f3;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    margin-bottom: 20px;
-    padding: 7px 30px 7px 10px;
-    line-height: 1.1em;
-    border-radius: 5px;
-    border: none;
-    background-image: url(../images/icon_arrow.png);
-    background-repeat: no-repeat;
-    background-size: 16px 10px;
-    background-position: right 10px center;
-    background-color: #60ca77;
- }
- .zaiko{
-    line-height: 35px; 
- }
- .zaiko1{
-    position: absolute;
-    left:255px;
-    top:334px;
-    font-size: 23px;
-    background: #f3f3f3;
-    width:50px;
- 
- }
- .syouhin1{
-    line-height: 100px; 
- }
- .syouhin2 {
-     position: absolute;
-     left: 255px;
-     top: 278px;
-     outline-color: #fb4d01;
-     width: 50%;
-     font-size: 0.8125em;
-     padding: 0.8em;
-     background: #f3f3f3;
-     border-bottom-width: 2px;
-     border-top-width: 2px;
-     border-left-width: 2px;
-     border-right-width: 2px;
-     border-bottom-color: rgb(238,238,238);
-     border-right-color: rgb(238,238,238);
-     resize: none;
- }
- .gazou{
-    line-height: 55px;   
- }
- 
- .filelabel1 {
-    position: absolute;
-    left: 251px;
-    top: 401px;
- }
- .filelabel2 {
-    position: absolute;
-    left: 251px;
-    top: 460px;
- }
- .filelabel3 {
-    position: absolute;
-    left: 251px;
-    top: 520px;
- }
- .btn_form .Exhibition{
-    background: linear-gradient(0deg, rgba(46,182,209,1) 0%, rgba(47,214,55,1) 100%); 
-    border: 2px solid linear-gradient(0deg, rgba(46,182,209,1) 0%, rgba(47,214,55,1) 100%); 
-    border-radius: 3em;       
-    padding: 12px 9px;    
-    width:100px;   
-    display: inline-block;    
-    color:#FFF;
-    margin: 180px 0 0 0;
-    position: relative;
-    left: 580px;
-    border-bottom-width: 0px;
-    border-top-width: 0px;
-    border-left-width: 0px;
-    border-right-width: 0px;
- }
- .Exhibition:hover {
-    opacity: 0.5;              /* 半透明 */
-    border: 2px solid red;     /* 枠線(赤色) */
-    cursor: pointer;           /* マウス形状(ポインタ) */
- }
- .mida {
-     line-height: 38px;
-     margin-bottom: 24px;
-     padding-left: 10px;
-     border-left: 5px solid #29c278;
-     font-size: 24px;
-     position: absolute;
-     left: 400px;
-     top: 206px;
- }
->>>>>>> cba14ffa248fe209a6a9f9a6922dfdb360292b98
  

@@ -26,8 +26,69 @@
 .id{
     margin: 15px 0 0 110px;
 }
+.ip111{
+    position: relative;
+    bottom: 10px;
+    right: 85px;
+
+}
 .id2{
+    position: relative;
+    right: 106px;
+    bottom: 20px;
     margin-left: 0;
+    border: 1px solid #d4d3d3;
+    outline-color: #fb4d01;
+    width: 96%;
+    font-size: 0.8125em;
+    padding: 0.5em;
+}
+.id3{
+    position: relative;
+    right: 87px;
+    bottom: 10px;
+    margin-left: 0;
+    border: 1px solid #d4d3d3;
+    outline-color: #fb4d01;
+    width: 96%;
+    font-size: 0.8125em;
+    padding: 0.5em;
+}
+.sosi{
+    background: #fb4d01;
+    color: #FFF;
+    font-size: 0.8em;
+    padding: 0.7em 1.2em;
+    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    display: inline-block;
+    text-transform: uppercase;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    position: relative;
+    bottom: 10px;
+    left: 70px;
+}
+.touro{
+    background: #fb4d01;
+    color: #FFF;
+    font-size: 0.8em;
+    padding: 0.7em 1.2em;
+    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    display: inline-block;
+    text-transform: uppercase;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    position: relative;
+    bottom: 16px;
+
 }
 .newpass{
     margin: 20px 0 5px 110px;
@@ -37,4 +98,58 @@
 }
 .email{
     margin: 30px 0 0 150px;
+}
+.mail1{
+    position: relative;
+    bottom: 21px;
+    right: 106px;
+}
+.error1{
+    color: red;
+    position: relative;
+    bottom: 21px;
+    right: 105px;
+
+}
+.register-box35 {
+    width: 60%;
+    height: 180px;
+    margin: 2em 0 0 13em;
+    background: #f1f1f1;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.22);
+}
+.register-box35 .register-box-title {
+    font-size: 1.2em;
+    background: #FF5B36;
+    padding: 4px;
+    text-align: center;
+    color: #FFF;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+}
+.register-top-grid .kan1{
+    color: #FF5B36;
+    font-size: 1em;
+    padding-bottom: 5px;
+    margin: 0;
+    position: relative;
+    top: 25px;
+
+}
+.register-but form .ho11{
+    background: #fb4d01;
+    color: #FFF;
+    font-size: 0.8em;
+    padding: 0.8em 2em;
+    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    display: inline-block;
+    text-transform: uppercase;
+    border: none;
+    outline: none;
+    position: relative;
+    top: 36px;
+    border-radius: 5px;
 }

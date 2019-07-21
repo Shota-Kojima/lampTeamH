@@ -625,3 +625,45 @@ label#contact_text-error {
     bottom:228px;
     left:90px;
 }
+.register-box35 {
+    width: 60%;
+    height: 180px;
+    margin: 2em 0 0 13em;
+    background: #f1f1f1;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.22);
+}
+.register-box35 .register-box-title {
+    font-size: 1.2em;
+    background: #FF5B36;
+    padding: 4px;
+    text-align: center;
+    color: #FFF;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+}
+.register-top-grid .kan1{
+    color: #FF5B36;
+    font-size: 1em;
+    padding-bottom: 5px;
+    margin: 0;
+    position: relative;
+    top: 25px;
+
+}
+.register-but form .ho11{
+    background: #fb4d01;
+    color: #FFF;
+    font-size: 0.8em;
+    padding: 0.8em 2em;
+    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    display: inline-block;
+    text-transform: uppercase;
+    border: none;
+    outline: none;
+    position: relative;
+    top: 36px;
+    border-radius: 5px;
+}

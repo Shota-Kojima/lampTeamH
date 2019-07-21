@@ -52,11 +52,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			</div>
 			<!-- ユーザー名と評価(こちらもはりぼて) -->
 			<p class="name">{$customer_id}</p>
-			<p class="name">ユーザーの評価</p>
+			<p class="syu11">出品数<br><b>0</b></p>
+			<p class="name1">ユーザーの評価</p>
 			<div class="star-rating">
-				<div class="star-rating-front" style="width: 50%">★★★★★</div>
 				<div class="star-rating-back">★★★★★</div>
-				{for $foo=1 to $reviewIndex}★{/for}<!-- ガチの評価　上だとなんか半分にされたりしてダメ -->
+				<p class="star1">{for $foo=1 to $reviewIndex}★{/for}</p><!-- ガチの評価　上だとなんか半分にされたりしてダメ -->
 			</div>
 		</div>
 		<!-- 右側に一覧 -->
@@ -73,6 +73,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 							<li><div class="flame"><div class="ribbon19-content"><span class="ribbon19">SOLD</span></div>
 							<img class="products" src="{$value['product_pass'][0]}" alt="商品写真"></img><p>{$value['exhibistion_date']}</p></div>
 						{else}
+						<li><div class="flame"><div class="ribbon19-none"><span class="ribbon19no"></span></div>
 							<img class="products" src="{$value['product_pass'][0]}" alt="商品写真"></img><p>{$value['exhibistion_date']}</p></div>
 						{/if}
 					{/foreach}
