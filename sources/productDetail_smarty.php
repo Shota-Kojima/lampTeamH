@@ -38,7 +38,7 @@ if(isset($_POST['mylist'])){
 
 	//商品Hクラスを構築
 	$product_obj = new cproductH();
-	$product_id = $_GET['product_id'];
+	$product_id = (int)$_GET['product_id'];
 	$productarr = $product_obj->get_tgt(false,$product_id);
 	if($productarr !== false){
 		// echo '<script type="text/javascript">alert("ここか？");</script>';
@@ -46,7 +46,8 @@ if(isset($_POST['mylist'])){
 		$data = $productarr["product_pass"];
 		$productarr["product_pass"] = explode(',',$data);
 		$smarty->assign('productarr',$productarr);
-		productReviewAssign($_GET['product_id']);
+		$reviews = productReviewAssign($product_id);
+		$smarty->assign('reviews',$reviews);
 	}else{
 
 	}
@@ -57,7 +58,6 @@ if(isset($_POST['mylist'])){
 	//cutilクラスのメンバ関数をスタティック呼出
 	&& cutil::is_number($_POST['buy_count'])
 	&& $_POST['buy_count'] > 0 && isset($_POST['product_id'])){
-	var_dump("buy");
 	//購入
 	$buy_chk = true;
 	regist();
@@ -71,7 +71,7 @@ if(isset($_POST['mylist'])){
 
 	//商品Hクラスを構築
 	$product_obj = new cproductH();
-	$product_id = $_GET['product_id'];
+	$product_id = (int)$_GET['product_id'];
 	$productarr = $product_obj->get_tgt(false,$product_id);
 	if($productarr !== false){
 		// echo '<script type="text/javascript">alert("ここか？");</script>';
@@ -79,7 +79,8 @@ if(isset($_POST['mylist'])){
 		$data = $productarr["product_pass"];
 		$productarr["product_pass"] = explode(',',$data);
 		$smarty->assign('productarr',$productarr);
-		productReviewAssign($_GET['product_id']);
+		$reviews = productReviewAssign($product_id);
+		$smarty->assign('reviews',$reviews);
 	}else{
 
 	}
@@ -115,14 +116,13 @@ function productReviewAssign($product_id){
 	$review_obj = new creview();
 	$trans_obj = new ctransaction_info();
 	$customer_obj = new ccustomer();
-	$view_review = arrau();
+	$view_review = array();
 
-	$reviewarr = $review_obj ->get_tgt_product_id(false,$product_id);
-	
-	if($reviewarr > 0){
+	$reviewarr = $review_obj ->get_all_product_id(false,$product_id);
+	if($reviewarr !== false){
 
-		for($i = 0; $i<count($reviewarr); $i++){
-			$bday = new DateTime($transInfoarr[$i]['purchase_date']);
+		for($i = 0; $i < count($reviewarr); $i++){
+			$bday = new DateTime($reviewarr[$i]['purchase_date']);
 			$trans = $trans_obj->get_tgt(false,$reviewarr[$i]['transaction_id']);
 			//あるばあいのみ
 			if($trans !== false){
@@ -141,7 +141,9 @@ function productReviewAssign($product_id){
 			}		
 		}
 		
-		$smarty->assign('view_review',$view_review);
+		return $view_review;
+	}else{
+		return $view_review;
 	}
 
 }

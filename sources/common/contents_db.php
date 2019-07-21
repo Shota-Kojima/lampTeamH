@@ -725,6 +725,25 @@ class ccustomer extends crecord {
         );
         return $this->fetch_assoc();
 	}
+	//--------------------------------------------------------------------------------------
+	/*!
+	@brief	指定されたIDの配列を得る
+	@param[in]	$debug	デバッグ出力をするかどうか
+	@param[in]	$id		ID
+	@return	配列（1次元配列になる）空の場合はfalse
+	*/
+	//--------------------------------------------------------------------------------------
+	
+	public function get_tgt_mail($debug,$id){
+        //親クラスのselect()メンバ関数を呼ぶ
+        $this->select(
+            $debug,         //デバッグ表示するかどうか
+            "*",          //取得するカラム
+            "customer",    //取得するテーブル
+            "customer_email = '{$id}'"    //条件
+        );
+        return $this->fetch_assoc();
+	}
 	
 	//--------------------------------------------------------------------------------------
 	/*!
@@ -1084,6 +1103,24 @@ class creview extends crecord {
         );
         return $this->fetch_assoc();
 	}
+
+	public function get_all_product_id($debug,$id){
+		$arr = array();
+        //親クラスのselect()メンバ関数を呼ぶ
+        $this->select(
+            $debug,         //デバッグ表示するかどうか
+            "*",          //取得するカラム
+            "review",    //取得するテーブル
+			"product_id = '{$id}'"    //条件
+		);
+		//順次取り出す
+		while($row = $this->fetch_assoc()){
+			$arr[] = $row;
+		}
+		//取得した配列を返す
+		return $arr;
+	}
+
 
 	public function get_tgtH($debug,$traid,$proid ){
         //親クラスのselect()メンバ関数を呼ぶ

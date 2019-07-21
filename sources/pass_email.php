@@ -5,10 +5,10 @@ require_once("inc_smarty.php");
 $flg = false;
 if(isset($_POST['customer_email'])){
     $cust_obj = new ccustomer();
-    $count = $cust_obj -> get_count_mailaddress($_POST['customer_email']);
+    $count = $cust_obj -> get_count_mailaddress(false,$_POST['customer_email']);
     //  登録されているとき
     if($count > 0){
-        var_dump("あるじゃん");
+        $customer = $cust_obj -> get_tgt_mail(false,$_POST['customer_email']);
         $flg = false;
         $str="";
         for($i=0;$i<8;$i++){
@@ -16,6 +16,7 @@ if(isset($_POST['customer_email'])){
         }
         session_start();
         $_SESSION['HTeam_adm']['securityCode'] = (int)$str;
+        $_SESSION['HTeam_adm']['change_user'] = (String)$customer['customer_id'];
         mb_language("Japanese");
         mb_internal_encoding("UTF-8");
         $messageStr= $_SESSION['HTeam_adm']['securityCode']."が、あなたのRe:SURVIVALアカウントのセキュリティコードです。";   
@@ -28,7 +29,6 @@ if(isset($_POST['customer_email'])){
     //  登録されていない時
     }else{
         $flg = true;
-        var_dump("ないじゃん");
         
     }
     

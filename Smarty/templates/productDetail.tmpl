@@ -322,6 +322,21 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			{/literal}
 			<div class="clearfix"></div>
 		   </div>
+		   <div class="tabs">
+			<input id="evaluation" type="radio" name="tab_item" checked>
+			<label class="tab_item" for="evaluation">評価一覧</label>
+			<!-- 商品画像、商品名、日付 -->
+			<div class="tab_content" id="evaluation_content">
+				<ul>
+				
+				{foreach from=$reviews item=value}
+					<li><div class="eva_pic"><img src="{$value['icon_pass']}"></div>
+					<div class="balloon"><strong>{$value['reviewer_id']}</strong><span class="rate">{for $foo=1 to $value['evaluation_index']}★{/for}</span>
+					<p>{$value['evaluation_state']}</p><p class="time">🕒{$value['review_date']}</p></div><li>
+				{/foreach}
+				<ul>
+			</div>	
+		</div>
 		   <div class="sap_tabs">	
 				     
 					 <h3 class="like">You Might Also Like</h3>        			

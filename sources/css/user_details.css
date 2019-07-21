@@ -8,12 +8,14 @@
 
 /* 画面左側　ユーザー画像、名前、評価等 -------------------------------------*/
 .left {
- grid-row: 1;
- grid-column: 1;
- width: 220px;
- height: 320px;
- background-color: #b6cde7;
- box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  position: relative;
+  top: 35px;
+  grid-row: 1;
+  grid-column: 1;
+  width: 250px;
+  height: 310px;
+  background-color: #7bbddc;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 /* ユーザー写真 */
 .userpic {
@@ -21,30 +23,62 @@
   width: 160px;
   height: 160px;
   position: relative;
+  bottom: 85px;
+  left: 15px;
   overflow: hidden;
   border-radius: 50%;
   background: #cde4ff;
-  margin: 20px 27px 5px 27px ;
+  margin: 20px 27px 5px 30px;
+  /* border: solid 0.5px; */
+  border: 5px #7bbddc solid;
 }
 .name {
-  margin-top: 6px ;
+  margin-top: 1px;
   text-align: center;
+  font-family: 'Franklin Gothic Medium',serif;
+  font-size: 30px;
+  position: relative;
+  bottom: 90px;
+}
+.name1 {
+  margin-top: 0px;
+  text-align: center;
+  font-family: 'Franklin Gothic Medium',serif;
+  font-size: 22px;
+  border-top: 1px solid #689fb9;
+  width: 213px;
+  position: relative;
+  bottom: 12px;
+  left: 18px;
+}
+.syu11{
+  position: absolute;
+  top: 165px;
+  left: 100px;
+  text-align: center;
+  color: #e6e6e6;
+}
+b{
+  color: #444444;
+  font-size: 23px;
 }
 /* ユーザー総合評価★レート */
-.star-rating {
+p.star1 {
   position: relative;
-  width: 5em;
-  height: 1em;
-  font-size: 25px;
-  margin-left: 50px;
-}
-.star-rating-front {
-  position: absolute;
-  top: 0;
-  left: 0;
-  overflow: hidden;
+  bottom: 50px;
   color: #ffcc33;
 }
+
+.star-rating {
+  position: relative;
+    bottom: 15px;
+    right: 10px;
+    width: 5em;
+    height: 1em;
+    font-size: 35px;
+    margin-left: 50px;
+}
+
 .star-rating-back {
   color: rgb(252, 248, 248);
 }
@@ -59,9 +93,9 @@
 .tabs {
   grid-column: 3;
   grid-row: 1;
-  background-color: #fff;
+  background-image: url(../images/back11.png) ;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  width: 680px;
+  width: 820px;
   height: 600px;
   margin: 0 40px;
 }
@@ -94,7 +128,7 @@ input[name="tab_item"] {
 /*タブ切り替えの中身のスタイル*/
 .tab_content {
   display: none;
-  width: 680px;
+  width: 820px;
   height: 550px;
   overflow: scroll;
 }
@@ -114,9 +148,10 @@ input[name="tab_item"] {
 .flame {
   width: 190px;
   height: 260px;
-  background-color: rgb(185, 226, 169);
+  background-color: #7fcebb;
   display: block;
   position: relative;
+  border: solid 0.1px #418877;
 }
 .flame > p {
   text-align: center;
@@ -165,6 +200,28 @@ ul {
   transform: rotate(45deg);
   box-shadow: 0 0 0 2px rgb(91, 224, 241);
 }
+.ribbon19-none{
+position: absolute;
+  top: 0;
+  right: 0;
+  width: 80px;
+  height: 90px;
+  overflow: hidden;
+}
+.ribbon19no{
+  display: inline-block;
+  position: absolute;
+  padding: 5px 0;
+  left: -7px;
+  top: 16px;
+  width: 120px;
+  text-align: center;
+  font-size: 16px;
+  line-height: 16px;
+  letter-spacing: 0.05em;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
 /* 評価一覧 */
 .eva_pic {
   display: inline-block;
@@ -174,6 +231,7 @@ ul {
   border-radius: 50%;
   background: #cde4ff;
   margin: 10px 0 3px 5px ;
+  border: solid 1px #b5b4b4;
 }
 /* 吹き出し本体 */
 .balloon{
