@@ -222,7 +222,6 @@ function regist(){
 	$dataarr['customer_password'] = (string)$_POST['customer_password'];//パス
 	// $dataarr['customer_sex'] = (int)$_POST['sex'];//性別
 	$chenge = new cchange_ex();
-
 	$mid = $chenge->insert('customer',$dataarr);
 	echo '<script type="text/javascript">alert("追加おｋ");</script>';
 }

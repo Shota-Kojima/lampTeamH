@@ -236,7 +236,7 @@ $(function(){
     <div class="main">
 	   <div class="container">
 		  <div class="regist" style="height:700px;">
-		  	  <form action="" id="register" method="post" style="height:100%;"enctype="multipart/form-data"> 
+		  	  <form action="user_change.php" id="register" method="post" style="height:100%;"enctype="multipart/form-data"> 
 				
 				 <div class="regi1">
 					<h3>会員登録</h3>
@@ -254,49 +254,40 @@ $(function(){
 					 </div>
 					 <div class="customer2">
 						<span><p>氏 <U id="last_name_error"></U></p></span>
-						<input type="text" name="last_name" id="last_name" class="name1" value="{if isset($POST['last_name'])}{$POST['last_name']}{/if}"> 
+						<input type="text" name="last_name" id="last_name" class="name1" value="{$last_name}"> 
 					 </div>
 					 <div class="customer2">
 						<span><p>せい <U id="last_name_kana_error"></U></p></span>
-						<input type="text" name="last_name_kana" id="last_name_kana" class="name1" value="{if isset($POST['last_name_kana'])}{$POST['last_name_kana']}{/if}"> 
+						<input type="text" name="last_name_kana" id="last_name_kana" class="name1" value="{$last_name_kana}"> 
 					 </div>
 					 <div class="customer2">
 						<span><p>名 <U id="first_name_error"></U></p></span>
-						<input type="text" name="first_name" id="first_name" class="name1" value="{if isset($POST['first_name'])}{$POST['first_name']}{/if}"> 
+						<input type="text" name="first_name" id="first_name" class="name1" value="{$first_name}"> 
 					 </div>
 					 <div class="customer2">
 						<span><p>めい <U id="first_name_kana_error"></U></p></span>
-						<input type="text" name="first_name_kana" id="first_name_kana" class="name1" value="{if isset($POST['first_name_kana'])}{$POST['first_name_kana']}{/if}"> 
+						<input type="text" name="first_name_kana" id="first_name_kana" class="name1" value="{$first_name_kana}"> 
 					 </div>
 					 <div class="customer3">
 					 <span><p>郵便番号 <U id="zip21_error"></U></p></span>
-					 <input type="text" class="form_text-small" name="zip21" id="zip21" size="4" maxlength="3"> － <input type="text" class="form_text-small" name="zip22" id="zip22"  size="5" maxlength="4" onKeyUp="AjaxZip3.zip2addr('zip21','zip22','addr21','addr21');">
+					 <input type="text" class="form_text-small" name="zip21" value="{if isset($postal1)}{$postal1}{/if}"id="zip21" size="4" maxlength="3"> － <input type="text" class="form_text-small"value="{if isset($postal2)}{$postal2}{else}{/if}" name="zip22" id="zip22"  size="5" maxlength="4" onKeyUp="AjaxZip3.zip2addr('zip21','zip22','addr21','addr21');">
 					 </div>
 					 <div class="customer4">
 						<span><p>住所 <U id="addr21_error"></U></p></span>
-						<input type="text" name="addr21" id="addr21"  value="{if isset($POST['customer_address'])}{$POST['customer_address']}{/if}"> 
+						<input type="text" name="addr21" id="addr21"  value="{$customer_address}"> 
 					 </div>
 					  <div class="customer5">
 						 <span><p>メールアドレス <U id="customer_email_register_error"></U></p></span>
-						 <input type="text" name="customer_email" id="customer_email"  class="name1" autocomplete="off" value="{if isset($POST['customer_email'])}{$POST['customer_email']}{/if}">
+						 <input type="text" name="customer_email" id="customer_email"  class="name1" autocomplete="off" value="{$customer_email}">
 					 </div>
-							<div class="regist_headding"><h3>ID・パスワード登録</h3></div>
+							<div class="regist_headding"><h3>ID変更</h3></div>
 							<div class="customer6">
 								{if $flg['customer_id'] eq true}<font color="red">このIDは使用されています</font>{/if}
 								<span><p>ID <U id="customer_id_error"></U></p></span>
-								<input type="text" name="customer_id" id="customer_id"  autocomplete="off" value="{if isset($POST['customer_id'])}{$POST['customer_id']}{/if}">
-							 </div>
-							  <div class="customer7">
-								<span><p>パスワード(6文字以上15文字以下　半角英数)</p></span>
-								<input type="customer_id" name="customer_password" id="customer_password"  size="30" minlength="6" autocomplete="off">
-							 </div>
-							  <div class="customer8">
-								<span><p>パスワード確認</p></span>
-								<input type="password" name="customer_password_check"id="customer_password" size="30" minlength="6" autocomplete="off">
+								<input type="text" name="customer_id" id="customer_id"  autocomplete="off" value="{$customer_id}">
 							 </div>
 					 		</div>
-							  <input type="submit" class="kakunin"  id="js-show-popupHensyu" value="確認">
-					
+							  <input style="top:905px !important;"type="submit" class="kakunin"  id="js-show-popupHensyu" value="確認">
 				</form>
 			</div>
 				{literal}

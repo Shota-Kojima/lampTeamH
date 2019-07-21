@@ -15,16 +15,11 @@ if(isset($_GET['contact_id'])
         
 		$smarty->assign('contactarr',$contactarr);
 	}else{
-        cutil::redirect_exit("contact_list.php");
+        cutil::redirect_exit("unreturned_list.php");
     }
 }else{
-    cutil::redirect_exit("contact_list.php");
+    cutil::redirect_exit("unreturned_list.php");
 }
 
-
-
-
-
-
-$smarty->display('contact_detail.tmpl');
+$smarty->display('unreturned_contact.tmpl');
 ?>
