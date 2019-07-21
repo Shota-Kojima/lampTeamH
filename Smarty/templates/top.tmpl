@@ -50,6 +50,12 @@
 	<!-- loader.css -->
 	<link href="css/loader.css" rel='stylesheet' type='text/css' />
 
+	<!-- menu.css -->
+	<link href="css/menu.css" rel='stylesheet' type='text/css' />
+
+	<!-- aos.css -->
+	<link href="css/aos.css" rel='stylesheet' type='text/css' />
+
 	<!-- Modernizr JS -->
 	<script src="js/modernizr-2.6.2.min.js"></script>
 
@@ -64,8 +70,8 @@
 	<![endif]-->
 
 
-	</head>
-	<body>
+</head>
+<body>
 	<!-- ローディングアニメーション実装用コード -->
 	<div class="loading">
 		<div class="spinner">
@@ -73,9 +79,31 @@
 			<div class="double-bounce2"></div>
 		</div>
 		<div class="animation">Now Loading...</div>
-	</div> 
+	</div>
+
+	<!-- メニュー -->
+	<input type="checkbox" id="navTgl">
+	<label for="navTgl" class="openmenu"><span></span></label>
+	<label for="navTgl" class="closemenu"></label>
+	<nav class="menu">
+		<h2>MENU</h2>
+		<ul>
+			<li><a href="#"><img src="images/top.png">TOP</a></li>
+			<li><a href="#"><img src="images/tutorial.png">初めての方へ</a></li>
+			<li><a href="#"><img src="images/message.png">お問い合わせ</a></li>
+			<li><a href="#"><img src="images/logout.png">ログアウト</a></li>
+		</ul>
+		<div class="user">
+			<img src="images/user.png"><p>ユーザーID<br>umami11</p>
+			<br clear="both">
+			<a class="my" href="mypage.php">マイページ</a>
+		</div>
+	</nav>
+
+	<!-- ロゴ -->
+	<div class="logo"><img src="images/logo.png"></div>
+
 	<div class="colorlib-loader"></div>
-	<div id="page">
 		<aside id="colorlib-hero">
 			<div class="flexslider">
 				<ul class="slides">
@@ -140,25 +168,22 @@
 				<div class="row">
 					<div class="col-md-12 intro-wrap animate-box">
 						<div class="intro-flex">
-							<div class="one-third intro-img" style="background-image: url('images/camp1.jpg')">
-								<div class="desc">
+							<div class="one-third intro-img descpic" style="background-image: url('images/camp1.jpg')">
+								<div class="desc" data-aos="fade" data-aos-offset="250" data-aos-duration="1000" data-aos-once="true">
 									<h3>便利な道具たち</h3>
-									<p>場面ごとに使い分けて<br>快適なキャンプライフを</p>
-									<a href="product_list.php"><span class="star price text-center">商品一覧へ<br><small>jump!!</small></span></a>
+									<p class="topsita">場面ごとに使い分けて<br>快適なキャンプライフを</p>
 								</div>
 							</div>
 							<div class="one-third intro-img" style="background-image: url('images/camp6.jpg')">
-								<div class="desc">
+								<div class="desc" data-aos="fade" data-aos-offset="250" data-aos-duration="1000" data-aos-once="true">
 									<h3>キャンプでこだわりの一杯</h3>
-									<p>キャンプでホッと一息<br>レンタルでお試ししませんか？</p>
-									<a href="product_list.php"><span class="star price text-center">レンタルへ<br><small>jump!!</small></span></a>
+									<p class="topsita">キャンプでホッと一息<br>レンタルでお試ししませんか？</p>
 								</div>
 							</div>
 							<div class="one-third intro-img" style="background-image: url('images/camp8.jpg')">
-								<div class="desc">
+								<div class="desc" data-aos="fade" data-aos-offset="250" data-aos-duration="1000" data-aos-once="true">
 									<h3>キャンプ飯を作ろう</h3>
-									<p>他のユーザーと取引しよう<br>欲しかった商品がここで見つかるかも？</p>
-									<a href="frimaTrans.php"><span class="star price text-center">フリマへ<br><small>jump!!</small></span></a>
+									<p class="topsita">他のユーザーと取引しよう<br>欲しかった商品がここで見つかるかも？</p>
 								</div>
 							</div>
 						</div>
@@ -167,58 +192,48 @@
 			</div>
 		</div>
 		
-		<div class="colorlib-trainers">
+		<div class="colorlib-classes back">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-8 col-md-offset-2 text-center colorlib-heading animate-box">
-						<h2>このサイトについて</h2>
-						<p>当サイトではキャンプ</p>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="colorlib-classes colorlib-light-grey">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-8 col-md-offset-2 text-center colorlib-heading animate-box">
-						<h2>Our Classes</h2>
-						<p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name</p>
+						<h2 data-aos="fade" data-aos-offset="200" data-aos-duration="600" data-aos-easing="ease-out" data-aos-once="true"> RE:SURVIVALとは？</h2>
+						<p data-aos="fade" data-aos-offset="220" data-aos-duration="600" data-aos-easing="ease-out" data-aos-once="true"><p>RE:SURVIVALはアウトドア専門の商品を取り扱っているWebサイトです。<br>テント・グリルなどメインとなる用具やバック・クーラーなど多数ご用意してます。</p>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-md-4 animate-box">
 						<div class="classes">
-							<div class="classes-img" style="background-image: url(topimage/classes-1.jpg);">
-								<span class="price text-center">$25.00<br><small>/month</small></span>
+							<div class="classes-img" style="background-image: url(topimage/classes-1.jpg);" data-aos="fade-down" data-aos-offset="180" data-aos-duration="600" data-aos-once="true">
+								<span class="price text-center">Shopping</span>
 							</div>
-							<div class="desc">
-								<h3><a href="#">Fitness Gym &amp; Cardio</a></h3>
-								<p>Pointing has no control about the blind texts it is an almost unorthographic life</p>
-								<p><a href="#" class="btn-learn">Learn More <i class="icon-arrow-right3"></i></a></p>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4 animate-box">
-						<div class="classes">
-							<div class="classes-img" style="background-image: url(topimage/classes-2.jpg);">
-								<span class="price text-center">$25.00<br><small>/month</small></span>
-							</div>
-							<div class="desc">
-								<h3><a href="#">Strength Training</a></h3>
-								<p>Pointing has no control about the blind texts it is an almost unorthographic life</p>
-								<p><a href="#" class="btn-learn">Learn More <i class="icon-arrow-right3"></i></a></p>
+							<div class="desc" data-aos="fade-up" data-aos-offset="180" data-aos-duration="600" data-aos-easing="ease-out" data-aos-once="true">
+								<h3>購入する</h3>
+								<p>新品を購入する方はこちら。<br>お会計は代引き・コンビニ決済からお選びいただけます。</p>
+								<p><a href="#" class="btn-learn">商品一覧へ <i class="icon-arrow-right3"></i></a></p>
 							</div>
 						</div>
 					</div>
 					<div class="col-md-4 animate-box">
 						<div class="classes">
-							<div class="classes-img" style="background-image: url(topimage/classes-3.jpg);">
-								<span class="price text-center">$25.00<br><small>/month</small></span>
+							<div class="classes-img" style="background-image: url(topimage/classes-2.jpg);" data-aos="fade-down" data-aos-offset="200" data-aos-duration="600" data-aos-once="true">
+								<span class="price text-center">Free Market</span>
 							</div>
-							<div class="desc">
-								<h3><a href="#">Yoga Program</a></h3>
-								<p>Pointing has no control about the blind texts it is an almost unorthographic life</p>
-								<p><a href="#" class="btn-learn">Learn More <i class="icon-arrow-right3"></i></a></p>
+							<div class="desc" data-aos="fade-up" data-aos-offset="200" data-aos-duration="600" data-aos-easing="ease-out" data-aos-once="true">
+								<h3>出品する</a></h3>
+								<p>使わなくなったテントやクーラーを一度出品してみてはいかがでしょうか？<br>掘り出し物が見つかるかもしれませんよ。</p>
+								<p><a href="#" class="btn-learn">フリマで出品 <i class="icon-arrow-right3"></i></a></p>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 animate-box">
+						<div class="classes">
+							<div class="classes-img" style="background-image: url(topimage/classes-3.jpg);" data-aos="fade-down" data-aos-offset="220" data-aos-duration="600" data-aos-once="true">
+								<span class="price text-center">Rental</span>
+							</div>
+							<div class="desc" data-aos="fade-up" data-aos-offset="220" data-aos-duration="600" data-aos-easing="ease-out" data-aos-once="true">
+								<h3>レンタルする</h3>
+								<p>初心者の方や道具を扱うのに慣れてない方も安心してレンタルしてみてください。</p>
+								<p><a href="#" class="btn-learn">レンタル一覧へ <i class="icon-arrow-right3"></i></a></p>
 							</div>
 						</div>
 					</div>
@@ -226,37 +241,18 @@
 			</div>	
 		</div>
 
-		<div id="colorlib-subscribe" class="subs-img" style="background-image: url(topimage/img_bg_2.jpg);" data-stellar-background-ratio="0.5">
-			<div class="overlay"></div>
-			<div class="container">
-				<div class="row">
-					<div class="col-md-8 col-md-offset-2 text-center colorlib-heading animate-box">
-						<h2>Subscribe Newsletter</h2>
-						<p>Subscribe our newsletter and get latest update</p>
-					</div>
-				</div>
-				<div class="row animate-box">
-					<div class="col-md-6 col-md-offset-3">
-						<div class="row">
-							<div class="col-md-12">
-							<form class="form-inline qbstp-header-subscribe">
-								<div class="col-three-forth">
-									<div class="form-group">
-										<input type="text" class="form-control" id="email" placeholder="Enter your email">
-									</div>
-								</div>
-								<div class="col-one-third">
-									<div class="form-group">
-										<button type="submit" class="btn btn-primary">Subscribe Now</button>
-									</div>
-								</div>
-							</form>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
+		<div class="line">
+			<h2 data-aos="fade" data-aos-offset="200" data-aos-duration="600" data-aos-easing="ease-out" data-aos-once="true"><span>LINE</span>で友達になろう</h2>
+			<img class="line1" src="images/line1.jpg">
+			<p class="sen1" data-aos="fade-left" data-aos-offset="200" data-aos-duration="600" data-aos-easing="ease-out" data-aos-once="true">RE:SURVIVAL公式LINEアカウントをフォローしよう</p>
+			<br clear="left">
+			<img class="line2" src="images/line2.png">
+			<p class="sen2" data-aos="fade-right" data-aos-offset="200" data-aos-duration="600" data-aos-easing="ease-out" data-aos-once="true">フォローしたアカウントから最新情報をお届けします</p>
+			<br clear="right">
+			<img class="lineqr" src="images/lineqr.png" data-aos="fade" data-aos-offset="200" data-aos-duration="600" data-aos-easing="ease-out" data-aos-once="true">
+			<p class="sen3">フォローはこちらから</p>
 		</div>
+
 		<footer id="colorlib-footer">
 			<div class="container">
 				<div class="row row-pb-md">
@@ -367,7 +363,14 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 	<script src="topjs/jquery.countTo.js"></script>
 	<!-- Main -->
 	<script src="topjs/main.js"></script>
-
-	</body>
+	<!-- aos.js -->
+	<script type="text/javascript" src="js/aos.js"></script>
+	<!-- aos/スクロールでのエフェクト追加実行-->
+	<script>
+		AOS.init();
+	</script>
+	<!-- fade.js -->
+	<script type="text/javascript" src="js/fade.js"></script>
+</body>
 </html>
 

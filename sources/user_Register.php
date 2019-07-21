@@ -214,15 +214,14 @@ function regist(){
 	$dataarr['last_name_kana'] = (string)$_POST['last_name_kana'];//せい
 	$dataarr['first_name'] = (string)$_POST['first_name'];//名
 	$dataarr['first_name_kana'] = (string)$_POST['first_name_kana'];//めい
-	$dataarr['postal_code'] = (string)$_POST['zip21'] + (string)$_POST['zip22'];//住所
+	$dataarr['postal_code'] = (string)$_POST['zip21'].(string)$_POST['zip22'];//住所
 	$dataarr['customer_address'] = (string)$_POST['addr21'];//住所
 	$dataarr['icon_pass'] = (string)$_POST['icon_pass'];//アイコンの初期画像
 	$dataarr['customer_point'] = (int)$_POST['customer_point'];//ポイント = 0
 	$dataarr['customer_created_date'] = (string)$_POST['customer_created_date'];//作成日
 	$dataarr['customer_password'] = (string)$_POST['customer_password'];//パス
-	$dataarr['customer_sex'] = (int)$_POST['sex'];//性別
+	// $dataarr['customer_sex'] = (int)$_POST['sex'];//性別
 	$chenge = new cchange_ex();
-
 	$mid = $chenge->insert('customer',$dataarr);
 	echo '<script type="text/javascript">alert("追加おｋ");</script>';
 }
