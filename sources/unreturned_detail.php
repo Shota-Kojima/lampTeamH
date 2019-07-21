@@ -3,6 +3,9 @@ require_once("inc_base.php");
 require_once($CMS_COMMON_INCLUDE_DIR . "libs.php");
 require_once("inc_smarty.php");
 readdata();
+if(!isset($_GET['customer_info'])){
+     cutil::redirect_exit("unreturned_list.php");
+}
 $smarty->assign('not_returned',$not_returned);
 $smarty->assign('page',$page);
 $smarty->assign('page_max',$page_max);

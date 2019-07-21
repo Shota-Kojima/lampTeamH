@@ -2018,6 +2018,25 @@ class crental extends crecord {
 		//取得した配列を返す
 		return $arr;
 	}
+	public function get_all_customer($debug,$from,$limit,$id){
+		$arr = array();
+		//親クラスのselect()メンバ関数を呼ぶ
+		$this->select(
+			"distinct info.customer_id,customer_email",			//取得するカラム
+			"transaction_info as info
+			 inner join transaction_details as details
+			 on info.transaction_id = details.transaction_id",	//取得するテーブル
+			"details.transaction_category = 2",			//条件
+			"info.transaction_id asc",	//並び替え
+			"limit " . $from . "," . $limit
+		);
+		//順次取り出す
+		while($row = $this->fetch_assoc()){
+			$arr[] = $row;
+		}
+		//取得した配列を返す
+		return $arr;
+	}
 	public function get_all_info($debug,$from,$limit){
 		$arr = array();
 		//親クラスのselect()メンバ関数を呼ぶ
