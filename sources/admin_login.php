@@ -21,10 +21,10 @@ if(isset($_POST['login_id']) && isset($_POST['login_pw'])){
         if(true){
             session_start();
             $_SESSION['HTeam_adm']['auth_adm_id'] = $_POST['login_id'];
-            cutil::redirect_exit("product_list.php");
+            cutil::redirect_exit("admin_top.php");
         }
         else{
-            cutil::redirect_exit("product_list.php");
+            cutil::redirect_exit("admin_top.php");
         }
         
     }
@@ -70,14 +70,13 @@ function chk_login_id($login_id,$login_pw){
     global $auth_adm_id;
     global $admin_name;
     global $smarty;
-    $customer = new ccustomer();
-    $row = $customer->get_tgt(false,$login_id);
+    $admin = new cadmin();
+    $row = $admin->get_tgt(false,$login_id);
     if($row === false || !isset($row['auth_adm_id'])){
-          var_dump($row['customer_password']);
+        
         return false;
     }
-    if($_POST['login_pw']!=$row['customer_password']){
-           var_dump($row['customer_password']);
+    if($_POST['login_pw']!=$row['adm_password']){
          return false;
     }
     $auth_adm_id = $row_id['auth_adm_id'];

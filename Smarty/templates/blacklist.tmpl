@@ -9,12 +9,23 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <head>
 <title>RE:SURVIVAR : ブラックリスト </title>
 <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
-<link href="css/manager.css" rel='stylesheet' type='text/css' />
-<link href="css/blacklist.css" rel='stylesheet' type='text/css' />
+<link href="css/adm_header.css" rel='stylesheet' type='text/css' />
+<!--A Design by W3layous
+Author: W3layout
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Surfhouse Bootstarp Website Template | Contact :: w3layouts</title>
+<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="js/jquery.min.js"></script>
 <!-- Custom Theme files -->
 <link href="css/style.css" rel='stylesheet' type='text/css' />
+<link href="css/adm_header.css" rel='stylesheet' type='text/css' />
 <link href="css/component.css" rel='stylesheet' type='text/css' />
 <!-- Custom Theme files -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -24,8 +35,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <script src="js/jquery.easydropdown.js"></script>
 <!-- Add fancyBox main JS and CSS files -->
 <script src="js/jquery.magnific-popup.js" type="text/javascript"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
 {include file='shere_admin.tmpl'}
 <link href="css/magnific-popup.css" rel="stylesheet" type="text/css">
+{literal}
 		<script>
 			$(document).ready(function() {
 				$('.popup-with-zoom-anim').magnificPopup({
@@ -33,7 +47,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					fixedContentPos: false,
 					fixedBgPos: true,
 					overflowY: 'auto',
-					closeBtnInside: true,s
+					closeBtnInside: true,
 					preloader: false,
 					midClick: true,
 					removalDelay: 300,
@@ -41,229 +55,88 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			});
 		});
 		</script>
+{/literal}
 </head>
 <body>
-<!-- ここからレビュー一覧(管理者側) -->
-	<div class="all">
-		<!-- ヘッダー下～一覧上-->	
-	    <div class="dreamcrub">
-			<ul class="breadcrumbs">
-				<li class="home">
-					<a href="index.html" title="Go to Home Page">Home</a>&nbsp;
-					<span>&gt;</span>
-				</li>
-				<li class="women">
-					ブラックリスト
-				</li>
-            </ul>
-			<ul class="previous">
-				<li><a href="index.html">前のページへ戻る</a></li>
-			</ul>
-            <div class="clearfix"></div>
-		</div>
-		<!-- ここから一覧　-->
-        <div class="box">        
-			<div class="hd">
-				<p class="re">ブラックリスト</p>
-			</div>
-			<div class="table">
-				<table width="100%" border="0" cellspacing="0" cellpadding="0">
-					<tr id="bla">
-						<th>ユーザーID</th>
-						<th>報告内容</th>
-						<th>ランク</th>
-                        <th>報告件数</th>
-					</tr>
-					<tr>
-						<td><a href="#">camplove</a></td>
-						<td>器物破損</td>
-						<td>イエロー</td>
-						<td>2件</td>
-					</tr>
-					<tr>
-						<td><a href="#">camper</a></td>
-						<td>チャットでの暴言</td>
-						<td>ブラック</td>
-						<td>19件</td>
-					</tr>
-					<tr>
-						<td><a href="#">yoshi</a></td>
-						<td>器物破損</td>
-						<td>レッド</td>
-						<td>8件</td>
-					</tr>
-					<tr>
-						<td><a href="#">kozi</a></td>
-						<td>料金未納等</td>
-						<td>イエロー</td>
-						<td>3件</td>
-					</tr>
-					<tr>
-						<td><a href="#">kou</a></td>
-						<td>チャットでの暴言</td>
-						<td>イエロー</td>
-						<td>2件</td>
-					</tr>
-					<tr>
-						<td><a href="#">ree</a></td>
-						<td>器物破損</td>
-						<td>レッド</td>
-						<td>5件</td>
-					</tr>
-					<tr>
-						<td><a href="#">hossyan</a></td>
-						<td>器物破損</td>
-						<td>ブラック</td>
-						<td>69件</td>
-					</tr>
-				    <tr>
-						<td><a href="#">igamono</a></td>
-						<td>チャットでの暴言</td>
-						<td>ブラック</td>
-						<td>24件</td>
-					</tr>
-					<tr>
-						<td><a href="#">maaack</a></td>
-						<td>器物破損</td>
-						<td>イエロー</td>
-						<td>2件</td>
-					</tr>
-					<tr>
-						<td><a href="#">kuri</a></td>
-						<td>レンタル延滞</td>
-						<td>イエロー</td>
-						<td>1件</td>
-					</tr>
-				</table>
-				<div class="pagging">
-					<div class="left">表示中 1-10</div>
-					<div class="right">
-						<a href="#">前へ</a>
-						<a href="#">1</a>
-						<a href="#">2</a>
-						<a href="#">3</a>
-						<a href="#">4</a>
-						<span>...</span>
-						<a href="#">10</a>
-						<a href="#">次へ</a>
-						<a href="#">すべて表示</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		</div>
-		</div>
-	<div class="clearfix"></div>
-<!-- フッター -->
+   <div class="main">
+	  <div class="content_box">
 		<div class="container">
-		  <div class="brands">
-			 <ul class="brand_icons">
-				<li><img src='images/icon1.jpg' class="img-responsive" alt=""/></li>
-				<li><img src='images/icon2.jpg' class="img-responsive" alt=""/></li>
-				<li><img src='images/icon3.jpg' class="img-responsive" alt=""/></li>
-				<li><img src='images/icon4.jpg' class="img-responsive" alt=""/></li>
-				<li><img src='images/icon5.jpg' class="img-responsive" alt=""/></li>
-				<li><img src='images/icon6.jpg' class="img-responsive" alt=""/></li>
-				<li class="last"><img src='images/icon7.jpg' class="img-responsive" alt=""/></li>
-			 </ul>
+			<div class="row">
+				
+			  <div class="col-md-9"style="margin-left:200px">
+			    <div class="dreamcrub">
+			   	 <ul class="breadcrumbs">
+                    <li class="home">
+                       <a href="product_list.php" title="Go to Home Page">Home</a>&nbsp;
+                       <span>&gt;</span>
+                    </li>
+                    <li class="women">
+                       ブラックリスト
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+			   </div>
+				  <form name="form"action="blacklist.php" method="post">
+				   <div id="box1"class="box"style="width:750px;">
+                    <div class="box-head">
+                        <h2 class="left"style="margin-top:8px;">ブラックリスト</h2>
+                    </div>
+
+                    <div class="table">
+                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <tr id="odd">
+									<th width="25%"style="min-width:96px">ユーザID</th>
+                                    <th width="60%"style="min-width:10%">ランク</th>
+                                    <th width="15%" class="ac">報告件数</th>
+                                </tr>
+								{foreach from=$not_returned item=info}
+                                <tr>
+								<form name="form"action="blacklist.php" method="post">
+									<td>{$info['customer_id']}</td>
+                                    <td>{$info['lank']}</td>
+                                    <td>{$info['reports_value']}</td></td>
+								</tr>
+								{/foreach}
+                            </table>
+                             <div class="pagging">
+									{if $max == 0}
+									<div class="left">表示中 0</div>
+									{elseif $limit>$max-$from}
+									<div class="left">表示中 {$from+1}-{$max}</div>
+									{else}
+									<div class="left">表示中 {$from+1}-{$from+$limit}</div>
+									{/if}
+									{if $now_page-1>0}
+									<a href="blacklist.php?page={$now_page-1}">前へ</a>
+									{else}
+									<a href="blacklist.php?page={$now_page}">前へ</a>
+									{/if}
+									{for $start=1 to $limit_page}
+									<a href="blacklist.php?page={$start}">{$start}</a>
+									{/for}
+									{if $limit_page>4}
+									<span>...</span>
+									<a href="blacklist.php?page={$page_max}">{$page_max}</a>
+									{/if}
+									{if $now_page+1>$page_max}
+									<a href="blacklist.php?page={$now_page}">次へ</a>
+									{else}
+									<a href="blacklist.php?page={$now_page+1}">次へ</a>
+									{/if}
+									<a href="blacklist.php?limit=over">全て表示</a>
+								</div>
+                            </div>
+                        </div>
+		        </div>
+		    </div>
 		   </div>
-		</div>
-		<!-- ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー -->
-		<!-- 注目 -->
-		<!-- ここ嘘に使えます -->
-		<!-- インスタに上がってますよアピール -->
-		<!-- ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー -->
-	    <div class="container">
-	      <div class="instagram_top">
-	      	<div class="instagram text-center">
-				<h3><i class="insta_icon"> </i> Instagram feed:&nbsp;<span class="small">#Surfhouse</span></h3>
-			</div>
-			<!-- クリックしたらその画像表示する -->
-	        <ul class="instagram_grid">
-			  <li><a class="popup-with-zoom-anim" href="#small-dialog1"><img src="images/i1.jpg" class="img-responsive"alt=""/></a></li>
-			  <li><a class="popup-with-zoom-anim" href="#small-dialog1"><img src="images/i2.jpg" class="img-responsive" alt=""/></a></li>
-			  <li><a class="popup-with-zoom-anim" href="#small-dialog1"><img src="images/i3.jpg" class="img-responsive" alt=""/></a></li>
-			  <li><a class="popup-with-zoom-anim" href="#small-dialog1"><img src="images/i4.jpg" class="img-responsive" alt=""/></a></li>
-			  <li><a class="popup-with-zoom-anim" href="#small-dialog1"><img src="images/i5.jpg" class="img-responsive" alt=""/></a></li>
-			  <li class="last_instagram"><a class="popup-with-zoom-anim" href="#small-dialog1"><img src="images/i6.jpg" class="img-responsive" alt=""/></a></li>
-			  <div class="clearfix"></div>
-			  <div id="small-dialog1" class="mfp-hide">
-				<div class="pop_up">
-					<h4>A Sample Photo Stream</h4>
-					<img src="images/i_zoom.jpg" class="img-responsive" alt=""/>
-				</div>
-			  </div>
-			</ul>
 		  </div>
-		  <!-- このhrefにリンクつけて -->
-		  <!-- Facebook(fb)Twitter(tw)しらね(しらね)のページにでも飛ばすか？ -->
-	      <ul class="footer_social">
-			<li><a href="#"> <i class="fb"> </i> </a></li>
-			<li><a href="#"><i class="tw"> </i> </a></li>
-			<li><a href="#"><i class="pin"> </i> </a></li>
-			<div class="clearfix"></div>
-		   </ul>
+	     </div>
 	    </div>
-	 </div>
-<!-- いろいろ詰め込んどけゾーン -->
-<div class="footer">
-    <div class="container">
-        <div class="footer-grid">
-            <h3>Category</h3>
-            <ul class="list1">
-              <li><a href="#">Home</a></li>
-              <li><a href="#">About us</a></li>
-              <li><a href="#">Eshop</a></li>
-              <li><a href="#">Features</a></li>
-              <li><a href="#">New Collections</a></li>
-              <li><a href="#">Blog</a></li>
-              <li><a href="#">Contact</a></li>
-            </ul>
-        </div>
-        <div class="footer-grid">
-            <h3>Our Account</h3>
-            <ul class="list1">
-              <li><a href="#">Your Account</a></li>
-              <li><a href="#">Personal information</a></li>
-              <li><a href="#">Addresses</a></li>
-              <li><a href="#">Discount</a></li>
-              <li><a href="#">Orders history</a></li>
-              <li><a href="#">Addresses</a></li>
-              <li><a href="#">Search Terms</a></li>
-            </ul>
-        </div>
-        <div class="footer-grid">
-            <h3>Our Support</h3>
-            <ul class="list1">
-              <li><a href="#">Site Map</a></li>
-              <li><a href="#">Search Terms</a></li>
-              <li><a href="#">Advanced Search</a></li>
-              <li><a href="#">Mobile</a></li>
-              <li><a href="#">Contact Us</a></li>
-              <li><a href="#">Mobile</a></li>
-              <li><a href="#">Addresses</a></li>
-            </ul>
-          </div>
-          <div class="footer-grid">
-            <h3>Newsletter</h3>
-            <p class="footer_desc">Nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat</p>
-            <img src="images/payment.png" class="img-responsive" alt=""/>
-         </div>
-         <div class="footer-grid footer-grid_last">
-            <h3>About Us</h3>
-            <p class="footer_desc">Diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam,.</p>
-            <p class="f_text">Phone:  &nbsp;&nbsp;&nbsp;00-250-2131</p>
-            <p class="email">Email: &nbsp;&nbsp;&nbsp;<span>info(at)Surfhouse.com</span></p>	
-         </div>
-         <div class="clearfix"> </div>
-    </div>
-</div>
-<div class="footer_bottom">
-    <div class="container">
-        <div class="copy">
-           <p>&copy; 2014 Template by <a href="http://w3layouts.com" target="_blank"> w3layouts</a></p>
-        </div>
-    </div>
-</div>
+	    </div>
+		 </form>
+		 {literal}
+		
 </body>
-</html>
+{/literal}
+</html>	
