@@ -32,7 +32,7 @@ function readdata(){
     global $limit_page;
     $count = 0;
     $from = 0;
-    $limit = 2;
+    $limit = 10;
     //ページ送りがクリックされた場合
     if(isset($_GET['page'])){
         //現在の抽出条件の何番目からを表示するか指定

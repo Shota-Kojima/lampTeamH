@@ -1,0 +1,32 @@
+ul{
+    text-align:center;
+}
+.icon_list li{
+    position:relative;
+    display:inline-block;
+    height:265px;
+    width:280px;
+    border-radius:30px;
+    background:rgb(224, 216, 216);
+    margin-left:50px;
+    margin-top:50px;
+    box-shadow:0 0 5px;
+}
+.icon_list li img{
+ 	position  : absolute;
+	top       : 40%;
+	left      : 50%;
+	transform : translate(-50%, -50%);
+}
+.icon_list li p{
+   font-family: "Hiragino Sans","ヒラギノ角ゴシック"; 
+   font-weight: 900;
+   position  : absolute;
+   width:100%;
+   top:80%;
+   left:50%;
+   color:rgb(88, 76, 70);
+   transform:translate(-50%, -50%);
+   font-size:30px;
+   
+}

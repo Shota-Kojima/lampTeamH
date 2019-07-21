@@ -1,3 +1,9 @@
+<!--A Design by W3layous
+Author: W3layout
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -7,23 +13,22 @@
 <script src="js/jquery.min.js"></script>
 <!-- Custom Theme files -->
 <link href="css/style.css" rel='stylesheet' type='text/css' />
-<link href="css/manager.css" rel='stylesheet' type='text/css' />
-<link href="css/manager_edit.css" rel='stylesheet' type='text/css' />
 <link href="css/component.css" rel='stylesheet' type='text/css' />
-<link href="css/admin_login.css" rel='stylesheet' type='text/css' />
+<link href="css/admin_top.css" rel='stylesheet' type='text/css' />
 <link href="css/adm_header.css" rel='stylesheet' type='text/css' />
 <!-- Custom Theme files -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!--webfont-->
-<link href='http://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700,800,900' rel='stylesheet' type='text/css'>
 <script src="js/jquery.easydropdown.js"></script>
 <!-- Add fancyBox main JS and CSS files -->
 <script src="js/jquery.magnific-popup.js" type="text/javascript"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
 {include file='shere_admin.tmpl'}
+
 <link href="css/magnific-popup.css" rel="stylesheet" type="text/css">
+{literal}
 		<script>
 			$(document).ready(function() {
 				$('.popup-with-zoom-anim').magnificPopup({
@@ -39,24 +44,54 @@
 			});
 		});
 		</script>
-
+{/literal}
+<!--A Design by W3layous
+Author: W3layout
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
 </head>
 <body>
-<form action="admin_login.php" method="post">
-<div id="login_form">
-    <div id="id"><p>管理者ID</p></div>
-    <div id="id_txt"><input type="text" name="login_id" value=""></div>
-    <div id="pw"><p>パスワード</p></div>
-    <div id="pw_txt"><input type="password" name="login_pw" value="" autocomplete="off"> </div>
-	<p id="err_message">
-	{if isset($err_message)}
-	{$err_message}
-	{/if} 
-	</p>
-    <div id="login_btn">
-	<input type="submit" id="login_button" value="ログイン">
-	</div>
-</div>   
-</from>
+<ul class="icon_list">
+<a href="manager_list.php">
+<li>
+<img border="0" src='images/admin_top_icon/admlist_icon.png' width="140px" height="130px" alt="イラスト1">
+<p>管理者一覧</p>
+</li>
+</a>
+<a href="adm_product_list.php">
+<li>
+<img border="0" src='images/admin_top_icon/products_icon.png' width="140px" height="140px" alt="イラスト1">
+<p>商品一覧</p>
+</li>
+</a>
+<a href="contact_list.php">
+<li>
+<img border="0" src='images/admin_top_icon/contact_icon.png' width="130px" height="120px" alt="イラスト1">
+<p>お問い合わせ一覧</p>
+</li>
+</a>
+</ul>
+<ul class="icon_list">
+<a href="unreturned_list.php">
+<li>
+<img border="0" src='images/admin_top_icon/unreturned_icon.png' width="120px" height="120px"alt="イラスト1">
+<p>未返却ユーザ一覧</p>
+</li>
+</a>
+<a href="blacklist.php">
+<li>
+<img border="0" src='images/admin_top_icon/blacklist_icon.png' width="130px" height="145px" alt="イラスト1">
+<p>ブラックリスト</p>
+</li>
+</a>
+<a href="admini_review.php">
+<li>
+<img border="0" src='images/admin_top_icon/review_icon.png' width="120px" height="140px" alt="イラスト1">
+<p>レビュー一覧</p>
+</li>
+</a>
+</ul>
 </body>
 </html>

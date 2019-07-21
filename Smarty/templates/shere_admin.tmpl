@@ -1,20 +1,6 @@
-<div class="gray top" style="box-shadow:1px">
-<ul>
-<li><a href="#">TOP</a></li>
-<li><a href="#">お買い物カゴ</a></li>
-<li><a href="#">お問い合わせ</a></li>
-<li><a href="#">ガイド/返品</a></li>
-</ul>
-</div>
-<div id="header_shere">
- <img class="users" src="images/user.png">
-<h1><a href="#"><img src="images/title_logo.png" width="130px" height="100px"></a></h1>
-<form id="form1" action="URL">
-<input id="sbox"  id="s" name="s" type="text" placeholder="キーワードを入力" />
-<input id="sbtn" type="submit" value="検索" />
-</form>
+<div id="header_shere"style="background:rgb(224, 216, 216);border-style:solid;border-width:1px;">
+<a href="admin_top.php"><img src="images/title_logo.png" width="130px" height="100px"></a>
 <div class="container1">
-<a href="#" class="btn-border">ログアウト</a>
 </div>
 <div id="nav-drawer">
       <input id="nav-input" type="checkbox" class="nav-unshown">
@@ -23,16 +9,14 @@
       <div id="nav-content">
       <div class="hamburger-top"><label class="cancel" for="nav-input"></label></div>
       <ul>
-      <p>
-      <img src="images/user.png" width="100px" height="100px">
-      ユーザID・メアド
-      </p>
-      <li><a href="#"><img src="images/top.png" width="40px" height="40px">Top</a></li>
-      <li><a href="manager_list.php"><img src="images/kanri.png" width="40px" height="40px">管理者一覧</a></li>
-      <li><a href="#"><img src="images/return.png" width="40px" height="40px">未返却リスト</a></li>
-      <li><a href="#"><img src="images/blacklist.png" width="40px" height="40px">ブラックリスト</a></li>
-      <li><a href="contact_list.php"><img src="images/contact.png" width="40px" height="40px">お問い合わせ一覧</a></li>
-      <li><a href="#"><img src="images/logout.png" width="40px" height="40px">ログアウト</a></li>
+      <li><a href="admin_top.php"style="padding-left:13px;padding-right:10px;"><img style="padding-right:5px;"src="images/top.png" width="40px" height="40px"> Top</a></li>
+      <li><a href="manager_list.php"style="padding-left:15px;padding-right:10px;"><img src='images/admin_top_icon/menu_admin_icon.png' width="45px" height="35px"style="padding-right:10px">管理者リスト</a></li>
+      <li><a href="adm_product_list.php"style="padding-left:5px;padding-right:10px;"><img src='images/admin_top_icon/menu_product_icon.png' width="50px" height="40px"> 商品リスト</a></li>
+      <li><a href="contact_list.php"style="padding-left:15px;padding-right:10px;"><img src='images/admin_top_icon/menu_contact_icon.png' width="40px" height="30px"style="padding-right:10px"> お問い合わせリスト</a></li>
+      <li><a href="unreturned_list.php"style="padding-left:15px;padding-right:10px;"><img src='images/admin_top_icon/menu_unreturned_icon.png' width="40px" height="35px"style="padding-right:10px"> 未返却ユーザリスト</a></li>
+      <li style="padding-right:5px;"><a href="blacklist.php"style="padding-left:15px;"><img src='images/admin_top_icon/menu_black_icon.png' width="32px" height="40px"><p style="display:inline">ブラックリスト</p></a></li>
+      <li><a href="admini_review.php"style="padding-left:15px;padding-right:10px;"><img src='images/admin_top_icon/menu_review_icon.png' width="40px" height="40px"style="padding-right:10px"> レビューリスト</a></li>
+      <li><a href="adm_login.php"style="padding-left:15px;padding-right:10px;"><img src='images/admin_top_icon/menu_logout_icon.png' width="40px" height="40px"> ログアウト</a></li>
       </ul>
       </div>
   </div>
