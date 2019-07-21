@@ -69,7 +69,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     <div class="box-head">
                         <h2 class="left"style="margin-top:8px;">未返却ユーザ詳細</h2>
                     </div>
-
+					<a style="color:black"href="unreturned_contact.php?contact_id={$info['contact_id']}"><input class="edibtn" type="button" id="delBtn1" value="返信" onclick="location.href='contact_detail.php'"style="width:50px;height:30px"></a>
                     <div class="table">
                             <table width="100%" border="0" cellspacing="0" cellpadding="0">
                                 <tr id="odd">
@@ -77,13 +77,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                     <th width="60%"style="min-width:10%">レンタルID</th>
                                     <th width="15%" class="ac">商品名</th>
                                 </tr>
-								{foreach from=$not_returned item=info}
                                 <tr>
 									<td>{$info['customer_id']}</td>
                                     <td>{$info['rental_id']}</td>
 									<td>{$info['product_name']}</td>
 								</tr>
-								{/foreach}
                             </table>
                              <div class="pagging">
 									{if $max == 0}

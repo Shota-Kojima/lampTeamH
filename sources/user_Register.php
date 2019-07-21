@@ -220,9 +220,8 @@ function regist(){
 	$dataarr['customer_point'] = (int)$_POST['customer_point'];//ポイント = 0
 	$dataarr['customer_created_date'] = (string)$_POST['customer_created_date'];//作成日
 	$dataarr['customer_password'] = (string)$_POST['customer_password'];//パス
-	$dataarr['customer_sex'] = (int)$_POST['sex'];//性別
+	$dataarr['customer_sex'] = (int)$_POST['sex_error'];//性別
 	$chenge = new cchange_ex();
-
 	$mid = $chenge->insert('customer',$dataarr);
 	echo '<script type="text/javascript">alert("追加おｋ");</script>';
 }

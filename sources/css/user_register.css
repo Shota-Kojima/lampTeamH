@@ -4,24 +4,68 @@
     left: 107px;
 }
 .yuubi{
-    width:200px;
-    position: relative;
+    width:300px;
+    position: absolute;
     top: 20px;
     left:591px;
 }
 .customer3{
     width: 40.5%;
     position: absolute;
-    top: 950px;
+    top: 880px;
     left: 697px;
 }
 .customer3 input[type=text]{
-    width: 526px;
-    
+    width: 80px;   
 }
 .customer4{
-    position: relative;
-    left: 570px;
+	width: 525px;
+    position: absolute;
+    top: 950px;
+    left: 697px;
+}
+.customer4 input[type=text]{
+	width: 100%;   
+}
+.customer5{
+	width: 547px;
+    position: absolute;
+	top: 950px;
+	padding-left:22px;
+}
+.customer5 input[type=text]{
+	width: 100%;   
+}
+.customer6{
+	width: 547px;
+    position: absolute;
+	top: 1070px;
+	padding-left:22px;
+}
+.customer6 input[type=text]{
+	width: 100%;   
+}
+.customer7{
+	width: 547px;
+    position: absolute;
+	top: 1090px;
+	padding-left:22px;
+	left:675px;
+}
+.customer7 input[type=text]{
+	width: 100%;
+
+}
+.customer8{
+	width: 547px;
+    position: absolute;
+	top: 1170px;
+	padding-left:22px;
+	left:675px;
+}
+.customer8 input[type=text]{
+	width: 100%;
+
 }
 .customer1 span{
     color: #555;
@@ -120,7 +164,8 @@ left: 23px;
     border-right-width: 0px;
 }
 .form_text-small {
-    width: 44%;
+	display:inline-block;
+    width: 5%;
     margin: 0 0 10px 0;
     padding: 10px 20px;
     border: 1px solid #dedede;
@@ -308,4 +353,18 @@ label{
 	position: static !important;
     bottom:324px;
     left:118px;
+}
+.regist_headding{
+	position:absolute;
+	margin-top:330px;
+}
+#customer_password{
+	height:42.5px !important;
+	width:523px !important;
+}
+#js-show-popupHensyu{
+	position:absolute;
+	height:40px !important;
+	top:1090px !important;
+	left:1120px !important;
 }
