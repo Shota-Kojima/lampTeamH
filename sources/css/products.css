@@ -37,7 +37,7 @@
 #category{
     width:24%;
  	color: #555;
-	font-size:1.3em;
+	font-size:1.5em;
     line-height: 1.2;
     margin-top:35px;
     margin-right:50px;
@@ -48,67 +48,68 @@
 	border-bottom: 3px solid #DFDDDD;
 	font-family: 'Roboto', sans-serif;
 	position:absolute;
+	font-weight: bold;
 }
 .category_main{
+	color: #554242;
+	border-left: solid 6px #1fa67a;/*左側の線*/
+	border-bottom: solid 2px #dadada;/*下に灰色線*/
+	background: whitesmoke;
+	margin-bottom: 5px;/*下のバーとの余白*/
+	line-height: 1.5;
+	padding: 0.5em;
+	list-style-type: none!important;/*ポチ消す*/
+	font-weight: bold;
 	position:absolute;
-    box-shadow:0px 0px 2px;
-    border-style:solid;
-    border-top:3px;
-    border-right:1px;
 	text-align:top;
 	padding-top:20px;
     padding-left:5px;
 	font-size:18px;
-	color:rgb(235, 233, 233);
-	color:white(107, 101, 98);
-	background-color: rgb(160, 160, 160);
 	display:inline-block;
 	height:65px;
 	width:24%;
-	font-family:'arial black';
-	color:rgb(235, 233, 233);
 	cursor:default;
 }
 
 #category_sub1{
 	position:absolute;
 	width:200px;
-	margin-top:145px;
+	margin-top:150px;
 	height:65px;
 }
 #category_sub2{
 	position:absolute;
 	width:200px;
-	margin-top:210px;
+	margin-top:220px;
 	height:65px;
 }
 #category_sub3{
 	position:absolute;
-	margin-top:275px;
+	margin-top:290px;
 	width:200px;
 	height:65px;
 }
 #category_sub4{
 	position:absolute;
-	margin-top:340px;
+	margin-top:360px;
 	width:200px;
 	height:65px;
 }
 #category_sub5{
 	position:absolute;
-	margin-top:405px;
+	margin-top:430px;
 	width:200px;
 	height:65px;
 }
 #category_sub6{
 	position:absolute;
-	margin-top:470px;
+	margin-top:500px;
 	width:200px;
 	height:65px;
 }
 #category_sub7{
 	position:absolute;
-	margin-top:535px;
+	margin-top:570px;
 	width:200px;
 	height:65px;
 }
@@ -117,11 +118,15 @@
 	height:50%;
 	border-style:solid;
 	padding-top:3px;
-	background:rgb(211, 200, 192);
+	border-left: solid 6px #a80303;/*左側の線*/
+	border-bottom: solid 2px #dadada;/*下に灰色線*/
+	background: whitesmoke;
+	line-height: 1.5;
+	font-weight: lighter;
+	padding: 0.5em;
+	list-style-type: none!important;/*ポチ消す*/
 	
 }
-
-
 .product_images{
   display: block;
   max-width: 100%;

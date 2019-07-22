@@ -50,37 +50,41 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	  <div class="content_box">
 		<div class="container">
 			<div class="row">
-				
+			  <a style="color:black;position:absolute;margin-left:863px;margin-top:73px;z-index:9999"href="unreturned_contact.php?customer_id={$customer_id}"><input class="edibtn" type="button" id="delBtn1" value="連絡" onclick="location.href='contact_detail.php'"style="width:50px;height:30px"></a>
 			  <div class="col-md-9"style="margin-left:200px">
 			    <div class="dreamcrub">
 			   	 <ul class="breadcrumbs">
                     <li class="home">
-                       <a href="product_list.php" title="Go to Home Page">Home</a>&nbsp;
+                       <a href="admin_top.php" title="Go to Home Page">top</a>&nbsp;
                        <span>&gt;</span>
                     </li>
                     <li class="women">
                        お問い合わせ一覧
                     </li>
                 </ul>
-                <div class="clearfix"></div>
+				<ul class="previous" style="margin-right:150px">
+                        <li><a href="unreturned_list.php">前のページへ戻る</a></li>
+                 </ul>
+				 
+                <div class="clearfix">
+				</div>
 			   </div>
 				  <form name="form"action="unreturned_list.php" method="post">
-				   <div id="box1"class="box"style="width:750px;">
+				   <div id="box1"class="box"style="width:700px;margin-top:50px;">
                     <div class="box-head">
                         <h2 class="left"style="margin-top:8px;">未返却ユーザ詳細</h2>
                     </div>
-					<a style="color:black"href="unreturned_contact.php?contact_id={$contact2['contact_id']}"><input class="edibtn" type="button" id="delBtn1" value="返信" onclick="location.href='contact_detail.php'"style="width:50px;height:30px"></a>
                     <div class="table">
                             <table width="100%" border="0" cellspacing="0" cellpadding="0">
                                 <tr id="odd">
-									<th width="25%"style="min-width:96px">ユーザID</th>
-                                    <th width="60%"style="min-width:10%">レンタルID</th>
-                                    <th width="15%" class="ac">商品名</th>
+									<th width="20%"style="min-width:96px">ユーザID</th>
+                                    <th width="20%"style="min-width:10%">レンタルID</th>
+                                    <th width="60%" class="ac">商品名</th>
                                 </tr>
 								{foreach from=$not_returned item=info}
                                 <tr>
 									<td>{$info['customer_id']}</td>
-                                    <td>{$info['rental_id']}</td>
+                                    <td>{$info['transaction_detail_id']}</td>
 									<td>{$info['product_name']}</td>
 								</tr>
 								{/foreach}

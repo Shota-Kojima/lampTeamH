@@ -3,7 +3,7 @@ require_once("inc_base.php");
 require_once($CMS_COMMON_INCLUDE_DIR . "libs.php");
 require_once("inc_smarty.php");
 readdata();
-if(!isset($_GET['customer_info'])){
+if(!isset($_GET['customer_id'])){
      cutil::redirect_exit("unreturned_list.php");
 }
 $smarty->assign('not_returned',$not_returned);
@@ -13,6 +13,7 @@ $smarty->assign('limit_page',$limit_page);
 $smarty->assign('limit',$limit);
 $smarty->assign('max',$max);
 $smarty->assign('from',$from);
+$smarty->assign('customer_id',$not_returned[0]['customer_id']);
 if(isset($_GET['page'])){
         $now_page = $_GET['page'];    
 }
@@ -36,6 +37,7 @@ function readdata(){
     $count = 0;
     $from = 0;
     $limit = 10;
+    $customer_id = $_GET['customer_id'];
     //ページ送りがクリックされた場合
     if(isset($_GET['page'])){
         //現在の抽出条件の何番目からを表示するか指定
@@ -47,10 +49,8 @@ function readdata(){
         $limit = 1000000;
     }
     $not_returned = array();
-    $rows = $obj->get_all_info(false,$from,$limit);
+    $rows = $obj->get_all_customer(false,$from,$limit,$customer_id);
     $max  = $obj->get_all_count(false);
-    
-    
     $page_max = ceil($max/$limit);
     $page = 1;
     $now_page = 1;
@@ -67,5 +67,5 @@ function readdata(){
     }
 
 }
-$smarty->display('unreturned_list.tmpl');
+$smarty->display('unreturned_detail.tmpl');
 ?>

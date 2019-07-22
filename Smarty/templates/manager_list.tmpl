@@ -53,7 +53,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				
 			  <div class="col-md-9">
 			    <div class="dreamcrub">
-				<ul class="breadcrumbs">
+				<ul class="breadcrumbs" style="margin-left:150px;">
                     <li class="home">
                        <a href="admin_top.php" title="Go to Home Page">top</a>&nbsp;
                        <span>&gt;</span>
@@ -65,7 +65,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 <div class="clearfix"></div>
 			   </div>
 				  <form name="form"action="manager_list.php" method="post"style="margin-left:120px">
-				   <div id="box1"class="box"style="width:800px;">
+				   <div id="box1"class="box"style="width:800px;margin-top:50px;margin-left:35px;">
                     <div class="box-head">
                         <h2 class="left"style="margin-top:8px;">管理者一覧</h2>
 						<div class="right">
@@ -85,10 +85,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 									<th width="15%"style="min-width:96px">管理者ID</th>
                                     <th width="15%"style="min-width:10%">管理者名</th>
 									<th width="15%"style="min-width:10%">作成日</th>
-                                    <th width="10%">権限</th>
-                                    <th width="10%"></th>
-									<th width="10%"></th>
-									<th width="10%"></th>
+                                    <th width="10%">追加</th>
+                                    <th width="10%">閲覧</th>
+									<th width="10%">更新</th>
+									<th width="10%">削除</th>
 									<th width="10%" class="ac">編集・削除</th>
                                 </tr>
 								{foreach from=$admin_list item=admin}
@@ -96,10 +96,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 									<td>{$admin['auth_adm_id']}</td>
                                     <td>{$admin['adm_name']}</td>
 									<td>{$admin['adm_created_date']}</td>
-                                    <td>{$admin['adm_write']}</td>
-									<td>{$admin['adm_read']}</td>
-									<td>{$admin['adm_create']}</td>
-									<td>{$admin['adm_delete']}</td>
+                                    <td>{if $admin['adm_write'] == 1}可{else}不可{/if}</td>
+									<td>{if $admin['adm_read'] == 1}可{else}不可{/if}</td>
+									<td>{if $admin['adm_create'] == 1}可{else}不可{/if}</td>
+									<td>{if $admin['adm_delete'] == 1}可{else}不可{/if}</td>
                                     <td><a href="manager_edit.php?adm_id={$admin['auth_adm_id']}"><input class="delbtn" type="button" id="delBtn1" value="編集"style="width:50px;height:30px"></a></td>
 								</tr>
 								{/foreach}
@@ -143,7 +143,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	     </div>
 	    </div>
 	    </div>
-		<a style="color:black" href="manager_create.php"><input id="all_delete"type="button"style="position:absolute;height:30px;top:175px;left:64.4%;font-size:15px;"value="管理者アカウント作成"/></a>
+		<a style="color:black" href="manager_create.php"><input id="all_delete"type="button"style="position:absolute;height:30px;top:175px;left:66.8%;font-size:15px;"value="管理者アカウント作成"/></a>
 		 {literal}
 		
 </body>
