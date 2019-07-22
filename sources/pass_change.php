@@ -10,10 +10,9 @@ session_start();
 //emailでセッションが作られているときのみ実行される
 if(isset($_SESSION['HTeam_adm']['securityCode'])){
     
-    if(isset($_POST['customer_password'])){
+    if(isset($_POST['customer_password'])&&isset($_POST['customer_password_check'])){
         //パスワードが一致している場合、
         if($_POST['customer_password'] === $_POST['customer_password_check']){
-            var_dump("一致");
             //SQL
             $pass_check_flg = false;
             $dataarr = array();
@@ -37,9 +36,6 @@ if(isset($_SESSION['HTeam_adm']['securityCode'])){
             }
             
         }else{
-            var_dump("不一致");
-            var_dump($_POST['customer_password']);
-            var_dump($_POST['customer_password_check']);
             //
             $pass_change_flg = true;
             $pass_check_flg = true;
@@ -59,7 +55,6 @@ if(isset($_SESSION['HTeam_adm']['securityCode'])){
 }else{
     cutil::redirect_exit("loginH.php");
 }
-
 $smarty->assign('pass_check_flg',$pass_check_flg);
 $smarty->assign('pass_change_flg',$pass_change_flg);
 $smarty->display('pass_change.tmpl')
