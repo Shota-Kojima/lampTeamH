@@ -1,16 +1,11 @@
 <?php
-session_start();
 require_once("inc_base.php");
 require_once($CMS_COMMON_INCLUDE_DIR . "libs.php");
 require_once("inc_smarty.php");
-
+require_once($CMS_COMMON_INCLUDE_DIR . "auth_adm.php");
 if(isset($_POST['id'])){
     insertdata();  
 }
-readdata();
-
-$smarty->assign('admin',$admin);
-
 // function readdata(){
 //     global $admin;
 //     $obj = new cadmin();

@@ -15,6 +15,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <link href="css/style.css" rel='stylesheet' type='text/css' />
 <link href="css/adm_header.css" rel='stylesheet' type='text/css' />
 <link href="css/component.css" rel='stylesheet' type='text/css' />
+<link href="css/menu_right.css" rel='stylesheet' type='text/css' />
 <!-- Custom Theme files -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
@@ -46,6 +47,17 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 {/literal}
 </head>
 <body>
+<ul class="menu555">
+<div class="box-head11">menu</div>
+	<li class="menu11"><a href="admin_top.php"><img style="padding-right:5px;"src="images/top.png" width="40px" height="40px"> Top</a></li>
+      <li class="menu11"><a href="manager_list.php"class="active"><img src='images/admin_top_icon/menu_admin_icon.png' width="45px" height="35px"style="padding-right:10px">管理者リスト</a></li>
+      <li class="menu11"><a href="adm_product_list.php"style="padding-left:5px;padding-right:10px;"><img src='images/admin_top_icon/menu_product_icon.png' width="50px" height="40px"> 商品リスト</a></li>
+      <li class="menu11"><a href="contact_list.php"><img src='images/admin_top_icon/menu_contact_icon.png' width="40px" height="30px"style="padding-right:10px"> お問い合わせリスト</a></li>
+      <li class="menu11"><a href="unreturned_list.php"><img src='images/admin_top_icon/menu_unreturned_icon.png' width="40px" height="35px"style="padding-right:10px"> 未返却ユーザリスト</a></li>
+      <li class="menu11" ><a href="blacklist.php"><img src='images/admin_top_icon/menu_black_icon.png' width="32px" height="40px"><p style="display:inline" style="padding-left: 15px;">ブラックリスト</p></a></li>
+      <li class="menu11"><a href="admini_review.php"style="padding-left:15px;"><img src='images/admin_top_icon/menu_review_icon.png' width="40px" height="40px"style="padding-right:10px"> レビューリスト</a></li>
+      <li class="menu11"><a href="admin_login.php"><img src='images/admin_top_icon/menu_logout_icon.png' width="40px" height="40px"> ログアウト</a></li>
+</ul>
    <div class="main">
 	  <div class="content_box">
 		<div class="container">
@@ -53,8 +65,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				
 			  <div class="col-md-9">
 			    <div class="dreamcrub">
-				<ul class="breadcrumbs" style="margin-left:150px;">
-                    <li class="home">
+				<ul class="breadcrumbs">
+                    <li class="home"style="margin-left: 210px;">
                        <a href="admin_top.php" title="Go to Home Page">top</a>&nbsp;
                        <span>&gt;</span>
                     </li>
@@ -64,8 +76,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 </ul>
                 <div class="clearfix"></div>
 			   </div>
-				  <form name="form"action="manager_list.php" method="post"style="margin-left:120px">
-				   <div id="box1"class="box"style="width:800px;margin-top:50px;margin-left:35px;">
+				  <form name="form"action="manager_list.php" method="post"style="margin-left:155px">
+				   <div id="box1"class="box"style="width:800px;margin-left: 70px;">
                     <div class="box-head">
                         <h2 class="left"style="margin-top:8px;">管理者一覧</h2>
 						<div class="right">
@@ -85,10 +97,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 									<th width="15%"style="min-width:96px">管理者ID</th>
                                     <th width="15%"style="min-width:10%">管理者名</th>
 									<th width="15%"style="min-width:10%">作成日</th>
-                                    <th width="10%">追加</th>
-                                    <th width="10%">閲覧</th>
-									<th width="10%">更新</th>
-									<th width="10%">削除</th>
+                                    <th width="10%">権限</th>
+                                    <th width="10%"></th>
+									<th width="10%"></th>
+									<th width="10%"></th>
 									<th width="10%" class="ac">編集・削除</th>
                                 </tr>
 								{foreach from=$admin_list item=admin}
@@ -96,10 +108,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 									<td>{$admin['auth_adm_id']}</td>
                                     <td>{$admin['adm_name']}</td>
 									<td>{$admin['adm_created_date']}</td>
-                                    <td>{if $admin['adm_write'] == 1}可{else}不可{/if}</td>
-									<td>{if $admin['adm_read'] == 1}可{else}不可{/if}</td>
-									<td>{if $admin['adm_create'] == 1}可{else}不可{/if}</td>
-									<td>{if $admin['adm_delete'] == 1}可{else}不可{/if}</td>
+                                    <td>{$admin['adm_write']}</td>
+									<td>{$admin['adm_read']}</td>
+									<td>{$admin['adm_create']}</td>
+									<td>{$admin['adm_delete']}</td>
                                     <td><a href="manager_edit.php?adm_id={$admin['auth_adm_id']}"><input class="delbtn" type="button" id="delBtn1" value="編集"style="width:50px;height:30px"></a></td>
 								</tr>
 								{/foreach}
@@ -143,7 +155,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	     </div>
 	    </div>
 	    </div>
-		<a style="color:black" href="manager_create.php"><input id="all_delete"type="button"style="position:absolute;height:30px;top:175px;left:66.8%;font-size:15px;"value="管理者アカウント作成"/></a>
+		<a style="color:black" href="manager_create.php"><input id="all_delete"type="button"style="position:absolute;height:30px;top:155px;left:64.4%;font-size:15px;"value="管理者アカウント作成"/></a>
 		 {literal}
 		
 </body>

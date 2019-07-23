@@ -8,7 +8,7 @@ require_once("inc_base.php");
 require_once($CMS_COMMON_INCLUDE_DIR . "libs.php");
 //smartyクラスの初期化
 require_once("inc_smarty.php");
-require_once($CMS_COMMON_INCLUDE_DIR . "auth_user.php");
+require_once($CMS_COMMON_INCLUDE_DIR . "auth_adm.php");
 $smarty->assign('cart',$_SESSION);
 if(!isset($_GET['sale_genre_id'])&&!isset($_GET['sale_sort_method'])&&!isset($_GET['sale_page'])&&!isset($_POST['search_sale'])){
 	unset($_SESSION['HTeam']['sale_genre_id']);

@@ -2,6 +2,7 @@
 require_once("inc_base.php");
 require_once($CMS_COMMON_INCLUDE_DIR . "libs.php");
 require_once("inc_smarty.php");
+require_once($CMS_COMMON_INCLUDE_DIR . "auth_adm.php");
 
 //お問い合わせ詳細で、返信ボタンを押したときに
 //ユーザにメールを送信する。
