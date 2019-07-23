@@ -28,7 +28,7 @@ function regist(){
     $dataarr['receive_date'] = $date;
     $dataarr['contact_text'] = (string)$_POST['contact_text'];
     $dataarr['reply_flag'] = (int)0;
-    echo '<script type="text/javascript">alert("きちゃった");</script>';
+    
     $chenge = new cchange_ex();
     $mid = $chenge->insert('contact',$dataarr);
     if($mid > 0){
@@ -45,7 +45,6 @@ function regist(){
     }else{
         echo '<script type="text/javascript">alert("送信に失敗しました(送信失敗画面に遷移予定)");</script>';
     }
-    echo '<script type="text/javascript">alert("送信しました(送信完了画面に遷移予定)");</script>';
 }
 
 

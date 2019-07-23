@@ -82,9 +82,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                 <th>お問い合わせ内容:{$contactarr['contact_text']}</th>
                                 </tr>
                             </table>
-                            <form action="cgi-bin/formmail.cgi" method="post">
-                            <textarea id="co" rows="10" cols="110"></textarea><br>
-                            <input id="re" type="reset" value="リセット"><input id="so" type="submit" value="送信">
+                            <form action="" method="post">
+								<textarea id="co" rows="10" cols="110" name="message"></textarea><br>
+								<input id="re" type="hidden" name="contact_id" value="{$contactarr['contact_id']}">
+								<input id="re" type="hidden" name="customer_email" value="{$contactarr['customer_email']}">
+								<input id="re" type="reset" value="リセット">
+								<input id="so" type="submit" value="送信">
                             </form>
                         </div>
                	

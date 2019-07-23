@@ -122,16 +122,18 @@ function productReviewAssign($product_id){
 	if($reviewarr !== false){
 
 		for($i = 0; $i < count($reviewarr); $i++){
-			$bday = new DateTime($reviewarr[$i]['purchase_date']);
+			// var_dump($reviewarr[$i]);
+			$bday = new DateTime($reviewarr[$i]['review_date']);
 			$trans = $trans_obj->get_tgt(false,$reviewarr[$i]['transaction_id']);
 			//あるばあいのみ
 			if($trans !== false){
 				$cust = $customer_obj -> get_tgt(false,$trans['customer_id']);
+				$wk = $cust;
 				//ある場合のみ
-				if($cust　!== false){
+				if($wk !== false){
 					$view_review[$i] = array(
-						'customer_id'=> (String)$cust['customer_id'],//ユーザID
-						'icon_pass'=>(String)$cust['icon_pass'],//アイコンURL
+						'customer_id'=> (String)$wk['customer_id'],//ユーザID
+						'icon_pass'=>(String)$wk['icon_pass'],//アイコンURL
 						'review_tittle' => (String)$reviewarr[$i]['review_tittle'],//レビューの件名
 						'review'=> (String)$reviewarr[$i]['review'],//レビューの本文
 						'review_value'=>(int)$reviewarr[$i]['review_value'],//レビューの本文
