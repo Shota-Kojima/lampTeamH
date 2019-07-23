@@ -104,6 +104,7 @@ if($buy_chk){
 		$data = $productarr["product_pass"];
 		$productarr["product_pass"] = explode(',',$data);
 		//var_dump($productarr);
+		
 		$smarty->assign('productarr',$productarr);
 	}else{
 

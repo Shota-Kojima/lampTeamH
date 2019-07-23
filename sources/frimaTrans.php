@@ -100,6 +100,7 @@ if(isset($_POST['product_id']) && isset($_POST['hyoka'])){
 		}else{
 			$data = $frimaarr["product_pass"];
 			$frimaarr["product_pass"] = explode(',',$data);
+			$frimaarr["price"] = number_format($frimaarr["price"]);
 			$smarty->assign('frimaarr',$frimaarr);
 		}
 		
