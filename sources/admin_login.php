@@ -1,5 +1,4 @@
 <?php
- session_start();
 /*!
 @file login.php
 @brief  メインメニュー(管理画面)
@@ -9,7 +8,8 @@
 require_once("inc_base.php");
 require_once($CMS_COMMON_INCLUDE_DIR . "libs.php");
 require_once("inc_smarty.php");
-
+session_start();
+unset($_SESSION['HTeam_adm']['auth_adm_id']);
 $ERR_STR = "";
 $auth_adm_id = "";
 $admin_name = "";
@@ -37,8 +37,6 @@ if(isset($_POST['login_id']) && isset($_POST['login_pw'])){
               strip_tags($_POST['login_pw']))
               && $_POST['login_id'] != ""
               && $_POST['login_pw'] != ""){
-                  var_dump($_POST['login_id']);
-                   var_dump($_POST['login_pw']);
               $smarty->assign('err_message','ユーザ名またはパスワードが違います。');
     } 
     else if($_POST['login_id'] == ""){

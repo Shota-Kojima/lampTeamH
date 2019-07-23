@@ -11,6 +11,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
 <link href="css/admini_review.css" rel='stylesheet' type='text/css' />
 <link href="css/adm_header.css" rel='stylesheet' type='text/css' />
+<link href="css/menu_right.css" rel='stylesheet' type='text/css' />
+
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="js/jquery.min.js"></script>
 <!-- Custom Theme files -->
@@ -47,7 +49,17 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 {/literal}
 </head>
 <body>
-    <!-- ここからレビュー一覧(管理者側) -->
+<ul class="menu555">
+<div class="box-head11">menu</div>
+	<li class="menu11"><a href="admin_top.php"><img style="padding-right:5px;"src="images/top.png" width="40px" height="40px"> Top</a></li>
+      <li class="menu11"><a href="manager_list.php"><img src='images/admin_top_icon/menu_admin_icon.png' width="45px" height="35px"style="padding-right:10px">管理者リスト</a></li>
+      <li class="menu11"><a href="adm_product_list.php"style="padding-left:5px;padding-right:10px;"><img src='images/admin_top_icon/menu_product_icon.png' width="50px" height="40px"> 商品リスト</a></li>
+      <li class="menu11"><a href="contact_list.php"><img src='images/admin_top_icon/menu_contact_icon.png' width="40px" height="30px"style="padding-right:10px"> お問い合わせリスト</a></li>
+      <li class="menu11"><a href="unreturned_list.php"><img src='images/admin_top_icon/menu_unreturned_icon.png' width="40px" height="35px"style="padding-right:10px"> 未返却ユーザリスト</a></li>
+      <li class="menu11" ><a href="blacklist.php"><img src='images/admin_top_icon/menu_black_icon.png' width="32px" height="40px"><p style="display:inline" style="padding-left: 15px;">ブラックリスト</p></a></li>
+      <li class="menu11"><a href="admini_review.php"style="padding-left:15px;"class="active"><img src='images/admin_top_icon/menu_review_icon.png' width="40px" height="40px"style="padding-right:10px"> レビューリスト</a></li>
+      <li class="menu11"><a href="admin_login.php"><img src='images/admin_top_icon/menu_logout_icon.png' width="40px" height="40px"> ログアウト</a></li>
+</ul>    <!-- ここからレビュー一覧(管理者側) -->
 	<div class="all">
 		<!-- ヘッダー下～一覧上-->	
 	    <div class="dreamcrub">
@@ -61,14 +73,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				</li>
             </ul>
             <div class="clearfix"></div>
-			<div heigt="100px">
-				 <ul class="tab-group" style="width:40%;height:6%;margin-top:50px">
-					<li id="not_reply"class="tab is-active">返信済み</li>
-					<li id="replyed"class="tab">未返信</li>
-				</ul>
-				<div>
-			   </div>
 		</div>
+		<!-- ここから一覧　-->
+		<ul class="tab-group" style="width:40%;height:6%;">
+					<li id="not_reply"class="tab is-active">販売商品</li>
+					<li id="replyed"class="tab">レンタル商品</li>
+		</ul>
         <div class="box">        
 			<div class="box-head">
 			<p class="left">レビュー一覧</p>

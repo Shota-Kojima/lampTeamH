@@ -2,6 +2,7 @@
 require_once("inc_base.php");
 require_once($CMS_COMMON_INCLUDE_DIR . "libs.php");
 require_once("inc_smarty.php");
+require_once($CMS_COMMON_INCLUDE_DIR . "auth_adm.php");
 readdata();
 $smarty->assign('not_returned',$not_returned);
 $smarty->assign('page',$page);

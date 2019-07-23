@@ -1,8 +1,8 @@
 <?php
-session_start();
 require_once("inc_base.php");
 require_once($CMS_COMMON_INCLUDE_DIR . "libs.php");
 require_once("inc_smarty.php");
+require_once($CMS_COMMON_INCLUDE_DIR . "auth_adm.php");
 if(!isset($_POST['search_text1'])&&!isset($_POST['page1'])){
 	unset($_SESSION['HTeam']['search_text1']);
 }
@@ -110,23 +110,23 @@ function readdata(){
     $not_reply = array();
     if(isset($_POST['search_text1'])||isset($_SESSION['HTeam']['search_text1'])){
          $search_text1 = '%'.$search_text1.'%';
-         $flag1 = "reply_flag = 0 and contact_text like '$search_text1'";
+         $flag1 = "reply_flag = 1 and contact_text like '$search_text1'";
          $rows1 = $obj->get_all_reply(false,$flag1,$from1,$limit1);
          $max1 = $obj->get_tgt_count(false,$flag1);
     }
     else{
-         $flag1 = "reply_flag = 0";
+         $flag1 = "reply_flag = 1";
          $rows1 = $obj->get_all_reply(false,$flag1,$from1,$limit1);
          $max1 = $obj->get_tgt_count(false,$flag1);
     }
     if(isset($_SESSION['HTeam']['search_text2'])){
          $search_text2 = '%'.$search_text2.'%';
-         $flag2 = "reply_flag = 1 and contact_text like '$search_text2'";
+         $flag2 = "reply_flag = 0 and contact_text like '$search_text2'";
          $rows2 = $obj->get_all_reply(false,$flag2,$from2,$limit2);
          $max2 = $obj->get_tgt_count(false,$flag2);
     }
     else{
-         $flag2 = "reply_flag = 1";
+         $flag2 = "reply_flag = 0";
          $rows2 = $obj->get_all_reply(false,$flag2,$from2,$limit2);
          $max2 = $obj->get_tgt_count(false,$flag2);
     }

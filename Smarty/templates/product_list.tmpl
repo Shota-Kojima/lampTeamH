@@ -137,7 +137,9 @@ cart_bgって名前のclassはオレンジ色にしたりする
 				<!-- あと商品出してるだけ -->
 			     <div class="col-md-12">
 				
-				<!--タブ-->
+                                <!--タブ-->
+                            <!--大外の枠-->
+            
 				<ul class="tab-group">
 					<li class="tab is-active">販売商品</li>
 					<li class="tab">レンタル商品</li>
@@ -236,15 +238,19 @@ cart_bgって名前のclassはオレンジ色にしたりする
                                     <ul class="sort_command">
                                         <span style="margin-left:100px;margin-top:100px;">
                                             <li ><a href="product_list.php?sale_sort_method=aiueo_order">五十音順</a></li>
-                                            <li ><a href="product_list.php?sale_sort_method=sales_order">売れ筋順</a></li>
                                             <li ><a href="product_list.php?sale_sort_method=price_desk_order">価格高い順</a></li>
                                             <li ><a href="product_list.php?sale_sort_method=price_ask_order">価格低い順</a></li>
                                         </span>
                                     </ul>
                                 </form>
                                 {foreach from=$product_sale item=product}
-                                    <div class="col_1_of_3 span_1_of_3"style="margin-top:0px;"> 
+                                    <div class="col_1_of_3 span_1_of_3"style="margin-top:0px;">
+                                 
                                         <a href="productDetail_smarty.php?product_id={$product['product_id']}">
+                                            
+                                            
+                                       
+                                    
                                             <div class="product_image"style="margin-top:0px;margin-bottom:20px">
                                                 <img src="{$product['product_pass']}" class="product_images"style="margin-top:4px"/>
                                                 <div id="add_info">
@@ -311,7 +317,6 @@ cart_bgって名前のclassはオレンジ色にしたりする
                                 <ul class="sort_command">
                                     <span style="margin-left:100px;margin-top:100px;">
                                         <li ><a href="product_list.php?sort_method=aiueo_order">五十音順</a></li>
-                                        <li ><a href="product_list.php?sort_method=sales_order">売れ筋順</a></li>
                                         <li ><a href="product_list.php?sort_method=price_desk_order">価格高い順</a></li>
                                         <li ><a href="product_list.php?sort_method=price_ask_order">価格低い順</a></li>
                                     </span>
@@ -321,12 +326,16 @@ cart_bgって名前のclassはオレンジ色にしたりする
                             {foreach from=$product_rental item=product}
                                 <div class="col_1_of_3 span_1_of_3"style="margin-top:0px;padding-bottom:5px"> 
                                     <a href="productDetail_smarty.php?product_id={$product['product_id']}">
+
+                                    
                                         <div class="product_image">
                                             <img src="{$product['product_pass']}" class="product_images"/>
+                                            
                                             <div id="add_info">
                                                 <div id="product_name">
                                                     <p style="display:inline-block;text-align:left;">{$product['product_name']}<p>
                                                 </div>
+                                              
                                                 <div id="product_price">
                                                     <div style="display:inline-block;text-align:left;"><p style="margin-top:15px;">￥{$product['price']}</p></div>
                                                 </div>
@@ -386,7 +395,6 @@ cart_bgって名前のclassはオレンジ色にしたりする
                                 <ul class="sort_command">
                                     <span style="margin-left:100px;margin-top:100px;">
                                         <li ><a href="product_list.php?sort_method=aiueo_order">五十音順</a></li>
-                                        <li ><a href="product_list.php?sort_method=sales_order">売れ筋順</a></li>
                                         <li ><a href="product_list.php?sort_method=price_desk_order">価格高い順</a></li>
                                         <li ><a href="product_list.php?sort_method=price_ask_order">価格低い順</a></li>
                                     </span>
@@ -395,8 +403,12 @@ cart_bgって名前のclassはオレンジ色にしたりする
                             {foreach from=$product_frima item=product}
                                 <div class="col_1_of_3 span_1_of_3"style="margin-top:0px;"> 
                                     <a href="frimaTrans.php?product_id={$product['frima_product_id']}">
-                                        <div class="product_image" >
+                                        <div class="product_image"style="position:relative">
+                                         {if $product['buy_user']==$buy_user}
+                                               <p class="cat-ribbon"><span>お取引中</span></p>
+                                         {/if}
                                             <img src="{$product['product_pass']}" class="product_images"/>
+                                             
                                             <div id="add_info">
                                                 <div id="product_name">
                                                     <p style="display:inline-block;text-align:left;">{$product['frima_product_name']}<p>
@@ -427,7 +439,7 @@ cart_bgって名前のclassはオレンジ色にしたりする
 				
 					// タブ処理
 					tabSwitching(num);
-						
+					
 				
 					// クリックされた場合
 					$('.tab-group li').click(function() {
@@ -444,18 +456,22 @@ cart_bgって名前のclassはオレンジ色にしたりする
 				
 					// タブ切り替え処理
 					function tabSwitching(num){
+                        
 						// リストに設定されている class="chose" を削除
 						$('.tab-group li').removeClass('chose');
 				
 						// 前回クリックされていた <li> に class="chose" 追加
 						$('.tab-group li').eq(num).addClass('chose');
-				
+                        
+                        $('.panel-group').css('display', 'none').fadeIn(500);
 						// tabContents に class="hide" を追加
 						$('.panel-group').addClass('hide');
-				
+                       
 						// 取得したインデックス番号の class="hide" を削除
 						$('.panel-group').eq(num).removeClass('hide');
 
+                       
+                        
                         $('.pagging').addClass('hide');
 				
 						// 取得したインデックス番号の class="hide" を削除
@@ -658,116 +674,6 @@ cart_bgって名前のclassはオレンジ色にしたりする
 		 </div>
 		</div>
 		<!-- アイコンだしてるだけ -->
-		<div class="container">
-		  <div class="brands">
-			 <ul class="brand_icons">
-				<li><img src='images/icon1.jpg' class="img-responsive" alt=""/></li>
-				<li><img src='images/icon2.jpg' class="img-responsive" alt=""/></li>
-				<li><img src='images/icon3.jpg' class="img-responsive" alt=""/></li>
-				<li><img src='images/icon4.jpg' class="img-responsive" alt=""/></li>
-				<li><img src='images/icon5.jpg' class="img-responsive" alt=""/></li>
-				<li><img src='images/icon6.jpg' class="img-responsive" alt=""/></li>
-				<li class="last"><img src='images/icon7.jpg' class="img-responsive" alt=""/></li>
-			 </ul>
-		   </div>
-		</div>
-		<!-- ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー -->
-		<!-- 注目 -->
-		<!-- ここ嘘に使えます -->
-		<!-- インスタに上がってますよアピール -->
-		<!-- ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー -->
-	    <div class="container">
-	      <div class="instagram_top">
-	      	<div class="instagram text-center">
-				<h3><i class="insta_icon"> </i> Instagram feed:&nbsp;<span class="small">#Surfhouse</span></h3>
-			</div>
-			<!-- クリックしたらその画像表示する -->
-	        <ul class="instagram_grid">
-			  <li><a class="popup-with-zoom-anim" href="#small-dialog1"><img src="images/i1.jpg" class="img-responsive"alt=""/></a></li>
-			  <li><a class="popup-with-zoom-anim" href="#small-dialog1"><img src="images/i2.jpg" class="img-responsive" alt=""/></a></li>
-			  <li><a class="popup-with-zoom-anim" href="#small-dialog1"><img src="images/i3.jpg" class="img-responsive" alt=""/></a></li>
-			  <li><a class="popup-with-zoom-anim" href="#small-dialog1"><img src="images/i4.jpg" class="img-responsive" alt=""/></a></li>
-			  <li><a class="popup-with-zoom-anim" href="#small-dialog1"><img src="images/i5.jpg" class="img-responsive" alt=""/></a></li>
-			  <li class="last_instagram"><a class="popup-with-zoom-anim" href="#small-dialog1"><img src="images/i6.jpg" class="img-responsive" alt=""/></a></li>
-			  <div class="clearfix"></div>
-			  <div id="small-dialog1" class="mfp-hide">
-				<div class="pop_up">
-					<h4>A Sample Photo Stream</h4>
-					<img src="images/i_zoom.jpg" class="img-responsive" alt=""/>
-				</div>
-			  </div>
-			</ul>
-		  </div>
-		  <!-- このhrefにリンクつけて -->
-		  <!-- Facebook(fb)Twitter(tw)しらね(しらね)のページにでも飛ばすか？ -->
-	      <ul class="footer_social">
-			<li><a href="#"> <i class="fb"> </i> </a></li>
-			<li><a href="#"><i class="tw"> </i> </a></li>
-			<li><a href="#"><i class="pin"> </i> </a></li>
-			<div class="clearfix"></div>
-		   </ul>
-	    </div>
-	 </div>
-	 <!-- いろいろ詰め込んどけゾーン -->
-     <div class="footer">
-			<div class="container">
-				<div class="footer-grid">
-					<h3>Category</h3>
-					<ul class="list1">
-					  <li><a href="#">Home</a></li>
-					  <li><a href="#">About us</a></li>
-					  <li><a href="#">Eshop</a></li>
-					  <li><a href="#">Features</a></li>
-					  <li><a href="#">New Collections</a></li>
-					  <li><a href="#">Blog</a></li>
-					  <li><a href="#">Contact</a></li>
-				    </ul>
-				</div>
-				<div class="footer-grid">
-					<h3>Our Account</h3>
-				    <ul class="list1">
-					  <li><a href="#">Your Account</a></li>
-					  <li><a href="#">Personal information</a></li>
-					  <li><a href="#">Addresses</a></li>
-					  <li><a href="#">Discount</a></li>
-					  <li><a href="#">Orders history</a></li>
-					  <li><a href="#">Addresses</a></li>
-					  <li><a href="#">Search Terms</a></li>
-				    </ul>
-				</div>
-				<div class="footer-grid">
-					<h3>Our Support</h3>
-					<ul class="list1">
-					  <li><a href="#">Site Map</a></li>
-					  <li><a href="#">Search Terms</a></li>
-					  <li><a href="#">Advanced Search</a></li>
-					  <li><a href="#">Mobile</a></li>
-					  <li><a href="#">Contact Us</a></li>
-					  <li><a href="#">Mobile</a></li>
-					  <li><a href="#">Addresses</a></li>
-				    </ul>
-				  </div>
-				  <div class="footer-grid">
-					<h3>Newsletter</h3>
-					<p class="footer_desc">Nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat</p>
-					
-			        <img src="images/payment.png" class="img-responsive" alt=""/>
-				 </div>
-				 <div class="footer-grid footer-grid_last">
-					<h3>About Us</h3>
-					<p class="footer_desc">Diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam,.</p>
-                    <p class="f_text">Phone:  &nbsp;&nbsp;&nbsp;00-250-2131</p>
-                    <p class="email">Email: &nbsp;&nbsp;&nbsp;<span>info(at)Surfhouse.com</span></p>	
-                 </div>
-				 <div class="clearfix"> </div>
-			</div>
-		</div>
-        <div class="footer_bottom">
-        	<div class="container">
-        		<div class="copy">
-				   <p>&copy; 2014 Template by <a href="http://w3layouts.com" target="_blank"> w3layouts</a></p>
-			    </div>
-        	</div>
-        </div>
+	
 </body>
 </html>		

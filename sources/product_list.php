@@ -10,6 +10,7 @@ require_once($CMS_COMMON_INCLUDE_DIR . "libs.php");
 require_once("inc_smarty.php");
 require_once($CMS_COMMON_INCLUDE_DIR . "auth_user.php");
 $smarty->assign('cart',$_SESSION);
+$smarty->assign('buy_user',$_SESSION['HTeam_adm']['customer_id']);
 if(!isset($_GET['sale_genre_id'])&&!isset($_GET['sale_sort_method'])&&!isset($_GET['sale_page'])&&!isset($_POST['search_sale'])){
 	unset($_SESSION['HTeam']['sale_genre_id']);
 	unset($_SESSION['HTeam']['sale_sort_method']);
@@ -314,7 +315,16 @@ function readdata(){
 			}
 			$value['price'] = number_format($value['price']);
 		}
-		
+		$count = 0;
+		foreach($frima_array as &$value) {
+			if($value['end_flg']==1){
+				
+				unset($frima_array[$count]);
+			}
+			$count++;
+		}
+		$frima_array = array_merge($frima_array);
+	
 }
 
 

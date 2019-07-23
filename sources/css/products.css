@@ -1,5 +1,5 @@
 .sort_command{
-	background-color: rgb(218, 218, 218);
+	background-color: rgb(255, 255, 255);
 	box-shadow:0px 0px 1px;
 	height:40px;
 	line-height:40px;
@@ -14,7 +14,7 @@
 }
 .sort_command a{
 	vertical-align:middle;
-	color:rgb(49, 49, 49);
+	color:rgb(8, 8, 8);
 }
 .sort_command ul{
 	margin-left:60px;
@@ -76,42 +76,49 @@
 	width:200px;
 	margin-top:150px;
 	height:65px;
+	z-index:100;
 }
 #category_sub2{
 	position:absolute;
 	width:200px;
 	margin-top:220px;
 	height:65px;
+	z-index:101;
 }
 #category_sub3{
 	position:absolute;
 	margin-top:290px;
 	width:200px;
 	height:65px;
+	z-index:102;
 }
 #category_sub4{
 	position:absolute;
 	margin-top:360px;
 	width:200px;
 	height:65px;
+	z-index:103;
 }
 #category_sub5{
 	position:absolute;
 	margin-top:430px;
 	width:200px;
 	height:65px;
+	z-index:104;
 }
 #category_sub6{
 	position:absolute;
 	margin-top:500px;
 	width:200px;
 	height:65px;
+	z-index:105;
 }
 #category_sub7{
 	position:absolute;
 	margin-top:570px;
 	width:200px;
 	height:65px;
+	z-index:106;
 }
 #category_detail{
 	display:block;
@@ -133,4 +140,60 @@
   min-height:263.34px;
   height: auto;
   margin-top:4px;
+
+}
+
+.ribbon-wrap {
+    width: 270px;
+    display: block;
+    margin: 0 auto;
+    padding: 10px;
+    overflow: hidden;
+}
+
+.cat-ribbon span {
+    width: 136px;
+    padding: 0px 10px;
+    display: inline-block;
+    text-align: center;
+    text-transform: uppercase;
+    position: absolute;
+    top: 14px;
+    right: -39px;
+    z-index: 10;
+    background: #d93131;
+    color: #fff;
+    transform: rotate(45deg);
+}
+
+.cat-ribbon:before {
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: -33px;
+    right: 63px;
+    z-index: 0;
+    border: 17px solid;
+    border-color: transparent transparent #662121 transparent;
+}
+.cat-ribbon:after {
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: 56px;
+    right: -39px;
+    z-index: 0;
+    border: 20px solid;
+    border-color: #662121 transparent transparent transparent;
+    transform: rotate(-90deg);
+}
+
+
+
+
+.product_image:hover{
+  box-shadow: 10px 10px 10px rgba(0,0,0,0.5);
+  transition-duration: 0.5s;
 }

@@ -1,8 +1,8 @@
 <?php
-session_start();
 require_once("inc_base.php");
 require_once($CMS_COMMON_INCLUDE_DIR . "libs.php");
 require_once("inc_smarty.php");
+require_once($CMS_COMMON_INCLUDE_DIR . "auth_adm.php");
 if(!isset($_POST['search_text'])&&!isset($_POST['page'])){
 	unset($_SESSION['HTeam']['search_text5']);
 }
